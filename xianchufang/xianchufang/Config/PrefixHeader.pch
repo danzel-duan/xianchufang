@@ -1,0 +1,104 @@
+
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+/*** 如果希望某些内容能拷贝到任何源代码文件(OC\C\C++等), 那么就不要写在#ifdef __OBJC__和#endif之间 ***/
+
+
+/***** 在#ifdef __OBJC__和#endif之间的内容, 只会拷贝到OC源代码文件中, 不会拷贝到其他语言的源代码文件中 *****/
+
+#ifdef __OBJC__
+
+
+
+//#######################  1 #####################################
+/***  这里面写一些头文件  ***/
+
+/*全局delegate头文件*/
+//#import "AppDelegate.h"
+/*放一些常量的头文件*/
+#import "LJConstants.h"
+
+/***  这里面写一些头文件  ***/
+/*** 类别  ***/
+#import "UIView+LJExtension.h"
+#import "UIBarButtonItem+LJExtension.h"
+
+/*** 数据获取 ***/
+#import "LJData.h"
+
+/*** 约束 ***/
+#import <Masonry.h>
+//#######################  2 #####################################
+
+/*** 当前系统版本判断 ***/
+#define iOS(version) ([UIDevice currentDevice].systemVersion.doubleValue >= (version))
+
+//-------------------获取设备大小-------------------------
+//NavBar高度
+#define NavigationBar_HEIGHT 44
+//获取屏幕 宽度、高度
+#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
+#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+
+//#######################  3 #####################################
+/*** 日志 ***/
+#ifdef DEBUG
+#define LJLog(...) NSLog(__VA_ARGS__)
+#else
+#define LJLog(...)
+#endif
+//#######################  4 #####################################
+/*** 打印方法 ***/
+#define LJLogFunc NSLog(@"%s", __func__);
+
+//#######################  5 常用的宏 #####################################
+/*** 颜色 ***/
+#define LJColorA(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)/255.0]
+/*** 颜色（透明度固定） ***/
+#define LJColor(r, g, b) LJColorA((r), (g), (b), 250)
+/*** 颜色（随机颜色） ***/
+#define LJRandomColor LJColor(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255))
+/*** 颜色（灰色，颜色深度根据数值大小而定） ***/
+#define LJGrayColor(v) LJColor((v), (v), (v))
+
+//rgb颜色转换（16进制->10进制）[数值前面加0x ]
+#define LJColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+/*** 颜色（统一背景颜色）***/
+#define LJCommonBgColor LJColorFromRGB(0xefeff5)
+ /***主页背景色***/
+#define LJHomeBgColor LJColorFromRGB(0xf9f9f9)
+/*** 主题颜色 ***/
+#define LJTheMeColor LJColorFromRGB(0x30c2bd)
+ /***分割线的颜色***/
+#define LJCutLineColor LJColorFromRGB(0xdcdbe5)
+
+//#######################  6 常用的宏 #####################################
+//G－C－D
+//开启异步线程
+#define kDISPATCH_GLOBAL_QUEUE_DEFAULT(globalQueueBlock) dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), globalQueueBlock)
+//在Main线程上运行
+#define kDISPATCH_MAIN_THREAD(mainQueueBlock) dispatch_async(dispatch_get_main_queue(),^{mainQueueBlock})
+//GCD - 一次性执行
+#define kDISPATCH_ONCE_BLOCK(onceBlock) static dispatch_once_t onceToken;dispatch_once(&onceToken, onceBlock);
+
+//获取沙盒 Document
+#define kPathDocument [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]
+
+//###################################################################################
+
+/*程序中用到的宏*/
+   //登陆界面
+#define LoginView [[UINavigationController alloc]initWithRootViewController:[[NGGLoginViewController alloc] init]]
+ /*全局用户单例*/
+#define USERDEFINE ((AppDelegate *) [[UIApplication sharedApplication] delegate])
+
+
+#endif
+/***** 在#ifdef __OBJC__和#endif之间的内容, 只会拷贝到OC源代码文件中, 不会拷贝到其他语言的源代码文件中 *****/
+
+
+
+
+#endif
