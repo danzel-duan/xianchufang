@@ -24,7 +24,7 @@
     NSArray *childVCArray = @[@{kClassKey:@"LJHomeViewController",
                                 kTitleKey:@"首页",
                                 kImageKey:@"tabbar_home_icon",
-                                kSelImageKey:@"tabbar_home_icon_selected"},
+                                kSelImageKey:@"tabbar_home_selected_icon"},
                               @{kClassKey:@"LJClassifyViewController",
                                 kTitleKey:@"分类",
                                 kImageKey:@"tabbar_classify_icon",
@@ -48,7 +48,7 @@
         [self addChildViewController:nav];
     }];
     [self UnifyText];
-    self.selectedIndex = 0;   
+    self.selectedIndex = 3;
 }
 
 #pragma mark--统一文字属性
@@ -60,7 +60,7 @@
     /*** 选中状态  ***/
     NSMutableDictionary *textSelect = [NSMutableDictionary dictionary];
     textSelect[NSFontAttributeName] = [UIFont systemFontOfSize:12];
-    textSelect[NSForegroundColorAttributeName] = [UIColor redColor];
+    textSelect[NSForegroundColorAttributeName] = LJTheMeColor;
     /*** 用appearance统一文字属性  ***/
     self.tabBarItem = [UITabBarItem appearance];
     [self.tabBarItem setTitleTextAttributes:textNormal forState:UIControlStateNormal];

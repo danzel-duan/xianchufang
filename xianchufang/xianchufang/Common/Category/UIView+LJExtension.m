@@ -113,4 +113,11 @@
     self.lj_y = lj_bottom - self.lj_height;
 }
 
+/*** 设置圆角 ***/
+- (void)setLayerWithCr:(CGFloat)cornerRadius
+{
+    self.layer.masksToBounds = YES; //没这句话它圆不起来
+    self.layer.cornerRadius = cornerRadius; //设置图片圆角的尺度。
+}
+
 @end

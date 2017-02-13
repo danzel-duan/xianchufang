@@ -66,13 +66,13 @@
 //rgb颜色转换（16进制->10进制）[数值前面加0x ]
 #define LJColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 /*** 颜色（统一背景颜色）***/
-#define LJCommonBgColor LJColorFromRGB(0xefeff5)
+#define LJCommonBgColor LJColorFromRGB(0xf3f3f3)
  /***主页背景色***/
 #define LJHomeBgColor LJColorFromRGB(0xf9f9f9)
 /*** 主题颜色 ***/
-#define LJTheMeColor LJColorFromRGB(0x30c2bd)
+#define LJTheMeColor LJColorFromRGB(0x18a149)
  /***分割线的颜色***/
-#define LJCutLineColor LJColorFromRGB(0xdcdbe5)
+#define LJCutLineColor LJColorFromRGB(0xc3c3c3)
 
 //#######################  6 常用的宏 #####################################
 //G－C－D
@@ -97,8 +97,5 @@
 
 #endif
 /***** 在#ifdef __OBJC__和#endif之间的内容, 只会拷贝到OC源代码文件中, 不会拷贝到其他语言的源代码文件中 *****/
-
-
-
 
 #endif

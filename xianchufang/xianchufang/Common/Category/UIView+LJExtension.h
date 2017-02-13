@@ -19,4 +19,8 @@
 
 @property (nonatomic, assign) CGFloat lj_right;
 @property (nonatomic, assign) CGFloat lj_bottom;
+
+
+/*** 设置圆角 ***/
+- (void)setLayerWithCr:(CGFloat)cornerRadius;
 @end
