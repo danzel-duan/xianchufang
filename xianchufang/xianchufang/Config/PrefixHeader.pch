@@ -72,7 +72,7 @@
 /*** 主题颜色 ***/
 #define LJTheMeColor LJColorFromRGB(0x18a149)
  /***分割线的颜色***/
-#define LJCutLineColor LJColorFromRGB(0xc3c3c3)
+#define LJCutLineColor LJColorFromRGB(0xe3e3e3)
 
 //#######################  6 常用的宏 #####################################
 //G－C－D
@@ -94,7 +94,7 @@
  /*全局用户单例*/
 #define USERDEFINE ((AppDelegate *) [[UIApplication sharedApplication] delegate])
 
-
+#define LJwindow [UIApplication sharedApplication].keyWindow
 #endif
 /***** 在#ifdef __OBJC__和#endif之间的内容, 只会拷贝到OC源代码文件中, 不会拷贝到其他语言的源代码文件中 *****/
 

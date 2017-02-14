@@ -7,7 +7,6 @@
 //
 
 #import "UIBarButtonItem+LJExtension.h"
-
 @implementation UIBarButtonItem (LJExtension)
 
 + (instancetype)initWithImage:(NSString *)image highImage:(NSString *)highImage target:(id)target action:(SEL)action {

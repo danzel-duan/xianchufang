@@ -14,7 +14,7 @@
 {
     [super layoutSubviews];
     self.imageView.lj_y=14;
-    self.imageView.lj_height = self.lj_height * 0.3;
+    self.imageView.lj_height = self.lj_height * 0.25;
     self.imageView.lj_width = self.imageView.lj_height;
     self.imageView.lj_centerX = self.lj_width * 0.5;
     

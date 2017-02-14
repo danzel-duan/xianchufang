@@ -8,6 +8,7 @@
 
 #import "LJMeViewController.h"
 #import "LJOrderStatusTableViewCell.h"
+#import "LJRadDot.h"
 @interface LJMeViewController ()<UITableViewDelegate,UITableViewDataSource>
 #define headerSize  SCREEN_WIDTH/5   //头像大小
 #define bgImageH    SCREEN_HEIGHT*2/5 +0.5  //背景图片高度
@@ -32,6 +33,8 @@
 @property (nonatomic,strong) UILabel *balanceLabel;
 /*** 积分 ***/
 @property (nonatomic,strong) UILabel *integralLabel;
+/*** 消息button ***/
+@property (nonatomic,strong) UIButton *messageBtn;
 @end
 /*** 声明cell  ***/
 static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
@@ -130,21 +133,33 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     self.barImageView = self.navigationController.navigationBar.subviews.firstObject;
     /*** 左边消息图标 ***/
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem initWithImage:@"tabbar_news_icon" highImage:@"" target:self action:@selector(messageBtnClick)];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame= CGRectMake(0, 0, 60, 60);
+    button.tag =1111;
+    [button setImage:[UIImage imageNamed:@"tabbar_news_icon"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(messageBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    self.messageBtn =button;
+    LJRadDot *radDot = [[LJRadDot alloc] init]; //小红点
+    radDot.drag = YES;
+    /*** 获取消息值 ***/
+    [radDot showRadDotOnObject:button text:@"100"];
+    [button sizeToFit];
+    self.navigationItem.leftBarButtonItem =[[UIBarButtonItem alloc] initWithCustomView:button];
+  
     /*** 右边设置图标 ***/
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem initWithImage:@"tabbar_set_icon" highImage:@"" target:self action:@selector(settingBtnClick)];
 }
 
 #pragma mark --余额、积分
 -(void)setBalanceAndIntegral {
-    UILabel *balance = [[UILabel alloc] initWithFrame:CGRectMake(0, self.backgroundImageView.lj_bottom, SCREEN_WIDTH/4-0.25, 50)];
+    UILabel *balance = [[UILabel alloc] initWithFrame:CGRectMake(0, self.backgroundImageView.lj_bottom, SCREEN_WIDTH/4, 50)];
     balance.text = @"余额:";
     [balance setTextAlignment:NSTextAlignmentRight];
     [self.backgroundView addSubview:balance];
     balance.backgroundColor = [UIColor whiteColor];
     [balance setTextColor:balInfontColor];
     
-    self.balanceLabel = [[UILabel alloc] initWithFrame:CGRectMake(balance.lj_right, self.backgroundImageView.lj_bottom, SCREEN_WIDTH/4-0.25, 50)];
+    self.balanceLabel = [[UILabel alloc] initWithFrame:CGRectMake(balance.lj_right, self.backgroundImageView.lj_bottom, SCREEN_WIDTH/4, 50)];
     self.balanceLabel.text = @"0.00";
     [self.balanceLabel setTextAlignment:NSTextAlignmentLeft];
     [self.balanceLabel setTextColor:balInfontColor1];
@@ -163,14 +178,14 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
     CutLine.backgroundColor = LJCutLineColor;
     [self.backgroundView addSubview:CutLine];
     
-    UILabel *integral = [[UILabel alloc] initWithFrame:CGRectMake(CutLine.lj_right-0.65, self.backgroundImageView.lj_bottom, SCREEN_WIDTH/4-0.25, 50)];
+    UILabel *integral = [[UILabel alloc] initWithFrame:CGRectMake(CutLine.lj_right, self.backgroundImageView.lj_bottom, SCREEN_WIDTH/4, 50)];
     integral.text = @"积分:";
     [integral setTextAlignment:NSTextAlignmentRight];
     [self.backgroundView addSubview:integral];
     integral.backgroundColor = [UIColor whiteColor];
     [integral setTextColor:balInfontColor];
     
-    self.integralLabel = [[UILabel alloc] initWithFrame:CGRectMake(integral.lj_right, self.backgroundImageView.lj_bottom, SCREEN_WIDTH/4-0.5, 50)];
+    self.integralLabel = [[UILabel alloc] initWithFrame:CGRectMake(integral.lj_right, self.backgroundImageView.lj_bottom, SCREEN_WIDTH/4, 50)];
     self.integralLabel.text = @"1.25千";
     [self.integralLabel setTextAlignment:NSTextAlignmentLeft];
     [self.backgroundView addSubview:self.integralLabel];
@@ -302,7 +317,6 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
 
 #pragma mark --查看我的订单状态
 - (void)MyOrderStatusClick:(NSInteger)tag {
-    NSLog(@"%ld",(long)tag);
     switch (tag) {
         case 0:
             NSLog(@"待付款");
@@ -363,13 +377,15 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
     }else{
         self.backgroundImageView.frame = CGRectMake(0, 0, SCREEN_WIDTH, self.backgroundView.lj_height-50);
     }
-    CGFloat minAlphaOffset = - 70;
-    CGFloat maxAlphaOffset = 0;
-    CGFloat alpha = (offset_Y - minAlphaOffset) / (maxAlphaOffset - minAlphaOffset);
-    self.barImageView.alpha = alpha;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    /*** 将tableView恢复到初始位置 ***/
+    [self.displayTableView setContentOffset:CGPointMake(0, 0) animated:YES];
 }
 @end

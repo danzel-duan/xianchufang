@@ -2,7 +2,6 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "my_service_icon.png",
       "scale" : "1x"
     },
     {
