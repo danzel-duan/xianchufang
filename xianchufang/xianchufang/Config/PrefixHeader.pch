@@ -74,6 +74,10 @@
  /***分割线的颜色***/
 #define LJCutLineColor LJColorFromRGB(0xe3e3e3)
 
+#define LJFontSize [UIFont systemFontOfSize:16] //当前页面字体大小
+/*** 字体颜色 ***/
+#define LJFontColor LJColorFromRGB(0x616161)
+
 //#######################  6 常用的宏 #####################################
 //G－C－D
 //开启异步线程

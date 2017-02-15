@@ -26,6 +26,7 @@
     [self.titleLabel setFont:[ UIFont systemFontOfSize:13 weight:UIFontWeightLight]];
     [self.titleLabel setTextColor:[UIColor blackColor]];
     self.backgroundColor=[UIColor whiteColor];
+//    [self setBackgroundImage:[UIImage imageNamed:@"my_beijing_icon"] forState:UIControlStateHighlighted];
 }
 
 @end

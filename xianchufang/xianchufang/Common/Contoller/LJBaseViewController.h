@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LJBaseViewController : UIViewController
+@interface LJBaseViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic,strong) UITableView *tableView;
+/*** 存放数据的数组 ***/
+@property (nonatomic,strong) NSMutableArray *dataArray;
+
+#pragma mark -方法
+/*** 加载数据 ***/
+- (void)loadData;
+
 
 @end

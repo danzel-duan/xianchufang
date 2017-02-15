@@ -9,7 +9,7 @@
 #import "LJMeViewController.h"
 #import "LJOrderStatusTableViewCell.h"
 #import "LJRadDot.h"
-@interface LJMeViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface LJMeViewController ()<UINavigationControllerDelegate>
 #define headerSize  SCREEN_WIDTH/5   //头像大小
 #define bgImageH    SCREEN_HEIGHT*2/5 +0.5  //背景图片高度
 #define balInfontColor   LJColorFromRGB(0x888888)
@@ -25,8 +25,6 @@
 @property (nonatomic,strong) UIImageView *headerImageView;
 /*** 用户昵称 ***/
 @property (nonatomic,strong) UILabel *userNameLabel;
-/*** tableView ***/
-@property (nonatomic,strong) UITableView *displayTableView;
 /*** 导航栏背景图片 ***/
 @property (nonatomic,strong) UIImageView *barImageView;
 /*** 余额 ***/
@@ -41,8 +39,6 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
 
 @implementation LJMeViewController
 
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setLayoutHeaderImageView];
@@ -51,17 +47,6 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
 }
 
 #pragma mark --懒加载
-- (UITableView *)displayTableView {
-    if (!_displayTableView) {
-        _displayTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
-        _displayTableView.delegate = self;
-        _displayTableView.dataSource = self;
-        _displayTableView.showsVerticalScrollIndicator = NO;
-        [self.view addSubview:_displayTableView];
-    }
-    return _displayTableView;
-}
-
 - (UIView *)backgroundView {
     if (!_backgroundView){
         _backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, bgImageH)];
@@ -105,11 +90,17 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
 
 #pragma mark --设置背景头像位置
 - (void)setLayoutHeaderImageView {
-    self.displayTableView.tableHeaderView = self.backgroundView;
-    self.displayTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.displayTableView.contentInset = UIEdgeInsetsMake(-64, 0, 0, 0);
+    self.automaticallyAdjustsScrollViewInsets = YES;// 当tableView充满整个View时，这个要为YES
+    
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.showsVerticalScrollIndicator = NO;
+    [self.view addSubview:self.tableView];
+    self.tableView.tableHeaderView = self.backgroundView;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     /*** 注册自定义cell ***/
-    [self.displayTableView registerClass:[LJOrderStatusTableViewCell class] forCellReuseIdentifier:LJOrderStatusCellID];
+    [self.tableView registerClass:[LJOrderStatusTableViewCell class] forCellReuseIdentifier:LJOrderStatusCellID];
     
     [self.headerImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.height.mas_equalTo(headerSize);
@@ -129,9 +120,7 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
 #pragma mark --导航栏设置 
 - (void)setNavigationStatus {
     self.navigationItem.title = @"";
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    self.navigationController.navigationBar.shadowImage = [UIImage new];
-    self.barImageView = self.navigationController.navigationBar.subviews.firstObject;
+    self.navigationController.delegate = self;
     /*** 左边消息图标 ***/
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame= CGRectMake(0, 0, 60, 60);
@@ -150,6 +139,12 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem initWithImage:@"tabbar_set_icon" highImage:@"" target:self action:@selector(settingBtnClick)];
 }
 
+#pragma mark --判断是否为当前控制器 
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    BOOL isShowSelf = [viewController isKindOfClass:[self class]];
+    [self.navigationController setNavigationBarHidden:isShowSelf animated:NO];
+}
+
 #pragma mark --余额、积分
 -(void)setBalanceAndIntegral {
     UILabel *balance = [[UILabel alloc] initWithFrame:CGRectMake(0, self.backgroundImageView.lj_bottom, SCREEN_WIDTH/4, 50)];
@@ -157,13 +152,14 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
     [balance setTextAlignment:NSTextAlignmentRight];
     [self.backgroundView addSubview:balance];
     balance.backgroundColor = [UIColor whiteColor];
+    [balance setFont:[UIFont systemFontOfSize:17 weight:UIFontWeightLight]];
     [balance setTextColor:balInfontColor];
     
     self.balanceLabel = [[UILabel alloc] initWithFrame:CGRectMake(balance.lj_right, self.backgroundImageView.lj_bottom, SCREEN_WIDTH/4, 50)];
     self.balanceLabel.text = @"0.00";
     [self.balanceLabel setTextAlignment:NSTextAlignmentLeft];
     [self.balanceLabel setTextColor:balInfontColor1];
-    [self.balanceLabel setFont:[UIFont systemFontOfSize:19 weight:UIFontWeightLight]];
+    [self.balanceLabel setFont:[UIFont systemFontOfSize:18 weight:UIFontWeightLight]];
     [self.backgroundView addSubview:self.balanceLabel];
     self.balanceLabel.backgroundColor = [UIColor whiteColor];
     
@@ -174,15 +170,16 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
     [balance addGestureRecognizer:tap];
     [self.balanceLabel addGestureRecognizer:tap1];
     /*** 分割线 ***/
-    UIView *CutLine = [[UIView alloc] initWithFrame:CGRectMake(self.balanceLabel.lj_right, self.backgroundImageView.lj_bottom, 1, 50)];
-    CutLine.backgroundColor = LJCutLineColor;
-    [self.backgroundView addSubview:CutLine];
+//    UIView *CutLine = [[UIView alloc] initWithFrame:CGRectMake(self.balanceLabel.lj_right, self.backgroundImageView.lj_bottom, 1, 50)];
+//    CutLine.backgroundColor = LJCutLineColor;
+//    [self.backgroundView addSubview:CutLine];
     
-    UILabel *integral = [[UILabel alloc] initWithFrame:CGRectMake(CutLine.lj_right, self.backgroundImageView.lj_bottom, SCREEN_WIDTH/4, 50)];
+    UILabel *integral = [[UILabel alloc] initWithFrame:CGRectMake(self.balanceLabel.lj_right, self.backgroundImageView.lj_bottom, SCREEN_WIDTH/4, 50)];
     integral.text = @"积分:";
     [integral setTextAlignment:NSTextAlignmentRight];
     [self.backgroundView addSubview:integral];
     integral.backgroundColor = [UIColor whiteColor];
+    [integral setFont:[UIFont systemFontOfSize:17 weight:UIFontWeightLight]];
     [integral setTextColor:balInfontColor];
     
     self.integralLabel = [[UILabel alloc] initWithFrame:CGRectMake(integral.lj_right, self.backgroundImageView.lj_bottom, SCREEN_WIDTH/4, 50)];
@@ -190,7 +187,7 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
     [self.integralLabel setTextAlignment:NSTextAlignmentLeft];
     [self.backgroundView addSubview:self.integralLabel];
     [self.integralLabel setTextColor:balInfontColor1];
-    [self.integralLabel setFont:[UIFont systemFontOfSize:19 weight:UIFontWeightLight]];
+    [self.integralLabel setFont:[UIFont systemFontOfSize:18 weight:UIFontWeightLight]];
     self.integralLabel.backgroundColor = [UIColor whiteColor];
     UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(IntegralLabelClick)];
     UITapGestureRecognizer *tap3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(IntegralLabelClick)];
@@ -211,12 +208,14 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
 
 #pragma mark --设置触发
 - (void)settingBtnClick {
-    LJLogFunc
+    UIViewController * Vc =[NSClassFromString(@"LJSettingViewController") new];
+    [self.navigationController pushViewController:Vc animated:YES];
 }
 
 #pragma mark --余额点击触发
 - (void)BalanceLabelClick {
-    LJLogFunc
+    UIViewController * Vc =[NSClassFromString(@"LJSettingViewController") new];
+    [self.navigationController pushViewController:Vc animated:YES];
 }
 
 #pragma mark --积分点击触发
@@ -287,7 +286,7 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
                 cell.textLabel.text = @"我的订单";
                 cell.detailTextLabel.text = @"查看全部订单";
                 [cell.detailTextLabel setTextColor:balInfontColor];
-                [cell.detailTextLabel setFont:[UIFont systemFontOfSize:14]];
+                [cell.detailTextLabel setFont:[UIFont systemFontOfSize:14 weight:UIFontWeightLight]];
             }
         }else {
             switch (indexPath.row) {
@@ -386,6 +385,6 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     /*** 将tableView恢复到初始位置 ***/
-    [self.displayTableView setContentOffset:CGPointMake(0, 0) animated:YES];
+    [self.tableView setContentOffset:CGPointMake(0, 0) animated:YES];
 }
 @end

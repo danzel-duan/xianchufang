@@ -8,7 +8,7 @@
 
 #import "LJBaseViewController.h"
 
-@interface LJBaseViewController ()
+@interface LJBaseViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
 
@@ -16,8 +16,32 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = LJCommonBgColor;
+    self.automaticallyAdjustsScrollViewInsets = NO;  //去留白
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
 }
+
+#pragma mark --数据获取
+- (void)loadData {
+    
+}
+
+#pragma mark --代理方法
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 5;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString* cellId = @"cellId";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+    }
+    cell.textLabel.text = [NSString stringWithFormat:@"这是第%ld行",indexPath.row];
+    return cell;
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
