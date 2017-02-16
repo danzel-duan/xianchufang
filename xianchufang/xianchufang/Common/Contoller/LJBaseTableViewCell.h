@@ -17,4 +17,6 @@ typedef void (^imageViewBlock)();
 
 @property (nonatomic,copy) imageViewBlock imageViewblock;
 
+
+
 @end

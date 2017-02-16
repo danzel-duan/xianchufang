@@ -9,6 +9,7 @@
 #import "LJUserInfoViewController.h"
 #import "LJUserHeaderTableViewCell.h"
 #import "LJTooltip.h"
+#import "LJModifyPhoneNumViewController.h"
 @interface LJUserInfoViewController ()
 /*** 头像 ***/
 @property (nonatomic,strong) UIImageView *headerImageView;
@@ -40,7 +41,7 @@ static NSString *const LJUserHeaderTableViewCellId = @"LJUserHeaderTableViewCell
 
 #pragma mark --数据获取
 - (void)loadData {
-    self.dataArray = [NSMutableArray arrayWithObjects:@"小小",@"18621761223",@"男",@"23" ,nil];
+    self.dataArray = [NSMutableArray arrayWithObjects:@"小小",@"18621761223",@"男",@"2003/3/25" ,nil];
     self.userName = self.dataArray[0];
     self.userIphone = self.dataArray[1];
     self.userSex = self.dataArray[2];
@@ -83,7 +84,7 @@ static NSString *const LJUserHeaderTableViewCellId = @"LJUserHeaderTableViewCell
             cell.detailTextLabel.text = self.userSex;
             break;
         case 4:
-            cell.textLabel.text =@"年龄";
+            cell.textLabel.text =@"生日";
             cell.detailTextLabel.text = self.userAge;
             break;
         default:
@@ -104,28 +105,52 @@ static NSString *const LJUserHeaderTableViewCellId = @"LJUserHeaderTableViewCell
     if (indexPath.row == 0) {
         LJTooltip *tip = [[LJTooltip alloc] initWithToolTipStyle:ToolTipStyleHeader];
         [tip showTooltip];
+        tip.okClickBlock =^(NSString *str) {
+            if([str isEqualToString:@"相机"]){   //调用相机
+                LJLog(@"相机");
+            }else if ([str isEqualToString:@"图库"]){  //调用图库
+                LJLog(@"图库");
+            }
+        };
     }else if (indexPath.row ==1){
         LJTooltip *tip = [[LJTooltip alloc] initWithToolTipStyle:ToolTipStyleName];
         [tip showTooltip];
         tip.okClickBlock = ^(NSString *name){
             self.userName = name;
             [self.tableView  reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            //在这将更换的信息上传到数据库中  ---->
         };
     }
     else if (indexPath.row ==2){
-        
+        __weak LJUserInfoViewController *weakSelf =self;
+        LJModifyPhoneNumViewController *Vc =[[LJModifyPhoneNumViewController alloc] init];
+        [Vc returnPhoneNum:^(NSString *phoneNum) {
+            weakSelf.userIphone = phoneNum;
+            [weakSelf.tableView  reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        }];
+        [self.navigationController pushViewController:Vc animated:YES];
     }
     else if (indexPath.row ==3){
-        
+        LJTooltip *tip = [[LJTooltip alloc] initWithToolTipStyle:ToolTipStyleSex];
+        [tip showTooltip];
+        tip.okClickBlock = ^(NSString *Sex){
+            self.userSex = Sex;
+            [self.tableView  reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            //在这将更换的信息上传到数据库中  ---->
+        };
     }
     else if (indexPath.row ==4){
-        
+        LJTooltip *tip = [[LJTooltip alloc] initWithToolTipStyle:ToolTipStyleAge];
+        [tip showTooltip];
+        tip.okClickBlock = ^(NSString *strData){
+            self.userAge = strData;
+            [self.tableView  reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            //在这将更换的信息上传到数据库中  ---->
+        };
     }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
-
 @end

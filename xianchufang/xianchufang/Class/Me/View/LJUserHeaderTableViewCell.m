@@ -18,11 +18,12 @@
         [self.TextLabel setTextColor:LJFontColor];
         [self.contentView addSubview:self.TextLabel];
         
-        self.ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 16, 50, 50)];
+        self.ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 16, 0, 0)];
         self.ImageView.lj_x = SCREEN_WIDTH -65;
         [self.ImageView setLayerWithCr:25];
-        self.ImageView.backgroundColor = LJRandomColor;
         self.ImageView.userInteractionEnabled = YES;
+        [self.ImageView setImage:[UIImage imageNamed:@"my_head_icon"]];
+        [self.ImageView sizeToFit];
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewClickBlock:)];
         [self.ImageView addGestureRecognizer:tap];
         [self.contentView addSubview:self.ImageView];

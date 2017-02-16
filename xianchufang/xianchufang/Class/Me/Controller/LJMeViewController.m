@@ -25,8 +25,8 @@
 @property (nonatomic,strong) UIImageView *headerImageView;
 /*** 用户昵称 ***/
 @property (nonatomic,strong) UILabel *userNameLabel;
-/*** 导航栏背景图片 ***/
-@property (nonatomic,strong) UIImageView *barImageView;
+/*** 导航栏背景 ***/
+@property (nonatomic,strong) UIView *barView;
 /*** 余额 ***/
 @property (nonatomic,strong) UILabel *balanceLabel;
 /*** 积分 ***/
@@ -121,9 +121,14 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
 - (void)setNavigationStatus {
     self.navigationItem.title = @"";
     self.navigationController.delegate = self;
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 64)];
+    view.backgroundColor = [UIColor blueColor];
+    view.alpha = 0;
+    [self.view addSubview:view];
+    self.barView = view;
     /*** 左边消息图标 ***/
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame= CGRectMake(0, 0, 60, 60);
+    button.frame= CGRectMake(10, 20, 60, 60);
     button.tag =1111;
     [button setImage:[UIImage imageNamed:@"tabbar_news_icon"] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(messageBtnClick) forControlEvents:UIControlEventTouchUpInside];
@@ -133,10 +138,16 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
     /*** 获取消息值 ***/
     [radDot showRadDotOnObject:button text:@"100"];
     [button sizeToFit];
-    self.navigationItem.leftBarButtonItem =[[UIBarButtonItem alloc] initWithCustomView:button];
+    [self.view addSubview:button];
   
     /*** 右边设置图标 ***/
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem initWithImage:@"tabbar_set_icon" highImage:@"" target:self action:@selector(settingBtnClick)];
+    UIButton *button1 = [[UIButton alloc] init];
+    button1.frame= CGRectMake(0, 8, 50, 50);
+    button1.lj_right =self.view.lj_right+5 ;
+    [button1 setImage:[UIImage imageNamed:@"tabbar_set_icon"] forState:UIControlStateNormal];
+    [button1 addTarget:self action:@selector(settingBtnClick) forControlEvents:UIControlEventTouchUpInside];
+//    [button1 sizeToFit];
+    [self.view addSubview:button1];
 }
 
 #pragma mark --判断是否为当前控制器 
@@ -170,11 +181,11 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
     [balance addGestureRecognizer:tap];
     [self.balanceLabel addGestureRecognizer:tap1];
     /*** 分割线 ***/
-//    UIView *CutLine = [[UIView alloc] initWithFrame:CGRectMake(self.balanceLabel.lj_right, self.backgroundImageView.lj_bottom, 1, 50)];
-//    CutLine.backgroundColor = LJCutLineColor;
-//    [self.backgroundView addSubview:CutLine];
+    UIView *CutLine = [[UIView alloc] initWithFrame:CGRectMake(self.balanceLabel.lj_right, self.backgroundImageView.lj_bottom, 1, 50)];
+    CutLine.backgroundColor = LJCutLineColor;
+    [self.backgroundView addSubview:CutLine];
     
-    UILabel *integral = [[UILabel alloc] initWithFrame:CGRectMake(self.balanceLabel.lj_right, self.backgroundImageView.lj_bottom, SCREEN_WIDTH/4, 50)];
+    UILabel *integral = [[UILabel alloc] initWithFrame:CGRectMake(CutLine.lj_right, self.backgroundImageView.lj_bottom, SCREEN_WIDTH/4 - 1, 50)];
     integral.text = @"积分:";
     [integral setTextAlignment:NSTextAlignmentRight];
     [self.backgroundView addSubview:integral];
@@ -375,6 +386,10 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
         self.backgroundImageView.frame = CGRectMake(-(imageW*f - imageW)*0.5, offset_Y, imageW*f, totalOffset-50);
     }else{
         self.backgroundImageView.frame = CGRectMake(0, 0, SCREEN_WIDTH, self.backgroundView.lj_height-50);
+    }
+    if (offset_Y > -20) {
+        CGFloat alpha = MIN(1, 1-(64 -offset_Y)/64);
+        self.barView.alpha =alpha;
     }
 }
 

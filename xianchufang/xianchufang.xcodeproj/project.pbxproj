@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		146E22C91E5133EA00C1658D /* xianchufangTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 146E22C81E5133EA00C1658D /* xianchufangTests.m */; };
 		146E22D41E5133EA00C1658D /* xianchufangUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 146E22D31E5133EA00C1658D /* xianchufangUITests.m */; };
+		14786BA71E55429E0099451B /* LJImageLeftButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 14786BA61E55429E0099451B /* LJImageLeftButton.m */; };
+		14786BAA1E555B740099451B /* LJModifyPhoneNumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14786BA91E555B740099451B /* LJModifyPhoneNumViewController.m */; };
+		14786BAD1E559D5F0099451B /* LJAddressSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14786BAC1E559D5F0099451B /* LJAddressSetViewController.m */; };
+		14786BB01E559FED0099451B /* LJAddressSetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14786BAF1E559FED0099451B /* LJAddressSetTableViewCell.m */; };
 		148688461E5347210019DD3E /* LJRadDot.m in Sources */ = {isa = PBXBuildFile; fileRef = 148688451E5347210019DD3E /* LJRadDot.m */; };
 		1486DAF41E53FAFA0096E46D /* LJSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1486DAF31E53FAFA0096E46D /* LJSettingViewController.m */; };
 		1486DAF81E5428200096E46D /* LJUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1486DAF71E5428200096E46D /* LJUserInfoViewController.m */; };
@@ -66,6 +70,14 @@
 		146E22CF1E5133EA00C1658D /* xianchufangUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = xianchufangUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		146E22D31E5133EA00C1658D /* xianchufangUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xianchufangUITests.m; sourceTree = "<group>"; };
 		146E22D51E5133EA00C1658D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14786BA51E55429E0099451B /* LJImageLeftButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJImageLeftButton.h; sourceTree = "<group>"; };
+		14786BA61E55429E0099451B /* LJImageLeftButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJImageLeftButton.m; sourceTree = "<group>"; };
+		14786BA81E555B740099451B /* LJModifyPhoneNumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJModifyPhoneNumViewController.h; sourceTree = "<group>"; };
+		14786BA91E555B740099451B /* LJModifyPhoneNumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJModifyPhoneNumViewController.m; sourceTree = "<group>"; };
+		14786BAB1E559D5F0099451B /* LJAddressSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJAddressSetViewController.h; sourceTree = "<group>"; };
+		14786BAC1E559D5F0099451B /* LJAddressSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJAddressSetViewController.m; sourceTree = "<group>"; };
+		14786BAE1E559FED0099451B /* LJAddressSetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJAddressSetTableViewCell.h; sourceTree = "<group>"; };
+		14786BAF1E559FED0099451B /* LJAddressSetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJAddressSetTableViewCell.m; sourceTree = "<group>"; };
 		148688441E5347210019DD3E /* LJRadDot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJRadDot.h; sourceTree = "<group>"; };
 		148688451E5347210019DD3E /* LJRadDot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJRadDot.m; sourceTree = "<group>"; };
 		1486DAF21E53FAFA0096E46D /* LJSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJSettingViewController.h; sourceTree = "<group>"; };
@@ -202,6 +214,10 @@
 				1486DAF31E53FAFA0096E46D /* LJSettingViewController.m */,
 				1486DAF61E5428200096E46D /* LJUserInfoViewController.h */,
 				1486DAF71E5428200096E46D /* LJUserInfoViewController.m */,
+				14786BA81E555B740099451B /* LJModifyPhoneNumViewController.h */,
+				14786BA91E555B740099451B /* LJModifyPhoneNumViewController.m */,
+				14786BAB1E559D5F0099451B /* LJAddressSetViewController.h */,
+				14786BAC1E559D5F0099451B /* LJAddressSetViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -211,6 +227,8 @@
 			children = (
 				1486DAFD1E543B4C0096E46D /* LJUserHeaderTableViewCell.h */,
 				1486DAFE1E543B4C0096E46D /* LJUserHeaderTableViewCell.m */,
+				14786BAE1E559FED0099451B /* LJAddressSetTableViewCell.h */,
+				14786BAF1E559FED0099451B /* LJAddressSetTableViewCell.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -476,6 +494,8 @@
 			children = (
 				1486DB001E544EEF0096E46D /* LJTooltip.h */,
 				1486DB011E544EEF0096E46D /* LJTooltip.m */,
+				14786BA51E55429E0099451B /* LJImageLeftButton.h */,
+				14786BA61E55429E0099451B /* LJImageLeftButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -828,14 +848,17 @@
 				14E05BE71E5137710057D3AE /* LJBaseViewController.m in Sources */,
 				14DE12201E51FC1600836B46 /* LJOrderStatusTableViewCell.m in Sources */,
 				14DE12181E51F01C00836B46 /* UIFont+LJExtension.m in Sources */,
+				14786BA71E55429E0099451B /* LJImageLeftButton.m in Sources */,
 				14DE12151E51BCA700836B46 /* UIImage+LJExtension.m in Sources */,
 				14E05BE51E5137710057D3AE /* UIView+LJExtension.m in Sources */,
+				14786BAA1E555B740099451B /* LJModifyPhoneNumViewController.m in Sources */,
 				1486DB021E544EEF0096E46D /* LJTooltip.m in Sources */,
 				14E05BE41E5137710057D3AE /* UIBarButtonItem+LJExtension.m in Sources */,
 				1486DAF41E53FAFA0096E46D /* LJSettingViewController.m in Sources */,
 				14E05BF31E513B170057D3AE /* LJClassifyViewController.m in Sources */,
 				14E05BEE1E5137710057D3AE /* LJRootViewController.m in Sources */,
 				14E05BE91E5137710057D3AE /* LJData.m in Sources */,
+				14786BAD1E559D5F0099451B /* LJAddressSetViewController.m in Sources */,
 				148688461E5347210019DD3E /* LJRadDot.m in Sources */,
 				14E05BE81E5137710057D3AE /* LJConstants.m in Sources */,
 				14E05BE61E5137710057D3AE /* LJBaseNavigationController.m in Sources */,
@@ -845,6 +868,7 @@
 				14E05BED1E5137710057D3AE /* AppDelegate.m in Sources */,
 				14E05BE31E5137710057D3AE /* LJShoppingCartViewController.m in Sources */,
 				1486DAFF1E543B4C0096E46D /* LJUserHeaderTableViewCell.m in Sources */,
+				14786BB01E559FED0099451B /* LJAddressSetTableViewCell.m in Sources */,
 				14E05BEC1E5137710057D3AE /* main.m in Sources */,
 				14E05BE11E5137710057D3AE /* LJHomeViewController.m in Sources */,
 			);

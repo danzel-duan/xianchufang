@@ -19,6 +19,7 @@
     self.view.backgroundColor = LJCommonBgColor;
     self.automaticallyAdjustsScrollViewInsets = NO;  //去留白
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    self.tableView.backgroundColor = LJCommonBgColor;
 }
 
 #pragma mark --数据获取
@@ -40,8 +41,6 @@
     cell.textLabel.text = [NSString stringWithFormat:@"这是第%ld行",indexPath.row];
     return cell;
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LJBaseViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
+@interface LJBaseViewController : UIViewController <UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 @property (nonatomic,strong) UITableView *tableView;
 /*** 存放数据的数组 ***/
 @property (nonatomic,strong) NSMutableArray *dataArray;
