@@ -13,11 +13,13 @@ typedef NS_ENUM(NSInteger,ToolTipStyle) {
     ToolTipStyleHeader ,    //头像修改
     ToolTipStyleSex    ,
     ToolTipStyleAge    ,
-    ToolTipStyleAlert1  //只有标题的内容
+    ToolTipStyleAddress,  //选择地址
+    ToolTipStyleAlert1 , //只有标题和内容 没有取消按钮
+    ToolTipStyleAlert2   //只有标题和内容
 };
 typedef void (^okClickBlock)(NSString *);  //确定点击回调
 
-@interface LJTooltip : UIView
+@interface LJTooltip : UIView<UIPickerViewDelegate,UIPickerViewDataSource>
 /*** 背景 ***/
 @property (nonatomic,strong) UIView *bgroundView;
 /*** 确认 ***/
@@ -38,15 +40,27 @@ typedef void (^okClickBlock)(NSString *);  //确定点击回调
 @property (nonatomic,strong)  UIDatePicker *datePicker;
 /*** 内容提示 ***/
 @property (nonatomic,strong) UILabel *contentLabel;
+/*** 选择器 ***/
+@property (nonatomic,strong) UIPickerView *AddressPicker;
+/*** 区 ***/
+@property (nonatomic,strong) NSArray *regionArr;
+/*** 镇 ***/
+@property (nonatomic,strong) NSArray *townArr;
+/*** 选中的地址 ***/
+@property (nonatomic,strong) NSString *address;
 
 @property (nonatomic,strong) okClickBlock okClickBlock;
+
+/*** ok键的位置 ***/
+@property BOOL okLocationMiddle;
 
 - (instancetype)initWithToolTipStyle:(ToolTipStyle)toolTilpStyle;
 
 
 #pragma mark --Alert1更改属性
-- (void)content:(NSString *)content;
-
+- (void)Alert1content:(NSString *)content;
+#pragma mark --Alert2更改属性
+- (void)Alert2content:(NSString *)content;
 
 #pragma mark --显示提示框
 - (void)showTooltip;

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface LJBaseNavigationController : UINavigationController
-
+//返回
+- (void)back;
 @end

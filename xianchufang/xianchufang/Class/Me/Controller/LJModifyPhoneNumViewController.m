@@ -34,7 +34,7 @@
     view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:view];
     
-    self.numTextField = [[UITextField alloc] initWithFrame:CGRectMake(24, 0, 160, 44)];
+    self.numTextField = [[UITextField alloc] initWithFrame:CGRectMake(24, 0, 200, 44)];
     self.numTextField.tintColor = LJFontColor;
     self.numTextField.placeholder = @"请输入验证码";
     self.numTextField.lj_centerY = view.lj_height / 2;
@@ -43,7 +43,7 @@
     [view addSubview:self.numTextField];
     time = 60;
     
-    self.verifyBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 96, 10, 86, 24)];
+    self.verifyBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 110, 10, 100, 24)];
     [self.verifyBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
     [self.verifyBtn setTitleColor:LJTheMeColor forState:UIControlStateNormal];
     self.verifyBtn.layer.borderWidth = 1;
@@ -91,7 +91,7 @@
 
 - (void)finishBtnClick:(UIButton *)sender  {
     if ([self.numTextField.text isEqualToString:@""]){
-        [self.alert content:@"内容不能为空！"];
+        [self.alert Alert1content:@"内容不能为空！"];
         [self.alert showTooltip];
         return;
     }

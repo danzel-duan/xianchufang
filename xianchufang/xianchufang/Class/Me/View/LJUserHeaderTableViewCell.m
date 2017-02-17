@@ -12,10 +12,11 @@
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        self.TextLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 34, 40, 20)];
+        self.TextLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 34, 0, 0)];
         self.TextLabel.text = @"头像";
         [self.TextLabel setFont:LJFontSize];
         [self.TextLabel setTextColor:LJFontColor];
+        [self.TextLabel sizeToFit];
         [self.contentView addSubview:self.TextLabel];
         
         self.ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 16, 0, 0)];

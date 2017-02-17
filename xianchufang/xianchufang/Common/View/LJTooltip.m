@@ -14,6 +14,7 @@
 - (instancetype)initWithToolTipStyle:(ToolTipStyle)toolTilpStyle {
     if (self = [super init]) {
         self.backgroundColor = [UIColor whiteColor];
+        self.okLocationMiddle = YES;
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, selfWidth, 44)];
         view.backgroundColor = LJTheMeColor ;
         [self addSubview:view];
@@ -39,6 +40,12 @@
             case ToolTipStyleAlert1:
                 [self alert1];       //样式五
                 break;
+            case ToolTipStyleAlert2:
+                [self alert2];       //样式六
+                break;
+            case ToolTipStyleAddress:
+                [self Address];       //样式七
+                break;
             default:
                 break;
         }
@@ -60,6 +67,7 @@
 /*** 样式一 ：修改昵称 ***/
 - (void)modifyName {
     self.titleLabel.text = @"修改昵称";
+    self.okLocationMiddle =NO;
     self.nameTextField = [[UITextField alloc] initWithFrame:CGRectMake(22, 74, selfWidth - 44, 20)];
     self.nameTextField.placeholder = @"请输入新的名称";
     [self addSubview:self.nameTextField];
@@ -100,14 +108,77 @@
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
 }
 
+/*** 样式六 ：警告样式二 ***/
+- (void)alert2 {
+    self.titleLabel.text = @"提示";
+    self.titleLabel.lj_x = 0;
+    [self addbgroundview];
+    self.titleLabel.textAlignment = NSTextAlignmentCenter;
+}
+
+/*** 样式七 ***/
+- (void)Address {
+    self.regionArr =@[@{@"key":@[@"1",@"2",@"3",@"4",@"5"]},@{@"key":@[@"1",@"2",@"3"]}];
+    
+    self.titleLabel.text = @"请选择区域";
+    self.okLocationMiddle = NO;
+    [self addbgroundview];
+    [self addAddressPicker];
+    [self addBottomCutline:self.AddressPicker.lj_bottom + 1];
+    [self addOkBtn];
+    [self addCancelBtn];
+    [self setSelfLocation:self.okBtn.lj_bottom];
+}
+
 #pragma mark --添加内容
 - (void)addContent {
     self.contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(22, 54, selfWidth - 44, 20)];
     self.contentLabel.backgroundColor = [UIColor whiteColor];
     self.contentLabel.textColor = LJFontColor;
     self.contentLabel.textAlignment = NSTextAlignmentCenter;
+    
     [self.contentLabel setFont:LJFontSize];
     [self addSubview:self.contentLabel];
+}
+
+#pragma mark --地区选择器
+- (void)addAddressPicker {
+    self.AddressPicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 44, selfWidth, 100)];
+    self.AddressPicker.backgroundColor = [UIColor whiteColor];
+    self.AddressPicker.delegate =self;
+    self.AddressPicker.dataSource = self;
+    [self addSubview:self.AddressPicker];
+}
+
+/////////// PickerView代理 ////////
+-  (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 3;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    if (component == 0) {
+        return 1;
+    }else{
+        NSDictionary *dic = self.regionArr[component -1];
+        NSArray *ar =[dic objectForKey:@"key"];
+        return ar.count;
+    }
+        
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    if (component == 0) {
+        return @"上海";
+    }else{
+        NSDictionary *dic = self.regionArr[component - 1];
+        NSArray *ar =[dic objectForKey:@"key"];
+        return ar[row];
+    }
+        
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+//    self.address = self.regionArr[component][row];
 }
 
 #pragma mark --下划线
@@ -164,7 +235,7 @@
 #pragma mark --添加确定按钮
 - (void)addOkBtn {
     self.okBtn = [[UIButton alloc] initWithFrame:CGRectMake((SCREEN_WIDTH - 72) / 2 + 1, self.cutLine.lj_bottom, (SCREEN_WIDTH - 72) / 2 - 1, 44)];
-    if (self.datePicker  != nil ||self.contentLabel !=nil) {
+    if (self.okLocationMiddle) {
         self.okBtn.lj_x= 0;
         self.okBtn.lj_y =self.cutLine.lj_bottom + 1;
         self.okBtn.lj_width = selfWidth;
@@ -176,15 +247,20 @@
     self.okBtn.backgroundColor = [UIColor whiteColor];
     [self.okBtn addTarget:self action:@selector(oKClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.okBtn];
+    self.okLocationMiddle = YES;
 }
 
 - (void)oKClick : (UIButton*)sender {
     if (self.okClickBlock) {
-        if (self.datePicker == nil) {
+        if (self.datePicker == nil && self.nameTextField) {
             self.okClickBlock(self.nameTextField.text);
-        }else{
+        }else if(self.datePicker != nil){
             NSString *strDate = [self dateToString:self.datePicker.date withDateFormat:@"yyy/MM/dd"];
             self.okClickBlock(strDate);
+        }else if(self.AddressPicker != nil){
+            self.okClickBlock(self.address);
+        }else{
+            self.okClickBlock(self.okBtn.titleLabel.text);
         }
     }
     [self hideTooltip];
@@ -265,11 +341,23 @@
 ////////
 /////
 #pragma mark --Alert1更改属性
-- (void)content:(NSString *)content {
+- (void)Alert1content:(NSString *)content {
     [self addContent];
     self.contentLabel.text = content;
     [self addBottomCutline:self.contentLabel.lj_bottom + 10];
     [self addOkBtn];
+    [self setSelfLocation:self.okBtn.lj_bottom];
+}
+
+- (void)Alert2content:(NSString *)content {
+    self.okLocationMiddle = NO;
+    [self addContent];
+    self.contentLabel.text = content;
+    self.contentLabel.numberOfLines = 0;
+    [self.contentLabel sizeToFit];
+    [self addBottomCutline:self.contentLabel.lj_bottom + 10];
+    [self addOkBtn];
+    [self addCancelBtn];
     [self setSelfLocation:self.okBtn.lj_bottom];
 }
 

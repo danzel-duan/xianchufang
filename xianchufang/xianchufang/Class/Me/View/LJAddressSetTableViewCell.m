@@ -69,18 +69,18 @@
     [self.contentView addSubview:bgView];
     self.bgView = bgView;
     
-    self.nameL = [[UILabel alloc] initWithFrame:CGRectMake(16, 14, 0, 0)];        //名字
+    self.nameL = [[UILabel alloc] initWithFrame:CGRectMake(10, 14, 0, 0)];        //名字
     self.nameL.textColor = LJFontColor;
     self.nameL.text = @"李四    ";
     [self.nameL setFont:LJFontSize];
     [self.nameL sizeToFit];
     [bgView addSubview:self.nameL];
     
-    self.phoneL = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 125, 14, 0, 0)];  //手机号
+    self.phoneL = [[UILabel alloc] initWithFrame:CGRectMake(bgView.lj_width - 128, 14, 120, 20)];  //手机号
     self.phoneL.textColor = LJFontColor;
     [self.phoneL setFont:LJFontSize];
     self.phoneL.text = @"15518703027";
-    [self.phoneL sizeToFit];
+    self.phoneL.textAlignment = NSTextAlignmentRight;
     [bgView addSubview:self.phoneL];
     
     self.addressImV = [[UIImageView alloc] initWithFrame:CGRectMake(10, self.nameL.lj_bottom + 16, 0, 0)];  //定位图标
@@ -107,7 +107,7 @@
     self.defaultBtn.tag = 3003;
     [bgView addSubview:self.defaultBtn];
     
-    self.defaultL = [[UILabel alloc] initWithFrame:CGRectMake(self.defaultBtn.lj_right + 11,  view.lj_bottom + 12, 0, 0)];   //默认
+    self.defaultL = [[UILabel alloc] initWithFrame:CGRectMake(self.defaultBtn.lj_right + 11,  view.lj_bottom + 13, 0, 0)];   //默认
     self.defaultL.textColor = LJFontColor;
     [self.defaultL setFont:LJFontSize];
     self.defaultL.text = @"默认";

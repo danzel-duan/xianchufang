@@ -19,6 +19,9 @@
 		1486DAFB1E543AD70096E46D /* LJBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1486DAFA1E543AD70096E46D /* LJBaseTableViewCell.m */; };
 		1486DAFF1E543B4C0096E46D /* LJUserHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1486DAFE1E543B4C0096E46D /* LJUserHeaderTableViewCell.m */; };
 		1486DB021E544EEF0096E46D /* LJTooltip.m in Sources */ = {isa = PBXBuildFile; fileRef = 1486DB011E544EEF0096E46D /* LJTooltip.m */; };
+		1488C8041E56927A00C1AC27 /* LJNewAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1488C8031E56927A00C1AC27 /* LJNewAddressViewController.m */; };
+		1488C8071E56B6B700C1AC27 /* LJVerifyInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1488C8061E56B6B700C1AC27 /* LJVerifyInfo.m */; };
+		1488C80A1E5704FE00C1AC27 /* LJModifyPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1488C8091E5704FE00C1AC27 /* LJModifyPwdViewController.m */; };
 		14DE12151E51BCA700836B46 /* UIImage+LJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DE12141E51BCA700836B46 /* UIImage+LJExtension.m */; };
 		14DE12181E51F01C00836B46 /* UIFont+LJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DE12171E51F01C00836B46 /* UIFont+LJExtension.m */; };
 		14DE12201E51FC1600836B46 /* LJOrderStatusTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DE121F1E51FC1600836B46 /* LJOrderStatusTableViewCell.m */; };
@@ -90,6 +93,12 @@
 		1486DAFE1E543B4C0096E46D /* LJUserHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJUserHeaderTableViewCell.m; sourceTree = "<group>"; };
 		1486DB001E544EEF0096E46D /* LJTooltip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LJTooltip.h; path = xianchufang/Common/View/LJTooltip.h; sourceTree = SOURCE_ROOT; };
 		1486DB011E544EEF0096E46D /* LJTooltip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LJTooltip.m; path = xianchufang/Common/View/LJTooltip.m; sourceTree = SOURCE_ROOT; };
+		1488C8021E56927A00C1AC27 /* LJNewAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJNewAddressViewController.h; sourceTree = "<group>"; };
+		1488C8031E56927A00C1AC27 /* LJNewAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJNewAddressViewController.m; sourceTree = "<group>"; };
+		1488C8051E56B6B700C1AC27 /* LJVerifyInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJVerifyInfo.h; sourceTree = "<group>"; };
+		1488C8061E56B6B700C1AC27 /* LJVerifyInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJVerifyInfo.m; sourceTree = "<group>"; };
+		1488C8081E5704FE00C1AC27 /* LJModifyPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJModifyPwdViewController.h; sourceTree = "<group>"; };
+		1488C8091E5704FE00C1AC27 /* LJModifyPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJModifyPwdViewController.m; sourceTree = "<group>"; };
 		14DE12131E51BCA700836B46 /* UIImage+LJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LJExtension.h"; sourceTree = "<group>"; };
 		14DE12141E51BCA700836B46 /* UIImage+LJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LJExtension.m"; sourceTree = "<group>"; };
 		14DE12161E51F01C00836B46 /* UIFont+LJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+LJExtension.h"; sourceTree = "<group>"; };
@@ -216,8 +225,9 @@
 				1486DAF71E5428200096E46D /* LJUserInfoViewController.m */,
 				14786BA81E555B740099451B /* LJModifyPhoneNumViewController.h */,
 				14786BA91E555B740099451B /* LJModifyPhoneNumViewController.m */,
-				14786BAB1E559D5F0099451B /* LJAddressSetViewController.h */,
-				14786BAC1E559D5F0099451B /* LJAddressSetViewController.m */,
+				1488C8081E5704FE00C1AC27 /* LJModifyPwdViewController.h */,
+				1488C8091E5704FE00C1AC27 /* LJModifyPwdViewController.m */,
+				1488C8011E56920F00C1AC27 /* Address */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -231,6 +241,17 @@
 				14786BAF1E559FED0099451B /* LJAddressSetTableViewCell.m */,
 			);
 			name = Settings;
+			sourceTree = "<group>";
+		};
+		1488C8011E56920F00C1AC27 /* Address */ = {
+			isa = PBXGroup;
+			children = (
+				14786BAB1E559D5F0099451B /* LJAddressSetViewController.h */,
+				14786BAC1E559D5F0099451B /* LJAddressSetViewController.m */,
+				1488C8021E56927A00C1AC27 /* LJNewAddressViewController.h */,
+				1488C8031E56927A00C1AC27 /* LJNewAddressViewController.m */,
+			);
+			name = Address;
 			sourceTree = "<group>";
 		};
 		14E05BA31E5137710057D3AE /* xianchufang */ = {
@@ -485,6 +506,8 @@
 				14E05BD11E5137710057D3AE /* LJMD5Encrypt.m */,
 				148688441E5347210019DD3E /* LJRadDot.h */,
 				148688451E5347210019DD3E /* LJRadDot.m */,
+				1488C8051E56B6B700C1AC27 /* LJVerifyInfo.h */,
+				1488C8061E56B6B700C1AC27 /* LJVerifyInfo.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -845,6 +868,7 @@
 			files = (
 				1486DAFB1E543AD70096E46D /* LJBaseTableViewCell.m in Sources */,
 				14E05BEA1E5137710057D3AE /* LJMD5Encrypt.m in Sources */,
+				1488C8041E56927A00C1AC27 /* LJNewAddressViewController.m in Sources */,
 				14E05BE71E5137710057D3AE /* LJBaseViewController.m in Sources */,
 				14DE12201E51FC1600836B46 /* LJOrderStatusTableViewCell.m in Sources */,
 				14DE12181E51F01C00836B46 /* UIFont+LJExtension.m in Sources */,
@@ -856,11 +880,13 @@
 				14E05BE41E5137710057D3AE /* UIBarButtonItem+LJExtension.m in Sources */,
 				1486DAF41E53FAFA0096E46D /* LJSettingViewController.m in Sources */,
 				14E05BF31E513B170057D3AE /* LJClassifyViewController.m in Sources */,
+				1488C8071E56B6B700C1AC27 /* LJVerifyInfo.m in Sources */,
 				14E05BEE1E5137710057D3AE /* LJRootViewController.m in Sources */,
 				14E05BE91E5137710057D3AE /* LJData.m in Sources */,
 				14786BAD1E559D5F0099451B /* LJAddressSetViewController.m in Sources */,
 				148688461E5347210019DD3E /* LJRadDot.m in Sources */,
 				14E05BE81E5137710057D3AE /* LJConstants.m in Sources */,
+				1488C80A1E5704FE00C1AC27 /* LJModifyPwdViewController.m in Sources */,
 				14E05BE61E5137710057D3AE /* LJBaseNavigationController.m in Sources */,
 				14E05BE21E5137710057D3AE /* LJMeViewController.m in Sources */,
 				14DE12231E51FD1700836B46 /* LJButton.m in Sources */,

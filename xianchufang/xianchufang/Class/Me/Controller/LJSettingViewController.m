@@ -89,7 +89,7 @@
         UIViewController * Vc =[NSClassFromString(@"LJAddressSetViewController") new];
         [self.navigationController pushViewController:Vc animated:YES];
     }else if (indexPath.row == 2){
-        UIViewController * Vc =[NSClassFromString(@"LJUserInfoViewController") new];
+        UIViewController * Vc =[NSClassFromString(@"LJModifyPwdViewController") new];
         [self.navigationController pushViewController:Vc animated:YES];
     }else if (indexPath.row == 3){
         UIViewController * Vc =[NSClassFromString(@"LJUserInfoViewController") new];

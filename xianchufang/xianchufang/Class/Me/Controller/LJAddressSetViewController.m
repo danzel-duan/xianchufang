@@ -19,6 +19,7 @@
     self.navigationItem.title = @"地址管理";
     /*** 添加tableView ***/
     self.automaticallyAdjustsScrollViewInsets = YES;
+    self.tableView.lj_height = SCREEN_HEIGHT - 48;
     [self.view addSubview:self.tableView];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -28,11 +29,11 @@
 
 #pragma mark --添加新地址
 - (void)addNewAddressBtn {
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(42, SCREEN_HEIGHT - 64, SCREEN_WIDTH -84, 48)];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 48, SCREEN_WIDTH , 48)];
     button.backgroundColor = LJColorFromRGB(0x849cf6);
-    [button setLayerWithCr:5];
     [button setTitle:@"添加新地址" forState:UIControlStateNormal];
-    [button setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"my_add_icon"] forState:UIControlStateNormal];
+    button.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
     button.titleLabel.textColor = [UIColor whiteColor];
     [button.titleLabel setFont:LJFontSize];
     [button addTarget:self action:@selector(NewAddressBtn:) forControlEvents:UIControlEventTouchUpInside];
@@ -41,7 +42,9 @@
 
 #pragma mark --NewAddressBtn Click
 - (void)NewAddressBtn:(UIButton *)sender {
-    LJLogFunc
+    UIViewController *Vc= [NSClassFromString(@"LJNewAddressViewController") new];
+    Vc.navigationItem.title = @"新增地址管理";
+    [self.navigationController pushViewController:Vc animated:YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -54,7 +57,9 @@
 //    __weak LJAddressSetViewController *weakSelf =self;
     cell.opeartionBlock = ^(NSInteger tag) {
         if (tag == 3001) {
-            NSLog(@"3001");
+            UIViewController *Vc = [NSClassFromString(@"LJNewAddressViewController") new];
+            Vc.navigationItem.title = @"修改地址";
+            [self.navigationController pushViewController:Vc animated:YES];
         }else if(tag == 3002){
             NSLog(@"3002");
         }else if(tag == 3003){
