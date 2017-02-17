@@ -92,10 +92,10 @@
         UIViewController * Vc =[NSClassFromString(@"LJModifyPwdViewController") new];
         [self.navigationController pushViewController:Vc animated:YES];
     }else if (indexPath.row == 3){
-        UIViewController * Vc =[NSClassFromString(@"LJUserInfoViewController") new];
+        UIViewController * Vc =[NSClassFromString(@"LJCheckUpdateViewController") new];
         [self.navigationController pushViewController:Vc animated:YES];
     }else if (indexPath.row == 4){
-        UIViewController * Vc =[NSClassFromString(@"LJUserInfoViewController") new];
+        UIViewController * Vc =[NSClassFromString(@"LJOpinionViewController") new];
         [self.navigationController pushViewController:Vc animated:YES];
     }
 }
