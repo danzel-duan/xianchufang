@@ -7,12 +7,14 @@
 //
 
 #import "LJSettingViewController.h"
+#import "LJCheckUpdateViewController.h"
 @interface LJSettingViewController ()
 
 //@property (nonatomic,strong) UITableView *tavleView;
 
 /*** 版本号 ***/
 @property (nonatomic,strong) NSString *versionNum;
+@property (nonatomic,strong) UITableViewCell *updateCell;
 @end
 
 @implementation LJSettingViewController
@@ -68,8 +70,8 @@
             break;
         case 3:
             cell.textLabel.text = @"检查更新";
-            //            cell.detailTextLabel.text = self.versionNum;
             cell.detailTextLabel.text = @"v 1.10";
+            self.updateCell = cell;
             break;
         case 4:
             cell.textLabel.text = @"意见反馈";
@@ -92,7 +94,11 @@
         UIViewController * Vc =[NSClassFromString(@"LJModifyPwdViewController") new];
         [self.navigationController pushViewController:Vc animated:YES];
     }else if (indexPath.row == 3){
-        UIViewController * Vc =[NSClassFromString(@"LJCheckUpdateViewController") new];
+        LJCheckUpdateViewController * Vc =[[LJCheckUpdateViewController alloc] init];
+        __weak LJSettingViewController *weakSelf = self;
+        Vc.checkblock = ^ (NSString *str){
+            weakSelf.updateCell.detailTextLabel.text = str;
+        };
         [self.navigationController pushViewController:Vc animated:YES];
     }else if (indexPath.row == 4){
         UIViewController * Vc =[NSClassFromString(@"LJOpinionViewController") new];

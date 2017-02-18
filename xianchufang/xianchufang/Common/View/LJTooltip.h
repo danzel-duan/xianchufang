@@ -15,9 +15,10 @@ typedef NS_ENUM(NSInteger,ToolTipStyle) {
     ToolTipStyleAge    ,
     ToolTipStyleAddress,  //选择地址
     ToolTipStyleAlert1 , //只有标题和内容 没有取消按钮
-    ToolTipStyleAlert2   //只有标题和内容
+    ToolTipStyleAlert2 , //只有标题和内容
+    ToolTipStyleAlert3   //只有提示内容，浅灰色背景
 };
-typedef void (^okClickBlock)(NSString *);  //确定点击回调
+typedef void (^okClickBlock)(NSString * string);  //确定点击回调
 
 @interface LJTooltip : UIView<UIPickerViewDelegate,UIPickerViewDataSource>
 /*** 背景 ***/
@@ -49,7 +50,7 @@ typedef void (^okClickBlock)(NSString *);  //确定点击回调
 /*** 选中的地址 ***/
 @property (nonatomic,strong) NSString *address;
 
-@property (nonatomic,strong) okClickBlock okClickBlock;
+@property (nonatomic,copy) okClickBlock okClickBlock;
 
 /*** ok键的位置 ***/
 @property BOOL okLocationMiddle;
@@ -61,6 +62,8 @@ typedef void (^okClickBlock)(NSString *);  //确定点击回调
 - (void)Alert1content:(NSString *)content;
 #pragma mark --Alert2更改属性
 - (void)Alert2content:(NSString *)content;
+#pragma mark --Alert3更改属性
+- (void)Alert3content:(NSString *)content location:(CGFloat)location;
 
 #pragma mark --显示提示框
 - (void)showTooltip;

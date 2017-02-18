@@ -28,13 +28,14 @@
 
     [view addSubview:textView];
     textView.delegate =self;
-    [textView setTextColor:[UIColor grayColor]];
+    [textView setTextColor:[UIColor blackColor]];
+    [textView setFont:[UIFont systemFontOfSize:14]];
     self.textView = textView;
     self.label = [[UILabel alloc] initWithFrame:CGRectMake(3, 10, 200, 10)];
     self.label.backgroundColor = [UIColor whiteColor];
     self.label.text = @"写下你想对我们说的话.....";
     [self.label setTextColor:LJFontColor];
-    [self.label setFont:[UIFont systemFontOfSize:12]];
+    [self.label setFont:[UIFont systemFontOfSize:14]];
     self.label.userInteractionEnabled = NO;
     [textView addSubview:self.label];
     
@@ -59,6 +60,11 @@
 
 - (void)Click {
     LJLogFunc
+    //这里上传反馈意见 ------->>>>>>>>
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
 }
 
 - (void)didReceiveMemoryWarning {

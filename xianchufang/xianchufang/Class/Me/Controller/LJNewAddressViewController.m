@@ -206,7 +206,7 @@
         [self.navigationController popViewControllerAnimated:YES];
     }else{
         LJTooltip *tip =[[LJTooltip alloc] initWithToolTipStyle:ToolTipStyleAlert2];
-        [tip Alert2content:@"确定要退出么？信息将不会被保存！"];
+        [tip Alert2content:@"确定要退出么？"];
         __weak LJNewAddressViewController *weakSelf = self;
         tip.okClickBlock =^ (NSString *str) {
             if ([str isEqualToString:@"确定"]) {
@@ -215,6 +215,11 @@
         };
         [tip showTooltip];
     }
+}
+
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
 }
 
 - (void)didReceiveMemoryWarning {

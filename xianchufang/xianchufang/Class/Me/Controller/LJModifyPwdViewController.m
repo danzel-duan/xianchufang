@@ -8,6 +8,7 @@
 
 #import "LJModifyPwdViewController.h"
 #import "LJVerifyInfo.h"
+#import "LJTooltip.h"
 @interface LJModifyPwdViewController ()
 /*** okBtn ***/
 @property (nonatomic,strong) UIButton *okBtn;
@@ -87,9 +88,17 @@
     
     //这是比较两次的新密码是否一致
     if (![self.nePwdTextField2.text isEqualToString:self.nePwdTextField1.text]) {
-        
+        LJTooltip *tip = [[LJTooltip alloc] initWithToolTipStyle:ToolTipStyleAlert3];
+        [tip Alert3content:@"两次新密码不一致!" location:self.bgView.lj_bottom];
+    }else{
+        ///这里上传数据 ------->>>>>>>>>>
+        [self.navigationController popViewControllerAnimated:YES];
     }
-    ///这里上传数据 ------->>>>>>>>>>
+    
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
 }
 
 - (void)didReceiveMemoryWarning {

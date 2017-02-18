@@ -15,14 +15,6 @@
     if (self = [super init]) {
         self.backgroundColor = [UIColor whiteColor];
         self.okLocationMiddle = YES;
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, selfWidth, 44)];
-        view.backgroundColor = LJTheMeColor ;
-        [self addSubview:view];
-        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(12, 14, selfWidth, 20)];
-        self.titleLabel.backgroundColor = [UIColor clearColor];
-        [self.titleLabel setTextColor:[UIColor whiteColor]];
-        [self.titleLabel setFont:LJFontSize];
-        [view addSubview:self.titleLabel];
         
         switch (toolTilpStyle) {
             case ToolTipStyleHeader:
@@ -46,6 +38,9 @@
             case ToolTipStyleAddress:
                 [self Address];       //样式七
                 break;
+            case ToolTipStyleAlert3:
+                [self alert3];       //样式八
+                break;
             default:
                 break;
         }
@@ -55,6 +50,7 @@
 
 /*** 样式一 ：修改头像 ***/
 - (void)modifyHeaderImage {
+    [self addTitle];
     self.titleLabel.text = @"修改头像";
     [self addbgroundview];
     [self addOtherBtn:43 title:@"相机" image:@"my_camera_icon" imageH:@"" tag:2001];
@@ -66,6 +62,7 @@
 
 /*** 样式一 ：修改昵称 ***/
 - (void)modifyName {
+    [self addTitle];
     self.titleLabel.text = @"修改昵称";
     self.okLocationMiddle =NO;
     self.nameTextField = [[UITextField alloc] initWithFrame:CGRectMake(22, 74, selfWidth - 44, 20)];
@@ -80,6 +77,7 @@
 
 /*** 样式三 ：修改性别 ***/
 - (void)modifySex {
+    [self addTitle];
     self.titleLabel.text = @"性别";
     [self addbgroundview];
     [self addOtherBtn:43 title:@"男" image:@"my_circle_icon" imageH:@"my_circle_icon_selected" tag:2003];
@@ -90,6 +88,7 @@
 
 /*** 样式四 ：修改年龄 ***/
 - (void)modifyAge {
+    [self addTitle];
     self.titleLabel.text = @"生日";
     [self addbgroundview];
     self.datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 44, selfWidth, 150)];
@@ -102,6 +101,7 @@
 
 /*** 样式五 ：警告样式一 ***/
 - (void)alert1 {
+    [self addTitle];
     self.titleLabel.text = @"提示";
     self.titleLabel.lj_x = 0;
     [self addbgroundview];
@@ -110,16 +110,31 @@
 
 /*** 样式六 ：警告样式二 ***/
 - (void)alert2 {
+    [self addTitle];
     self.titleLabel.text = @"提示";
     self.titleLabel.lj_x = 0;
     [self addbgroundview];
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
 }
 
+/*** 样式八 ：警告样式三 ***/
+- (void)alert3 {
+    self.frame =CGRectMake(0, 0, selfWidth, 30);
+    self.backgroundColor = [UIColor lightGrayColor];
+    self.lj_centerX = SCREEN_WIDTH / 2;
+    [self setLayerWithCr:10];
+    self.contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 0, selfWidth - 10, 30)];
+    self.contentLabel.backgroundColor = [UIColor clearColor];
+    self.contentLabel.textColor = [UIColor whiteColor];
+    self.contentLabel.textAlignment = NSTextAlignmentCenter;
+    [self.contentLabel setFont:LJFontSize];
+    [self addSubview:self.contentLabel];
+}
+
 /*** 样式七 ***/
 - (void)Address {
     self.regionArr =@[@{@"key":@[@"1",@"2",@"3",@"4",@"5"]},@{@"key":@[@"1",@"2",@"3"]}];
-    
+    [self addTitle];
     self.titleLabel.text = @"请选择区域";
     self.okLocationMiddle = NO;
     [self addbgroundview];
@@ -128,6 +143,19 @@
     [self addOkBtn];
     [self addCancelBtn];
     [self setSelfLocation:self.okBtn.lj_bottom];
+}
+
+#pragma mark --添加title
+- (void)addTitle {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, selfWidth, 44)];
+    view.backgroundColor = LJTheMeColor ;
+    [self addSubview:view];
+    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(12, 14, selfWidth, 20)];
+    self.titleLabel.backgroundColor = [UIColor clearColor];
+    [self.titleLabel setTextColor:[UIColor whiteColor]];
+    [self.titleLabel setFont:LJFontSize];
+    [view addSubview:self.titleLabel];
+    
 }
 
 #pragma mark --添加内容
@@ -353,12 +381,21 @@
     self.okLocationMiddle = NO;
     [self addContent];
     self.contentLabel.text = content;
+    [self.contentLabel setTextAlignment:NSTextAlignmentCenter];
     self.contentLabel.numberOfLines = 0;
-    [self.contentLabel sizeToFit];
     [self addBottomCutline:self.contentLabel.lj_bottom + 10];
     [self addOkBtn];
     [self addCancelBtn];
     [self setSelfLocation:self.okBtn.lj_bottom];
 }
 
+- (void)Alert3content:(NSString *)content location:(CGFloat)location {
+    self.lj_centerY = location;
+    self.contentLabel.text = content;
+    [LJwindow addSubview:self];
+    self.alpha = 1;
+    [UIView animateWithDuration:2 animations:^{
+        self.alpha = 0;
+    }];
+}
 @end

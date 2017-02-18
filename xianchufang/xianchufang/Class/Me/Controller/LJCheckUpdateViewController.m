@@ -74,6 +74,9 @@
 
 - (void)BgViewClick {
     LJLogFunc
+    if (self.checkblock) {
+        self.checkblock(self.updateL.text);
+    }
 }
 
 - (void)didReceiveMemoryWarning {
