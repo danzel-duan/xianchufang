@@ -146,7 +146,6 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
     button1.lj_right =self.view.lj_right+5 ;
     [button1 setImage:[UIImage imageNamed:@"tabbar_set_icon"] forState:UIControlStateNormal];
     [button1 addTarget:self action:@selector(settingBtnClick) forControlEvents:UIControlEventTouchUpInside];
-//    [button1 sizeToFit];
     [self.view addSubview:button1];
 }
 
@@ -276,7 +275,6 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
         __weak LJMeViewController* weakSelf = self;
         cell.myOrderBlock = ^(NSInteger tag){
             [weakSelf MyOrderStatusClick:tag];
-            
         };
         return cell;
     }else{
