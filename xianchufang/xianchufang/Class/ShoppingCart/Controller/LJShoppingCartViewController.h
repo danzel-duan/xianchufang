@@ -17,4 +17,5 @@
 @property (nonatomic,strong) UIView *view1;
 /*** 底部标签栏 ***/
 @property (nonatomic,strong) UIView *bottomViewBg;
+
 @end

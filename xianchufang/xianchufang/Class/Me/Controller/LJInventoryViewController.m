@@ -35,7 +35,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 200;
+    return 239;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -53,10 +53,13 @@
             } 
         }
     };
-    cell.nextblock = ^{
+    cell.nextblock = ^(NSString *invertoryName){
         UIViewController *Vc = [NSClassFromString(@"LJInventoryDetailViewController") new];
-        Vc.navigationItem.title = @"清单1";
+        Vc.navigationItem.title = invertoryName;
         [weakSelf.navigationController pushViewController:Vc animated:YES];
+    };
+    cell.paymentblock = ^(NSString *money){
+        LJLog(@"%@",money);
     };
     return cell;
 }

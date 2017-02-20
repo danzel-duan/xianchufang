@@ -29,25 +29,35 @@
     
     [self setNavigationEdit];
     [self addBottomSettlementTabBar];
+    [self loadData];
+}
+
+/*** 加载数据 ***/
+- (void)loadData {
+    NSArray *data = @[@{@"postAge":@"满399免运费",@"isPost":@"yes",@"goodsImageViewName":@"",@"brief":@"大青皮 该品种耐寒性特强，高抗病，茎棒粗大且顺直",@"price":@"200",@"goodsNum":@"340"},@{@"postAge":@"满399免运费",@"isPost":@"no",@"goodsImageViewName":@"",@"brief":@"大青皮 该品种耐寒性特强，高抗病，茎棒粗大且顺直",@"price":@"200",@"goodsNum":@"340"},@{@"postAge":@"满399免运费",@"isPost":@"no",@"goodsImageViewName":@"",@"brief":@"大青皮 该品种耐寒性特强，高抗病，茎棒粗大且顺直",@"price":@"200",@"goodsNum":@"340"},@{@"postAge":@"满399免运费",@"isPost":@"yes",@"goodsImageViewName":@"",@"brief":@"大青皮 该品种耐寒性特强，高抗病，茎棒粗大且顺直",@"price":@"200",@"goodsNum":@"340"},@{@"postAge":@"满399免运费",@"isPost":@"no",@"goodsImageViewName":@"",@"brief":@"大青皮 该品种耐寒性特强，高抗病，茎棒粗大且顺直",@"price":@"200",@"goodsNum":@"340"},@{@"postAge":@"满399免运费",@"isPost":@"yes",@"goodsImageViewName":@"",@"brief":@"大青皮 该品种耐寒性特强，高抗病，茎棒粗大且顺直",@"price":@"200",@"goodsNum":@"340"}];
+    self.dataArray = [LJShoppingCarModel mj_objectArrayWithKeyValuesArray:data];
+    [self.tableView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 6;
+    return self.dataArray.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 170;
+    LJShoppingCarModel *shoppingCarModel = self.dataArray[indexPath.row];
+    return shoppingCarModel.cellHegiht;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LJShoppingCarTableViewCell"];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone; 
+    LJShoppingCarTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LJShoppingCarTableViewCell"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.shoppingCarMOdel = self.dataArray [indexPath.row];
     return cell;
 }
 
 #pragma mark --导航栏编辑
 - (void)setNavigationEdit {
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem initWithText:@"编辑" hightext:@"完成" color:nil
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem initWithText:@"编辑" hightext:@"完成" color:LJColorFromRGB(0x393939)
                                                                  highColor:nil target:self action:@selector(NavigationClick:)];
 }
 

@@ -23,6 +23,27 @@
 }
 
 
+- (void)setShoppingCarMOdel:(LJShoppingCarModel *)shoppingCarMOdel {
+    _shoppingCarMOdel = shoppingCarMOdel;
+    self.goodsImageView.image = [UIImage imageNamed:shoppingCarMOdel.goodsImageViewName];
+    self.briefLabel.text = shoppingCarMOdel.brief;
+    self.goodsNumLabel.text = shoppingCarMOdel.goodsNum;
+    self.priceLabel.text = [NSString stringWithFormat:@"￥%@",shoppingCarMOdel.price];
+    if ([shoppingCarMOdel.isPost isEqualToString:@"no"]) {
+        [self.topBgView removeFromSuperview];
+        self.SelectBtn.lj_y =  37;
+    }else if([shoppingCarMOdel.isPost isEqualToString:@"yes"]){
+        [self.contentView addSubview:self.topBgView];
+        self.postLabel.text = shoppingCarMOdel.postAge;
+        self.SelectBtn.lj_y = self.topBgView.lj_bottom + 37;
+    }
+    if (shoppingCarMOdel.isCellSelected) {
+        self.SelectBtn.selected = YES;
+    }else{
+        self.SelectBtn.selected = NO;
+    }
+}
+
 #pragma mark --设置Top子控件
 - (void)setUpChildrenTopFrame {
     UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 160)];
@@ -44,7 +65,7 @@
     label1.textColor = [UIColor redColor];
     label1.textAlignment = NSTextAlignmentCenter;
     [label1 setFont:[UIFont systemFontOfSize:14]];
-    label1.layer.borderWidth =1;
+    label1.layer.borderWidth = 1;
     label1.layer.borderColor = [[UIColor redColor] CGColor];
     [self.topBgView addSubview:label1];
     
@@ -77,15 +98,12 @@
 #pragma mark --设置Cell子控件
 - (void)setUpChildrenCellFrame {
     UIButton *SelectBtn = [[UIButton alloc] initWithFrame:CGRectMake(0,0, 40, 40)];
-    if (self.topBgView) {
-        SelectBtn.lj_y = self.topBgView.lj_bottom + 37;
-    }else{
-        SelectBtn.lj_y = 37;
-    }
+    SelectBtn.lj_y = self.topBgView.lj_bottom + 37;
     [SelectBtn setImage:[UIImage imageNamed:@"my_duihao_icon"] forState:UIControlStateNormal];
     [SelectBtn setImage:[UIImage imageNamed:@"my_duihao_icon_selected"] forState:UIControlStateSelected];
     [SelectBtn addTarget:self action:@selector(SelectionClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:SelectBtn];
+    self.SelectBtn = SelectBtn;
     
     /*** 商品图片 ***/
     self.goodsImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SelectBtn.lj_right , 0, 100, 100)];
@@ -103,8 +121,7 @@
     self.priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.goodsImageView.lj_right + 15, self.briefLabel.lj_bottom + 10, 0, 20)];
     [self.priceLabel setFont:[UIFont systemFontOfSize:15]];
     [self.priceLabel setTextColor:[UIColor redColor]];
-    self.price = 2000.0;
-    self.priceLabel.text = [NSString stringWithFormat:@"￥%.1f",self.price];
+    self.priceLabel.text = [NSString stringWithFormat:@"￥%.1f",2000.0];
     [self.priceLabel sizeToFit];
     [self.contentView addSubview:self.priceLabel];
     /*** 减数量 ***/
@@ -143,8 +160,10 @@
 - (void)SelectionClick :(UIButton *)sender {
     if (sender.selected) {
         sender.selected = NO;
+        self.shoppingCarMOdel.isCellSelected = NO;
     }else {
         sender.selected = YES;
+        self.shoppingCarMOdel.isCellSelected = YES;
     }
 }
 

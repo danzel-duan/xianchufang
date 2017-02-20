@@ -11,6 +11,7 @@
 		146A2E7E1E5ABEDB0092928D /* LJInventoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 146A2E7D1E5ABEDB0092928D /* LJInventoryTableViewCell.m */; };
 		146A2E811E5ABF190092928D /* LJInventoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 146A2E801E5ABF190092928D /* LJInventoryViewController.m */; };
 		146A2E871E5AF7020092928D /* LJInventoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 146A2E861E5AF7020092928D /* LJInventoryDetailViewController.m */; };
+		146A2E8B1E5B2F280092928D /* LJShoppingCarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 146A2E8A1E5B2F280092928D /* LJShoppingCarModel.m */; };
 		146E22C91E5133EA00C1658D /* xianchufangTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 146E22C81E5133EA00C1658D /* xianchufangTests.m */; };
 		146E22D41E5133EA00C1658D /* xianchufangUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 146E22D31E5133EA00C1658D /* xianchufangUITests.m */; };
 		14786BA71E55429E0099451B /* LJImageLeftButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 14786BA61E55429E0099451B /* LJImageLeftButton.m */; };
@@ -80,6 +81,8 @@
 		146A2E801E5ABF190092928D /* LJInventoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJInventoryViewController.m; sourceTree = "<group>"; };
 		146A2E851E5AF7020092928D /* LJInventoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJInventoryDetailViewController.h; sourceTree = "<group>"; };
 		146A2E861E5AF7020092928D /* LJInventoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJInventoryDetailViewController.m; sourceTree = "<group>"; };
+		146A2E891E5B2F280092928D /* LJShoppingCarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJShoppingCarModel.h; sourceTree = "<group>"; };
+		146A2E8A1E5B2F280092928D /* LJShoppingCarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJShoppingCarModel.m; sourceTree = "<group>"; };
 		146E22AB1E5133EA00C1658D /* xianchufang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xianchufang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		146E22C41E5133EA00C1658D /* xianchufangTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = xianchufangTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		146E22C81E5133EA00C1658D /* xianchufangTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xianchufangTests.m; sourceTree = "<group>"; };
@@ -473,6 +476,8 @@
 		14E05BBD1E5137710057D3AE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				146A2E891E5B2F280092928D /* LJShoppingCarModel.h */,
+				146A2E8A1E5B2F280092928D /* LJShoppingCarModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -914,6 +919,7 @@
 				146A2E7B1E5A93530092928D /* LJShoppingCarTableViewCell.m in Sources */,
 				14DE12181E51F01C00836B46 /* UIFont+LJExtension.m in Sources */,
 				14786BA71E55429E0099451B /* LJImageLeftButton.m in Sources */,
+				146A2E8B1E5B2F280092928D /* LJShoppingCarModel.m in Sources */,
 				14DE12151E51BCA700836B46 /* UIImage+LJExtension.m in Sources */,
 				14E05BE51E5137710057D3AE /* UIView+LJExtension.m in Sources */,
 				14786BAA1E555B740099451B /* LJModifyPhoneNumViewController.m in Sources */,

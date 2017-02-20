@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "LJShoppingCarModel.h"
 @interface LJShoppingCarTableViewCell : UITableViewCell
 /*** 满减 ***/
 @property (nonatomic,strong) UIView *topBgView;
@@ -19,9 +19,12 @@
 @property (nonatomic,strong) UILabel *briefLabel;
 /*** 商品价格L ***/
 @property (nonatomic,strong) UILabel *priceLabel;
-/*** 商品价格 ***/
-@property double price;
+///*** 商品价格 ***/
+//@property double price;
 /*** 商品数量L ***/
 @property (nonatomic,strong) UILabel *goodsNumLabel;
+/*** 选中button ***/
+@property (nonatomic,strong) UIButton *SelectBtn;
 
+@property (nonatomic,strong) LJShoppingCarModel *shoppingCarMOdel;
 @end

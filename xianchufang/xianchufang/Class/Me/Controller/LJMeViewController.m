@@ -12,7 +12,7 @@
 @interface LJMeViewController ()<UINavigationControllerDelegate>
 #define headerSize  SCREEN_WIDTH/5   //头像大小
 #define bgImageH    SCREEN_HEIGHT*2/5 +0.5  //背景图片高度
-#define balInfontColor   LJColorFromRGB(0x888888)
+#define balInfontColor   LJColorFromRGB(0x393939)
 #define balInfontColor1   LJColorFromRGB(0xed1039)
 #define orderHight  SCREEN_HEIGHT/11   //订单行高
 #define orderHight1  SCREEN_HEIGHT*2/13

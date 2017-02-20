@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 typedef void (^selectBlock)(NSString *,int); //选择回调
-typedef void (^nextBlock)();   //详情回调
+typedef void (^nextBlock)(NSString * );   //详情回调
+typedef void (^paymentBlock)(NSString * money); //支付回调
 @interface LJInventoryTableViewCell : UITableViewCell
 /*** 清单名称 ***/
 @property (nonatomic,strong) UILabel *InventoryNameLabel;
@@ -16,8 +17,12 @@ typedef void (^nextBlock)();   //详情回调
 @property (nonatomic,strong) UIButton *selectBtn;
 /*** 总金额 ***/
 @property (nonatomic,strong) UILabel *totalAmountLabel;
+/*** 商品数量 ***/
+@property (nonatomic,strong) UILabel *goodsNumLabel;
 
-@property (nonatomic,strong) selectBlock selectblock;
+@property (nonatomic,copy) selectBlock selectblock;
 
-@property (nonatomic,strong) nextBlock nextblock;
+@property (nonatomic,copy) nextBlock nextblock;
+
+@property (nonatomic,copy) paymentBlock paymentblock;
 @end
