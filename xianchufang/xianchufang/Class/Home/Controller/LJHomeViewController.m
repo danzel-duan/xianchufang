@@ -22,8 +22,8 @@
 
 #pragma mark--设置导航控制器
 - (void)setUpNav {
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem initWithText:@"定位" color:nil highColor:nil target:self action:@selector(LeftBarButtonClick)];
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem initWithText:@"搜索" color:[UIColor redColor]  highColor:[UIColor blueColor] target:self action:@selector(RightBarButtonClick)];
+//    self.navigationItem.leftBarButtonItem = [UIBarButtonItem initWithText:@"定位" color:nil highColor:nil target:self action:@selector(LeftBarButtonClick)];
+//    self.navigationItem.rightBarButtonItem = [UIBarButtonItem initWithText:@"搜索" color:[UIColor redColor]  highColor:[UIColor blueColor] target:self action:@selector(RightBarButtonClick)];
 }
 
 #pragma mark--leftBarButtonClick

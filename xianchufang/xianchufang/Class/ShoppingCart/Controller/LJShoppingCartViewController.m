@@ -7,12 +7,16 @@
 //
 
 #import "LJShoppingCartViewController.h"
-
+#import "LJShoppingCarTableViewCell.h"
 @interface LJShoppingCartViewController ()
 /*** 结算按钮 ***/
 @property (nonatomic,strong) UIButton *settlementBtn;
 /*** 金额 ***/
 @property (nonatomic,strong) UILabel *priceLabel;
+/*** 合计一系列背景 ***/
+@property (nonatomic,strong) UIView *view1;
+/*** 底部标签栏 ***/
+@property (nonatomic,strong) UIView *bottomViewBg;
 @end
 
 @implementation LJShoppingCartViewController
@@ -21,19 +25,58 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = YES;  //去留白
     self.navigationItem.title = @"购物车";
+    self.tableView.lj_y = 12;
+    self.tableView.lj_height = SCREEN_HEIGHT - 56;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.tableView];
+    //注册cell
+    [self.tableView registerClass:[LJShoppingCarTableViewCell class] forCellReuseIdentifier:@"LJShoppingCarTableViewCell"];
     
+    [self setNavigationEdit];
     [self addBottomSettlementTabBar];
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 6;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 170;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LJShoppingCarTableViewCell"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone; 
+    return cell;
+}
+
+#pragma mark --导航栏编辑
+- (void)setNavigationEdit {
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem initWithText:@"编辑" hightext:@"完成" color:nil
+                                                                 highColor:nil target:self action:@selector(NavigationClick:)];
+}
+
+#pragma mark --x编辑事件
+- (void)NavigationClick:(UIButton *)sender {
+    if (sender.selected) {
+        sender.selected = NO;
+        [self.settlementBtn setTitle:@"去结算(0)" forState:UIControlStateNormal];
+        [self.bottomViewBg addSubview:self.view1];
+    }else{
+        sender.selected = YES;
+        [self.settlementBtn setTitle:@"删除" forState:UIControlStateNormal];
+        [self.view1 removeFromSuperview];
+    }
+}
 
 #pragma mark -- 添加底部结算标签
 - (void)addBottomSettlementTabBar {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 93, SCREEN_WIDTH, 44)];
     view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:view];
+    self.bottomViewBg = view;
     
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, view.lj_height)];
     button.backgroundColor = [UIColor whiteColor];
@@ -42,7 +85,7 @@
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [button setTitleColor:LJFontColor forState:UIControlStateSelected];
     [button setImage:[UIImage imageNamed:@"my_circle_icon"] forState:UIControlStateNormal];
-    [button setImage:[UIImage imageNamed:@"my_duihao_icon"] forState:UIControlStateSelected];
+    [button setImage:[UIImage imageNamed:@"my_duihao_icon_selected"] forState:UIControlStateSelected];
     [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:button];
     [button setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, -10)];
@@ -56,10 +99,16 @@
     [view addSubview:settlement];
     self.settlementBtn = settlement;
     
-    UILabel *L1 = [[UILabel alloc] initWithFrame:CGRectMake(button.lj_right + 10, 5, 40, 20)];
+    /*** 合计一系列 ***/
+    UIView *view1 =[[ UIView alloc] initWithFrame:CGRectMake(button.lj_right + 10, 0, settlement.lj_x - button.lj_width -10, 44)];
+    view1.backgroundColor = [UIColor whiteColor];
+    [view addSubview:view1];
+    self.view1 = view1;
+    
+    UILabel *L1 = [[UILabel alloc] initWithFrame:CGRectMake(0, 5, 40, 20)];
     L1.text = @"合计:";
     L1.backgroundColor = [UIColor whiteColor];
-    [view addSubview:L1];
+    [view1 addSubview:L1];
     
     self.priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(L1.lj_right, 5, 0, 20)];
     self.priceLabel.text = @"￥40000.0";
@@ -68,15 +117,15 @@
     [self.priceLabel setTextColor:[UIColor redColor]];
     self.priceLabel.backgroundColor = [UIColor whiteColor];
     [self.priceLabel sizeToFit];
-    [view addSubview:self.priceLabel];
+    [view1 addSubview:self.priceLabel];
     
-    UILabel *L2 = [[UILabel alloc] initWithFrame:CGRectMake(button.lj_right + 10, L1.lj_bottom , 20, 10)];
+    UILabel *L2 = [[UILabel alloc] initWithFrame:CGRectMake(0, L1.lj_bottom , 20, 10)];
     L2.text = @"不含运费";
     [L2 setFont:[UIFont systemFontOfSize:13]];
     L2.backgroundColor = [UIColor whiteColor];
     L2.textColor = LJFontColor;
     [L2 sizeToFit];
-    [view addSubview:L2];
+    [view1 addSubview:L2];
 }
 
 #pragma mark --buttonClick
@@ -100,4 +149,5 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
 @end

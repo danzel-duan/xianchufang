@@ -12,5 +12,5 @@
 /*** 图片形式  ***/
 + (instancetype)initWithImage:(NSString *)image highImage:(NSString *)highImage target:(id)target action:(SEL)action;
 /*** 文字形式  ***/
-+ (instancetype)initWithText:(NSString *)text color:(UIColor *)color highColor:(UIColor *)highColor target:(id)target action:(SEL)action;
++(instancetype)initWithText:(NSString *)text hightext:(NSString*)HighText color:(UIColor *)color highColor:(UIColor *)highColor target:(id)target action:(SEL)action;
 @end

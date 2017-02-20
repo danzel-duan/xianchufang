@@ -18,7 +18,7 @@
     return [[self alloc] initWithCustomView:button];
 }
 
-+(instancetype)initWithText:(NSString *)text color:(UIColor *)color highColor:(UIColor *)highColor target:(id)target action:(SEL)action {
++(instancetype)initWithText:(NSString *)text hightext:(NSString*)HighText color:(UIColor *)color highColor:(UIColor *)highColor target:(id)target action:(SEL)action {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     if (color == nil) {
        [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
@@ -26,6 +26,7 @@
         [button setTitleColor:color forState:UIControlStateNormal];
     }
     [button setTitle:text forState:UIControlStateNormal];
+    [button setTitle:HighText forState:UIControlStateSelected];
     [button setTitleColor:highColor forState:UIControlStateSelected];
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     [button sizeToFit];

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		146A2E7B1E5A93530092928D /* LJShoppingCarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 146A2E7A1E5A93530092928D /* LJShoppingCarTableViewCell.m */; };
 		146E22C91E5133EA00C1658D /* xianchufangTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 146E22C81E5133EA00C1658D /* xianchufangTests.m */; };
 		146E22D41E5133EA00C1658D /* xianchufangUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 146E22D31E5133EA00C1658D /* xianchufangUITests.m */; };
 		14786BA71E55429E0099451B /* LJImageLeftButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 14786BA61E55429E0099451B /* LJImageLeftButton.m */; };
@@ -68,6 +69,8 @@
 
 /* Begin PBXFileReference section */
 		046EC9BC7D6EACBAEA68AED6 /* Pods-xianchufang.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xianchufang.release.xcconfig"; path = "Pods/Target Support Files/Pods-xianchufang/Pods-xianchufang.release.xcconfig"; sourceTree = "<group>"; };
+		146A2E791E5A93530092928D /* LJShoppingCarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJShoppingCarTableViewCell.h; sourceTree = "<group>"; };
+		146A2E7A1E5A93530092928D /* LJShoppingCarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJShoppingCarTableViewCell.m; sourceTree = "<group>"; };
 		146E22AB1E5133EA00C1658D /* xianchufang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xianchufang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		146E22C41E5133EA00C1658D /* xianchufangTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = xianchufangTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		146E22C81E5133EA00C1658D /* xianchufangTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xianchufangTests.m; sourceTree = "<group>"; };
@@ -454,6 +457,8 @@
 		14E05BBE1E5137710057D3AE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				146A2E791E5A93530092928D /* LJShoppingCarTableViewCell.h */,
+				146A2E7A1E5A93530092928D /* LJShoppingCarTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -882,6 +887,7 @@
 				1488C8041E56927A00C1AC27 /* LJNewAddressViewController.m in Sources */,
 				14E05BE71E5137710057D3AE /* LJBaseViewController.m in Sources */,
 				14DE12201E51FC1600836B46 /* LJOrderStatusTableViewCell.m in Sources */,
+				146A2E7B1E5A93530092928D /* LJShoppingCarTableViewCell.m in Sources */,
 				14DE12181E51F01C00836B46 /* UIFont+LJExtension.m in Sources */,
 				14786BA71E55429E0099451B /* LJImageLeftButton.m in Sources */,
 				14DE12151E51BCA700836B46 /* UIImage+LJExtension.m in Sources */,
