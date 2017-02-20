@@ -20,6 +20,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;  //去留白
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.tableView.backgroundColor = LJCommonBgColor;
+    self.tableView.allowsMultipleSelection = YES; //允许多选
 }
 
 #pragma mark --数据获取

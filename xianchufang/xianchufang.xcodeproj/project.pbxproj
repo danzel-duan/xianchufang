@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		146A2E7B1E5A93530092928D /* LJShoppingCarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 146A2E7A1E5A93530092928D /* LJShoppingCarTableViewCell.m */; };
+		146A2E7E1E5ABEDB0092928D /* LJInventoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 146A2E7D1E5ABEDB0092928D /* LJInventoryTableViewCell.m */; };
+		146A2E811E5ABF190092928D /* LJInventoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 146A2E801E5ABF190092928D /* LJInventoryViewController.m */; };
+		146A2E871E5AF7020092928D /* LJInventoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 146A2E861E5AF7020092928D /* LJInventoryDetailViewController.m */; };
 		146E22C91E5133EA00C1658D /* xianchufangTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 146E22C81E5133EA00C1658D /* xianchufangTests.m */; };
 		146E22D41E5133EA00C1658D /* xianchufangUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 146E22D31E5133EA00C1658D /* xianchufangUITests.m */; };
 		14786BA71E55429E0099451B /* LJImageLeftButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 14786BA61E55429E0099451B /* LJImageLeftButton.m */; };
@@ -71,6 +74,12 @@
 		046EC9BC7D6EACBAEA68AED6 /* Pods-xianchufang.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xianchufang.release.xcconfig"; path = "Pods/Target Support Files/Pods-xianchufang/Pods-xianchufang.release.xcconfig"; sourceTree = "<group>"; };
 		146A2E791E5A93530092928D /* LJShoppingCarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJShoppingCarTableViewCell.h; sourceTree = "<group>"; };
 		146A2E7A1E5A93530092928D /* LJShoppingCarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJShoppingCarTableViewCell.m; sourceTree = "<group>"; };
+		146A2E7C1E5ABEDB0092928D /* LJInventoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJInventoryTableViewCell.h; sourceTree = "<group>"; };
+		146A2E7D1E5ABEDB0092928D /* LJInventoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJInventoryTableViewCell.m; sourceTree = "<group>"; };
+		146A2E7F1E5ABF190092928D /* LJInventoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJInventoryViewController.h; sourceTree = "<group>"; };
+		146A2E801E5ABF190092928D /* LJInventoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJInventoryViewController.m; sourceTree = "<group>"; };
+		146A2E851E5AF7020092928D /* LJInventoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJInventoryDetailViewController.h; sourceTree = "<group>"; };
+		146A2E861E5AF7020092928D /* LJInventoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJInventoryDetailViewController.m; sourceTree = "<group>"; };
 		146E22AB1E5133EA00C1658D /* xianchufang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xianchufang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		146E22C41E5133EA00C1658D /* xianchufangTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = xianchufangTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		146E22C81E5133EA00C1658D /* xianchufangTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xianchufangTests.m; sourceTree = "<group>"; };
@@ -185,6 +194,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		146A2E881E5AFBDB0092928D /* Inventory */ = {
+			isa = PBXGroup;
+			children = (
+				146A2E7F1E5ABF190092928D /* LJInventoryViewController.h */,
+				146A2E801E5ABF190092928D /* LJInventoryViewController.m */,
+				146A2E851E5AF7020092928D /* LJInventoryDetailViewController.h */,
+				146A2E861E5AF7020092928D /* LJInventoryDetailViewController.m */,
+			);
+			name = Inventory;
+			sourceTree = "<group>";
+		};
 		146E22A21E5133EA00C1658D = {
 			isa = PBXGroup;
 			children = (
@@ -402,6 +422,7 @@
 		14E05BB41E5137710057D3AE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				146A2E881E5AFBDB0092928D /* Inventory */,
 				1486DAF51E54273E0096E46D /* Settings */,
 				14E05BB51E5137710057D3AE /* LJMeViewController.h */,
 				14E05BB61E5137710057D3AE /* LJMeViewController.m */,
@@ -424,6 +445,8 @@
 				14DE121F1E51FC1600836B46 /* LJOrderStatusTableViewCell.m */,
 				14DE12211E51FD1700836B46 /* LJButton.h */,
 				14DE12221E51FD1700836B46 /* LJButton.m */,
+				146A2E7C1E5ABEDB0092928D /* LJInventoryTableViewCell.h */,
+				146A2E7D1E5ABEDB0092928D /* LJInventoryTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -886,6 +909,7 @@
 				1488C8101E574ABD00C1AC27 /* LJOpinionViewController.m in Sources */,
 				1488C8041E56927A00C1AC27 /* LJNewAddressViewController.m in Sources */,
 				14E05BE71E5137710057D3AE /* LJBaseViewController.m in Sources */,
+				146A2E871E5AF7020092928D /* LJInventoryDetailViewController.m in Sources */,
 				14DE12201E51FC1600836B46 /* LJOrderStatusTableViewCell.m in Sources */,
 				146A2E7B1E5A93530092928D /* LJShoppingCarTableViewCell.m in Sources */,
 				14DE12181E51F01C00836B46 /* UIFont+LJExtension.m in Sources */,
@@ -898,12 +922,14 @@
 				1486DAF41E53FAFA0096E46D /* LJSettingViewController.m in Sources */,
 				14E05BF31E513B170057D3AE /* LJClassifyViewController.m in Sources */,
 				1488C80D1E573A9900C1AC27 /* LJCheckUpdateViewController.m in Sources */,
+				146A2E811E5ABF190092928D /* LJInventoryViewController.m in Sources */,
 				1488C8071E56B6B700C1AC27 /* LJVerifyInfo.m in Sources */,
 				14E05BEE1E5137710057D3AE /* LJRootViewController.m in Sources */,
 				14E05BE91E5137710057D3AE /* LJData.m in Sources */,
 				14786BAD1E559D5F0099451B /* LJAddressSetViewController.m in Sources */,
 				148688461E5347210019DD3E /* LJRadDot.m in Sources */,
 				14E05BE81E5137710057D3AE /* LJConstants.m in Sources */,
+				146A2E7E1E5ABEDB0092928D /* LJInventoryTableViewCell.m in Sources */,
 				1488C80A1E5704FE00C1AC27 /* LJModifyPwdViewController.m in Sources */,
 				14E05BE61E5137710057D3AE /* LJBaseNavigationController.m in Sources */,
 				14E05BE21E5137710057D3AE /* LJMeViewController.m in Sources */,

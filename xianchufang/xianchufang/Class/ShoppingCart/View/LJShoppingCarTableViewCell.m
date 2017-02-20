@@ -76,25 +76,24 @@
 
 #pragma mark --设置Cell子控件
 - (void)setUpChildrenCellFrame {
-    UIButton *SelectBtn = [[UIButton alloc] initWithFrame:CGRectMake(10,0, 0, 0)];
+    UIButton *SelectBtn = [[UIButton alloc] initWithFrame:CGRectMake(0,0, 40, 40)];
     if (self.topBgView) {
-        SelectBtn.lj_y = self.topBgView.lj_bottom + 47;
+        SelectBtn.lj_y = self.topBgView.lj_bottom + 37;
     }else{
-        SelectBtn.lj_y = 47;
+        SelectBtn.lj_y = 37;
     }
     [SelectBtn setImage:[UIImage imageNamed:@"my_duihao_icon"] forState:UIControlStateNormal];
     [SelectBtn setImage:[UIImage imageNamed:@"my_duihao_icon_selected"] forState:UIControlStateSelected];
-    [SelectBtn sizeToFit];
     [SelectBtn addTarget:self action:@selector(SelectionClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:SelectBtn];
     
     /*** 商品图片 ***/
-    self.goodsImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SelectBtn.lj_right + 10, 0, 100, 100)];
+    self.goodsImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SelectBtn.lj_right , 0, 100, 100)];
     self.goodsImageView.backgroundColor = LJRandomColor;
-    self.goodsImageView.lj_centerY = SelectBtn.lj_centerY;
+    self.goodsImageView.lj_centerY = SelectBtn.lj_centerY + 3;
     [self.contentView addSubview:self.goodsImageView];
     /*** 商品简介 ***/
-    self.briefLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.goodsImageView.lj_right + 15, self.goodsImageView.lj_y - 5, 160, 0)];
+    self.briefLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.goodsImageView.lj_right + 15, self.goodsImageView.lj_y - 3, 160, 0)];
     self.briefLabel.text = @"大青皮 该品种耐寒性特强，高抗病，茎棒粗大且顺直，皮绿肉青，质脆味清香，叶椭圆";
     self.briefLabel.numberOfLines = 2;
     [self.briefLabel sizeToFit];
@@ -113,13 +112,13 @@
     [button2 setTitle:@"-" forState:UIControlStateNormal];
     [button2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     button2.layer.borderWidth = 0.5;
-    button2.layer.borderColor = [[UIColor blackColor] CGColor];
+    button2.layer.borderColor = [LJFontColor CGColor];
     [button2 addTarget:self action:@selector(ButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:button2];
     /*** 商品数量L ***/
     self.goodsNumLabel = [[UILabel alloc] initWithFrame:CGRectMake(button2.lj_right, button2.lj_y, 60, 25)];
     self.goodsNumLabel.text = @"500";
-    self.goodsNumLabel.layer.borderColor = [[UIColor blackColor] CGColor];
+    self.goodsNumLabel.layer.borderColor = [LJFontColor CGColor];
     self.goodsNumLabel.layer.borderWidth = 0.5;
     self.goodsNumLabel.textAlignment = NSTextAlignmentCenter;
     [self.contentView addSubview:self.goodsNumLabel];
@@ -128,7 +127,7 @@
     [button3 setTitle:@"+" forState:UIControlStateNormal];
     [button3 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     button3.layer.borderWidth = 0.5;
-    button3.layer.borderColor = [[UIColor blackColor] CGColor];
+    button3.layer.borderColor = [LJFontColor CGColor];
     [button3 addTarget:self action:@selector(ButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:button3];
     /*** 单位 ***/

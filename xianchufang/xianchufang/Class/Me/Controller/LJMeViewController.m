@@ -128,21 +128,19 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
     self.barView = view;
     /*** 左边消息图标 ***/
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame= CGRectMake(10, 20, 60, 60);
+    button.frame= CGRectMake(0, 15, 50, 50);
     button.tag =1111;
     [button setImage:[UIImage imageNamed:@"tabbar_news_icon"] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(messageBtnClick) forControlEvents:UIControlEventTouchUpInside];
     self.messageBtn =button;
     LJRadDot *radDot = [[LJRadDot alloc] init]; //小红点
-    radDot.drag = YES;
     /*** 获取消息值 ***/
-    [radDot showRadDotOnObject:button text:@"100"];
-    [button sizeToFit];
+    [radDot showRadDotOnObject:button text:@"101"];
     [self.view addSubview:button];
   
     /*** 右边设置图标 ***/
     UIButton *button1 = [[UIButton alloc] init];
-    button1.frame= CGRectMake(0, 8, 50, 50);
+    button1.frame= CGRectMake(0, 15, 50, 50);
     button1.lj_right =self.view.lj_right+5 ;
     [button1 setImage:[UIImage imageNamed:@"tabbar_set_icon"] forState:UIControlStateNormal];
     [button1 addTarget:self action:@selector(settingBtnClick) forControlEvents:UIControlEventTouchUpInside];
@@ -224,7 +222,7 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
 
 #pragma mark --余额点击触发
 - (void)BalanceLabelClick {
-    UIViewController * Vc =[NSClassFromString(@"LJSettingViewController") new];
+    UIViewController * Vc =[NSClassFromString(@"") new];
     [self.navigationController pushViewController:Vc animated:YES];
 }
 
@@ -353,21 +351,15 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
             LJLog(@"全部订单");
         }
     }else {
-        switch (indexPath.row) {
-            case 0:
-                LJLog(@"采购清单");
-                break;
-            case 1:
-                LJLog(@"我的收藏");
-                break;
-            case 2:
-                LJLog(@"在线客服");
-                break;
-            case 3:
-                LJLog(@"关于我们");   
-                break;
-            default:
-                break;
+        if (indexPath.row == 0) {
+            UIViewController *Vc = [NSClassFromString(@"LJInventoryViewController") new];
+            [self.navigationController pushViewController:Vc animated:YES];
+        }else if (indexPath.row == 1){
+            
+        }else if (indexPath.row == 2){
+            
+        }else if (indexPath.row == 3){
+            
         }
     }
 }

@@ -132,6 +132,7 @@
         self.verifyBtn.layer.borderColor = LJTheMeColor.CGColor;
         [self.verifyBtn setTitleColor:LJTheMeColor forState:UIControlStateNormal];
         [self removeTimer];
+        time = 60;
     }
 }
 

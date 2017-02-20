@@ -18,10 +18,10 @@
     if ([object isKindOfClass:[UIView class]]){
        UIView* obj = (UIView *)object;
         if (obj.tag == 1111) {
-            W = obj.lj_width * 0.25;
+            W = obj.lj_width * 0.32;
             H = W;
-            X = obj.lj_width - W*3.1;
-            Y = W * 0.005;
+            X = obj.lj_width - W * 1.5;
+            Y = W * 0.6;
             self.btn =(UIButton*)obj;
         }else{
             W = obj.lj_width * 0.25;
@@ -60,7 +60,6 @@
 }
 
 - (void)PanRecognizer:(UIPanGestureRecognizer*)rec {
-    NSLog(@"33");
     CGPoint currentPoint=rec.view.center;
     CGPoint point = [rec translationInView:LJwindow];
     rec.view.center = CGPointMake(currentPoint.x+point.x, currentPoint.y +point.y);

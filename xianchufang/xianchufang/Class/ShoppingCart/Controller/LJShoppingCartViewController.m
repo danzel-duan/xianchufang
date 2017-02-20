@@ -9,14 +9,7 @@
 #import "LJShoppingCartViewController.h"
 #import "LJShoppingCarTableViewCell.h"
 @interface LJShoppingCartViewController ()
-/*** 结算按钮 ***/
-@property (nonatomic,strong) UIButton *settlementBtn;
-/*** 金额 ***/
-@property (nonatomic,strong) UILabel *priceLabel;
-/*** 合计一系列背景 ***/
-@property (nonatomic,strong) UIView *view1;
-/*** 底部标签栏 ***/
-@property (nonatomic,strong) UIView *bottomViewBg;
+
 @end
 
 @implementation LJShoppingCartViewController

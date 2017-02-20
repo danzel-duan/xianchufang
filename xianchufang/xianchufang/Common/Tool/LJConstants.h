@@ -13,7 +13,8 @@ extern CGFloat ljEdgeMax;
 extern CGFloat ljEdgeMin;
 
 
-
+#pragma mark -变量
+extern int selectNum;
 
 
 

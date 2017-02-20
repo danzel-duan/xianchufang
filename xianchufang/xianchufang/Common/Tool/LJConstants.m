@@ -5,8 +5,8 @@
 CGFloat ljEdgeMax = 23;
 CGFloat ljEdgeMin = 11;
 
-
-
+#pragma mark -变量
+int selectNum = 0;
 
 
 
