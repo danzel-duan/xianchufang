@@ -181,9 +181,8 @@
 
 #pragma mark --加减数量
 - (void)ButtonClick:(UIButton *)sender {
-//    if (self.SelectBtn.selected == YES) {
-        [self.delegate BtnClick:self tag:sender.tag];
-//    }
+    //代理
+    [self.delegate BtnClick:self tag:sender.tag];
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

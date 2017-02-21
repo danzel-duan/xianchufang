@@ -57,6 +57,7 @@
     cell.shoppingCarMOdel = self.dataArray [indexPath.row];
     __weak LJShoppingCartViewController *weakSelf = self;
     cell.calculateblock = ^{
+        if ([weakSelf.settlementBtn.titleLabel.text isEqualToString:@"删除"]) return ;
         [weakSelf totalPrice];
     };
     cell.delegate = self;
@@ -145,14 +146,24 @@
         LJShoppingCarModel *model = self.dataArray[i];
         model.isCellSelected = sender.selected;
     }
-    [self totalPrice];
     [self.tableView reloadData];
+    [self totalPrice];
 }
 
 #pragma mark --结算按钮的点击事件
 - (void)Settlement:(UIButton *)sender {
     if ([sender.currentTitle isEqualToString:@"删除"]) {
-        LJLog(@"删除");
+        for (int i = 0; i < self.dataArray.count; i++) {
+            LJShoppingCarModel *model = self.dataArray[i];
+            if (model.isCellSelected) {
+                [self.dataArray removeObject:self.dataArray[i]];
+                NSIndexPath *indexpath = [NSIndexPath indexPathForRow:i inSection:0];
+                [self.tableView deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:indexpath] withRowAnimation:UITableViewRowAnimationLeft];
+            }
+        }
+        _Allprice = 0.0;
+        goodsNumber = 0;
+        self.priceLabel.text = [NSString stringWithFormat:@"￥%.1f",_Allprice];
     }else{
         LJLog(@"结算");
     }
@@ -160,6 +171,7 @@
 
 #pragma mark --计算总价格
 - (void)totalPrice {
+    if ([self.settlementBtn.titleLabel.text isEqualToString:@"删除"]) return ;
     for (int i = 0; i < self.dataArray.count; i++) {
         LJShoppingCarModel *model = self.dataArray[i];
         if (model.isCellSelected) {
@@ -176,6 +188,7 @@
 
 #pragma mark --LJShoppingCarDelegate代理方法
 - (void)BtnClick:(UITableViewCell *)cell tag:(NSInteger)tag {
+    if ([self.settlementBtn.titleLabel.text isEqualToString:@"删除"]) return ;
     NSIndexPath *indexpath = [self.tableView indexPathForCell:cell];
     if (tag == 12) {
         //减法
