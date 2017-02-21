@@ -8,12 +8,11 @@
 
 #import "LJMeViewController.h"
 #import "LJOrderStatusTableViewCell.h"
+#import "LJOrderBaseViewController.h"
 #import "LJRadDot.h"
 @interface LJMeViewController ()<UINavigationControllerDelegate>
 #define headerSize  SCREEN_WIDTH/5   //头像大小
 #define bgImageH    SCREEN_HEIGHT*2/5 +0.5  //背景图片高度
-#define balInfontColor   LJColorFromRGB(0x393939)
-#define balInfontColor1   LJColorFromRGB(0xed1039)
 #define orderHight  SCREEN_HEIGHT/11   //订单行高
 #define orderHight1  SCREEN_HEIGHT*2/13
 #define cellFontSize  [UIFont systemFontOfSize:15 weight:UIFontWeightLight]
@@ -161,12 +160,12 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
     [self.backgroundView addSubview:balance];
     balance.backgroundColor = [UIColor whiteColor];
     [balance setFont:[UIFont systemFontOfSize:17 weight:UIFontWeightLight]];
-    [balance setTextColor:balInfontColor];
+    [balance setTextColor:LJFontColor39];
     
     self.balanceLabel = [[UILabel alloc] initWithFrame:CGRectMake(balance.lj_right, self.backgroundImageView.lj_bottom, SCREEN_WIDTH/4, 50)];
     self.balanceLabel.text = @"0.00";
     [self.balanceLabel setTextAlignment:NSTextAlignmentLeft];
-    [self.balanceLabel setTextColor:balInfontColor1];
+    [self.balanceLabel setTextColor:LJFontColored];
     [self.balanceLabel setFont:[UIFont systemFontOfSize:18 weight:UIFontWeightLight]];
     [self.backgroundView addSubview:self.balanceLabel];
     self.balanceLabel.backgroundColor = [UIColor whiteColor];
@@ -188,13 +187,13 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
     [self.backgroundView addSubview:integral];
     integral.backgroundColor = [UIColor whiteColor];
     [integral setFont:[UIFont systemFontOfSize:17 weight:UIFontWeightLight]];
-    [integral setTextColor:balInfontColor];
+    [integral setTextColor:LJFontColor39];
     
     self.integralLabel = [[UILabel alloc] initWithFrame:CGRectMake(integral.lj_right, self.backgroundImageView.lj_bottom, SCREEN_WIDTH/4, 50)];
     self.integralLabel.text = @"1.25千";
     [self.integralLabel setTextAlignment:NSTextAlignmentLeft];
     [self.backgroundView addSubview:self.integralLabel];
-    [self.integralLabel setTextColor:balInfontColor1];
+    [self.integralLabel setTextColor:LJFontColored];
     [self.integralLabel setFont:[UIFont systemFontOfSize:18 weight:UIFontWeightLight]];
     self.integralLabel.backgroundColor = [UIColor whiteColor];
     UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(IntegralLabelClick)];
@@ -292,7 +291,7 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
             if (indexPath.row == 0) {
                 cell.textLabel.text = @"我的订单";
                 cell.detailTextLabel.text = @"查看全部订单";
-                [cell.detailTextLabel setTextColor:balInfontColor];
+                [cell.detailTextLabel setTextColor:LJFontColor39];
                 [cell.detailTextLabel setFont:[UIFont systemFontOfSize:14 weight:UIFontWeightLight]];
             }
         }else {
@@ -323,32 +322,30 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
 
 #pragma mark --查看我的订单状态
 - (void)MyOrderStatusClick:(NSInteger)tag {
-    switch (tag) {
-        case 0:
-            NSLog(@"待付款");
-            break;
-        case 1:
-            NSLog(@"待配送");
-            break;
-        case 2:
-            NSLog(@"待收货");
-            break;
-        case 3:
-            NSLog(@"退货");
-            break;
-        case 4:
-            NSLog(@"待评价");
-            break;
-        default:
-            break;
+    if (tag == 0) { //待付款
+        UIViewController *Vc = [NSClassFromString(@"LJPayOrderViewController") new];
+        [self.navigationController pushViewController:Vc animated:YES];
+    }else if (tag == 1){ //待配送
+        UIViewController *Vc = [NSClassFromString(@"LJDeliverOreViewController") new];
+        [self.navigationController pushViewController:Vc animated:YES];
+    }else if (tag == 2){ //待收货
+        UIViewController *Vc = [NSClassFromString(@"LJReceiveOrderViewController") new];
+        [self.navigationController pushViewController:Vc animated:YES];
+    }else if (tag == 3){//退换货
+        UIViewController *Vc = [NSClassFromString(@"LJReturnGoodsOrderViewController") new];
+        [self.navigationController pushViewController:Vc animated:YES];
+    }else if (tag == 4){ //待评价
+        UIViewController *Vc = [NSClassFromString(@"LJEvaluateOrderViewController") new];
+        [self.navigationController pushViewController:Vc animated:YES];
     }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section ==0) {
-        if (indexPath.row == 0) {
-            LJLog(@"全部订单");
+        if (indexPath.row == 0) {//全部订单
+            UIViewController *Vc = [NSClassFromString(@"LJAllOrderViewController") new];
+            [self.navigationController pushViewController:Vc animated:YES];
         }
     }else {
         if (indexPath.row == 0) {

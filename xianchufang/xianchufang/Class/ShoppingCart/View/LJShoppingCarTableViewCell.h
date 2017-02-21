@@ -19,12 +19,13 @@
 @property (nonatomic,strong) UILabel *briefLabel;
 /*** 商品价格L ***/
 @property (nonatomic,strong) UILabel *priceLabel;
-///*** 商品价格 ***/
-//@property double price;
 /*** 商品数量L ***/
 @property (nonatomic,strong) UILabel *goodsNumLabel;
 /*** 选中button ***/
 @property (nonatomic,strong) UIButton *SelectBtn;
+/*** 背景 ***/
+@property (nonatomic,strong) UIView *bgView;
+@property (nonatomic,strong) UIView *bgView2;
 
 @property (nonatomic,strong) LJShoppingCarModel *shoppingCarMOdel;
 @end

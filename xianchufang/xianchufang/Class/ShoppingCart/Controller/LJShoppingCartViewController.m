@@ -34,7 +34,7 @@
 
 /*** 加载数据 ***/
 - (void)loadData {
-    NSArray *data = @[@{@"postAge":@"满399免运费",@"isPost":@"yes",@"goodsImageViewName":@"",@"brief":@"大青皮 该品种耐寒性特强，高抗病，茎棒粗大且顺直",@"price":@"200",@"goodsNum":@"340"},@{@"postAge":@"满399免运费",@"isPost":@"no",@"goodsImageViewName":@"",@"brief":@"大青皮 该品种耐寒性特强，高抗病，茎棒粗大且顺直",@"price":@"200",@"goodsNum":@"340"},@{@"postAge":@"满399免运费",@"isPost":@"no",@"goodsImageViewName":@"",@"brief":@"大青皮 该品种耐寒性特强，高抗病，茎棒粗大且顺直",@"price":@"200",@"goodsNum":@"340"},@{@"postAge":@"满399免运费",@"isPost":@"yes",@"goodsImageViewName":@"",@"brief":@"大青皮 该品种耐寒性特强，高抗病，茎棒粗大且顺直",@"price":@"200",@"goodsNum":@"340"},@{@"postAge":@"满399免运费",@"isPost":@"no",@"goodsImageViewName":@"",@"brief":@"大青皮 该品种耐寒性特强，高抗病，茎棒粗大且顺直",@"price":@"200",@"goodsNum":@"340"},@{@"postAge":@"满399免运费",@"isPost":@"yes",@"goodsImageViewName":@"",@"brief":@"大青皮 该品种耐寒性特强，高抗病，茎棒粗大且顺直",@"price":@"200",@"goodsNum":@"340"}];
+    NSArray *data = @[@{@"postAge":@"满399免运费",@"isPost":@"yes",@"goodsImageViewName":@"",@"brief":@"大青皮 该品种耐寒性特强，高抗病，茎棒粗大且顺直",@"price":@"200",@"goodsNum":@"340"},@{@"postAge":@"",@"isPost":@"no",@"goodsImageViewName":@"",@"brief":@"大青皮 该品种耐寒性特强，高抗病，茎棒粗大且顺直",@"price":@"200",@"goodsNum":@"340"},@{@"postAge":@"满399免运费",@"isPost":@"no",@"goodsImageViewName":@"",@"brief":@"大青皮 该品种耐寒性特强，高抗病，茎棒粗大且顺直",@"price":@"200",@"goodsNum":@"340"},@{@"postAge":@"满399免运费",@"isPost":@"yes",@"goodsImageViewName":@"",@"brief":@"大青皮 该品种耐寒性特强，高抗病，茎棒粗大且顺直",@"price":@"200",@"goodsNum":@"340"},@{@"postAge":@"满399免运费",@"isPost":@"no",@"goodsImageViewName":@"",@"brief":@"大青皮 该品种耐寒性特强，高抗病，茎棒粗大且顺直",@"price":@"200",@"goodsNum":@"340"},@{@"postAge":@"",@"isPost":@"yes",@"goodsImageViewName":@"",@"brief":@"大青皮 该品种耐寒性特强，高抗病，茎棒粗大且顺直",@"price":@"200",@"goodsNum":@"340"}];
     self.dataArray = [LJShoppingCarModel mj_objectArrayWithKeyValuesArray:data];
     [self.tableView reloadData];
 }
@@ -86,7 +86,7 @@
     [button setTitle:@"全选" forState:UIControlStateNormal];
     [button.titleLabel setFont:[UIFont systemFontOfSize:15]];
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [button setTitleColor:LJFontColor forState:UIControlStateSelected];
+    [button setTitleColor:LJFontColor88 forState:UIControlStateSelected];
     [button setImage:[UIImage imageNamed:@"my_circle_icon"] forState:UIControlStateNormal];
     [button setImage:[UIImage imageNamed:@"my_duihao_icon_selected"] forState:UIControlStateSelected];
     [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -126,12 +126,12 @@
     L2.text = @"不含运费";
     [L2 setFont:[UIFont systemFontOfSize:13]];
     L2.backgroundColor = [UIColor whiteColor];
-    L2.textColor = LJFontColor;
+    L2.textColor = LJFontColor88;
     [L2 sizeToFit];
     [view1 addSubview:L2];
 }
 
-#pragma mark --buttonClick
+#pragma mark --buttonClick 全选
 - (void)buttonClick :(UIButton *)sender {
     if (sender.selected == NO) {
         sender.selected = YES;

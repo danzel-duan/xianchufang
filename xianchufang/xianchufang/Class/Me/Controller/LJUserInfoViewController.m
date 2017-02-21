@@ -66,10 +66,10 @@ static NSString *const LJUserHeaderTableViewCellId = @"LJUserHeaderTableViewCell
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
     }
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator; //指示器
-    [cell.textLabel setFont:LJFontSize];
-    [cell.detailTextLabel setFont:LJFontSize];
-    [cell.textLabel setTextColor:LJFontColor];
-    [cell.detailTextLabel setTextColor:LJFontColor];
+    [cell.textLabel setFont:LJFontSize16];
+    [cell.detailTextLabel setFont:LJFontSize16];
+    [cell.textLabel setTextColor:LJFontColor4c];
+    [cell.detailTextLabel setTextColor:LJFontColor88];
     switch (indexPath.row) {
         case 1:
             cell.textLabel.text =@"昵称";

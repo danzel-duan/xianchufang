@@ -42,7 +42,7 @@
     self.okBtn.enabled = NO;
     [self.okBtn setTitle:@"确认修改" forState:UIControlStateNormal];
     [self.okBtn.titleLabel setTextColor:[UIColor whiteColor]];
-    [self.okBtn.titleLabel setFont:LJFontSize];
+    [self.okBtn.titleLabel setFont:LJFontSize16];
     [self.okBtn setLayerWithCr:5];
     [self.okBtn addTarget:self action:@selector(okBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.okBtn];
@@ -52,11 +52,11 @@
 - (UITextField *)addTextFieldsPlaceholder:(NSString *)placeholder y:(CGFloat)y {
     UITextField * textfield = [[UITextField alloc] initWithFrame:CGRectMake(24, y, SCREEN_WIDTH -24, 44)];
     textfield.placeholder = placeholder;
-    [textfield setFont:LJFontSize];
+    [textfield setFont:LJFontSize16];
     textfield.delegate = self;
     [textfield addTarget:self action:@selector(edingChange) forControlEvents:UIControlEventEditingChanged];
     textfield.keyboardType = UIKeyboardTypeASCIICapable;
-    textfield.tintColor = LJFontColor;
+    textfield.tintColor = LJFontColor88;
     [textfield setSecureTextEntry:YES];
     [self.bgView addSubview:textfield];
     UIView *cutLine = [[UIView alloc] initWithFrame:CGRectMake(0, textfield.lj_bottom, SCREEN_WIDTH, 1)];

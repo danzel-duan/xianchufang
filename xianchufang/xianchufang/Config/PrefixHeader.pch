@@ -57,27 +57,31 @@
 //#######################  5 常用的宏 #####################################
 /*** 颜色 ***/
 #define LJColorA(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)/255.0]
-/*** 颜色（透明度固定） ***/
-#define LJColor(r, g, b) LJColorA((r), (g), (b), 250)
 /*** 颜色（随机颜色） ***/
-#define LJRandomColor LJColor(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255))
-/*** 颜色（灰色，颜色深度根据数值大小而定） ***/
-#define LJGrayColor(v) LJColor((v), (v), (v))
-
+#define LJRandomColor LJColorA(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255),255)
 //rgb颜色转换（16进制->10进制）[数值前面加0x ]
 #define LJColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 /*** 颜色（统一背景颜色）***/
 #define LJCommonBgColor LJColorFromRGB(0xf3f3f3)
- /***主页背景色***/
-#define LJHomeBgColor LJColorFromRGB(0xf9f9f9)
-/*** 主题颜色 ***/
+/*** 主颜色 ***/
 #define LJTheMeColor LJColorFromRGB(0x18a149)
  /***分割线的颜色***/
 #define LJCutLineColor LJColorFromRGB(0xe3e3e3)
 
-#define LJFontSize [UIFont systemFontOfSize:16] //当前页面字体大小
+#define LJFontSize16 [UIFont systemFontOfSize:16] //字体大小
+#define LJFontSize15 [UIFont systemFontOfSize:15] //字体大小
+#define LJFontSize12 [UIFont systemFontOfSize:12] //字体大小
+#define LJFontSize14 [UIFont systemFontOfSize:14] //字体大小
+#define LJFontSize18 [UIFont systemFontOfSize:18] //字体大小
 /*** 字体颜色 ***/
-#define LJFontColor LJColorFromRGB(0x616161)
+#define LJFontColorc3 LJColorFromRGB(0xc3c3c3)
+#define LJFontColor4c LJColorFromRGB(0x4c4c4c)
+#define LJFontColor61 LJColorFromRGB(0x616161)
+#define LJFontColor39 LJColorFromRGB(0x393939)
+#define LJFontColor26 LJColorFromRGB(0x262626)
+#define LJFontColor88 LJColorFromRGB(0x888888)
+#define LJFontColored LJColorFromRGB(0xed1309)
+#define LJFontColorOr LJColorFromRGB(0xff842e)
 
 //#######################  6 常用的宏 #####################################
 //G－C－D

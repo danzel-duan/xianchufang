@@ -63,16 +63,16 @@
     UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 160, 0, 150, 35)];
     textField.lj_centerY = cell.lj_height / 2;
     textField.textAlignment = NSTextAlignmentRight;
-    textField.textColor = LJFontColor;
-    [textField setFont:LJFontSize];
+    textField.textColor = LJFontColor4c;
+    [textField setFont:LJFontSize16];
     textField.tag = indexPath.row + 100;
     textField.delegate =self;
     [textField addTarget:self action:@selector(edingChange) forControlEvents:UIControlEventEditingChanged];
     [cell addSubview:textField];
     
-    cell.textLabel.textColor = LJFontColor;
-    [cell.textLabel setFont:LJFontSize];
-    cell.detailTextLabel.textColor = LJFontColor;
+    cell.textLabel.textColor = LJFontColor4c;
+    [cell.textLabel setFont:LJFontSize16];
+    cell.detailTextLabel.textColor = LJFontColor88;
     [cell.detailTextLabel setFont:[UIFont systemFontOfSize:15]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
    
@@ -151,7 +151,7 @@
         self.saveBtn.backgroundColor = [UIColor redColor];
         self.saveBtn.enabled =YES;
     }else{
-        self.saveBtn.backgroundColor = LJFontColor;
+        self.saveBtn.backgroundColor = LJFontColor88;
         self.saveBtn.enabled =NO;
     }
 }
@@ -159,9 +159,9 @@
 #pragma mark --添加保存按钮
 - (void)addSaveBtn {
     self.saveBtn = [[UIButton alloc] initWithFrame:CGRectMake(28, SCREEN_HEIGHT -86, SCREEN_WIDTH - 56, 44)];
-    self.saveBtn.backgroundColor = LJColorFromRGB(0xc3c3c3);
+    self.saveBtn.backgroundColor = LJFontColorc3;
     self.saveBtn.enabled = NO;
-    [self.saveBtn.titleLabel setFont:LJFontSize];
+    [self.saveBtn.titleLabel setFont:LJFontSize16];
     [self.saveBtn setTitle:@"保存" forState:UIControlStateNormal];
     [self.saveBtn.titleLabel setTextColor:[UIColor whiteColor]];
     [self.saveBtn setLayerWithCr:5];

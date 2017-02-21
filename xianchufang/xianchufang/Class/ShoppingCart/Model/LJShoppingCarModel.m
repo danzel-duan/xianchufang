@@ -13,7 +13,7 @@
 - (CGFloat)cellHegiht {
     if (_cellHegiht) return _cellHegiht;
     
-    if ([self.isPost isEqualToString:@"yes"]) {
+    if ([self.postAge isEqualToString:@""]) { //满减为空，说明无满减活动
         _cellHegiht = 130;
     }else{
         _cellHegiht = 170;

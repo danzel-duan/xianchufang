@@ -127,7 +127,7 @@
     self.contentLabel.backgroundColor = [UIColor clearColor];
     self.contentLabel.textColor = [UIColor whiteColor];
     self.contentLabel.textAlignment = NSTextAlignmentCenter;
-    [self.contentLabel setFont:LJFontSize];
+    [self.contentLabel setFont:LJFontSize16];
     [self addSubview:self.contentLabel];
 }
 
@@ -153,7 +153,7 @@
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(12, 14, selfWidth, 20)];
     self.titleLabel.backgroundColor = [UIColor clearColor];
     [self.titleLabel setTextColor:[UIColor whiteColor]];
-    [self.titleLabel setFont:LJFontSize];
+    [self.titleLabel setFont:LJFontSize16];
     [view addSubview:self.titleLabel];
     
 }
@@ -162,10 +162,10 @@
 - (void)addContent {
     self.contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(22, 54, selfWidth - 44, 20)];
     self.contentLabel.backgroundColor = [UIColor whiteColor];
-    self.contentLabel.textColor = LJFontColor;
+    self.contentLabel.textColor = LJFontColor88;
     self.contentLabel.textAlignment = NSTextAlignmentCenter;
     
-    [self.contentLabel setFont:LJFontSize];
+    [self.contentLabel setFont:LJFontSize16];
     [self addSubview:self.contentLabel];
 }
 
@@ -269,9 +269,9 @@
         self.okBtn.lj_width = selfWidth;
     }
     [self.okBtn setTitle:@"确定" forState:UIControlStateNormal];
-    [self.okBtn setTitleColor:LJFontColor forState:UIControlStateNormal];
+    [self.okBtn setTitleColor:LJFontColor88 forState:UIControlStateNormal];
     [self.okBtn setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
-    [self.okBtn.titleLabel setFont:LJFontSize];
+    [self.okBtn.titleLabel setFont:LJFontSize16];
     self.okBtn.backgroundColor = [UIColor whiteColor];
     [self.okBtn addTarget:self action:@selector(oKClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.okBtn];
@@ -318,9 +318,9 @@
        [self addSubview:view];
     }
     [self.cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
-    [self.cancelBtn setTitleColor:LJFontColor forState:UIControlStateNormal];
+    [self.cancelBtn setTitleColor:LJFontColor88 forState:UIControlStateNormal];
     [self.cancelBtn setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
-    [self.cancelBtn.titleLabel setFont:LJFontSize];
+    [self.cancelBtn.titleLabel setFont:LJFontSize16];
     self.cancelBtn.backgroundColor = [UIColor whiteColor];
     [self.cancelBtn addTarget:self action:@selector(hideTooltip) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.cancelBtn];

@@ -34,7 +34,7 @@
     self.label = [[UILabel alloc] initWithFrame:CGRectMake(3, 10, 200, 10)];
     self.label.backgroundColor = [UIColor whiteColor];
     self.label.text = @"写下你想对我们说的话.....";
-    [self.label setTextColor:LJFontColor];
+    [self.label setTextColor:LJFontColor88];
     [self.label setFont:[UIFont systemFontOfSize:14]];
     self.label.userInteractionEnabled = NO;
     [textView addSubview:self.label];

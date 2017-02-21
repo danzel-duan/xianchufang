@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"设置";
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 84, SCREEN_WIDTH, 220)];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 74, SCREEN_WIDTH, 220)];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.bounces = NO; //去掉弹性效果
@@ -54,10 +54,10 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
     }
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator; //指示器
-    [cell.textLabel setFont:LJFontSize];
-    [cell.detailTextLabel setFont:LJFontSize];
-    [cell.textLabel setTextColor:LJFontColor];
-    [cell.detailTextLabel setTextColor:LJFontColor];
+    [cell.textLabel setFont:LJFontSize16];
+    [cell.detailTextLabel setFont:LJFontSize16];
+    [cell.textLabel setTextColor:LJFontColor4c];
+    [cell.detailTextLabel setTextColor:LJFontColor88];
     switch (indexPath.row) {
         case 0:
             cell.textLabel.text = @"个人资料";

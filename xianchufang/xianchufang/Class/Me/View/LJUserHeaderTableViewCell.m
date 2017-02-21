@@ -14,8 +14,8 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         self.TextLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 34, 0, 0)];
         self.TextLabel.text = @"头像";
-        [self.TextLabel setFont:LJFontSize];
-        [self.TextLabel setTextColor:LJFontColor];
+        [self.TextLabel setFont:LJFontSize16];
+        [self.TextLabel setTextColor:LJFontColor4c];
         [self.TextLabel sizeToFit];
         [self.contentView addSubview:self.TextLabel];
         

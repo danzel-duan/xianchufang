@@ -35,7 +35,7 @@
     [button setImage:[UIImage imageNamed:@"my_add_icon"] forState:UIControlStateNormal];
     button.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
     button.titleLabel.textColor = [UIColor whiteColor];
-    [button.titleLabel setFont:LJFontSize];
+    [button.titleLabel setFont:LJFontSize16];
     [button addTarget:self action:@selector(NewAddressBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
 }

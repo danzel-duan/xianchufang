@@ -43,20 +43,20 @@
     
     UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(11, 13, 0, 0)];
     label1.text = @"检查更新";
-    [label1 setTextColor:LJFontColor];
-    [label1 setFont:LJFontSize];
+    [label1 setTextColor:LJFontColor88];
+    [label1 setFont:LJFontSize16];
     [label1 sizeToFit];
     [bgView addSubview:label1];
     
     UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 60, 14, 50, 20)];
     label2.text = @"v 2.3.0";
-    [label2 setTextColor:LJFontColor];
+    [label2 setTextColor:LJFontColor88];
     [label2 setFont:[UIFont systemFontOfSize:14]];
     [bgView addSubview:label2];
     self.updateL = label2;
     
     UILabel *label3 =[[ UILabel alloc] initWithFrame:CGRectMake(80, SCREEN_HEIGHT - 70, 220, 15)];
-    [label3 setTextColor:LJFontColor];
+    [label3 setTextColor:LJFontColor88];
     label3.lj_centerX = SCREEN_WIDTH /2;
     [label3 setFont:[UIFont systemFontOfSize:12]];
     label3.text = @"上海邻巨网络有限公司 版权所有";
@@ -64,7 +64,7 @@
     [self.view addSubview:label3];
     
     UILabel *label4 =[[ UILabel alloc] initWithFrame:CGRectMake(50, SCREEN_HEIGHT - 54, 240, 15)];
-    [label4 setTextColor:LJFontColor];
+    [label4 setTextColor:LJFontColor4c];
     label4.lj_centerX = SCREEN_WIDTH /2;
     label4.textAlignment = NSTextAlignmentCenter;
     [label4 setFont:[UIFont systemFontOfSize:12]];

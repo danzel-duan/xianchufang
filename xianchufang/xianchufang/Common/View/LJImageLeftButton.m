@@ -19,9 +19,9 @@
     self.titleLabel.lj_x = self.imageView.lj_right + 16;
     self.imageView.lj_centerY= self.lj_height /2;
     self.titleLabel.textAlignment=NSTextAlignmentCenter;
-    [self.titleLabel setFont:LJFontSize];
+    [self.titleLabel setFont:LJFontSize16];
     [self.titleLabel sizeToFit];
-    [self.titleLabel setTextColor:LJFontColor];
+    [self.titleLabel setTextColor:LJFontColor88];
     self.backgroundColor=[UIColor whiteColor];
 }
 @end

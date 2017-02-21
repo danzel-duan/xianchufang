@@ -11,8 +11,6 @@
 @interface LJShoppingCarModel : NSObject
 /*** 满减内容 ***/
 @property (nonatomic,strong) NSString *postAge; //减多少元
-/*** 是否有满减活动 ***/
-@property (nonatomic,strong) NSString *isPost;
 /*** 商品图片 ***/
 @property (nonatomic,strong) NSString *goodsImageViewName;
 /*** 商品简介 ***/
