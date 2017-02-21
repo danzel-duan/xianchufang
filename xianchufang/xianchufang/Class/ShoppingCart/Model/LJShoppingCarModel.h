@@ -18,7 +18,7 @@
 /*** 商品价格 ***/
 @property (nonatomic,strong) NSString *price;
 /*** 商品数量 ***/
-@property (nonatomic,strong) NSString *goodsNum;
+@property (nonatomic,assign) int goodsNum;
 /*** 是否被选中 ***/
 @property BOOL isCellSelected;
 

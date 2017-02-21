@@ -11,8 +11,10 @@
 @interface LJShoppingCartViewController : LJBaseViewController
 /*** 结算按钮 ***/
 @property (nonatomic,strong) UIButton *settlementBtn;
-/*** 金额 ***/
+/*** 金额L ***/
 @property (nonatomic,strong) UILabel *priceLabel;
+/*** 金额 ***/
+@property (nonatomic,assign) CGFloat Allprice;
 /*** 合计一系列背景 ***/
 @property (nonatomic,strong) UIView *view1;
 /*** 底部标签栏 ***/

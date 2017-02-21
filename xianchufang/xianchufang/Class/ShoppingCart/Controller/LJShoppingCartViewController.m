@@ -8,7 +8,9 @@
 
 #import "LJShoppingCartViewController.h"
 #import "LJShoppingCarTableViewCell.h"
-@interface LJShoppingCartViewController ()
+@interface LJShoppingCartViewController ()<LjShoppingCarCellDelegate>{
+    int goodsNumber;//选中了几件商品
+}
 
 @end
 
@@ -26,7 +28,8 @@
     [self.view addSubview:self.tableView];
     //注册cell
     [self.tableView registerClass:[LJShoppingCarTableViewCell class] forCellReuseIdentifier:@"LJShoppingCarTableViewCell"];
-    
+    self.Allprice = 0;  //初始化总金额
+    goodsNumber = 0;
     [self setNavigationEdit];
     [self addBottomSettlementTabBar];
     [self loadData];
@@ -34,7 +37,7 @@
 
 /*** 加载数据 ***/
 - (void)loadData {
-    NSArray *data = @[@{@"postAge":@"满399免运费",@"isPost":@"yes",@"goodsImageViewName":@"",@"brief":@"大青皮 该品种耐寒性特强，高抗病，茎棒粗大且顺直",@"price":@"200",@"goodsNum":@"340"},@{@"postAge":@"",@"isPost":@"no",@"goodsImageViewName":@"",@"brief":@"大青皮 该品种耐寒性特强，高抗病，茎棒粗大且顺直",@"price":@"200",@"goodsNum":@"340"},@{@"postAge":@"满399免运费",@"isPost":@"no",@"goodsImageViewName":@"",@"brief":@"大青皮 该品种耐寒性特强，高抗病，茎棒粗大且顺直",@"price":@"200",@"goodsNum":@"340"},@{@"postAge":@"满399免运费",@"isPost":@"yes",@"goodsImageViewName":@"",@"brief":@"大青皮 该品种耐寒性特强，高抗病，茎棒粗大且顺直",@"price":@"200",@"goodsNum":@"340"},@{@"postAge":@"满399免运费",@"isPost":@"no",@"goodsImageViewName":@"",@"brief":@"大青皮 该品种耐寒性特强，高抗病，茎棒粗大且顺直",@"price":@"200",@"goodsNum":@"340"},@{@"postAge":@"",@"isPost":@"yes",@"goodsImageViewName":@"",@"brief":@"大青皮 该品种耐寒性特强，高抗病，茎棒粗大且顺直",@"price":@"200",@"goodsNum":@"340"}];
+    NSArray *data = @[@{@"postAge":@"满399免运费",@"isPost":@"yes",@"goodsImageViewName":@"",@"brief":@" 该品种耐寒性特强，高抗病，茎棒粗大且顺直",@"price":@"8",@"goodsNum":@"3"},@{@"postAge":@"",@"isPost":@"no",@"goodsImageViewName":@"",@"brief":@"大青品种耐寒性特强，高抗病，茎棒粗大且顺直",@"price":@"2",@"goodsNum":@"7"},@{@"postAge":@"满399免运费",@"isPost":@"no",@"goodsImageViewName":@"",@"brief":@"大青皮 该品种耐寒性特强，高抗病，茎棒粗大且顺直",@"price":@"200",@"goodsNum":@"40"},@{@"postAge":@"满399免运费",@"isPost":@"yes",@"goodsImageViewName":@"",@"brief":@"大青皮 该品种耐寒性特强，高抗病，茎棒粗大且顺直",@"price":@"300",@"goodsNum":@"340"},@{@"postAge":@"满399免运费",@"isPost":@"no",@"goodsImageViewName":@"",@"brief":@"大青皮 该品种耐寒性特强，高抗病，茎棒粗大且顺直",@"price":@"200",@"goodsNum":@"340"},@{@"postAge":@"",@"isPost":@"yes",@"goodsImageViewName":@"",@"brief":@"耐寒性特强，高抗病，茎棒粗大且顺直",@"price":@"200",@"goodsNum":@"340"}];
     self.dataArray = [LJShoppingCarModel mj_objectArrayWithKeyValuesArray:data];
     [self.tableView reloadData];
 }
@@ -52,6 +55,11 @@
     LJShoppingCarTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LJShoppingCarTableViewCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.shoppingCarMOdel = self.dataArray [indexPath.row];
+    __weak LJShoppingCartViewController *weakSelf = self;
+    cell.calculateblock = ^{
+        [weakSelf totalPrice];
+    };
+    cell.delegate = self;
     return cell;
 }
 
@@ -84,9 +92,9 @@
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, view.lj_height)];
     button.backgroundColor = [UIColor whiteColor];
     [button setTitle:@"全选" forState:UIControlStateNormal];
-    [button.titleLabel setFont:[UIFont systemFontOfSize:15]];
-    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [button setTitleColor:LJFontColor88 forState:UIControlStateSelected];
+    [button.titleLabel setFont:LJFontSize15];
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
+    [button setTitleColor:LJFontColor88 forState:UIControlStateNormal];
     [button setImage:[UIImage imageNamed:@"my_circle_icon"] forState:UIControlStateNormal];
     [button setImage:[UIImage imageNamed:@"my_duihao_icon_selected"] forState:UIControlStateSelected];
     [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -113,13 +121,12 @@
     L1.backgroundColor = [UIColor whiteColor];
     [view1 addSubview:L1];
     
-    self.priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(L1.lj_right, 5, 0, 20)];
-    self.priceLabel.text = @"￥40000.0";
-    [self.priceLabel setFont:[UIFont systemFontOfSize:18]];
+    self.priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(L1.lj_right, 5, 115, 20)];
+    self.priceLabel.text = @"￥0.0";
+    [self.priceLabel setFont:[UIFont systemFontOfSize:15]];
     [self.priceLabel setTextAlignment:NSTextAlignmentLeft];
     [self.priceLabel setTextColor:[UIColor redColor]];
     self.priceLabel.backgroundColor = [UIColor whiteColor];
-    [self.priceLabel sizeToFit];
     [view1 addSubview:self.priceLabel];
     
     UILabel *L2 = [[UILabel alloc] initWithFrame:CGRectMake(0, L1.lj_bottom , 20, 10)];
@@ -133,11 +140,13 @@
 
 #pragma mark --buttonClick 全选
 - (void)buttonClick :(UIButton *)sender {
-    if (sender.selected == NO) {
-        sender.selected = YES;
-    }else{
-        sender.selected = NO;
+    sender.selected = !sender.selected;
+    for (int i = 0; i<self.dataArray.count; i++) {
+        LJShoppingCarModel *model = self.dataArray[i];
+        model.isCellSelected = sender.selected;
     }
+    [self totalPrice];
+    [self.tableView reloadData];
 }
 
 #pragma mark --结算按钮的点击事件
@@ -147,6 +156,40 @@
     }else{
         LJLog(@"结算");
     }
+}
+
+#pragma mark --计算总价格
+- (void)totalPrice {
+    for (int i = 0; i < self.dataArray.count; i++) {
+        LJShoppingCarModel *model = self.dataArray[i];
+        if (model.isCellSelected) {
+            _Allprice = _Allprice + model.goodsNum  * [model.price floatValue];
+            goodsNumber ++;
+        }
+    }
+    self.priceLabel.text = [NSString stringWithFormat:@"￥%.1f",_Allprice];
+    [self.settlementBtn setTitle:[NSString stringWithFormat:@"去结算(%d)",goodsNumber] forState:UIControlStateNormal];
+    _Allprice = 0.0;
+    goodsNumber = 0;
+}
+
+
+#pragma mark --LJShoppingCarDelegate代理方法
+- (void)BtnClick:(UITableViewCell *)cell tag:(NSInteger)tag {
+    NSIndexPath *indexpath = [self.tableView indexPathForCell:cell];
+    if (tag == 12) {
+        //减法
+        LJShoppingCarModel *model = self.dataArray[indexpath.row];
+        if (model.goodsNum  > 1) {
+            model.goodsNum --;
+        }
+    }else if(tag == 14){
+            //加法
+            LJShoppingCarModel *model = self.dataArray[indexpath.row];
+            model.goodsNum ++;
+        }
+    [self totalPrice];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {

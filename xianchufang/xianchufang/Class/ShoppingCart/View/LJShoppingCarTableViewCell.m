@@ -27,8 +27,10 @@
     _shoppingCarMOdel = shoppingCarMOdel;
     self.goodsImageView.image = [UIImage imageNamed:shoppingCarMOdel.goodsImageViewName];
     self.briefLabel.text = shoppingCarMOdel.brief;
-    self.goodsNumLabel.text = shoppingCarMOdel.goodsNum;
+    self.goodsNumLabel.text = [NSString stringWithFormat:@"%d",shoppingCarMOdel.goodsNum];
     self.priceLabel.text = [NSString stringWithFormat:@"￥%@",shoppingCarMOdel.price];
+    self.price = shoppingCarMOdel.price;
+    self.goodsNum = [NSString stringWithFormat:@"%d",shoppingCarMOdel.goodsNum];
     if ([shoppingCarMOdel.postAge isEqualToString:@""]) {
         [self.topBgView removeFromSuperview];
         self.bgView.lj_height = 120;
@@ -125,9 +127,9 @@
     [bgView2 addSubview:self.briefLabel];
     /*** 商品价格 ***/
     self.priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.goodsImageView.lj_right + 15, self.briefLabel.lj_bottom + 10, 0, 20)];
+    self.priceLabel.text = @"2000000000";
     [self.priceLabel setFont:[UIFont systemFontOfSize:15]];
     [self.priceLabel setTextColor:[UIColor redColor]];
-    self.priceLabel.text = [NSString stringWithFormat:@"￥%.1f",2000.0];
     [self.priceLabel sizeToFit];
     [bgView2 addSubview:self.priceLabel];
     /*** 减数量 ***/
@@ -136,11 +138,11 @@
     [button2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     button2.layer.borderWidth = 0.5;
     button2.layer.borderColor = [LJFontColor88 CGColor];
+    button2.tag = 12;
     [button2 addTarget:self action:@selector(ButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [bgView2 addSubview:button2];
     /*** 商品数量L ***/
     self.goodsNumLabel = [[UILabel alloc] initWithFrame:CGRectMake(button2.lj_right, button2.lj_y, 60, 25)];
-    self.goodsNumLabel.text = @"500";
     self.goodsNumLabel.layer.borderColor = [LJFontColor88 CGColor];
     self.goodsNumLabel.layer.borderWidth = 0.5;
     self.goodsNumLabel.textAlignment = NSTextAlignmentCenter;
@@ -151,6 +153,7 @@
     [button3 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     button3.layer.borderWidth = 0.5;
     button3.layer.borderColor = [LJFontColor88 CGColor];
+    button3.tag = 14;
     [button3 addTarget:self action:@selector(ButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [bgView2 addSubview:button3];
     /*** 单位 ***/
@@ -171,20 +174,16 @@
         sender.selected = YES;
         self.shoppingCarMOdel.isCellSelected = YES;
     }
+    if (self.calculateblock) {
+        self.calculateblock();
+    }
 }
 
 #pragma mark --加减数量
 - (void)ButtonClick:(UIButton *)sender {
-    if ([sender.currentTitle isEqualToString:@"-"]) {
-        int num = [self.goodsNumLabel.text intValue];
-        if (num <= 1) {
-           self.goodsNumLabel.text = @"1";
-        }
-        self.goodsNumLabel.text = [NSString stringWithFormat:@"%d",--num];
-    }else{
-        int num = [self.goodsNumLabel.text intValue];
-        self.goodsNumLabel.text = [NSString stringWithFormat:@"%d",++num];
-    }
+//    if (self.SelectBtn.selected == YES) {
+        [self.delegate BtnClick:self tag:sender.tag];
+//    }
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
