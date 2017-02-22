@@ -16,6 +16,16 @@
 		1464B9091E5C2FA7003CC3BC /* LJReturnGoodsOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1464B9081E5C2FA7003CC3BC /* LJReturnGoodsOrderViewController.m */; };
 		1464B90C1E5C2FCF003CC3BC /* LJDeliverOreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1464B90B1E5C2FCF003CC3BC /* LJDeliverOreViewController.m */; };
 		1464B90F1E5C2FE1003CC3BC /* LJAllOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1464B90E1E5C2FE1003CC3BC /* LJAllOrderViewController.m */; };
+		1466CFC71E5D684500843FA9 /* LJMyCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1466CFC61E5D684500843FA9 /* LJMyCollectViewController.m */; };
+		1466CFCB1E5D69C500843FA9 /* LJMyCollectCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1466CFCA1E5D69C500843FA9 /* LJMyCollectCollectionViewCell.m */; };
+		1466CFCE1E5D82B600843FA9 /* LJMyCollectDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1466CFCD1E5D82B600843FA9 /* LJMyCollectDetailViewController.m */; };
+		1466CFD11E5D888C00843FA9 /* LJMyCollectDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1466CFD01E5D888C00843FA9 /* LJMyCollectDetailTableViewCell.m */; };
+		1466CFD41E5DA79600843FA9 /* LJBalanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1466CFD31E5DA79600843FA9 /* LJBalanceViewController.m */; };
+		1466CFD81E5DB60D00843FA9 /* LJBalanceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1466CFD71E5DB60D00843FA9 /* LJBalanceDetailViewController.m */; };
+		1466CFDB1E5DB64C00843FA9 /* LJIntefralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1466CFDA1E5DB64C00843FA9 /* LJIntefralViewController.m */; };
+		1466CFDF1E5DBDD600843FA9 /* LJIntefralRuleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1466CFDE1E5DBDD600843FA9 /* LJIntefralRuleViewController.m */; };
+		1466CFE31E5DBE1C00843FA9 /* LJIntegralTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1466CFE21E5DBE1C00843FA9 /* LJIntegralTableViewCell.m */; };
+		1466CFE71E5DBE3D00843FA9 /* LJBalanceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1466CFE61E5DBE3D00843FA9 /* LJBalanceTableViewCell.m */; };
 		146A2E7B1E5A93530092928D /* LJShoppingCarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 146A2E7A1E5A93530092928D /* LJShoppingCarTableViewCell.m */; };
 		146A2E7E1E5ABEDB0092928D /* LJInventoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 146A2E7D1E5ABEDB0092928D /* LJInventoryTableViewCell.m */; };
 		146A2E811E5ABF190092928D /* LJInventoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 146A2E801E5ABF190092928D /* LJInventoryViewController.m */; };
@@ -100,6 +110,26 @@
 		1464B90B1E5C2FCF003CC3BC /* LJDeliverOreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJDeliverOreViewController.m; sourceTree = "<group>"; };
 		1464B90D1E5C2FE1003CC3BC /* LJAllOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJAllOrderViewController.h; sourceTree = "<group>"; };
 		1464B90E1E5C2FE1003CC3BC /* LJAllOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJAllOrderViewController.m; sourceTree = "<group>"; };
+		1466CFC51E5D684500843FA9 /* LJMyCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJMyCollectViewController.h; sourceTree = "<group>"; };
+		1466CFC61E5D684500843FA9 /* LJMyCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJMyCollectViewController.m; sourceTree = "<group>"; };
+		1466CFC91E5D69C500843FA9 /* LJMyCollectCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJMyCollectCollectionViewCell.h; sourceTree = "<group>"; };
+		1466CFCA1E5D69C500843FA9 /* LJMyCollectCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJMyCollectCollectionViewCell.m; sourceTree = "<group>"; };
+		1466CFCC1E5D82B600843FA9 /* LJMyCollectDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJMyCollectDetailViewController.h; sourceTree = "<group>"; };
+		1466CFCD1E5D82B600843FA9 /* LJMyCollectDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJMyCollectDetailViewController.m; sourceTree = "<group>"; };
+		1466CFCF1E5D888C00843FA9 /* LJMyCollectDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJMyCollectDetailTableViewCell.h; sourceTree = "<group>"; };
+		1466CFD01E5D888C00843FA9 /* LJMyCollectDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJMyCollectDetailTableViewCell.m; sourceTree = "<group>"; };
+		1466CFD21E5DA79600843FA9 /* LJBalanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJBalanceViewController.h; sourceTree = "<group>"; };
+		1466CFD31E5DA79600843FA9 /* LJBalanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJBalanceViewController.m; sourceTree = "<group>"; };
+		1466CFD61E5DB60D00843FA9 /* LJBalanceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJBalanceDetailViewController.h; sourceTree = "<group>"; };
+		1466CFD71E5DB60D00843FA9 /* LJBalanceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJBalanceDetailViewController.m; sourceTree = "<group>"; };
+		1466CFD91E5DB64C00843FA9 /* LJIntefralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJIntefralViewController.h; sourceTree = "<group>"; };
+		1466CFDA1E5DB64C00843FA9 /* LJIntefralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJIntefralViewController.m; sourceTree = "<group>"; };
+		1466CFDD1E5DBDD600843FA9 /* LJIntefralRuleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJIntefralRuleViewController.h; sourceTree = "<group>"; };
+		1466CFDE1E5DBDD600843FA9 /* LJIntefralRuleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJIntefralRuleViewController.m; sourceTree = "<group>"; };
+		1466CFE11E5DBE1C00843FA9 /* LJIntegralTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJIntegralTableViewCell.h; sourceTree = "<group>"; };
+		1466CFE21E5DBE1C00843FA9 /* LJIntegralTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJIntegralTableViewCell.m; sourceTree = "<group>"; };
+		1466CFE51E5DBE3D00843FA9 /* LJBalanceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJBalanceTableViewCell.h; sourceTree = "<group>"; };
+		1466CFE61E5DBE3D00843FA9 /* LJBalanceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJBalanceTableViewCell.m; sourceTree = "<group>"; };
 		146A2E791E5A93530092928D /* LJShoppingCarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJShoppingCarTableViewCell.h; sourceTree = "<group>"; };
 		146A2E7A1E5A93530092928D /* LJShoppingCarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJShoppingCarTableViewCell.m; sourceTree = "<group>"; };
 		146A2E7C1E5ABEDB0092928D /* LJInventoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJInventoryTableViewCell.h; sourceTree = "<group>"; };
@@ -265,6 +295,68 @@
 				146A2E7D1E5ABEDB0092928D /* LJInventoryTableViewCell.m */,
 			);
 			name = Inventory;
+			sourceTree = "<group>";
+		};
+		1466CFC41E5D5E7C00843FA9 /* MyCollect */ = {
+			isa = PBXGroup;
+			children = (
+				1466CFC51E5D684500843FA9 /* LJMyCollectViewController.h */,
+				1466CFC61E5D684500843FA9 /* LJMyCollectViewController.m */,
+				1466CFCC1E5D82B600843FA9 /* LJMyCollectDetailViewController.h */,
+				1466CFCD1E5D82B600843FA9 /* LJMyCollectDetailViewController.m */,
+			);
+			name = MyCollect;
+			sourceTree = "<group>";
+		};
+		1466CFC81E5D699300843FA9 /* MyCollect */ = {
+			isa = PBXGroup;
+			children = (
+				1466CFC91E5D69C500843FA9 /* LJMyCollectCollectionViewCell.h */,
+				1466CFCA1E5D69C500843FA9 /* LJMyCollectCollectionViewCell.m */,
+				1466CFCF1E5D888C00843FA9 /* LJMyCollectDetailTableViewCell.h */,
+				1466CFD01E5D888C00843FA9 /* LJMyCollectDetailTableViewCell.m */,
+			);
+			name = MyCollect;
+			sourceTree = "<group>";
+		};
+		1466CFD51E5DA7A900843FA9 /* Balance */ = {
+			isa = PBXGroup;
+			children = (
+				1466CFD21E5DA79600843FA9 /* LJBalanceViewController.h */,
+				1466CFD31E5DA79600843FA9 /* LJBalanceViewController.m */,
+				1466CFD61E5DB60D00843FA9 /* LJBalanceDetailViewController.h */,
+				1466CFD71E5DB60D00843FA9 /* LJBalanceDetailViewController.m */,
+			);
+			name = Balance;
+			sourceTree = "<group>";
+		};
+		1466CFDC1E5DB65600843FA9 /* Integral */ = {
+			isa = PBXGroup;
+			children = (
+				1466CFD91E5DB64C00843FA9 /* LJIntefralViewController.h */,
+				1466CFDA1E5DB64C00843FA9 /* LJIntefralViewController.m */,
+				1466CFDD1E5DBDD600843FA9 /* LJIntefralRuleViewController.h */,
+				1466CFDE1E5DBDD600843FA9 /* LJIntefralRuleViewController.m */,
+			);
+			name = Integral;
+			sourceTree = "<group>";
+		};
+		1466CFE01E5DBE0100843FA9 /* Integral */ = {
+			isa = PBXGroup;
+			children = (
+				1466CFE11E5DBE1C00843FA9 /* LJIntegralTableViewCell.h */,
+				1466CFE21E5DBE1C00843FA9 /* LJIntegralTableViewCell.m */,
+			);
+			name = Integral;
+			sourceTree = "<group>";
+		};
+		1466CFE41E5DBE2E00843FA9 /* Balance */ = {
+			isa = PBXGroup;
+			children = (
+				1466CFE51E5DBE3D00843FA9 /* LJBalanceTableViewCell.h */,
+				1466CFE61E5DBE3D00843FA9 /* LJBalanceTableViewCell.m */,
+			);
+			name = Balance;
 			sourceTree = "<group>";
 		};
 		146A2E881E5AFBDB0092928D /* Inventory */ = {
@@ -495,6 +587,9 @@
 		14E05BB41E5137710057D3AE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1466CFDC1E5DB65600843FA9 /* Integral */,
+				1466CFD51E5DA7A900843FA9 /* Balance */,
+				1466CFC41E5D5E7C00843FA9 /* MyCollect */,
 				1464B8F51E5BDE6B003CC3BC /* Order */,
 				146A2E881E5AFBDB0092928D /* Inventory */,
 				1486DAF51E54273E0096E46D /* Settings */,
@@ -514,6 +609,9 @@
 		14E05BB81E5137710057D3AE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1466CFE41E5DBE2E00843FA9 /* Balance */,
+				1466CFE01E5DBE0100843FA9 /* Integral */,
+				1466CFC81E5D699300843FA9 /* MyCollect */,
 				1464B8FA1E5C0102003CC3BC /* Inventory */,
 				1464B8F91E5C00E4003CC3BC /* Order */,
 				1486DAFC1E543AF60096E46D /* Settings */,
@@ -988,6 +1086,7 @@
 				14DE12201E51FC1600836B46 /* LJOrderStatusTableViewCell.m in Sources */,
 				146A2E7B1E5A93530092928D /* LJShoppingCarTableViewCell.m in Sources */,
 				1464B8F41E5BDE65003CC3BC /* LJOrderBaseViewController.m in Sources */,
+				1466CFDF1E5DBDD600843FA9 /* LJIntefralRuleViewController.m in Sources */,
 				14DE12181E51F01C00836B46 /* UIFont+LJExtension.m in Sources */,
 				14786BA71E55429E0099451B /* LJImageLeftButton.m in Sources */,
 				146A2E8B1E5B2F280092928D /* LJShoppingCarModel.m in Sources */,
@@ -996,11 +1095,15 @@
 				14786BAA1E555B740099451B /* LJModifyPhoneNumViewController.m in Sources */,
 				1486DB021E544EEF0096E46D /* LJTooltip.m in Sources */,
 				14E05BE41E5137710057D3AE /* UIBarButtonItem+LJExtension.m in Sources */,
+				1466CFE31E5DBE1C00843FA9 /* LJIntegralTableViewCell.m in Sources */,
 				1464B90F1E5C2FE1003CC3BC /* LJAllOrderViewController.m in Sources */,
+				1466CFD41E5DA79600843FA9 /* LJBalanceViewController.m in Sources */,
 				1486DAF41E53FAFA0096E46D /* LJSettingViewController.m in Sources */,
+				1466CFDB1E5DB64C00843FA9 /* LJIntefralViewController.m in Sources */,
 				14E05BF31E513B170057D3AE /* LJClassifyViewController.m in Sources */,
 				1488C80D1E573A9900C1AC27 /* LJCheckUpdateViewController.m in Sources */,
 				146A2E811E5ABF190092928D /* LJInventoryViewController.m in Sources */,
+				1466CFC71E5D684500843FA9 /* LJMyCollectViewController.m in Sources */,
 				1488C8071E56B6B700C1AC27 /* LJVerifyInfo.m in Sources */,
 				14E05BEE1E5137710057D3AE /* LJRootViewController.m in Sources */,
 				14E05BE91E5137710057D3AE /* LJData.m in Sources */,
@@ -1008,15 +1111,20 @@
 				148688461E5347210019DD3E /* LJRadDot.m in Sources */,
 				14E05BE81E5137710057D3AE /* LJConstants.m in Sources */,
 				146A2E7E1E5ABEDB0092928D /* LJInventoryTableViewCell.m in Sources */,
+				1466CFE71E5DBE3D00843FA9 /* LJBalanceTableViewCell.m in Sources */,
+				1466CFD81E5DB60D00843FA9 /* LJBalanceDetailViewController.m in Sources */,
 				1488C80A1E5704FE00C1AC27 /* LJModifyPwdViewController.m in Sources */,
+				1466CFCE1E5D82B600843FA9 /* LJMyCollectDetailViewController.m in Sources */,
 				1464B9061E5C2F8A003CC3BC /* LJEvaluateOrderViewController.m in Sources */,
 				14E05BE61E5137710057D3AE /* LJBaseNavigationController.m in Sources */,
 				14E05BE21E5137710057D3AE /* LJMeViewController.m in Sources */,
 				1464B9001E5C2F44003CC3BC /* LJPayOrderViewController.m in Sources */,
 				1464B9031E5C2F5D003CC3BC /* LJReceiveOrderViewController.m in Sources */,
+				1466CFCB1E5D69C500843FA9 /* LJMyCollectCollectionViewCell.m in Sources */,
 				14DE12231E51FD1700836B46 /* LJButton.m in Sources */,
 				1486DAF81E5428200096E46D /* LJUserInfoViewController.m in Sources */,
 				1464B8FD1E5C1FD8003CC3BC /* LJOrderGoodsDetailTableViewCell.m in Sources */,
+				1466CFD11E5D888C00843FA9 /* LJMyCollectDetailTableViewCell.m in Sources */,
 				14E05BED1E5137710057D3AE /* AppDelegate.m in Sources */,
 				14E05BE31E5137710057D3AE /* LJShoppingCartViewController.m in Sources */,
 				1486DAFF1E543B4C0096E46D /* LJUserHeaderTableViewCell.m in Sources */,

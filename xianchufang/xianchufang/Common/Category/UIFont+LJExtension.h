@@ -14,7 +14,7 @@
 #define IPHONE6_INCREMENT 2
 
 // 这里设置iPhone6Plus放大的字号数（现在是放大3号，也就是iPhone4s和iPhone5上字体为15时，iPhone6上字号为18）
-#define IPHONE6PLUS_INCREMENT 3
+#define IPHONE6PLUS_INCREMENT 1
 @interface UIFont (LJExtension)
 
 +(UIFont *)adjustFont:(CGFloat)fontSize;

@@ -47,6 +47,10 @@
 #define autoEdgeW(a) ((a)/ 320.0 * SCREEN_WIDTH)
 #define autoEdgeH(b) ((b)/ 568.0 * SCREEN_HEIGHT)
 
+//比例间距 /*** 以6屏幕为基准 ***/
+#define spaceEdgeW(a) ((a)/ 375.0 * SCREEN_WIDTH)
+#define spaceEdgeH(b) ((b)/ 667.0 * SCREEN_HEIGHT)
+
 //#######################  3 #####################################
 /*** 日志 ***/
 #ifdef DEBUG

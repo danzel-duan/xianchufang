@@ -48,7 +48,7 @@
         [self addChildViewController:nav];
     }];
     [self UnifyText];
-    self.selectedIndex = 2;
+    self.selectedIndex = 3;
 }
 
 #pragma mark--统一文字属性

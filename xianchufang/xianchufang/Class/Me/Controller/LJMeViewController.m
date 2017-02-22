@@ -221,13 +221,14 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
 
 #pragma mark --余额点击触发
 - (void)BalanceLabelClick {
-    UIViewController * Vc =[NSClassFromString(@"") new];
+    UIViewController * Vc =[NSClassFromString(@"LJBalanceViewController") new];
     [self.navigationController pushViewController:Vc animated:YES];
 }
 
 #pragma mark --积分点击触发
 - (void)IntegralLabelClick {
-    LJLogFunc
+    UIViewController * Vc =[NSClassFromString(@"LJIntefralViewController") new];
+    [self.navigationController pushViewController:Vc animated:YES];
 }
 
 /*** tableView代理方法 ***/
@@ -352,7 +353,8 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
             UIViewController *Vc = [NSClassFromString(@"LJInventoryViewController") new];
             [self.navigationController pushViewController:Vc animated:YES];
         }else if (indexPath.row == 1){
-            
+            UIViewController *Vc = [NSClassFromString(@"LJMyCollectViewController") new];
+            [self.navigationController pushViewController:Vc animated:YES];
         }else if (indexPath.row == 2){
             
         }else if (indexPath.row == 3){

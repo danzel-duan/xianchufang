@@ -76,6 +76,7 @@
         sender.selected = NO;
         [self.settlementBtn setTitle:@"去结算(0)" forState:UIControlStateNormal];
         [self.bottomViewBg addSubview:self.view1];
+        [self totalPrice];
     }else{
         sender.selected = YES;
         [self.settlementBtn setTitle:@"删除" forState:UIControlStateNormal];
@@ -121,9 +122,9 @@
     [L1 sizeToFit];
     [view1 addSubview:L1];
     
-    self.priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(L1.lj_right, 5, 115, 20)];
+    self.priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(L1.lj_right, 3, 115, 20)];
     self.priceLabel.text = @"￥0.0";
-    [self.priceLabel setFont:LJFontSize14];
+    [self.priceLabel setFont:LJFontSize15];
     [self.priceLabel setTextAlignment:NSTextAlignmentLeft];
     [self.priceLabel setTextColor:[UIColor redColor]];
     [view1 addSubview:self.priceLabel];

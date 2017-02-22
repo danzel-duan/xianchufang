@@ -28,6 +28,7 @@
     [button setTitle:text forState:UIControlStateNormal];
     [button setTitle:HighText forState:UIControlStateSelected];
     [button setTitleColor:highColor forState:UIControlStateSelected];
+    [button.titleLabel setFont:LJFontSize15];
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     [button sizeToFit];
     return [[self alloc] initWithCustomView:button];
