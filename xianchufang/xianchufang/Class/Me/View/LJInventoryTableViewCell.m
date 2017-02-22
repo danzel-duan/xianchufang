@@ -41,7 +41,7 @@
 }
 
 - (void)setUpChildrenFrame {
-    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 231)];
+    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH,  autoEdgeH(231))];
     bgView.backgroundColor = [UIColor whiteColor];
     //给bgView边框设置阴影
     bgView.layer.shadowOffset = CGSizeMake(1,3);
@@ -70,44 +70,13 @@
     UIView *cutLine = [[UIView alloc] initWithFrame:CGRectMake(0,nextBtn.lj_bottom, SCREEN_WIDTH, 0.5)];
     cutLine.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
     [self.contentView addSubview:cutLine];
-    /*** 分割线 ***/
-    UIView *cutLine1 = [[UIView alloc] initWithFrame:CGRectMake(0,cutLine.lj_bottom + 115, SCREEN_WIDTH, 0.5)];
-    cutLine1.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
-    [self.contentView addSubview:cutLine1];
-    
-    self.totalAmountLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 90, cutLine1.lj_bottom + 10, 90, 20)];
-    self.totalAmountLabel.text = @"20.0";
-    [self.totalAmountLabel setFont:[UIFont systemFontOfSize:18]];
-    self.totalAmountLabel.textAlignment = NSTextAlignmentCenter;
-    self.totalAmountLabel.textColor = LJColorFromRGB(0x262626);
-    [self.contentView addSubview:self.totalAmountLabel];
-    
-    UILabel *amountLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, cutLine1.lj_bottom + 10, 75, 20)];
-    amountLabel.text = @"总金额 ￥";
-    [amountLabel setFont:[UIFont systemFontOfSize:15]];
-    amountLabel.textColor = LJColorFromRGB(0x262626);
-    amountLabel.lj_x = SCREEN_WIDTH - self.totalAmountLabel.lj_width - amountLabel.lj_width;
-    amountLabel.textAlignment = NSTextAlignmentRight;
-    [self.contentView addSubview:amountLabel];
-    //
-    self.goodsNumLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, cutLine1.lj_bottom + 10, 100, 20)];
-    self.goodsNumLabel.text = @"共6件商品";
-    [self.goodsNumLabel setFont:[UIFont systemFontOfSize:15]];
-    self.goodsNumLabel.textColor = LJColorFromRGB(0x262626);
-    self.goodsNumLabel.lj_x = SCREEN_WIDTH - self.totalAmountLabel.lj_width - amountLabel.lj_width - self.goodsNumLabel.lj_width;
-    self.goodsNumLabel.textAlignment = NSTextAlignmentRight;
-    [self.contentView addSubview:self.goodsNumLabel];
-    /*** 分割线 ***/
-    UIView *cutLine2 = [[UIView alloc] initWithFrame:CGRectMake(0,self.totalAmountLabel.lj_bottom + 10, SCREEN_WIDTH, 0.5)];
-    cutLine2.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
-    [self.contentView addSubview:cutLine2];
     ////////
-    UIScrollView *bgScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, cutLine.lj_bottom + 10, SCREEN_WIDTH, 100)];
+    UIScrollView *bgScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, cutLine.lj_bottom + autoEdgeH(10), SCREEN_WIDTH, autoEdgeH(100))];
     bgScrollView.showsHorizontalScrollIndicator = NO;
     [self.contentView addSubview:bgScrollView];
-    CGFloat ViewW = 74.0f;
+    CGFloat ViewW = autoEdgeW(74);
     for (int i = 0; i<6; i++) {
-        UIView *cateBgView = [[UIView alloc] initWithFrame:CGRectMake(5*(i+1)+ViewW*i, 3, ViewW, 90)];
+        UIView *cateBgView = [[UIView alloc] initWithFrame:CGRectMake(5*(i+1)+ViewW*i, 0, ViewW, SCREEN_HEIGHT / 6 )];
         cateBgView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         cateBgView.layer.borderWidth = 0.5;
         [cateBgView setLayerWithCr:5];
@@ -121,12 +90,37 @@
         nameL.text = @"大白萝卜头";
         nameL.textAlignment = NSTextAlignmentCenter;
         [nameL setFont:[UIFont systemFontOfSize:14]];
-        [nameL setTextColor:LJColorFromRGB(0x393939)];
+        [nameL setTextColor:LJFontColor39];
         [cateBgView addSubview:nameL];
     }
-    bgScrollView.contentSize = CGSizeMake(ViewW * 6 +(6 * 5) + 5, 100);
+    bgScrollView.contentSize = CGSizeMake(ViewW * 6 +(6 * 5) + 5, autoEdgeH(100));
     
-    UIButton *paymentBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 70, cutLine2.lj_bottom + 6, 60, 24)];
+    /*** 分割线 ***/
+    UIView *cutLine1 = [[UIView alloc] initWithFrame:CGRectMake(0,bgScrollView.lj_bottom + autoEdgeH(10), SCREEN_WIDTH, 0.5)];
+    cutLine1.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
+    [self.contentView addSubview:cutLine1];
+    
+    //测试数据
+    self.totalAmount = @"20.0";
+    self.goodsNum = @"6";
+    
+    UILabel *amountLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, cutLine1.lj_bottom + autoEdgeH(10), SCREEN_WIDTH - 10, 20)];
+    amountLabel.textAlignment = NSTextAlignmentRight;
+    [self.contentView addSubview:amountLabel];
+    
+    NSString *string = [NSString stringWithFormat:@"共%@件商品 总金额:￥%@",self.goodsNum,self.totalAmount];
+    NSMutableAttributedString *attribute = [[NSMutableAttributedString alloc] initWithString:string];
+    [attribute addAttributes:@{NSForegroundColorAttributeName:LJFontColor26,NSFontAttributeName:LJFontSize15} range:NSMakeRange(0, self.goodsNum.length + 10)];
+    [attribute addAttributes:@{NSForegroundColorAttributeName:LJFontColor26,NSFontAttributeName:LJFontSize16} range:NSMakeRange(self.goodsNum.length + 10, self.totalAmount.length)];
+    amountLabel.attributedText = attribute;
+    
+    /*** 分割线 ***/
+    UIView *cutLine2 = [[UIView alloc] initWithFrame:CGRectMake(0,amountLabel.lj_bottom + autoEdgeH(5), SCREEN_WIDTH, 0.5)];
+    cutLine2.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
+    [self.contentView addSubview:cutLine2];
+    
+    
+    UIButton *paymentBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 70, bgView.lj_height - autoEdgeH(30), 60, 24)];
     [paymentBtn setTitle:@"去支付" forState:UIControlStateNormal];
     [paymentBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     paymentBtn.layer.borderColor = [[UIColor redColor] CGColor];
@@ -140,7 +134,7 @@
 #pragma mark --paymentBtnClick
 - (void)paymentBtnClick:(UIButton *)sender {
     if (self.paymentblock) {
-        self.paymentblock(self.totalAmountLabel.text); //金额回调
+        self.paymentblock(self.totalAmount); //金额回调
     }
 }
 

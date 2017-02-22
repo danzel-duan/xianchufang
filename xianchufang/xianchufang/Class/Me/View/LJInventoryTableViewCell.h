@@ -16,9 +16,9 @@ typedef void (^paymentBlock)(NSString * money); //支付回调
 /*** 选择 ***/
 @property (nonatomic,strong) UIButton *selectBtn;
 /*** 总金额 ***/
-@property (nonatomic,strong) UILabel *totalAmountLabel;
+@property (nonatomic,strong) NSString *totalAmount;
 /*** 商品数量 ***/
-@property (nonatomic,strong) UILabel *goodsNumLabel;
+@property (nonatomic,strong) NSString *goodsNum;
 
 @property (nonatomic,copy) selectBlock selectblock;
 

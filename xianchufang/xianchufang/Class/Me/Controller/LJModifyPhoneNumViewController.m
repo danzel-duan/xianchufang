@@ -79,7 +79,6 @@
 }
 
 - (void)VerifyBtnClick:(UIButton *)sender{
-    LJLogFunc
     //获取验证码 --->
     
     //添加计时器
@@ -92,7 +91,11 @@
 - (void)finishBtnClick:(UIButton *)sender  {
     if ([self.numTextField.text isEqualToString:@""]){
         self.alert = [[LJTooltip alloc] initWithToolTipStyle:ToolTipStyleAlert3];
-        [self.alert Alert3content:@"验证码不能为空!" location:self.finishBtn.lj_y - 30];
+        if ([sender.currentTitle isEqualToString:@"下一步"]) {
+            [self.alert Alert3content:@"验证码不能为空!" location:self.finishBtn.lj_y - 30];
+        }else{
+            [self.alert Alert3content:@"手机号不能为空!" location:self.finishBtn.lj_y - 30];
+        }
         return;
     }
     

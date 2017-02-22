@@ -10,13 +10,11 @@
 #pragma mark -常量
 /*** 边距 ***/
 extern CGFloat ljEdgeMax;
-extern CGFloat ljEdgeMin;
+extern CGFloat ljEdgeMin;    // 动态改变的
 
 
 #pragma mark -变量
-extern int selectNum;
-
-
+extern int selectNum;  //被选清单个数
 
 
 /*** 注册  ***/

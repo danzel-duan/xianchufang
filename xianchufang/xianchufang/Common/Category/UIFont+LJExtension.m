@@ -23,8 +23,10 @@
     UIFont *newFont=nil;
     if (IS_IPHONE_6){
         newFont = [UIFont adjustFont:fontSize + IPHONE6_INCREMENT];
+        ljEdgeMin = 8;
     }else if (IS_IPHONE_6_PLUS){
         newFont = [UIFont adjustFont:fontSize + IPHONE6PLUS_INCREMENT];
+        ljEdgeMin = 5;
     }else{
         newFont = [UIFont adjustFont:fontSize];
     }

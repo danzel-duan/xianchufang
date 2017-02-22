@@ -22,7 +22,7 @@
     return self;
 }
 
-
+#pragma mark --模型赋值
 - (void)setShoppingCarMOdel:(LJShoppingCarModel *)shoppingCarMOdel {
     _shoppingCarMOdel = shoppingCarMOdel;
     self.goodsImageView.image = [UIImage imageNamed:shoppingCarMOdel.goodsImageViewName];
@@ -61,7 +61,7 @@
     self.bgView = bgView;
     
     //topView
-    self.topBgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.contentView.lj_width, 40)];
+    self.topBgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
     self.topBgView.backgroundColor = [UIColor whiteColor];
     [self.contentView addSubview:self.topBgView];
     
@@ -102,7 +102,7 @@
 
 #pragma mark --设置Cell子控件
 - (void)setUpChildrenCellFrame {
-    UIView *bgView2 = [[UIView alloc] initWithFrame:CGRectMake(0, self.topBgView.lj_bottom, self.contentView.lj_width, 115)];
+    UIView *bgView2 = [[UIView alloc] initWithFrame:CGRectMake(0, self.topBgView.lj_bottom, SCREEN_WIDTH, 115)];
     bgView2.backgroundColor = [UIColor whiteColor];
     [self.contentView addSubview:bgView2];
     self.bgView2 = bgView2;
@@ -119,21 +119,21 @@
     self.goodsImageView.backgroundColor = LJRandomColor ;
     [bgView2 addSubview:self.goodsImageView];
     /*** 商品简介 ***/
-    self.briefLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.goodsImageView.lj_right + 15, self.goodsImageView.lj_y - 3, 160, 0)];
+    self.briefLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.goodsImageView.lj_right + 15, self.goodsImageView.lj_y - 3, SCREEN_WIDTH - self.goodsImageView.lj_right - 20, 0)];
     self.briefLabel.text = @"大青皮 该品种耐寒性特强，高抗病，茎棒粗大且顺直，皮绿肉青，质脆味清香，叶椭圆";
     self.briefLabel.numberOfLines = 2;
     [self.briefLabel sizeToFit];
     [self.briefLabel setFont:[UIFont systemFontOfSize:14]];
     [bgView2 addSubview:self.briefLabel];
     /*** 商品价格 ***/
-    self.priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.goodsImageView.lj_right + 15, self.briefLabel.lj_bottom + 10, 0, 20)];
+    self.priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.goodsImageView.lj_right + 15, self.briefLabel.lj_bottom + ljEdgeMin, 0, 20)];
     self.priceLabel.text = @"2000000000";
     [self.priceLabel setFont:[UIFont systemFontOfSize:15]];
     [self.priceLabel setTextColor:[UIColor redColor]];
     [self.priceLabel sizeToFit];
     [bgView2 addSubview:self.priceLabel];
     /*** 减数量 ***/
-    UIButton * button2 = [[UIButton alloc] initWithFrame:CGRectMake(self.goodsImageView.lj_right + 15 , self.priceLabel.lj_bottom + 10, 30, 25)];
+    UIButton * button2 = [[UIButton alloc] initWithFrame:CGRectMake(self.goodsImageView.lj_right + 15 , self.priceLabel.lj_bottom + ljEdgeMin, 30, 25)];
     [button2 setTitle:@"-" forState:UIControlStateNormal];
     [button2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     button2.layer.borderWidth = 0.5;
@@ -157,10 +157,11 @@
     [button3 addTarget:self action:@selector(ButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [bgView2 addSubview:button3];
     /*** 单位 ***/
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(button3.lj_right + 5, 0, 30, 20)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(button3.lj_right + 5, 0, 0, 20)];
     label.text = @"(kg)";
     label.lj_centerY = button3.lj_centerY;
     label.textColor = LJFontColor88;
+    [label sizeToFit];
     [label setFont:[UIFont systemFontOfSize:15]];
     [bgView2 addSubview:label];
 }

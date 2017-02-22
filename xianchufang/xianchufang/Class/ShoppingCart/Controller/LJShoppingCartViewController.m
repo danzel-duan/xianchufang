@@ -90,8 +90,7 @@
     [self.view addSubview:view];
     self.bottomViewBg = view;
     
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, view.lj_height)];
-    button.backgroundColor = [UIColor whiteColor];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(5, 0, 60, view.lj_height)];
     [button setTitle:@"全选" forState:UIControlStateNormal];
     [button.titleLabel setFont:LJFontSize15];
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
@@ -113,27 +112,25 @@
     
     /*** 合计一系列 ***/
     UIView *view1 =[[ UIView alloc] initWithFrame:CGRectMake(button.lj_right + 10, 0, settlement.lj_x - button.lj_width -10, 44)];
-    view1.backgroundColor = [UIColor whiteColor];
     [view addSubview:view1];
     self.view1 = view1;
     
-    UILabel *L1 = [[UILabel alloc] initWithFrame:CGRectMake(0, 5, 40, 20)];
+    UILabel *L1 = [[UILabel alloc] initWithFrame:CGRectMake(0, 5, 0, 20)];
     L1.text = @"合计:";
-    L1.backgroundColor = [UIColor whiteColor];
+    [L1 setFont:LJFontSize14];
+    [L1 sizeToFit];
     [view1 addSubview:L1];
     
     self.priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(L1.lj_right, 5, 115, 20)];
     self.priceLabel.text = @"￥0.0";
-    [self.priceLabel setFont:[UIFont systemFontOfSize:15]];
+    [self.priceLabel setFont:LJFontSize14];
     [self.priceLabel setTextAlignment:NSTextAlignmentLeft];
     [self.priceLabel setTextColor:[UIColor redColor]];
-    self.priceLabel.backgroundColor = [UIColor whiteColor];
     [view1 addSubview:self.priceLabel];
     
     UILabel *L2 = [[UILabel alloc] initWithFrame:CGRectMake(0, L1.lj_bottom , 20, 10)];
     L2.text = @"不含运费";
-    [L2 setFont:[UIFont systemFontOfSize:13]];
-    L2.backgroundColor = [UIColor whiteColor];
+    [L2 setFont:LJFontSize12];
     L2.textColor = LJFontColor88;
     [L2 sizeToFit];
     [view1 addSubview:L2];

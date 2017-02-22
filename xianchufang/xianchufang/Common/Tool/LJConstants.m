@@ -1,9 +1,9 @@
                    /*** 常量  ***/
 
 #pragma mark -常量
-/*** 边距 ***/
+/*** 间距 ***/
 CGFloat ljEdgeMax = 23;
-CGFloat ljEdgeMin = 11;
+CGFloat ljEdgeMin = 10;
 
 #pragma mark -变量
 int selectNum = 0;
