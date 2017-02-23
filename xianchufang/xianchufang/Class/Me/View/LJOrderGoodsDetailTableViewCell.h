@@ -7,14 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "LJGoodsModel.h"
 @interface LJOrderGoodsDetailTableViewCell : UITableViewCell
 /*** 商品图片 ***/
 @property (nonatomic,strong) UIImageView *goodsImageView;
 /*** 商品名称 ***/
-@property (nonatomic,strong) NSString *goodsName;
+@property (nonatomic,strong) UILabel *goodsNameLabel;
 /*** 商品价格 ***/
-@property (nonatomic,strong) NSString *goodsPrice;
+@property (nonatomic,strong) UILabel *goodsPriceLabel;
 /*** 商品重量 ***/
-@property (nonatomic,strong) NSString *goodsWeight;
+@property (nonatomic,strong) UILabel *goodsWeightLabel;
+/*** 数据 ***/
+@property (nonatomic,strong) LJGoodsModel *goodsDataModel;
 @end

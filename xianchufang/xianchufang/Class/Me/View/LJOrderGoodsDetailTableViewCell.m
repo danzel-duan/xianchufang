@@ -21,11 +21,20 @@
     return self;
 }
 
+
+#pragma mark --数据传值
+- (void)setGoodsDataModel:(LJGoodsModel *)goodsDataModel {
+    _goodsDataModel = goodsDataModel;
+    self.goodsNameLabel.text = goodsDataModel.goodsName;
+    self.goodsWeightLabel.text = goodsDataModel.goodsWeight;
+    NSMutableAttributedString *attribute = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%@/kg",goodsDataModel.goodsPrice]];
+    [attribute addAttributes:@{NSForegroundColorAttributeName :LJFontColor61,NSFontAttributeName:LJFontSize15} range:NSMakeRange(0, goodsDataModel.goodsPrice.length + 1)];
+    [attribute addAttributes:@{NSForegroundColorAttributeName :LJFontColor61,NSFontAttributeName:LJFontSize12} range:NSMakeRange(goodsDataModel.goodsPrice.length + 1, 3)];
+    self.goodsPriceLabel.attributedText = attribute;
+}
+
 #pragma mark --设置子控件
 - (void)setChildrenFrame {
-    self.goodsPrice = @"8.90";
-    self.goodsName = @"农家品质大樱桃";
-    self.goodsWeight = @"130";
     UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, spaceEdgeH(95))];
     bgView.backgroundColor = LJCommonBgColor;
     [self.contentView addSubview:bgView];
@@ -34,24 +43,18 @@
     self.goodsImageView.backgroundColor = LJRandomColor;
     [self.contentView addSubview:self.goodsImageView];
     
-    UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.goodsImageView.lj_right + spaceEdgeW(16) ,spaceEdgeH(13), self.contentView.lj_width * 2 / 3, spaceEdgeH(10))];
-    [nameLabel setFont:LJFontSize15];
-    [nameLabel setTextColor:LJFontColor39];
-    nameLabel.text = self.goodsName;
-    [self.contentView addSubview:nameLabel];
+    self.goodsNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.goodsImageView.lj_right + spaceEdgeW(16) ,spaceEdgeH(13), self.contentView.lj_width * 2 / 3, spaceEdgeH(10))];
+    [self.goodsNameLabel setFont:LJFontSize15];
+    [self.goodsNameLabel setTextColor:LJFontColor39];
+    [self.contentView addSubview:self.goodsNameLabel];
     
-    UILabel *WeightLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.goodsImageView.lj_right + spaceEdgeW(16) ,nameLabel.lj_bottom + spaceEdgeH(18), self.contentView.lj_width * 2 / 3, spaceEdgeH(10))];
-    [WeightLabel setFont:LJFontSize15];
-    [WeightLabel setTextColor:LJFontColor61];
-    WeightLabel.text = [NSString stringWithFormat:@"重量:%@kg",self.goodsWeight];
-    [self.contentView addSubview:WeightLabel];
+    self.goodsWeightLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.goodsImageView.lj_right + spaceEdgeW(16) ,self.goodsNameLabel.lj_bottom + spaceEdgeH(18), self.contentView.lj_width * 2 / 3, spaceEdgeH(12))];
+    [self.goodsWeightLabel setFont:LJFontSize15];
+    [self.goodsWeightLabel setTextColor:LJFontColor61];
+    [self.contentView addSubview:self.goodsWeightLabel];
     
-    UILabel *priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.goodsImageView.lj_right + spaceEdgeW(16) ,WeightLabel.lj_bottom + spaceEdgeH(14), self.contentView.lj_width * 2 / 3, spaceEdgeH(20))];
-    NSMutableAttributedString *attribute = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%@/kg",self.goodsPrice]];
-    [attribute addAttributes:@{NSForegroundColorAttributeName :LJFontColor61,NSFontAttributeName:LJFontSize15} range:NSMakeRange(0, self.goodsPrice.length + 1)];
-    [attribute addAttributes:@{NSForegroundColorAttributeName :LJFontColor61,NSFontAttributeName:LJFontSize12} range:NSMakeRange(self.goodsPrice.length + 1, 3)];
-    priceLabel.attributedText = attribute;
-    [self.contentView addSubview:priceLabel];
+    self.goodsPriceLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.goodsImageView.lj_right + spaceEdgeW(16) ,self.goodsWeightLabel.lj_bottom + spaceEdgeH(14), self.contentView.lj_width * 2 / 3, spaceEdgeH(20))];
+    [self.contentView addSubview:self.goodsPriceLabel];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

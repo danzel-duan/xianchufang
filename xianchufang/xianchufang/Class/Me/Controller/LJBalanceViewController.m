@@ -33,7 +33,7 @@
     
     /*** 绘制渐变 ***/
     CAGradientLayer *layer = [CAGradientLayer new];
-    layer.colors = @[(__bridge id)LJColorFromRGB(0x3ce5bf).CGColor,(__bridge id)LJColorFromRGB(0x30c246).CGColor];
+    layer.colors = @[(__bridge id)LJColorFromRGB(0x3de4be).CGColor,(__bridge id)LJColorFromRGB(0x40dd75).CGColor];
     /*** 起终点 ***/
     layer.startPoint = CGPointMake(SCREEN_WIDTH / 2, 0);
     layer.endPoint = CGPointMake(SCREEN_WIDTH / 2, 1);

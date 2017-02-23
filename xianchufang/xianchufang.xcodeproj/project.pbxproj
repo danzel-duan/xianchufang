@@ -31,6 +31,8 @@
 		146A2E811E5ABF190092928D /* LJInventoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 146A2E801E5ABF190092928D /* LJInventoryViewController.m */; };
 		146A2E871E5AF7020092928D /* LJInventoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 146A2E861E5AF7020092928D /* LJInventoryDetailViewController.m */; };
 		146A2E8B1E5B2F280092928D /* LJShoppingCarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 146A2E8A1E5B2F280092928D /* LJShoppingCarModel.m */; };
+		146AE8181E5EBAB30035F526 /* LJOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 146AE8171E5EBAB30035F526 /* LJOrderModel.m */; };
+		146AE81D1E5EBADE0035F526 /* LJGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 146AE81C1E5EBADE0035F526 /* LJGoodsModel.m */; };
 		146E22C91E5133EA00C1658D /* xianchufangTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 146E22C81E5133EA00C1658D /* xianchufangTests.m */; };
 		146E22D41E5133EA00C1658D /* xianchufangUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 146E22D31E5133EA00C1658D /* xianchufangUITests.m */; };
 		14786BA71E55429E0099451B /* LJImageLeftButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 14786BA61E55429E0099451B /* LJImageLeftButton.m */; };
@@ -140,6 +142,10 @@
 		146A2E861E5AF7020092928D /* LJInventoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJInventoryDetailViewController.m; sourceTree = "<group>"; };
 		146A2E891E5B2F280092928D /* LJShoppingCarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJShoppingCarModel.h; sourceTree = "<group>"; };
 		146A2E8A1E5B2F280092928D /* LJShoppingCarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJShoppingCarModel.m; sourceTree = "<group>"; };
+		146AE8161E5EBAB30035F526 /* LJOrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJOrderModel.h; sourceTree = "<group>"; };
+		146AE8171E5EBAB30035F526 /* LJOrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJOrderModel.m; sourceTree = "<group>"; };
+		146AE81B1E5EBADE0035F526 /* LJGoodsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJGoodsModel.h; sourceTree = "<group>"; };
+		146AE81C1E5EBADE0035F526 /* LJGoodsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJGoodsModel.m; sourceTree = "<group>"; };
 		146E22AB1E5133EA00C1658D /* xianchufang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xianchufang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		146E22C41E5133EA00C1658D /* xianchufangTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = xianchufangTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		146E22C81E5133EA00C1658D /* xianchufangTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xianchufangTests.m; sourceTree = "<group>"; };
@@ -368,6 +374,24 @@
 				146A2E861E5AF7020092928D /* LJInventoryDetailViewController.m */,
 			);
 			name = Inventory;
+			sourceTree = "<group>";
+		};
+		146AE8191E5EBABA0035F526 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				146AE8161E5EBAB30035F526 /* LJOrderModel.h */,
+				146AE8171E5EBAB30035F526 /* LJOrderModel.m */,
+			);
+			name = Order;
+			sourceTree = "<group>";
+		};
+		146AE81A1E5EBACA0035F526 /* Goods */ = {
+			isa = PBXGroup;
+			children = (
+				146AE81B1E5EBADE0035F526 /* LJGoodsModel.h */,
+				146AE81C1E5EBADE0035F526 /* LJGoodsModel.m */,
+			);
+			name = Goods;
 			sourceTree = "<group>";
 		};
 		146E22A21E5133EA00C1658D = {
@@ -602,6 +626,8 @@
 		14E05BB71E5137710057D3AE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				146AE81A1E5EBACA0035F526 /* Goods */,
+				146AE8191E5EBABA0035F526 /* Order */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1107,6 +1133,7 @@
 				1488C8071E56B6B700C1AC27 /* LJVerifyInfo.m in Sources */,
 				14E05BEE1E5137710057D3AE /* LJRootViewController.m in Sources */,
 				14E05BE91E5137710057D3AE /* LJData.m in Sources */,
+				146AE81D1E5EBADE0035F526 /* LJGoodsModel.m in Sources */,
 				14786BAD1E559D5F0099451B /* LJAddressSetViewController.m in Sources */,
 				148688461E5347210019DD3E /* LJRadDot.m in Sources */,
 				14E05BE81E5137710057D3AE /* LJConstants.m in Sources */,
@@ -1124,6 +1151,7 @@
 				14DE12231E51FD1700836B46 /* LJButton.m in Sources */,
 				1486DAF81E5428200096E46D /* LJUserInfoViewController.m in Sources */,
 				1464B8FD1E5C1FD8003CC3BC /* LJOrderGoodsDetailTableViewCell.m in Sources */,
+				146AE8181E5EBAB30035F526 /* LJOrderModel.m in Sources */,
 				1466CFD11E5D888C00843FA9 /* LJMyCollectDetailTableViewCell.m in Sources */,
 				14E05BED1E5137710057D3AE /* AppDelegate.m in Sources */,
 				14E05BE31E5137710057D3AE /* LJShoppingCartViewController.m in Sources */,

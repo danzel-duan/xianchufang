@@ -19,6 +19,10 @@
     self.navigationItem.title = @"待付款";
 }
 
+- (OrderStatus)orderStatus {
+    return OrderStatus1;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

@@ -7,8 +7,9 @@
 //
 
 #import "LJBaseViewController.h"
-
+#import "LJOrderModel.h"
 @interface LJOrderBaseViewController : LJBaseViewController
 /*** 订单类型 ***/
-@property (nonatomic,strong) NSString *orderType;
+- (OrderStatus)orderStatus;
+
 @end
