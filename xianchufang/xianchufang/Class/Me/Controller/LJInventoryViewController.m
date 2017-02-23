@@ -35,7 +35,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return autoEdgeH(239);
+    return spaceEdgeH(239);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -64,7 +64,7 @@
     return cell;
 }
 
-#pragma mark -- 添加底部结算标签
+#pragma mark -- 添加底部标签
 - (void)addBottomTabBar {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 44, SCREEN_WIDTH, 44)];
     view.backgroundColor = [UIColor whiteColor];

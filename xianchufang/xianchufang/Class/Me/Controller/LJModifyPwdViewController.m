@@ -37,7 +37,7 @@
 
 #pragma mark --确认按钮
 - (void)addOkBtn {
-    self.okBtn = [[UIButton alloc] initWithFrame:CGRectMake(42, self.bgView.lj_bottom + 45, SCREEN_WIDTH - 84, 44)];
+    self.okBtn = [[UIButton alloc] initWithFrame:CGRectMake(42, self.bgView.lj_bottom + 45, SCREEN_WIDTH - 84, spaceEdgeH(44))];
     self.okBtn.backgroundColor = LJColorFromRGB(0xc3c3c3);
     self.okBtn.enabled = NO;
     [self.okBtn setTitle:@"确认修改" forState:UIControlStateNormal];

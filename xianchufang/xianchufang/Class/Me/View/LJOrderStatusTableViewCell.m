@@ -9,7 +9,6 @@
 #import "LJOrderStatusTableViewCell.h"
 #import "LJRadDot.h"
 #define buttonW SCREEN_WIDTH/5
-#define buttonH self.contentView.lj_height *2
 @interface LJOrderStatusTableViewCell ()
 @property (nonatomic,strong) LJRadDot *radDot;  //小红点
 /*** 待付款 ***/
@@ -57,7 +56,7 @@
     NSArray *imageArr = @[@"order_patment_icon",@"order_delivery_icon",@"order_receipt_icon",@"order_aftermark_icon",@"order_evaluate_icon"];
     for (int i = 0; i <5; i++) {
         LJButton *button = [LJButton new];
-        button.frame = CGRectMake(buttonW*i, 0, buttonW, buttonH);
+        button.frame = CGRectMake(buttonW*i, 0, buttonW, spaceEdgeH(76));
         [button setTitle:titleArr[i] forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:imageArr[i]] forState:UIControlStateNormal];
         button.tag = i;

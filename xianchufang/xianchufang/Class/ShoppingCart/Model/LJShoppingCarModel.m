@@ -14,9 +14,9 @@
     if (_cellHegiht) return _cellHegiht;
     
     if ([self.postAge isEqualToString:@""]) { //满减为空，说明无满减活动
-        _cellHegiht = 130;
+        _cellHegiht = spaceEdgeH(130);
     }else{
-        _cellHegiht = 170;
+        _cellHegiht = spaceEdgeH(180);
     }
     return _cellHegiht;
 }

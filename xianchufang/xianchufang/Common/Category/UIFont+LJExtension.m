@@ -18,20 +18,18 @@
     method_exchangeImplementations(newMethod, method);
 }
 
-
 +(UIFont *)adjustFont:(CGFloat)fontSize{
     UIFont *newFont=nil;
-    if (IS_IPHONE_6){
-        newFont = [UIFont adjustFont:fontSize];
-        ljEdgeMin = 8;
+    if (IS_IPHONE_5s){
+        newFont = [UIFont adjustFont:fontSize - IPHONE5s_INCREMENT];
     }else if (IS_IPHONE_6_PLUS){
         newFont = [UIFont adjustFont:fontSize + IPHONE6PLUS_INCREMENT];
-        ljEdgeMin = 5;
     }else{
-       newFont = [UIFont adjustFont:fontSize - IPHONE6_INCREMENT];
+        newFont = [UIFont adjustFont:fontSize];
     }
     return newFont;
 }
+
 /*
  
  load方法只会走一次，利用runtime的method进行方法的替换

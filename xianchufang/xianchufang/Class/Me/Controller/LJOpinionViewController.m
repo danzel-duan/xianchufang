@@ -31,7 +31,7 @@
     [textView setTextColor:[UIColor blackColor]];
     [textView setFont:[UIFont systemFontOfSize:14]];
     self.textView = textView;
-    self.label = [[UILabel alloc] initWithFrame:CGRectMake(3, 10, 200, 10)];
+    self.label = [[UILabel alloc] initWithFrame:CGRectMake(5, 10, 200, 10)];
     self.label.backgroundColor = [UIColor whiteColor];
     self.label.text = @"写下你想对我们说的话.....";
     [self.label setTextColor:LJFontColor88];
@@ -40,7 +40,7 @@
     [textView addSubview:self.label];
     
     
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(28, view.lj_bottom + 34, SCREEN_WIDTH - 56, 44)];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(28, view.lj_bottom + 34, SCREEN_WIDTH - 56, spaceEdgeH(44))];
     button.backgroundColor= LJTheMeColor;
     [button setTitle:@"提交" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];

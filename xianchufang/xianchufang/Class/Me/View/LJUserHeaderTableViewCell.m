@@ -12,14 +12,14 @@
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        self.TextLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 34, 0, 0)];
+        self.TextLabel = [[UILabel alloc] initWithFrame:CGRectMake(spaceEdgeW(17), spaceEdgeH(34), 0, 0)];
         self.TextLabel.text = @"头像";
         [self.TextLabel setFont:LJFontSize16];
-        [self.TextLabel setTextColor:LJFontColor4c];
+        [self.TextLabel setTextColor:LJFontColor61];
         [self.TextLabel sizeToFit];
         [self.contentView addSubview:self.TextLabel];
         
-        self.ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 16, 0, 0)];
+        self.ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, spaceEdgeH(16), 0, 0)];
         self.ImageView.lj_x = SCREEN_WIDTH -65;
         [self.ImageView setLayerWithCr:25];
         self.ImageView.userInteractionEnabled = YES;

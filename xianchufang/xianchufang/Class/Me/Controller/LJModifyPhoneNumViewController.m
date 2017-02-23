@@ -69,7 +69,7 @@
 
 #pragma mark --添加完成按钮
 - (void)addFinishBtn {
-    self.finishBtn = [[UIButton alloc] initWithFrame:CGRectMake(28, 181, SCREEN_WIDTH - 56, 44)];
+    self.finishBtn = [[UIButton alloc] initWithFrame:CGRectMake(28, 181, SCREEN_WIDTH - 56, spaceEdgeH(44))];
     [self.finishBtn setTitle:@"下一步" forState:UIControlStateNormal];
     [self.finishBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.finishBtn.backgroundColor = LJTheMeColor;

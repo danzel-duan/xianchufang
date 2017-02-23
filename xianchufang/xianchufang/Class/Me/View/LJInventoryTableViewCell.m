@@ -41,7 +41,7 @@
 }
 
 - (void)setUpChildrenFrame {
-    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH,  autoEdgeH(231))];
+    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH,  spaceEdgeH(231))];
     bgView.backgroundColor = [UIColor whiteColor];
     //给bgView边框设置阴影
     bgView.layer.shadowOffset = CGSizeMake(1,3);
@@ -56,13 +56,13 @@
     [self.selectBtn addTarget:self action:@selector(selectClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:self.selectBtn];
     
-    self.InventoryNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.selectBtn.lj_right, 10, 50, 20)];
+    self.InventoryNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.selectBtn.lj_right, 10, 50, spaceEdgeH(20))];
     self.InventoryNameLabel.text = @"我的第一天菜品";
     [self.InventoryNameLabel setFont:[UIFont systemFontOfSize:15]];
     [self.InventoryNameLabel sizeToFit];
     [self.contentView addSubview:self.InventoryNameLabel];
     
-    UIButton *nextBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 40, 0, 40, 40)];
+    UIButton *nextBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - spaceEdgeW(40), 0, spaceEdgeW(40), spaceEdgeH(40))];
     [nextBtn setImage:[UIImage imageNamed:@"my_go2_icon"] forState:UIControlStateNormal];
     [nextBtn addTarget:self action:@selector(nextClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:nextBtn];
@@ -71,32 +71,32 @@
     cutLine.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
     [self.contentView addSubview:cutLine];
     ////////
-    UIScrollView *bgScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, cutLine.lj_bottom + autoEdgeH(10), SCREEN_WIDTH, autoEdgeH(100))];
+    UIScrollView *bgScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(spaceEdgeW(27), cutLine.lj_bottom + spaceEdgeH(10), SCREEN_WIDTH - spaceEdgeW(54), spaceEdgeH(97))];
     bgScrollView.showsHorizontalScrollIndicator = NO;
     [self.contentView addSubview:bgScrollView];
-    CGFloat ViewW = autoEdgeW(74);
+    CGFloat ViewW = spaceEdgeW(74);
     for (int i = 0; i<6; i++) {
-        UIView *cateBgView = [[UIView alloc] initWithFrame:CGRectMake(5*(i+1)+ViewW*i, 0, ViewW, SCREEN_HEIGHT / 6 )];
+        UIView *cateBgView = [[UIView alloc] initWithFrame:CGRectMake(spaceEdgeW(8) * i+ViewW * i, 0, ViewW, spaceEdgeH(97) )];
         cateBgView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         cateBgView.layer.borderWidth = 0.5;
         [cateBgView setLayerWithCr:5];
         [bgScrollView addSubview:cateBgView];
         
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, cateBgView.lj_width, cateBgView.lj_height - 18)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, cateBgView.lj_width, cateBgView.lj_height - spaceEdgeH(17))];
         imageView.backgroundColor = LJRandomColor;
         [cateBgView addSubview:imageView];
         
-        UILabel *nameL = [[UILabel alloc] initWithFrame:CGRectMake(0, imageView.lj_bottom, cateBgView.lj_width, 18)];
+        UILabel *nameL = [[UILabel alloc] initWithFrame:CGRectMake(0, imageView.lj_bottom, cateBgView.lj_width, spaceEdgeH(17))];
         nameL.text = @"大白萝卜头";
         nameL.textAlignment = NSTextAlignmentCenter;
         [nameL setFont:[UIFont systemFontOfSize:14]];
         [nameL setTextColor:LJFontColor39];
         [cateBgView addSubview:nameL];
     }
-    bgScrollView.contentSize = CGSizeMake(ViewW * 6 +(6 * 5) + 5, autoEdgeH(100));
+    bgScrollView.contentSize = CGSizeMake(ViewW * 6 +(6 * spaceEdgeW(8)), spaceEdgeH(97));
     
     /*** 分割线 ***/
-    UIView *cutLine1 = [[UIView alloc] initWithFrame:CGRectMake(0,bgScrollView.lj_bottom + autoEdgeH(10), SCREEN_WIDTH, 0.5)];
+    UIView *cutLine1 = [[UIView alloc] initWithFrame:CGRectMake(0,bgScrollView.lj_bottom + spaceEdgeH(10), SCREEN_WIDTH, 0.5)];
     cutLine1.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
     [self.contentView addSubview:cutLine1];
     
@@ -104,7 +104,7 @@
     self.totalAmount = @"20.0";
     self.goodsNum = @"6";
     
-    UILabel *amountLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, cutLine1.lj_bottom + autoEdgeH(10), SCREEN_WIDTH - 10, 20)];
+    UILabel *amountLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, cutLine1.lj_bottom + spaceEdgeH(10), SCREEN_WIDTH - spaceEdgeW(10), spaceEdgeH(20))];
     amountLabel.textAlignment = NSTextAlignmentRight;
     [self.contentView addSubview:amountLabel];
     
@@ -115,12 +115,12 @@
     amountLabel.attributedText = attribute;
     
     /*** 分割线 ***/
-    UIView *cutLine2 = [[UIView alloc] initWithFrame:CGRectMake(0,amountLabel.lj_bottom + autoEdgeH(5), SCREEN_WIDTH, 0.5)];
+    UIView *cutLine2 = [[UIView alloc] initWithFrame:CGRectMake(0,amountLabel.lj_bottom + spaceEdgeH(5), SCREEN_WIDTH, 0.5)];
     cutLine2.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
     [self.contentView addSubview:cutLine2];
     
     
-    UIButton *paymentBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 70, bgView.lj_height - autoEdgeH(30), 60, 24)];
+    UIButton *paymentBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - spaceEdgeW(70), bgView.lj_height - spaceEdgeH(30), spaceEdgeW(60), spaceEdgeH(24))];
     [paymentBtn setTitle:@"去支付" forState:UIControlStateNormal];
     [paymentBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     paymentBtn.layer.borderColor = [[UIColor redColor] CGColor];

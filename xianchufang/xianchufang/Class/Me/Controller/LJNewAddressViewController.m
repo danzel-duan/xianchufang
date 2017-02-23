@@ -25,7 +25,7 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = YES;
     self.tableView.lj_y = 13;
-    self.tableView.lj_height = 290;
+    self.tableView.lj_height = spaceEdgeH(300);
     self.tableView.delegate =self;
     self.tableView.dataSource = self;
     self.tableView.bounces = NO; //去掉弹性效果
@@ -51,7 +51,7 @@
 
 #pragma mark --代理方法
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 44;
+    return spaceEdgeH(44);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -60,7 +60,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
     }
-    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 160, 0, 150, 35)];
+    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 160, 0, 150, spaceEdgeH(35))];
     textField.lj_centerY = cell.lj_height / 2;
     textField.textAlignment = NSTextAlignmentRight;
     textField.textColor = LJFontColor4c;
@@ -158,7 +158,7 @@
 
 #pragma mark --添加保存按钮
 - (void)addSaveBtn {
-    self.saveBtn = [[UIButton alloc] initWithFrame:CGRectMake(28, SCREEN_HEIGHT -86, SCREEN_WIDTH - 56, 44)];
+    self.saveBtn = [[UIButton alloc] initWithFrame:CGRectMake(28, SCREEN_HEIGHT -86, SCREEN_WIDTH - 56, spaceEdgeH(44))];
     self.saveBtn.backgroundColor = LJFontColorc3;
     self.saveBtn.enabled = NO;
     [self.saveBtn.titleLabel setFont:LJFontSize16];

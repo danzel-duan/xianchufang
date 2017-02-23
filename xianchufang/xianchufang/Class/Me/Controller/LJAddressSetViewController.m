@@ -70,7 +70,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 144;
+    return spaceEdgeH(144);
 }
 
 - (void)didReceiveMemoryWarning {

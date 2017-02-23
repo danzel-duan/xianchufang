@@ -22,13 +22,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"设置";
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 74, SCREEN_WIDTH, 220)];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 74, SCREEN_WIDTH, spaceEdgeH(220))];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.bounces = NO; //去掉弹性效果
     [self.view addSubview:self.tableView];
     /*** 退出操作按钮 ***/
-    UIButton *quitBtn = [[UIButton alloc] initWithFrame:CGRectMake(ljEdgeMax, SCREEN_HEIGHT - 124, SCREEN_WIDTH-ljEdgeMax * 2, 44)];
+    UIButton *quitBtn = [[UIButton alloc] initWithFrame:CGRectMake(ljEdgeMax, SCREEN_HEIGHT - 124, SCREEN_WIDTH-ljEdgeMax * 2, spaceEdgeW(44))];
     quitBtn.backgroundColor = [UIColor redColor];
     [quitBtn.titleLabel setFont:[UIFont systemFontOfSize:16]];
     [quitBtn setTitle:@"退出当前用户" forState:UIControlStateNormal];
@@ -44,7 +44,7 @@
 
 #pragma mark --代理方法
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 44;
+    return spaceEdgeH(44);
 }
 
 - (UITableViewCell *)   tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

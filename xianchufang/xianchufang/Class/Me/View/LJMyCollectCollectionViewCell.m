@@ -13,14 +13,14 @@
 
 - (instancetype)initWithFrame:(CGRect)frame  {
     if (self = [super initWithFrame:frame]) {
-        self.cateNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame)  / 2, 40)];
+        self.cateNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame)  / 2, spaceEdgeH(40))];
         [self.cateNameLabel setFont:LJFontSize16];
         [self.cateNameLabel setTextColor:LJFontColor26];
         self.cateNameLabel.text = @"水生蔬菜";
         self.cateNameLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:self.cateNameLabel];
         
-        self.cateNumLabel = [[UILabel alloc ] initWithFrame:CGRectMake(self.cateNameLabel.lj_right, 0, CGRectGetWidth(self.frame) / 2, 40)];
+        self.cateNumLabel = [[UILabel alloc ] initWithFrame:CGRectMake(self.cateNameLabel.lj_right, 0, CGRectGetWidth(self.frame) / 2, spaceEdgeH(40))];
         [self.cateNumLabel setFont:LJFontSize14];
         [self.cateNumLabel setTextColor:LJFontColor61];
         self.cateNumLabel.textAlignment = NSTextAlignmentRight;

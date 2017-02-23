@@ -29,7 +29,7 @@ static NSString *const LJUserHeaderTableViewCellId = @"LJUserHeaderTableViewCell
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"个人资料";
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, 259) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, spaceEdgeH(267)) style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.bounces = NO; //去掉弹性效果
@@ -68,7 +68,7 @@ static NSString *const LJUserHeaderTableViewCellId = @"LJUserHeaderTableViewCell
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator; //指示器
     [cell.textLabel setFont:LJFontSize16];
     [cell.detailTextLabel setFont:LJFontSize16];
-    [cell.textLabel setTextColor:LJFontColor4c];
+    [cell.textLabel setTextColor:LJFontColor61];
     [cell.detailTextLabel setTextColor:LJFontColor88];
     switch (indexPath.row) {
         case 1:
@@ -95,9 +95,9 @@ static NSString *const LJUserHeaderTableViewCellId = @"LJUserHeaderTableViewCell
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row ==0) {
-        return 82;
+        return spaceEdgeH(90);
     }
-    return 44;
+    return spaceEdgeH(44);
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
