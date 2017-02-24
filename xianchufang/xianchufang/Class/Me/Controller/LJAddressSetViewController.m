@@ -8,6 +8,7 @@
 
 #import "LJAddressSetViewController.h"
 #import "LJAddressSetTableViewCell.h"
+
 @interface LJAddressSetViewController ()
 
 @end
@@ -25,6 +26,11 @@
     self.tableView.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self addNewAddressBtn];
+    
+    //测试数据
+    NSArray *arr = @[@{@"name":@"张三",@"phone":@"123423984",@"address":@"上海市宝山区罗泾镇陈川新村180",@"isDefault":@"yes"},@{@"name":@"张三",@"phone":@"123423984",@"address":@"上海市宝山区罗泾镇陈川新村180",@"isDefault":@""},@{@"name":@"张三",@"phone":@"123423984",@"address":@"上海市宝山区罗泾镇陈川新村180",@"isDefault":@""},@{@"name":@"张三",@"phone":@"123423984",@"address":@"上海市宝山区罗泾镇陈川新村180",@"isDefault":@""}];
+    self.dataArray = [LJAddressModel mj_objectArrayWithKeyValuesArray:arr];
+    [self.tableView reloadData];
 }
 
 #pragma mark --添加新地址
@@ -48,22 +54,29 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 9;
+    return self.dataArray.count;
 }
 
 - (UITableViewCell  *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LJAddressSetTableViewCell *cell = [LJAddressSetTableViewCell cellWithTableView:tableView];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//    __weak LJAddressSetViewController *weakSelf =self;
-    cell.opeartionBlock = ^(NSInteger tag) {
+    LJAddressModel *model = self.dataArray[indexPath.row];
+    cell.addressModel = model;
+    cell.row = indexPath.row;
+    __weak LJAddressSetViewController *weakSelf = self;
+    __weak LJAddressSetTableViewCell *weakCell = cell;
+    cell.opeartionBlock = ^(NSInteger tag ,NSInteger row) {
         if (tag == 3001) {
             UIViewController *Vc = [NSClassFromString(@"LJNewAddressViewController") new];
             Vc.navigationItem.title = @"修改地址";
             [self.navigationController pushViewController:Vc animated:YES];
-        }else if(tag == 3002){
-            NSLog(@"3002");
+        }else if(tag == 3002){  //删除
+            if (weakCell.addressModel.isDefault) return ;
+            [weakSelf.dataArray removeObject:weakSelf.dataArray[row]];  ///////////后期在这删除数据进行上传 ----->>
+            NSIndexPath *index = [NSIndexPath indexPathForRow:row inSection:0];
+            [weakSelf.tableView deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:index] withRowAnimation:UITableViewRowAnimationTop];
         }else if(tag == 3003){
-            NSLog(@"3003");
+            //后期在这数据进行上传,更改默认地址 ----->>
         }
     };
     return cell;

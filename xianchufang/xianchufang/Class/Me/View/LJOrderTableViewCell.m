@@ -60,6 +60,7 @@
         self.dropBtn.hidden = YES;                  /////cell上同一个控件用到不同的状态，用数据源的方式，如果让其显示或隐藏：就用：Hidden;不能用remove;
     }else{
         self.dropBtn.hidden = NO;
+        self.dropBtn.selected = self.orderDataModel.isExpand;   //二次判断下拉按钮的状态
     }
     //富文本
     NSString *string = [NSString stringWithFormat:@"共%@件商品 合计:￥%@(%@)",_orderDataModel.goodsNum,_orderDataModel.totalPrice,_orderDataModel.postPticStr];
@@ -121,7 +122,7 @@
     self.dropBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, spaceEdgeH(40), 40, 40)];
     self.dropBtn.lj_centerX = SCREEN_WIDTH / 2;
     [self.dropBtn setImage:[UIImage imageNamed:@"my_down_icon"] forState:UIControlStateNormal];
-    [self.dropBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateSelected];
+    [self.dropBtn setImage:[UIImage imageNamed:@"my_up_icon"] forState:UIControlStateSelected];
     [self.dropBtn addTarget:self action:@selector(dropBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.bottomView addSubview:self.dropBtn];
 }
@@ -150,9 +151,9 @@
 //     if (self.cancelBtn) return;
     self.cancelBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - spaceEdgeW(145),spaceEdgeH(45), spaceEdgeW(81), spaceEdgeH(25))];
     [self.cancelBtn setTitle:@"取消订单" forState:UIControlStateNormal];
-    [self.cancelBtn setTitleColor:LJFontColor88 forState:UIControlStateNormal];
+    [self.cancelBtn setTitleColor:LJFontColorc3 forState:UIControlStateNormal];
     [self.cancelBtn.titleLabel setFont:LJFontSize16];
-    self.cancelBtn.layer.borderColor = LJFontColor88.CGColor;
+    self.cancelBtn.layer.borderColor = LJFontColorc3.CGColor;
     self.cancelBtn.layer.borderWidth = 1;
     [self.cancelBtn setLayerWithCr:3];
     [self.cancelBtn addTarget:self action:@selector(cancelBtnClick:) forControlEvents:UIControlEventTouchUpInside];

@@ -29,30 +29,22 @@
     return self;
 }
 
-#pragma mark --modifyBtnClick
-- (void)modifyBtnClick:(UIButton *)sender {
-    if (self.opeartionBlock) {
-        self.opeartionBlock(sender.tag);
-    }
-}
-
-#pragma mark --deleteBtnClick
-- (void)deleteBtnClick:(UIButton *)sender {
-    if (self.opeartionBlock) {
-        self.opeartionBlock(sender.tag);
-    }
+#pragma mark --模型赋值
+- (void)setAddressModel:(LJAddressModel *)addressModel {
+    _addressModel = addressModel;
+    self.nameL.text = addressModel.name;
+    self.phoneL.text = addressModel.phone;
+    self.addressL.text = addressModel.address;
+    self.defaultBtn.selected = addressModel.isDefault ;  
 }
 
 #pragma mark --defaultBtnClick
-- (void)defaultBtnClick:(UIButton *)sender {
+- (void)opeartionBtnClick:(UIButton *)sender {
     if (self.opeartionBlock) {
-        self.opeartionBlock(sender.tag);
+        self.opeartionBlock(sender.tag,self.row);
     }
-    if (sender.selected == NO) {
-        sender.selected =YES;
-    }else{
-        sender.selected = NO;
-    }
+    if (sender.selected) return; //如果已经为默认状态，就不能修改
+    sender.selected = !sender.selected; //选中变为未选中
 }
 
 #pragma mark --设置子控件
@@ -102,7 +94,7 @@
     [self.defaultBtn setImage:[UIImage imageNamed:@"my_duihao_icon"] forState:UIControlStateNormal];
     [self.defaultBtn setImage:[UIImage imageNamed:@"my_duihao_icon_selected"] forState:UIControlStateSelected];
     [self.defaultBtn sizeToFit];
-    [self.defaultBtn addTarget:self action:@selector(defaultBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.defaultBtn addTarget:self action:@selector(opeartionBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     self.defaultBtn.tag = 3003;
     [bgView addSubview:self.defaultBtn];
     
@@ -120,7 +112,7 @@
     self.modifyBtn.layer.borderColor = LJColorFromRGB(0x849cf6).CGColor;
     [self.modifyBtn setLayerWithCr:3];
     [self.modifyBtn.titleLabel setFont:LJFontSize15];
-    [self.modifyBtn addTarget:self action:@selector(modifyBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.modifyBtn addTarget:self action:@selector(opeartionBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     self.modifyBtn.tag = 3001;
     [bgView addSubview:self.modifyBtn];
     
@@ -131,7 +123,7 @@
     self.deleteBtn.layer.borderColor = LJFontColored.CGColor;
     [self.deleteBtn setLayerWithCr:3];
     [self.deleteBtn.titleLabel setFont:LJFontSize15];
-    [self.deleteBtn addTarget:self action:@selector(deleteBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.deleteBtn addTarget:self action:@selector(opeartionBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     self.deleteBtn.tag = 3002;
     [bgView addSubview:self.deleteBtn];
 }

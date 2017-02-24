@@ -38,7 +38,6 @@
     }else{
        _cellTableViewHeight = self.goodsArray.count * spaceEdgeH(97);
     }
-    
     return _cellTableViewHeight;
 }
 

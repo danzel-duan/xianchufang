@@ -366,6 +366,13 @@
 
 
 //////////
+
+#pragma mark --修改标题
+- (void)modifytitle:(NSString *)titile placeholder:(NSString *)placeholder {
+    self.titleLabel.text = titile;
+    self.nameTextField.placeholder = placeholder;
+}
+
 ////////
 /////
 #pragma mark --Alert1更改属性

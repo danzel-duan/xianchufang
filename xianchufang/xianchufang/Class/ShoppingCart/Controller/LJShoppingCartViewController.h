@@ -13,8 +13,10 @@
 @property (nonatomic,strong) UIButton *settlementBtn;
 /*** 金额L ***/
 @property (nonatomic,strong) UILabel *priceLabel;
-/*** 金额 ***/
+/*** 暂时计算的金额 ***/
 @property (nonatomic,assign) CGFloat Allprice;
+/*** 最终要结算的金额 ***/
+@property (nonatomic,assign) CGFloat totalPrice;
 /*** 合计一系列背景 ***/
 @property (nonatomic,strong) UIView *view1;
 /*** 底部标签栏 ***/

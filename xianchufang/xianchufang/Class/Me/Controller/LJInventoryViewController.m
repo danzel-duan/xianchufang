@@ -8,6 +8,7 @@
 
 #import "LJInventoryViewController.h"
 #import "LJInventoryTableViewCell.h"
+#import "LJTooltip.h"
 @interface LJInventoryViewController ()
 /*** 创建清单按钮 ***/
 @property (nonatomic,strong) UIButton *creatBtn;
@@ -32,6 +33,15 @@
     [self.tableView registerClass:[LJInventoryTableViewCell class] forCellReuseIdentifier:@"LJInventoryTableViewCell"];
  
     [self addBottomTabBar];
+    
+    //测试数据
+    NSArray *arr = @[@{@"inventName":@"清单1",@"goodsNum":@"4",@"totalPrice":@"236.0",@"goodsDataArr":@[@{@"goodsName":@"大白菜"},@{@"goodsName":@"大白菜"},@{@"goodsName":@"大白菜"},@{@"goodsName":@"大白菜"}]},@{@"inventName":@"清单1",@"goodsNum":@"4",@"totalPrice":@"236.0",@"goodsDataArr":@[@{@"goodsName":@"大白菜"},@{@"goodsName":@"大白菜"},@{@"goodsName":@"大白菜"},@{@"goodsName":@"大白菜"}]},@{@"inventName":@"清单1",@"goodsNum":@"4",@"totalPrice":@"236.0",@"goodsDataArr":@[@{@"goodsName":@"大白菜"},@{@"goodsName":@"大白菜"},@{@"goodsName":@"大白菜"},@{@"goodsName":@"大白菜"}]}];
+    self.dataArray = [LJInventoryModel mj_objectArrayWithKeyValuesArray:arr];
+    [self.tableView reloadData];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.dataArray.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -41,16 +51,22 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LJInventoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LJInventoryTableViewCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    LJInventoryModel *model = self.dataArray[indexPath.row];
+    cell.inventoryModel = model;      /////数据传值
+    
     __weak LJInventoryViewController *weakSelf = self;
-    cell.selectblock = ^(NSString *tag,int selectNum ){
-        if ([tag isEqualToString:@"1"]) {
+    cell.selectblock = ^{
+        int num =0;
+        for (LJInventoryModel *model in self.dataArray) {
+            if (model.isSelected) num++;
+        }
+        if (num>0) {
             [weakSelf.view addSubview:weakSelf.viewbg];
             [weakSelf.viewbg1 removeFromSuperview];
         }else{
-            if (selectNum <= 0) {
-                [weakSelf.view addSubview:weakSelf.viewbg1];
-                [weakSelf.viewbg removeFromSuperview];
-            } 
+            weakSelf.allBtn.selected = NO;  //将全选按钮的状态设为未选中
+            [weakSelf.view addSubview:weakSelf.viewbg1];  //添加创建清单按钮
+            [weakSelf.viewbg removeFromSuperview];
         }
     };
     cell.nextblock = ^(NSString *invertoryName){
@@ -101,28 +117,45 @@
     [delecteBtn setTitle:@"删除" forState:UIControlStateNormal];
     delecteBtn.contentMode = UIViewContentModeCenter;
     [delecteBtn.titleLabel setFont:[UIFont systemFontOfSize:18]];
-    [delecteBtn addTarget:self action:@selector(creatClick:) forControlEvents:UIControlEventTouchUpInside];
+    [delecteBtn addTarget:self action:@selector(delecteBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     self.delectBtn = delecteBtn;
     [view addSubview:delecteBtn];
 }
 
-#pragma mark --creatBtnClick 
+#pragma mark --creatBtnClick创建清单 
 - (void)creatClick:(UIButton *)sender {
-    LJLogFunc
+    LJTooltip *tip = [[LJTooltip alloc] initWithToolTipStyle:ToolTipStyleName];
+    [tip modifytitle:@"创建清单名称" placeholder:@"请输入新的清单名称"];
+    [tip showTooltip];
+    tip.okClickBlock = ^(NSString * name){
+        LJLog(@"%@",name);
+    };
 }
 
-#pragma mark --selectBtn 
+#pragma mark --selectBtn 全选事件
 - (void)selectBtnClicK:(UIButton *)sender {
-    if (sender.selected) {
-        sender.selected = NO;
-    }else{
-        sender.selected = YES;
+    sender.selected = !sender.selected;
+    for (LJInventoryModel *model in self.dataArray) {
+        model.isSelected = sender.selected;
     }
+    if (!sender.selected) {   //如果为未选中状态，则将底部标签栏改为创建清单按钮
+        [self.view addSubview:self.viewbg1];
+        [self.viewbg removeFromSuperview];
+    }
+    [self.tableView reloadData];
 }
 
 #pragma mark --delecteBtn 
 - (void)delecteBtnClick:(UIButton *)sender {
-    LJLogFunc
+    for (int i = 0; i<self.dataArray.count; i++) {
+        LJInventoryModel *model = self.dataArray[i];
+        if (model.isSelected) {
+            [self.dataArray removeObject:self.dataArray[i]];
+        }
+    }
+    [self.tableView reloadData];
+    [self.view addSubview:self.viewbg1];//则将底部标签栏改为创建清单按钮
+    [self.viewbg removeFromSuperview];
 }
 
 - (void)didReceiveMemoryWarning {

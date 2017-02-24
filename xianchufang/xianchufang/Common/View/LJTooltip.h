@@ -64,6 +64,8 @@ typedef void (^okClickBlock)(NSString * string);  //确定点击回调
 - (void)Alert2content:(NSString *)content;
 #pragma mark --Alert3更改属性
 - (void)Alert3content:(NSString *)content location:(CGFloat)location;
+#pragma mark --修改标题
+- (void)modifytitle:(NSString *)titile placeholder:(NSString *)placeholder;
 
 #pragma mark --显示提示框
 - (void)showTooltip;

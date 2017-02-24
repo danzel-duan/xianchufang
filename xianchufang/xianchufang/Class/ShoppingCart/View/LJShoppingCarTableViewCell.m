@@ -41,11 +41,7 @@
         self.bgView.lj_height = spaceEdgeH(160);
         self.bgView2.lj_y = self.topBgView.lj_bottom;
     }
-    if (shoppingCarMOdel.isCellSelected) {
-        self.SelectBtn.selected = YES;
-    }else{
-        self.SelectBtn.selected = NO;
-    }
+    self.SelectBtn.selected = shoppingCarMOdel.isCellSelected;
 }
 
 #pragma mark --设置Top子控件
@@ -175,7 +171,7 @@
         sender.selected = YES;
         self.shoppingCarMOdel.isCellSelected = YES;
     }
-    if (self.calculateblock) {
+    if (self.calculateblock) {   //不管选中还是未选中，都要重新计算价格。
         self.calculateblock();
     }
 }

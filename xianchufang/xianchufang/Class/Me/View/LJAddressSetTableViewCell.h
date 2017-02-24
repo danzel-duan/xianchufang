@@ -7,8 +7,8 @@
 //
 
 #import "LJBaseTableViewCell.h"
-typedef void (^opeartionBlock)(NSInteger tag); //回调
-typedef void (^defaultBlock)();
+#import "LJAddressModel.h"
+typedef void (^opeartionBlock)(NSInteger tag ,NSInteger row); //回调
 @interface LJAddressSetTableViewCell : LJBaseTableViewCell
 /*** 名字 ***/
 @property (nonatomic,strong) UILabel *nameL;
@@ -21,11 +21,11 @@ typedef void (^defaultBlock)();
 @property (nonatomic,strong) UIButton *modifyBtn;  //修改
 @property (nonatomic,strong) UIButton *deleteBtn; //删除
 @property (nonatomic,strong) UIView *bgView;
+@property (nonatomic,assign) NSInteger row;   ///当前所在的行
 /*** 创建cell ***/
 +(instancetype)cellWithTableView:(UITableView *)tableView;
 
 @property (nonatomic,strong) opeartionBlock opeartionBlock;
 
-@property (nonatomic,strong) defaultBlock defaultBlock;
-
+@property (nonatomic,strong) LJAddressModel *addressModel;
 @end
