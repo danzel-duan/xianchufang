@@ -451,8 +451,6 @@
 				14786BA91E555B740099451B /* LJModifyPhoneNumViewController.m */,
 				1488C8081E5704FE00C1AC27 /* LJModifyPwdViewController.h */,
 				1488C8091E5704FE00C1AC27 /* LJModifyPwdViewController.m */,
-				1488C80B1E573A9900C1AC27 /* LJCheckUpdateViewController.h */,
-				1488C80C1E573A9900C1AC27 /* LJCheckUpdateViewController.m */,
 				1488C80E1E574ABD00C1AC27 /* LJOpinionViewController.h */,
 				1488C80F1E574ABD00C1AC27 /* LJOpinionViewController.m */,
 				1488C8011E56920F00C1AC27 /* Address */,
@@ -487,6 +485,15 @@
 				148872501E600328003941AD /* LJAddressModel.m */,
 			);
 			name = Address;
+			sourceTree = "<group>";
+		};
+		148872531E600D3E003941AD /* about  us */ = {
+			isa = PBXGroup;
+			children = (
+				1488C80B1E573A9900C1AC27 /* LJCheckUpdateViewController.h */,
+				1488C80C1E573A9900C1AC27 /* LJCheckUpdateViewController.m */,
+			);
+			name = "about  us";
 			sourceTree = "<group>";
 		};
 		1488C8011E56920F00C1AC27 /* Address */ = {
@@ -641,6 +648,7 @@
 				1464B8F51E5BDE6B003CC3BC /* Order */,
 				146A2E881E5AFBDB0092928D /* Inventory */,
 				1486DAF51E54273E0096E46D /* Settings */,
+				148872531E600D3E003941AD /* about  us */,
 				14E05BB51E5137710057D3AE /* LJMeViewController.h */,
 				14E05BB61E5137710057D3AE /* LJMeViewController.m */,
 			);

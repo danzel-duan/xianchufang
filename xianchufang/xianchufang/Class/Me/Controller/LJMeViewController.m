@@ -43,17 +43,15 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
 #pragma mark --懒加载
 - (UIView *)backgroundView {
     if (!_backgroundView){
-        _backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, spaceEdgeH(240))];
+        _backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, spaceEdgeH(260))];
     }
     return _backgroundView;
 }
 
 - (UIImageView *)backgroundImageView {
     if (!_backgroundImageView) {
-        _backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, spaceEdgeH(240)-spaceEdgeH(50))];
-        _backgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
-        _backgroundImageView.clipsToBounds = YES;
-        _backgroundImageView.image = [UIImage imageNamed:@"my_bj_pic"];
+        _backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, spaceEdgeH(260)-spaceEdgeH(50))];
+        _backgroundImageView.image = [UIImage imageNamed:@"my_background"];
         [self.backgroundView addSubview:_backgroundImageView];
     }
     return _backgroundImageView;
@@ -84,7 +82,6 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
 
 #pragma mark --设置背景头像位置
 - (void)setLayoutHeaderImageView {
-    self.automaticallyAdjustsScrollViewInsets = YES;// 当tableView充满整个View时，这个要为YES
     
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     self.tableView.delegate = self;
@@ -98,14 +95,14 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
     
     [self.headerImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.height.mas_equalTo(70);
-        make.centerX.mas_equalTo(self.backgroundImageView.mas_centerX);
-        make.centerY.mas_equalTo(self.backgroundImageView.mas_centerY);
+        make.centerX.mas_equalTo(self.backgroundView.mas_centerX);
+        make.centerY.mas_equalTo(self.backgroundView.mas_centerY).offset(-10);
     }];
     self.headerImageView.layer.masksToBounds = YES; //没这句话它圆不起来
     self.headerImageView.layer.cornerRadius = 70 / 2;
     
     [self.userNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.headerImageView.mas_bottom).offset(10);
+        make.top.mas_equalTo(self.headerImageView.mas_bottom).offset(5);
         make.centerX.mas_equalTo(self.headerImageView.mas_centerX);
         make.height.mas_equalTo(25);
     }];
@@ -149,58 +146,38 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
 
 #pragma mark --余额、积分
 -(void)setBalanceAndIntegral {
-    UILabel *balance = [[UILabel alloc] initWithFrame:CGRectMake(0, self.backgroundImageView.lj_bottom, SCREEN_WIDTH/4, spaceEdgeH(50))];
-    balance.text = @"余额:";
-    [balance setTextAlignment:NSTextAlignmentRight];
-    [self.backgroundView addSubview:balance];
-    balance.backgroundColor = [UIColor whiteColor];
-    [balance setFont:LJFontSize15];
-    [balance setTextColor:LJFontColor39];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, self.backgroundImageView.lj_bottom, SCREEN_WIDTH, spaceEdgeH(50))];
+    view.backgroundColor = [UIColor whiteColor];
+    [self.backgroundView addSubview:view];
     
-    self.balanceLabel = [[UILabel alloc] initWithFrame:CGRectMake(balance.lj_right, self.backgroundImageView.lj_bottom, SCREEN_WIDTH/4, spaceEdgeH(50))];
-    self.balanceLabel.text = @"0.00";
-    [self.balanceLabel setTextAlignment:NSTextAlignmentLeft];
-    [self.balanceLabel setTextColor:LJFontColored];
-    [self.balanceLabel setFont:LJFontSize15];
-    [self.backgroundView addSubview:self.balanceLabel];
-    self.balanceLabel.backgroundColor = [UIColor whiteColor];
+    self.balanceLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH/2, spaceEdgeH(50))];
+    [self.balanceLabel setTextAlignment:NSTextAlignmentCenter];
+    [view addSubview:self.balanceLabel];
     
+    NSMutableAttributedString * balance =[[ NSMutableAttributedString alloc] initWithString:@"余额:34.2"];
+    [balance addAttributes:@{NSForegroundColorAttributeName:LJFontColor4c,NSFontAttributeName:LJFontSize15} range:NSMakeRange(0, 3)];
+    [balance addAttributes:@{NSForegroundColorAttributeName:LJFontColored,NSFontAttributeName:LJFontSize18} range:NSMakeRange(3, 4)];
+    self.balanceLabel.attributedText = balance;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(BalanceLabelClick)];
-    UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(BalanceLabelClick)];
     self.balanceLabel.userInteractionEnabled = YES;
-    balance.userInteractionEnabled = YES;
-    [balance addGestureRecognizer:tap];
-    [self.balanceLabel addGestureRecognizer:tap1];
+    [self.balanceLabel addGestureRecognizer:tap];
+    
     /*** 分割线 ***/
-    UIView *CutLine = [[UIView alloc] initWithFrame:CGRectMake(self.balanceLabel.lj_right, self.backgroundImageView.lj_bottom, 0.5, spaceEdgeH(50))];
+    UIView *CutLine = [[UIView alloc] initWithFrame:CGRectMake(self.balanceLabel.lj_right, 0, 0.5, spaceEdgeH(50))];
     CutLine.backgroundColor = LJCutLineColor;
-    [self.backgroundView addSubview:CutLine];
+    [view addSubview:CutLine];
     
-    UILabel *integral = [[UILabel alloc] initWithFrame:CGRectMake(CutLine.lj_right, self.backgroundImageView.lj_bottom, SCREEN_WIDTH/4 - 0.5, spaceEdgeH(50))];
-    integral.text = @"积分:";
-    [integral setTextAlignment:NSTextAlignmentRight];
-    [self.backgroundView addSubview:integral];
-    integral.backgroundColor = [UIColor whiteColor];
-    [integral setFont:LJFontSize15];
-    [integral setTextColor:LJFontColor39];
-    
-    self.integralLabel = [[UILabel alloc] initWithFrame:CGRectMake(integral.lj_right, self.backgroundImageView.lj_bottom, SCREEN_WIDTH/4, spaceEdgeH(50))];
-    self.integralLabel.text = @"1.25千";
-    [self.integralLabel setTextAlignment:NSTextAlignmentLeft];
-    [self.backgroundView addSubview:self.integralLabel];
-    [self.integralLabel setTextColor:LJFontColored];
-    [self.integralLabel setFont:LJFontSize15];
-    self.integralLabel.backgroundColor = [UIColor whiteColor];
-    UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(IntegralLabelClick)];
-    UITapGestureRecognizer *tap3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(IntegralLabelClick)];
+    self.integralLabel = [[UILabel alloc] initWithFrame:CGRectMake(CutLine.lj_right, 0.5, SCREEN_WIDTH/2, spaceEdgeH(50) - 0.5)];
+    [self.integralLabel setTextAlignment:NSTextAlignmentCenter];
     self.integralLabel.userInteractionEnabled = YES;
-    integral.userInteractionEnabled = YES;
-    [integral addGestureRecognizer:tap3];
-    [self.integralLabel addGestureRecognizer:tap2];
-    /*** 分割线 ***/
-    UIView *CutLine1 = [[UIView alloc] initWithFrame:CGRectMake(0, self.self.integralLabel.lj_bottom, SCREEN_WIDTH, 0.5)];
-    CutLine1.backgroundColor = LJCutLineColor;
-    [self.backgroundView addSubview:CutLine1];
+    [view addSubview:self.integralLabel];
+    
+    NSMutableAttributedString * integral =[[ NSMutableAttributedString alloc] initWithString:@"积分:66.6"];
+    [integral addAttributes:@{NSForegroundColorAttributeName:LJFontColor4c,NSFontAttributeName:LJFontSize15} range:NSMakeRange(0, 3)];
+    [integral addAttributes:@{NSForegroundColorAttributeName:LJFontColored,NSFontAttributeName:LJFontSize18} range:NSMakeRange(3, 4)];
+    self.integralLabel.attributedText = integral;
+    UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(IntegralLabelClick)];
+    [self.integralLabel addGestureRecognizer:tap1];
 }
 
 #pragma mark --消息触发
@@ -353,7 +330,8 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
         }else if (indexPath.row == 2){
             
         }else if (indexPath.row == 3){
-            
+            UIViewController *Vc = [NSClassFromString(@"LJCheckUpdateViewController") new];  //关于我们
+            [self.navigationController pushViewController:Vc animated:YES];
         }
     }
 }
@@ -366,10 +344,9 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
     CGFloat imageW = SCREEN_WIDTH;
     if (offset_Y < 0) {
         CGFloat totalOffset = imageH + ABS(offset_Y);  //ABS 是整数绝对值
-        CGFloat f = totalOffset / imageH;
-        self.backgroundImageView.frame = CGRectMake(-(imageW*f - imageW)*0.5, offset_Y, imageW*f, totalOffset-50);
+        self.backgroundImageView.frame = CGRectMake(0, offset_Y, imageW, totalOffset);
     }else{
-        self.backgroundImageView.frame = CGRectMake(0, 0, SCREEN_WIDTH, self.backgroundView.lj_height-50);
+        self.backgroundImageView.frame = CGRectMake(0, 0, SCREEN_WIDTH, self.backgroundView.lj_height - spaceEdgeH(50));
     }
     if (offset_Y > -20) {
         CGFloat alpha = MIN(1, 1-(64 -offset_Y)/64);

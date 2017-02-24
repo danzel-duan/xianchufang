@@ -7,7 +7,5 @@
 //
 
 #import "LJBaseViewController.h"
-typedef void (^CheckBlock)(NSString *);
 @interface LJCheckUpdateViewController : LJBaseViewController
-@property (nonatomic,copy) CheckBlock checkblock;
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "LJCheckUpdateViewController.h"
-
 @interface LJCheckUpdateViewController ()
 
 @property (nonatomic,strong) UILabel *updateL;
@@ -17,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"检测更新";
+    self.navigationItem.title = @"关于我们";
     [self addimageView];
     
 }
@@ -74,9 +73,6 @@
 
 - (void)BgViewClick {
     LJLogFunc
-    if (self.checkblock) {
-        self.checkblock(self.updateL.text);
-    }
 }
 
 - (void)didReceiveMemoryWarning {

@@ -7,7 +7,6 @@
 //
 
 #import "LJSettingViewController.h"
-#import "LJCheckUpdateViewController.h"
 @interface LJSettingViewController ()
 
 //@property (nonatomic,strong) UITableView *tavleView;
@@ -69,7 +68,7 @@
             cell.textLabel.text = @"修改密码";
             break;
         case 3:
-            cell.textLabel.text = @"检查更新";
+            cell.textLabel.text = @"清除缓存";
             cell.detailTextLabel.text = @"v 1.10";
             self.updateCell = cell;
             break;
@@ -94,12 +93,7 @@
         UIViewController * Vc =[NSClassFromString(@"LJModifyPwdViewController") new];
         [self.navigationController pushViewController:Vc animated:YES];
     }else if (indexPath.row == 3){
-        LJCheckUpdateViewController * Vc =[[LJCheckUpdateViewController alloc] init];
-        __weak LJSettingViewController *weakSelf = self;
-        Vc.checkblock = ^ (NSString *str){
-            weakSelf.updateCell.detailTextLabel.text = str;
-        };
-        [self.navigationController pushViewController:Vc animated:YES];
+        //清除缓存
     }else if (indexPath.row == 4){
         UIViewController * Vc =[NSClassFromString(@"LJOpinionViewController") new];
         [self.navigationController pushViewController:Vc animated:YES];
