@@ -200,7 +200,7 @@
             LJShoppingCarModel *model = self.dataArray[indexpath.row];
             model.goodsNum ++;
         }
-    [self totalPrice];
+    [self CalculateTotalPrice];
     [self.tableView reloadData];
 }
 

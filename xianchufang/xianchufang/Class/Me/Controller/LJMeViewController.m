@@ -328,7 +328,8 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
             UIViewController *Vc = [NSClassFromString(@"LJMyCollectViewController") new];
             [self.navigationController pushViewController:Vc animated:YES];
         }else if (indexPath.row == 2){
-            
+            UIViewController *Vc = [NSClassFromString(@"LJOnlineServiceViewController") new];
+            [self.navigationController pushViewController:Vc animated:YES];
         }else if (indexPath.row == 3){
             UIViewController *Vc = [NSClassFromString(@"LJCheckUpdateViewController") new];  //关于我们
             [self.navigationController pushViewController:Vc animated:YES];
