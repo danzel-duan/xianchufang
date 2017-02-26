@@ -39,6 +39,8 @@
 		14786BAA1E555B740099451B /* LJModifyPhoneNumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14786BA91E555B740099451B /* LJModifyPhoneNumViewController.m */; };
 		14786BAD1E559D5F0099451B /* LJAddressSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14786BAC1E559D5F0099451B /* LJAddressSetViewController.m */; };
 		14786BB01E559FED0099451B /* LJAddressSetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14786BAF1E559FED0099451B /* LJAddressSetTableViewCell.m */; };
+		1481977F1E62999C00CCAC3A /* LJOnlineServiceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1481977E1E62999C00CCAC3A /* LJOnlineServiceTableViewCell.m */; };
+		148197821E629DD300CCAC3A /* LJOnlineServiceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 148197811E629DD300CCAC3A /* LJOnlineServiceModel.m */; };
 		148688461E5347210019DD3E /* LJRadDot.m in Sources */ = {isa = PBXBuildFile; fileRef = 148688451E5347210019DD3E /* LJRadDot.m */; };
 		1486DAF41E53FAFA0096E46D /* LJSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1486DAF31E53FAFA0096E46D /* LJSettingViewController.m */; };
 		1486DAF81E5428200096E46D /* LJUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1486DAF71E5428200096E46D /* LJUserInfoViewController.m */; };
@@ -165,6 +167,10 @@
 		14786BAC1E559D5F0099451B /* LJAddressSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJAddressSetViewController.m; sourceTree = "<group>"; };
 		14786BAE1E559FED0099451B /* LJAddressSetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJAddressSetTableViewCell.h; sourceTree = "<group>"; };
 		14786BAF1E559FED0099451B /* LJAddressSetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJAddressSetTableViewCell.m; sourceTree = "<group>"; };
+		1481977D1E62999C00CCAC3A /* LJOnlineServiceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJOnlineServiceTableViewCell.h; sourceTree = "<group>"; };
+		1481977E1E62999C00CCAC3A /* LJOnlineServiceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJOnlineServiceTableViewCell.m; sourceTree = "<group>"; };
+		148197801E629DD300CCAC3A /* LJOnlineServiceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJOnlineServiceModel.h; sourceTree = "<group>"; };
+		148197811E629DD300CCAC3A /* LJOnlineServiceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJOnlineServiceModel.m; sourceTree = "<group>"; };
 		148688441E5347210019DD3E /* LJRadDot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJRadDot.h; sourceTree = "<group>"; };
 		148688451E5347210019DD3E /* LJRadDot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJRadDot.m; sourceTree = "<group>"; };
 		1486DAF21E53FAFA0096E46D /* LJSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJSettingViewController.h; sourceTree = "<group>"; };
@@ -514,6 +520,8 @@
 		148872551E6039B5003941AD /* Online Service */ = {
 			isa = PBXGroup;
 			children = (
+				148197801E629DD300CCAC3A /* LJOnlineServiceModel.h */,
+				148197811E629DD300CCAC3A /* LJOnlineServiceModel.m */,
 			);
 			name = "Online Service";
 			sourceTree = "<group>";
@@ -523,6 +531,8 @@
 			children = (
 				1488725A1E603AAF003941AD /* LJInputView.h */,
 				1488725B1E603AAF003941AD /* LJInputView.m */,
+				1481977D1E62999C00CCAC3A /* LJOnlineServiceTableViewCell.h */,
+				1481977E1E62999C00CCAC3A /* LJOnlineServiceTableViewCell.m */,
 			);
 			name = "Online Service";
 			sourceTree = "<group>";
@@ -1178,6 +1188,7 @@
 				14E05BE71E5137710057D3AE /* LJBaseViewController.m in Sources */,
 				146A2E871E5AF7020092928D /* LJInventoryDetailViewController.m in Sources */,
 				1464B8F81E5C00DB003CC3BC /* LJOrderTableViewCell.m in Sources */,
+				1481977F1E62999C00CCAC3A /* LJOnlineServiceTableViewCell.m in Sources */,
 				14DE12201E51FC1600836B46 /* LJOrderStatusTableViewCell.m in Sources */,
 				146A2E7B1E5A93530092928D /* LJShoppingCarTableViewCell.m in Sources */,
 				1464B8F41E5BDE65003CC3BC /* LJOrderBaseViewController.m in Sources */,
@@ -1219,6 +1230,7 @@
 				1464B9001E5C2F44003CC3BC /* LJPayOrderViewController.m in Sources */,
 				1464B9031E5C2F5D003CC3BC /* LJReceiveOrderViewController.m in Sources */,
 				1466CFCB1E5D69C500843FA9 /* LJMyCollectCollectionViewCell.m in Sources */,
+				148197821E629DD300CCAC3A /* LJOnlineServiceModel.m in Sources */,
 				14DE12231E51FD1700836B46 /* LJButton.m in Sources */,
 				1486DAF81E5428200096E46D /* LJUserInfoViewController.m in Sources */,
 				1464B8FD1E5C1FD8003CC3BC /* LJOrderGoodsDetailTableViewCell.m in Sources */,

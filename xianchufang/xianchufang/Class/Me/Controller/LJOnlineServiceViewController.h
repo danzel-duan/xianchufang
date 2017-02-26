@@ -7,7 +7,7 @@
 //
 
 #import "LJBaseViewController.h"
-
+#import "LJOnlineServiceTableViewCell.h"
 @interface LJOnlineServiceViewController : LJBaseViewController
 
 @end

@@ -22,7 +22,10 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = LJCommonBgColor;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.tableView];
+    [self.tableView registerClass:[LJOnlineServiceTableViewCell class] forCellReuseIdentifier:@"LJOnlineServiceTableViewCell"];
+    self.dataArray = [[NSMutableArray alloc] init];
     
     [self addInputViewKeyBoard];
 }
@@ -30,6 +33,7 @@
 #pragma mark --添加输入框和注册键盘监听
 - (void)addInputViewKeyBoard {
     self.InputView = [[LJInputView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 40, SCREEN_WIDTH, 40)];
+    [self.InputView.sendBtn addTarget:self action:@selector(ClickMsg:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.InputView];
     //注册键盘监听
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(KeyboardShow:) name:UIKeyboardWillShowNotification object:nil];
@@ -37,6 +41,19 @@
     //添加手势
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(ClickHide:)];
     [self.view addGestureRecognizer:tap];
+}
+
+#pragma mark --发送消息
+- (void)ClickMsg:(UIButton *)sender {
+    if (![self.InputView.inputTextField.text isEqualToString:@""]) {
+        LJOnlineServiceModel *model = [[LJOnlineServiceModel alloc] init];
+        model.msg = self.InputView.inputTextField.text;
+        model.isRight = 1;
+        [self.dataArray addObject:model];
+    }
+    [self.tableView reloadData];
+    //滚到底部
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.dataArray.count - 1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 
 #pragma mark --点击手势
@@ -51,6 +68,10 @@
     self.view.lj_y = -keyBoardRect.size.height;
     self.tableView.lj_y = keyBoardRect.size.height + 64;
     self.tableView.lj_height = SCREEN_HEIGHT - 104 - keyBoardRect.size.height;
+    if (self.dataArray.count != 0) {
+        //滚到底部
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.dataArray.count - 1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    }
 }
 
 #pragma mark --键盘消失
@@ -61,7 +82,20 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 30;
+    return self.dataArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    LJOnlineServiceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LJOnlineServiceTableViewCell"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    LJOnlineServiceModel *model = self.dataArray[indexPath.row];
+    cell.onlineSericeModel = model;
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    LJOnlineServiceModel *model = self.dataArray[indexPath.row];
+    return model.cellHight;
 }
 
 - (void)didReceiveMemoryWarning {
