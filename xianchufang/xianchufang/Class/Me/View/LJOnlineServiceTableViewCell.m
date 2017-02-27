@@ -52,9 +52,9 @@
     if (onlineSericeModel.isRight) {   //右边
         self.headerImageView.frame = CGRectMake(SCREEN_WIDTH - spaceEdgeW(62), 10, spaceEdgeW(50), spaceEdgeH(50));
         self.bubble.frame = CGRectMake(SCREEN_WIDTH - rect.size.width - spaceEdgeW(95), spaceEdgeH(20), spaceEdgeW(30 )+ rect.size.width,  rect.size.height + spaceEdgeH( 10));
-        bubbleImage = [UIImage imageNamed:@"my_tall_icon.9"];
+        bubbleImage = [UIImage imageNamed:@"my_tall_icon"];
     }
-    bubbleImage = [bubbleImage stretchableImageWithLeftCapWidth:bubbleImage.size.width / 2 topCapHeight:bubbleImage.size.height /2 ];
+    bubbleImage = [bubbleImage stretchableImageWithLeftCapWidth:bubbleImage.size.width / 2 topCapHeight:spaceEdgeH(30) ];
     self.bubble.image = bubbleImage;
     //文本内容
     self.contentLabel.frame = CGRectMake(5, 5, rect.size.width, rect.size.height);

@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "LJRootViewController.h"
+#import <AMapFoundationKit/AMapFoundationKit.h>//高德地图
+const static NSString *APIKey = @"1d2f9d42e52abc742520d0a10f7511de";//高德地图apiKey
 @interface AppDelegate ()
 
 @end
@@ -19,7 +21,21 @@
     self.window.frame = [[UIScreen mainScreen] bounds];
     self.window.rootViewController = [[LJRootViewController alloc] init];
     [self.window makeKeyAndVisible];
+    //高德地图配置Key
+    [self ConfigureAPIKey];
     return YES;
+}
+
+#pragma mark --高德地图配置
+- (void)ConfigureAPIKey {
+    if ([APIKey length] ==0) {
+        NSString *reason = [NSString stringWithFormat:@"apiKey为空！"];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:reason delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    [AMapServices sharedServices].enableHTTPS = YES;
+    [AMapServices sharedServices].apiKey = (NSString*)APIKey;
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

@@ -52,6 +52,7 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
     if (!_backgroundImageView) {
         _backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, spaceEdgeH(260)-spaceEdgeH(50))];
         _backgroundImageView.image = [UIImage imageNamed:@"my_background"];
+        _backgroundImageView.userInteractionEnabled = self;
         [self.backgroundView addSubview:_backgroundImageView];
     }
     return _backgroundImageView;
@@ -62,7 +63,7 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
         _userNameLabel = [[UILabel alloc] init];
         _userNameLabel.textAlignment = NSTextAlignmentCenter;
         _userNameLabel.font = [UIFont systemFontOfSize:15];
-        _userNameLabel.text = @"沙县小吃罗泾店";
+        _userNameLabel.text = @"点击头像登陆";
         [_userNameLabel sizeToFit];
         _userNameLabel.textColor = [UIColor whiteColor];
         [self.backgroundImageView addSubview:_userNameLabel];
@@ -75,9 +76,25 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
         _headerImageView = [[UIImageView alloc ] init];
         _headerImageView.contentMode = UIViewContentModeScaleAspectFit;
         _headerImageView.backgroundColor = LJRandomColor;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(personInfoSetting)];
+        [_headerImageView addGestureRecognizer:tap];
+        _headerImageView.userInteractionEnabled = YES;
         [self.backgroundImageView addSubview:_headerImageView];
     }
     return _headerImageView;
+}
+
+#pragma mark --个人信息设置
+- (void)personInfoSetting {
+//    if (1) {      //用户已登陆，进行个人信息设置
+//        UIViewController * Vc =[NSClassFromString(@"LJUserInfoViewController") new];
+//        [self.navigationController pushViewController:Vc animated:YES];
+//    }else{  //进入登陆界面LJLoginViewController
+//        UIViewController * Vc =[NSClassFromString(@"LJLoginViewController") new];
+//        [self presentViewController:Vc animated:YES completion:nil];
+//    }
+    UIViewController * Vc =[NSClassFromString(@"LJLoginViewController") new];
+    [self presentViewController:Vc animated:YES completion:nil];
 }
 
 #pragma mark --设置背景头像位置
@@ -141,7 +158,7 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
 #pragma mark --判断是否为当前控制器 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
     BOOL isShowSelf = [viewController isKindOfClass:[self class]];
-    [self.navigationController setNavigationBarHidden:isShowSelf animated:NO];
+    [self.navigationController setNavigationBarHidden:isShowSelf animated:YES];//动画要设为YES，不然界面切换不连贯
 }
 
 #pragma mark --余额、积分

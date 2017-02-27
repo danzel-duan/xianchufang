@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1410354D1E640B40001A5F3A /* LJLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1410354C1E640B40001A5F3A /* LJLoginViewController.m */; };
+		141035501E642BA0001A5F3A /* LJAddressSelectedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1410354F1E642BA0001A5F3A /* LJAddressSelectedViewController.m */; };
 		1464B8F41E5BDE65003CC3BC /* LJOrderBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1464B8F31E5BDE65003CC3BC /* LJOrderBaseViewController.m */; };
 		1464B8F81E5C00DB003CC3BC /* LJOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1464B8F71E5C00DB003CC3BC /* LJOrderTableViewCell.m */; };
 		1464B8FD1E5C1FD8003CC3BC /* LJOrderGoodsDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1464B8FC1E5C1FD8003CC3BC /* LJOrderGoodsDetailTableViewCell.m */; };
@@ -100,6 +102,10 @@
 
 /* Begin PBXFileReference section */
 		046EC9BC7D6EACBAEA68AED6 /* Pods-xianchufang.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xianchufang.release.xcconfig"; path = "Pods/Target Support Files/Pods-xianchufang/Pods-xianchufang.release.xcconfig"; sourceTree = "<group>"; };
+		1410354B1E640B40001A5F3A /* LJLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJLoginViewController.h; sourceTree = "<group>"; };
+		1410354C1E640B40001A5F3A /* LJLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJLoginViewController.m; sourceTree = "<group>"; };
+		1410354E1E642BA0001A5F3A /* LJAddressSelectedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJAddressSelectedViewController.h; sourceTree = "<group>"; };
+		1410354F1E642BA0001A5F3A /* LJAddressSelectedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJAddressSelectedViewController.m; sourceTree = "<group>"; };
 		1464B8F21E5BDE65003CC3BC /* LJOrderBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJOrderBaseViewController.h; sourceTree = "<group>"; };
 		1464B8F31E5BDE65003CC3BC /* LJOrderBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJOrderBaseViewController.m; sourceTree = "<group>"; };
 		1464B8F61E5C00DB003CC3BC /* LJOrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJOrderTableViewCell.h; sourceTree = "<group>"; };
@@ -544,6 +550,8 @@
 				14786BAC1E559D5F0099451B /* LJAddressSetViewController.m */,
 				1488C8021E56927A00C1AC27 /* LJNewAddressViewController.h */,
 				1488C8031E56927A00C1AC27 /* LJNewAddressViewController.m */,
+				1410354E1E642BA0001A5F3A /* LJAddressSelectedViewController.h */,
+				1410354F1E642BA0001A5F3A /* LJAddressSelectedViewController.m */,
 			);
 			name = Address;
 			sourceTree = "<group>";
@@ -652,6 +660,8 @@
 		14E05BB01E5137710057D3AE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1410354B1E640B40001A5F3A /* LJLoginViewController.h */,
+				1410354C1E640B40001A5F3A /* LJLoginViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1194,6 +1204,7 @@
 				1464B8F41E5BDE65003CC3BC /* LJOrderBaseViewController.m in Sources */,
 				1466CFDF1E5DBDD600843FA9 /* LJIntefralRuleViewController.m in Sources */,
 				14DE12181E51F01C00836B46 /* UIFont+LJExtension.m in Sources */,
+				1410354D1E640B40001A5F3A /* LJLoginViewController.m in Sources */,
 				14786BA71E55429E0099451B /* LJImageLeftButton.m in Sources */,
 				146A2E8B1E5B2F280092928D /* LJShoppingCarModel.m in Sources */,
 				14DE12151E51BCA700836B46 /* UIImage+LJExtension.m in Sources */,
@@ -1234,6 +1245,7 @@
 				14DE12231E51FD1700836B46 /* LJButton.m in Sources */,
 				1486DAF81E5428200096E46D /* LJUserInfoViewController.m in Sources */,
 				1464B8FD1E5C1FD8003CC3BC /* LJOrderGoodsDetailTableViewCell.m in Sources */,
+				141035501E642BA0001A5F3A /* LJAddressSelectedViewController.m in Sources */,
 				146AE8181E5EBAB30035F526 /* LJOrderModel.m in Sources */,
 				1466CFD11E5D888C00843FA9 /* LJMyCollectDetailTableViewCell.m in Sources */,
 				14E05BED1E5137710057D3AE /* AppDelegate.m in Sources */,

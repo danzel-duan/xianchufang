@@ -13,8 +13,9 @@
 - (void)BtnClick:(UITableViewCell *)cell tag:(NSInteger)tag;
 @end
 typedef void (^calculateBlock)();
+typedef void (^returnBlock)(NSInteger,NSString *);
 
-@interface LJShoppingCarTableViewCell : UITableViewCell
+@interface LJShoppingCarTableViewCell : UITableViewCell<UITextFieldDelegate>
 /*** 满减 ***/
 @property (nonatomic,strong) UIView *topBgView;
 /*** 满多少免运费 ***/
@@ -26,7 +27,7 @@ typedef void (^calculateBlock)();
 /*** 商品价格L ***/
 @property (nonatomic,strong) UILabel *priceLabel;
 /*** 商品数量L ***/
-@property (nonatomic,strong) UILabel *goodsNumLabel;
+@property (nonatomic,strong) UITextField *goodsNumTextField;
 /*** 商品价格 ***/
 @property (nonatomic,strong) NSString *price;
 /*** 商品数量 ***/
@@ -38,6 +39,7 @@ typedef void (^calculateBlock)();
 @property (nonatomic,strong) UIView *bgView2;
 
 @property (nonatomic,copy) calculateBlock calculateblock;
+@property (nonatomic,copy) returnBlock returnblock;
 /*** row 当前所在的行***/
 @property (nonatomic,assign) NSInteger row;
 

@@ -7,6 +7,9 @@ target 'xianchufang' do
   pod "AFNetworking","~>3.1.0"
   pod "SDWebImage","~>4.0.0-beta2"
   pod "MJExtension","~>3.0.13"
+  pod "AMapSearch-NO-IDFA"
+  pod "AMapLocation-NO-IDFA"
+  pod "AMap2DMap-NO-IDFA"
  # pod "KeyBoard","~>0.5.0"
  # pod 'Keyboard', '~> 0.5.0'
   pod "PinYin4Objc","~>1.1.1"

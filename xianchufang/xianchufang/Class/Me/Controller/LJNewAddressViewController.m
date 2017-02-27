@@ -9,6 +9,7 @@
 #import "LJNewAddressViewController.h"
 #import "LJVerifyInfo.h"
 #import "LJTooltip.h"
+#import "LJAddressSelectedViewController.h"
 @interface LJNewAddressViewController ()
 //保存按钮
 @property (nonatomic,strong) UIButton *saveBtn;
@@ -84,6 +85,7 @@
     }else if (indexPath.row == 1){
         cell.textLabel.text = @"手机号码";
         UITextField *textField = (UITextField*)[cell viewWithTag:indexPath.row + 100];
+        textField.keyboardType = UIKeyboardTypeASCIICapable;
         textField.placeholder = @"收货人手机号";
         self.phoneField = textField;
     }else if (indexPath.row == 2){
@@ -96,6 +98,7 @@
     }else if (indexPath.row == 3){
         cell.textLabel.text = @"邮政编码";
         UITextField *textField = (UITextField*)[cell viewWithTag:indexPath.row + 100];
+        textField.keyboardType = UIKeyboardTypeASCIICapable;
         textField.placeholder = @"邮政编码";
         self.postNum = textField;
     }else if (indexPath.row == 4){
@@ -111,19 +114,19 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 2) {
-        LJTooltip *tip = [[LJTooltip alloc] initWithToolTipStyle:ToolTipStyleAddress];
-        tip.okClickBlock = ^ (NSString * str) {
-            LJLog(@"%@" ,str);
+        LJAddressSelectedViewController *Vc = [NSClassFromString(@"LJAddressSelectedViewController") new];
+        __weak LJNewAddressViewController *weakSelf = self;
+        Vc.addressInfoblock = ^(NSString *address){
+            weakSelf.provinceCell.detailTextLabel.text = address;
         };
-        [tip showTooltip];
+        [self.navigationController pushViewController:Vc animated:YES];  
     }
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (![self.navigationItem.title isEqualToString:@"修改地址"]) return; //如果不是修改地址就不用传值
     if([indexPath row] == ((NSIndexPath*)[[tableView indexPathsForVisibleRows] lastObject]).row){
-        if ([self.navigationItem.title isEqualToString:@"修改地址"]) {
-            [self loadData];
-        }
+          [self loadData];
     }
 }
 

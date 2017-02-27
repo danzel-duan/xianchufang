@@ -17,7 +17,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpNav];
-    
 }
 
 #pragma mark--设置导航控制器

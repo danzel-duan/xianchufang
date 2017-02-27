@@ -8,6 +8,7 @@
 
 #import "LJShoppingCartViewController.h"
 #import "LJShoppingCarTableViewCell.h"
+#import "LJTooltip.h"
 @interface LJShoppingCartViewController ()<LjShoppingCarCellDelegate>{
     int goodsNumber;//选中了几件商品
 }
@@ -33,6 +34,14 @@
     [self setNavigationEdit];
     [self addBottomSettlementTabBar];
     [self loadData];
+    //添加手势
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(ClickHide:)];
+    [self.view addGestureRecognizer:tap];
+}
+
+#pragma mark --点击手势
+- (void)ClickHide:(UITapGestureRecognizer *)tapGesture {
+    [self.view endEditing:YES];
 }
 
 /*** 加载数据 ***/
@@ -53,11 +62,23 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LJShoppingCarTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LJShoppingCarTableViewCell"];
+    cell.row = indexPath.row;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.shoppingCarMOdel = self.dataArray [indexPath.row];
     __weak LJShoppingCartViewController *weakSelf = self;
     cell.calculateblock = ^{
         if ([weakSelf.settlementBtn.titleLabel.text isEqualToString:@"删除"]) return ;
+        [weakSelf CalculateTotalPrice];
+    };
+    cell.returnblock = ^(NSInteger row,NSString *textfield){
+       [weakSelf.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+        if ([textfield intValue] >500 ||([textfield intValue] < 10&&textfield !=nil)) {
+            LJTooltip *tip = [[LJTooltip alloc] initWithToolTipStyle:ToolTipStyleAlert3];
+            [tip Alert3content:@"商品数量只能在10~500kg之间" location:weakSelf.view.lj_height / 2];
+            return ;
+        }
+        LJShoppingCarModel *model = weakSelf.dataArray[row];
+        model.goodsNum = [textfield intValue];
         [weakSelf CalculateTotalPrice];
     };
     cell.delegate = self;
@@ -187,18 +208,23 @@
 
 #pragma mark --LJShoppingCarDelegate代理方法
 - (void)BtnClick:(UITableViewCell *)cell tag:(NSInteger)tag {
+    LJTooltip *tip = [[LJTooltip alloc] initWithToolTipStyle:ToolTipStyleAlert3];
     if ([self.settlementBtn.titleLabel.text isEqualToString:@"删除"]) return ;
     NSIndexPath *indexpath = [self.tableView indexPathForCell:cell];
     if (tag == 12) {
         //减法
         LJShoppingCarModel *model = self.dataArray[indexpath.row];
-        if (model.goodsNum  > 1) {
+        if (model.goodsNum  > 10) {
             model.goodsNum --;
         }
     }else if(tag == 14){
             //加法
             LJShoppingCarModel *model = self.dataArray[indexpath.row];
-            model.goodsNum ++;
+            if (model.goodsNum > 499) {
+                [tip Alert3content:@"商品数量只能在10~500kg之间" location:self.view.lj_height / 2];
+            }else{
+               model.goodsNum ++;
+            }
         }
     [self CalculateTotalPrice];
     [self.tableView reloadData];

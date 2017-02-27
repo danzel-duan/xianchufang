@@ -119,15 +119,15 @@
 
 /*** 样式八 ：警告样式三 ***/
 - (void)alert3 {
-    self.frame =CGRectMake(0, 0, selfWidth, 30);
-    self.backgroundColor = [UIColor lightGrayColor];
+    self.frame =CGRectMake(0, 0, selfWidth, 50);
+    self.backgroundColor = [UIColor blackColor];
     self.lj_centerX = SCREEN_WIDTH / 2;
     [self setLayerWithCr:10];
-    self.contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 0, selfWidth - 10, 30)];
+    self.contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 0, selfWidth - 10, 50)];
     self.contentLabel.backgroundColor = [UIColor clearColor];
     self.contentLabel.textColor = [UIColor whiteColor];
     self.contentLabel.textAlignment = NSTextAlignmentCenter;
-    [self.contentLabel setFont:LJFontSize16];
+    [self.contentLabel setFont:[UIFont systemFontOfSize:16 weight:1]];
     [self addSubview:self.contentLabel];
 }
 
@@ -401,7 +401,7 @@
     self.contentLabel.text = content;
     [LJwindow addSubview:self];
     self.alpha = 1;
-    [UIView animateWithDuration:2 animations:^{
+    [UIView animateWithDuration:3 animations:^{
         self.alpha = 0;
     }];
 }

@@ -27,7 +27,7 @@
     _shoppingCarMOdel = shoppingCarMOdel;
     self.goodsImageView.image = [UIImage imageNamed:shoppingCarMOdel.goodsImageViewName];
     self.briefLabel.text = shoppingCarMOdel.brief;
-    self.goodsNumLabel.text = [NSString stringWithFormat:@"%d",shoppingCarMOdel.goodsNum];
+    self.goodsNumTextField.text = [NSString stringWithFormat:@"%d",shoppingCarMOdel.goodsNum];
     self.priceLabel.text = [NSString stringWithFormat:@"￥%@",shoppingCarMOdel.price];
     self.price = shoppingCarMOdel.price;
     self.goodsNum = [NSString stringWithFormat:@"%d",shoppingCarMOdel.goodsNum];
@@ -138,13 +138,15 @@
     [button2 addTarget:self action:@selector(ButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [bgView2 addSubview:button2];
     /*** 商品数量L ***/
-    self.goodsNumLabel = [[UILabel alloc] initWithFrame:CGRectMake(button2.lj_right, button2.lj_y, 60, spaceEdgeH(25))];
-    self.goodsNumLabel.layer.borderColor = [LJFontColor88 CGColor];
-    self.goodsNumLabel.layer.borderWidth = 0.5;
-    self.goodsNumLabel.textAlignment = NSTextAlignmentCenter;
-    [bgView2 addSubview:self.goodsNumLabel];
+    self.goodsNumTextField = [[UITextField alloc] initWithFrame:CGRectMake(button2.lj_right, button2.lj_y, 60, spaceEdgeH(25))];
+    self.goodsNumTextField.keyboardType =  UIKeyboardTypePhonePad;
+    self.goodsNumTextField.layer.borderColor = [LJFontColor88 CGColor];
+    self.goodsNumTextField.layer.borderWidth = 0.5;
+    self.goodsNumTextField.textAlignment = NSTextAlignmentCenter;
+    self.goodsNumTextField.delegate = self;
+    [bgView2 addSubview:self.goodsNumTextField];
     /*** 加数量 ***/
-    UIButton * button3 = [[UIButton alloc] initWithFrame:CGRectMake(self.goodsNumLabel.lj_right, button2.lj_y, 30, spaceEdgeH(25))];
+    UIButton * button3 = [[UIButton alloc] initWithFrame:CGRectMake(self.goodsNumTextField.lj_right, button2.lj_y, 30, spaceEdgeH(25))];
     [button3 setTitle:@"+" forState:UIControlStateNormal];
     [button3 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     button3.layer.borderWidth = 0.5;
@@ -160,6 +162,18 @@
     [label sizeToFit];
     [label setFont:[UIFont systemFontOfSize:15]];
     [bgView2 addSubview:label];
+}
+
+#pragma mark --textfield代理
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    if (self.returnblock) {
+        self.returnblock(self.row,nil);
+    }
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField reason:(UITextFieldDidEndEditingReason)reason{
+    if (self.returnblock) {
+        self.returnblock(self.row,self.goodsNumTextField.text);
+    }
 }
 
 #pragma mark --选择商品
@@ -181,6 +195,7 @@
     //代理
     [self.delegate BtnClick:self tag:sender.tag];
 }
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 }
