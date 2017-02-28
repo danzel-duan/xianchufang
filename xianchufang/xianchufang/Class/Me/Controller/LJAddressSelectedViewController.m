@@ -75,7 +75,7 @@
 }
 
 #pragma mark --地图代理
-- (void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation updatingLocation:(BOOL)updatingLocation{
+- (void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation updatingLocation:(BOOL)updatingLocation {
     _currentLocation = userLocation.location;
     AMapReGeocodeSearchRequest*request = [[AMapReGeocodeSearchRequest alloc] init];
     request.location = [AMapGeoPoint locationWithLatitude:_currentLocation.coordinate.latitude longitude:_currentLocation.coordinate.longitude];
@@ -136,7 +136,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 50;
+    return spaceEdgeH(50);
 }
 
 - (void)didReceiveMemoryWarning {

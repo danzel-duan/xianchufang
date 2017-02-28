@@ -58,6 +58,14 @@
 		1488C80A1E5704FE00C1AC27 /* LJModifyPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1488C8091E5704FE00C1AC27 /* LJModifyPwdViewController.m */; };
 		1488C80D1E573A9900C1AC27 /* LJCheckUpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1488C80C1E573A9900C1AC27 /* LJCheckUpdateViewController.m */; };
 		1488C8101E574ABD00C1AC27 /* LJOpinionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1488C80F1E574ABD00C1AC27 /* LJOpinionViewController.m */; };
+		14CD5BC11E65112400179B88 /* LJNewsCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CD5BC01E65112400179B88 /* LJNewsCenterViewController.m */; };
+		14CD5BC51E65115800179B88 /* LJNewsCenterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CD5BC41E65115800179B88 /* LJNewsCenterTableViewCell.m */; };
+		14CD5BC91E65531600179B88 /* LJCommitOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CD5BC81E65531600179B88 /* LJCommitOrderViewController.m */; };
+		14CD5BCD1E655EC800179B88 /* LJCommitOrderAddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CD5BCC1E655EC800179B88 /* LJCommitOrderAddressTableViewCell.m */; };
+		14CD5BD61E656D6700179B88 /* LJCommitOrderGoodsDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CD5BD51E656D6700179B88 /* LJCommitOrderGoodsDetailTableViewCell.m */; };
+		14CD5BD91E657FB400179B88 /* LJCommitOrderCarMOder.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CD5BD81E657FB400179B88 /* LJCommitOrderCarMOder.m */; };
+		14CD5BE21E65A16800179B88 /* LJOrderBaseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CD5BE11E65A16800179B88 /* LJOrderBaseDetailViewController.m */; };
+		14CD5BE51E65A81000179B88 /* LJOrderBaseDetailStatusTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CD5BE41E65A81000179B88 /* LJOrderBaseDetailStatusTableViewCell.m */; };
 		14DE12151E51BCA700836B46 /* UIImage+LJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DE12141E51BCA700836B46 /* UIImage+LJExtension.m */; };
 		14DE12181E51F01C00836B46 /* UIFont+LJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DE12171E51F01C00836B46 /* UIFont+LJExtension.m */; };
 		14DE12201E51FC1600836B46 /* LJOrderStatusTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DE121F1E51FC1600836B46 /* LJOrderStatusTableViewCell.m */; };
@@ -207,6 +215,22 @@
 		1488C80C1E573A9900C1AC27 /* LJCheckUpdateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJCheckUpdateViewController.m; sourceTree = "<group>"; };
 		1488C80E1E574ABD00C1AC27 /* LJOpinionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJOpinionViewController.h; sourceTree = "<group>"; };
 		1488C80F1E574ABD00C1AC27 /* LJOpinionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJOpinionViewController.m; sourceTree = "<group>"; };
+		14CD5BBF1E65112400179B88 /* LJNewsCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJNewsCenterViewController.h; sourceTree = "<group>"; };
+		14CD5BC01E65112400179B88 /* LJNewsCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJNewsCenterViewController.m; sourceTree = "<group>"; };
+		14CD5BC31E65115800179B88 /* LJNewsCenterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJNewsCenterTableViewCell.h; sourceTree = "<group>"; };
+		14CD5BC41E65115800179B88 /* LJNewsCenterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJNewsCenterTableViewCell.m; sourceTree = "<group>"; };
+		14CD5BC71E65531600179B88 /* LJCommitOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJCommitOrderViewController.h; sourceTree = "<group>"; };
+		14CD5BC81E65531600179B88 /* LJCommitOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJCommitOrderViewController.m; sourceTree = "<group>"; };
+		14CD5BCB1E655EC800179B88 /* LJCommitOrderAddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJCommitOrderAddressTableViewCell.h; sourceTree = "<group>"; };
+		14CD5BCC1E655EC800179B88 /* LJCommitOrderAddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJCommitOrderAddressTableViewCell.m; sourceTree = "<group>"; };
+		14CD5BD41E656D6700179B88 /* LJCommitOrderGoodsDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJCommitOrderGoodsDetailTableViewCell.h; sourceTree = "<group>"; };
+		14CD5BD51E656D6700179B88 /* LJCommitOrderGoodsDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJCommitOrderGoodsDetailTableViewCell.m; sourceTree = "<group>"; };
+		14CD5BD71E657FB400179B88 /* LJCommitOrderCarMOder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJCommitOrderCarMOder.h; sourceTree = "<group>"; };
+		14CD5BD81E657FB400179B88 /* LJCommitOrderCarMOder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJCommitOrderCarMOder.m; sourceTree = "<group>"; };
+		14CD5BE01E65A16800179B88 /* LJOrderBaseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJOrderBaseDetailViewController.h; sourceTree = "<group>"; };
+		14CD5BE11E65A16800179B88 /* LJOrderBaseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJOrderBaseDetailViewController.m; sourceTree = "<group>"; };
+		14CD5BE31E65A81000179B88 /* LJOrderBaseDetailStatusTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJOrderBaseDetailStatusTableViewCell.h; sourceTree = "<group>"; };
+		14CD5BE41E65A81000179B88 /* LJOrderBaseDetailStatusTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJOrderBaseDetailStatusTableViewCell.m; sourceTree = "<group>"; };
 		14DE12131E51BCA700836B46 /* UIImage+LJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LJExtension.h"; sourceTree = "<group>"; };
 		14DE12141E51BCA700836B46 /* UIImage+LJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LJExtension.m"; sourceTree = "<group>"; };
 		14DE12161E51F01C00836B46 /* UIFont+LJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+LJExtension.h"; sourceTree = "<group>"; };
@@ -287,20 +311,8 @@
 		1464B8F51E5BDE6B003CC3BC /* Order */ = {
 			isa = PBXGroup;
 			children = (
-				1464B8F21E5BDE65003CC3BC /* LJOrderBaseViewController.h */,
-				1464B8F31E5BDE65003CC3BC /* LJOrderBaseViewController.m */,
-				1464B8FE1E5C2F44003CC3BC /* LJPayOrderViewController.h */,
-				1464B8FF1E5C2F44003CC3BC /* LJPayOrderViewController.m */,
-				1464B9011E5C2F5D003CC3BC /* LJReceiveOrderViewController.h */,
-				1464B9021E5C2F5D003CC3BC /* LJReceiveOrderViewController.m */,
-				1464B9041E5C2F8A003CC3BC /* LJEvaluateOrderViewController.h */,
-				1464B9051E5C2F8A003CC3BC /* LJEvaluateOrderViewController.m */,
-				1464B9071E5C2FA7003CC3BC /* LJReturnGoodsOrderViewController.h */,
-				1464B9081E5C2FA7003CC3BC /* LJReturnGoodsOrderViewController.m */,
-				1464B90A1E5C2FCF003CC3BC /* LJDeliverOreViewController.h */,
-				1464B90B1E5C2FCF003CC3BC /* LJDeliverOreViewController.m */,
-				1464B90D1E5C2FE1003CC3BC /* LJAllOrderViewController.h */,
-				1464B90E1E5C2FE1003CC3BC /* LJAllOrderViewController.m */,
+				14CD5BDF1E659C9800179B88 /* OrderDetail */,
+				14CD5BDE1E659C7800179B88 /* OrderStatus */,
 			);
 			name = Order;
 			sourceTree = "<group>";
@@ -314,6 +326,8 @@
 				1464B8F71E5C00DB003CC3BC /* LJOrderTableViewCell.m */,
 				1464B8FB1E5C1FD8003CC3BC /* LJOrderGoodsDetailTableViewCell.h */,
 				1464B8FC1E5C1FD8003CC3BC /* LJOrderGoodsDetailTableViewCell.m */,
+				14CD5BE31E65A81000179B88 /* LJOrderBaseDetailStatusTableViewCell.h */,
+				14CD5BE41E65A81000179B88 /* LJOrderBaseDetailStatusTableViewCell.m */,
 			);
 			name = Order;
 			sourceTree = "<group>";
@@ -556,6 +570,90 @@
 			name = Address;
 			sourceTree = "<group>";
 		};
+		14CD5BBE1E65108400179B88 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				14CD5BBF1E65112400179B88 /* LJNewsCenterViewController.h */,
+				14CD5BC01E65112400179B88 /* LJNewsCenterViewController.m */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
+		14CD5BC21E65113300179B88 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				14CD5BC31E65115800179B88 /* LJNewsCenterTableViewCell.h */,
+				14CD5BC41E65115800179B88 /* LJNewsCenterTableViewCell.m */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
+		14CD5BC61E6552ED00179B88 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				14CD5BC71E65531600179B88 /* LJCommitOrderViewController.h */,
+				14CD5BC81E65531600179B88 /* LJCommitOrderViewController.m */,
+			);
+			name = Order;
+			sourceTree = "<group>";
+		};
+		14CD5BCA1E655E9100179B88 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				14CD5BCB1E655EC800179B88 /* LJCommitOrderAddressTableViewCell.h */,
+				14CD5BCC1E655EC800179B88 /* LJCommitOrderAddressTableViewCell.m */,
+				14CD5BD41E656D6700179B88 /* LJCommitOrderGoodsDetailTableViewCell.h */,
+				14CD5BD51E656D6700179B88 /* LJCommitOrderGoodsDetailTableViewCell.m */,
+			);
+			name = Order;
+			sourceTree = "<group>";
+		};
+		14CD5BDA1E658BB800179B88 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				14CD5BD71E657FB400179B88 /* LJCommitOrderCarMOder.h */,
+				14CD5BD81E657FB400179B88 /* LJCommitOrderCarMOder.m */,
+			);
+			name = Order;
+			sourceTree = "<group>";
+		};
+		14CD5BDE1E659C7800179B88 /* OrderStatus */ = {
+			isa = PBXGroup;
+			children = (
+				1464B8F21E5BDE65003CC3BC /* LJOrderBaseViewController.h */,
+				1464B8F31E5BDE65003CC3BC /* LJOrderBaseViewController.m */,
+				1464B8FE1E5C2F44003CC3BC /* LJPayOrderViewController.h */,
+				1464B8FF1E5C2F44003CC3BC /* LJPayOrderViewController.m */,
+				1464B9011E5C2F5D003CC3BC /* LJReceiveOrderViewController.h */,
+				1464B9021E5C2F5D003CC3BC /* LJReceiveOrderViewController.m */,
+				1464B9041E5C2F8A003CC3BC /* LJEvaluateOrderViewController.h */,
+				1464B9051E5C2F8A003CC3BC /* LJEvaluateOrderViewController.m */,
+				1464B9071E5C2FA7003CC3BC /* LJReturnGoodsOrderViewController.h */,
+				1464B9081E5C2FA7003CC3BC /* LJReturnGoodsOrderViewController.m */,
+				1464B90A1E5C2FCF003CC3BC /* LJDeliverOreViewController.h */,
+				1464B90B1E5C2FCF003CC3BC /* LJDeliverOreViewController.m */,
+				1464B90D1E5C2FE1003CC3BC /* LJAllOrderViewController.h */,
+				1464B90E1E5C2FE1003CC3BC /* LJAllOrderViewController.m */,
+			);
+			name = OrderStatus;
+			sourceTree = "<group>";
+		};
+		14CD5BDF1E659C9800179B88 /* OrderDetail */ = {
+			isa = PBXGroup;
+			children = (
+				14CD5BE01E65A16800179B88 /* LJOrderBaseDetailViewController.h */,
+				14CD5BE11E65A16800179B88 /* LJOrderBaseDetailViewController.m */,
+			);
+			name = OrderDetail;
+			sourceTree = "<group>";
+		};
+		14CD5BE61E65B89600179B88 /* GraphDraw */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = GraphDraw;
+			sourceTree = "<group>";
+		};
 		14E05BA31E5137710057D3AE /* xianchufang */ = {
 			isa = PBXGroup;
 			children = (
@@ -693,6 +791,7 @@
 		14E05BB41E5137710057D3AE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				14CD5BBE1E65108400179B88 /* News */,
 				1466CFDC1E5DB65600843FA9 /* Integral */,
 				1466CFD51E5DA7A900843FA9 /* Balance */,
 				1466CFC41E5D5E7C00843FA9 /* MyCollect */,
@@ -722,6 +821,8 @@
 		14E05BB81E5137710057D3AE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				14CD5BE61E65B89600179B88 /* GraphDraw */,
+				14CD5BC21E65113300179B88 /* News */,
 				148872561E6039BB003941AD /* Online Service */,
 				1466CFE41E5DBE2E00843FA9 /* Balance */,
 				1466CFE01E5DBE0100843FA9 /* Integral */,
@@ -748,6 +849,7 @@
 		14E05BBA1E5137710057D3AE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				14CD5BC61E6552ED00179B88 /* Order */,
 				14E05BBB1E5137710057D3AE /* LJShoppingCartViewController.h */,
 				14E05BBC1E5137710057D3AE /* LJShoppingCartViewController.m */,
 			);
@@ -757,6 +859,7 @@
 		14E05BBD1E5137710057D3AE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				14CD5BDA1E658BB800179B88 /* Order */,
 				146A2E891E5B2F280092928D /* LJShoppingCarModel.h */,
 				146A2E8A1E5B2F280092928D /* LJShoppingCarModel.m */,
 			);
@@ -766,6 +869,7 @@
 		14E05BBE1E5137710057D3AE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				14CD5BCA1E655E9100179B88 /* Order */,
 				146A2E791E5A93530092928D /* LJShoppingCarTableViewCell.h */,
 				146A2E7A1E5A93530092928D /* LJShoppingCarTableViewCell.m */,
 			);
@@ -1206,11 +1310,15 @@
 				14DE12181E51F01C00836B46 /* UIFont+LJExtension.m in Sources */,
 				1410354D1E640B40001A5F3A /* LJLoginViewController.m in Sources */,
 				14786BA71E55429E0099451B /* LJImageLeftButton.m in Sources */,
+				14CD5BD91E657FB400179B88 /* LJCommitOrderCarMOder.m in Sources */,
 				146A2E8B1E5B2F280092928D /* LJShoppingCarModel.m in Sources */,
 				14DE12151E51BCA700836B46 /* UIImage+LJExtension.m in Sources */,
+				14CD5BC91E65531600179B88 /* LJCommitOrderViewController.m in Sources */,
+				14CD5BC51E65115800179B88 /* LJNewsCenterTableViewCell.m in Sources */,
 				14E05BE51E5137710057D3AE /* UIView+LJExtension.m in Sources */,
 				14786BAA1E555B740099451B /* LJModifyPhoneNumViewController.m in Sources */,
 				1486DB021E544EEF0096E46D /* LJTooltip.m in Sources */,
+				14CD5BD61E656D6700179B88 /* LJCommitOrderGoodsDetailTableViewCell.m in Sources */,
 				14E05BE41E5137710057D3AE /* UIBarButtonItem+LJExtension.m in Sources */,
 				1466CFE31E5DBE1C00843FA9 /* LJIntegralTableViewCell.m in Sources */,
 				1464B90F1E5C2FE1003CC3BC /* LJAllOrderViewController.m in Sources */,
@@ -1231,7 +1339,9 @@
 				14E05BE81E5137710057D3AE /* LJConstants.m in Sources */,
 				148872511E600328003941AD /* LJAddressModel.m in Sources */,
 				146A2E7E1E5ABEDB0092928D /* LJInventoryTableViewCell.m in Sources */,
+				14CD5BE21E65A16800179B88 /* LJOrderBaseDetailViewController.m in Sources */,
 				1466CFE71E5DBE3D00843FA9 /* LJBalanceTableViewCell.m in Sources */,
+				14CD5BE51E65A81000179B88 /* LJOrderBaseDetailStatusTableViewCell.m in Sources */,
 				1466CFD81E5DB60D00843FA9 /* LJBalanceDetailViewController.m in Sources */,
 				1488C80A1E5704FE00C1AC27 /* LJModifyPwdViewController.m in Sources */,
 				1466CFCE1E5D82B600843FA9 /* LJMyCollectDetailViewController.m in Sources */,
@@ -1244,6 +1354,7 @@
 				148197821E629DD300CCAC3A /* LJOnlineServiceModel.m in Sources */,
 				14DE12231E51FD1700836B46 /* LJButton.m in Sources */,
 				1486DAF81E5428200096E46D /* LJUserInfoViewController.m in Sources */,
+				14CD5BC11E65112400179B88 /* LJNewsCenterViewController.m in Sources */,
 				1464B8FD1E5C1FD8003CC3BC /* LJOrderGoodsDetailTableViewCell.m in Sources */,
 				141035501E642BA0001A5F3A /* LJAddressSelectedViewController.m in Sources */,
 				146AE8181E5EBAB30035F526 /* LJOrderModel.m in Sources */,
@@ -1256,6 +1367,7 @@
 				14E05BE11E5137710057D3AE /* LJHomeViewController.m in Sources */,
 				1464B9091E5C2FA7003CC3BC /* LJReturnGoodsOrderViewController.m in Sources */,
 				1464B90C1E5C2FCF003CC3BC /* LJDeliverOreViewController.m in Sources */,
+				14CD5BCD1E655EC800179B88 /* LJCommitOrderAddressTableViewCell.m in Sources */,
 				1488725C1E603AAF003941AD /* LJInputView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

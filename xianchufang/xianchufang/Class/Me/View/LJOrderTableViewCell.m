@@ -77,6 +77,8 @@
     if (self.bgView) return;
     self.bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.orderDataModel.cellBgHeight)];
     self.bgView.backgroundColor = [UIColor whiteColor];
+    self.bgView.layer.borderWidth = 0.5f;
+    self.bgView.layer.borderColor= LJCutLineColor.CGColor;
     [self.contentView addSubview:self.bgView];
 }
 
@@ -138,7 +140,6 @@
 
 /*** 取消、付款 ***/
 - (void)addCancelAndPayBtn {
-//    if (self.payBtn) return; //如果存在就直接返回
     self.payBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - spaceEdgeW(55), spaceEdgeH(45), spaceEdgeW(44), spaceEdgeH(25))];
     [self.payBtn setTitle:@"付款" forState:UIControlStateNormal];
     [self.payBtn setTitleColor:LJFontColored forState:UIControlStateNormal];
@@ -148,7 +149,6 @@
     [self.payBtn setLayerWithCr:3];
     [self.payBtn addTarget:self action:@selector(payBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.bottomView addSubview:self.payBtn];
-//     if (self.cancelBtn) return;
     self.cancelBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - spaceEdgeW(145),spaceEdgeH(45), spaceEdgeW(81), spaceEdgeH(25))];
     [self.cancelBtn setTitle:@"取消订单" forState:UIControlStateNormal];
     [self.cancelBtn setTitleColor:LJFontColorc3 forState:UIControlStateNormal];
@@ -172,7 +172,6 @@
 
 #pragma mark --添加确认收货 
 - (void)addReceiveBtn {
-//     if (self.receiveBtn) return;
     self.receiveBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - spaceEdgeW(90), self.goodsTableView.lj_bottom + spaceEdgeH(45), spaceEdgeW(81), spaceEdgeH(25))];
     [self.receiveBtn setTitle:@"确认收货" forState:UIControlStateNormal];
     [self.receiveBtn setTitleColor:LJFontColored forState:UIControlStateNormal];
@@ -191,7 +190,6 @@
 
 #pragma mark --添加待评价
 - (void)addEvaluateBtn {
-//    if (self.evaluateBtn) return;
     self.evaluateBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - spaceEdgeW(90), self.goodsTableView.lj_bottom + spaceEdgeH(45), spaceEdgeW(81), spaceEdgeH(25))];
     [self.evaluateBtn setTitle:@"待评价" forState:UIControlStateNormal];
     [self.evaluateBtn setTitleColor:LJFontColored forState:UIControlStateNormal];
@@ -210,7 +208,6 @@
 
 #pragma mark --添加申请退货
 - (void)addReturnedGoodsBtn {
-//    if (self.returnedGoodsBtn) return;
     self.returnedGoodsBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - spaceEdgeW(90), self.goodsTableView.lj_bottom + spaceEdgeH(45), spaceEdgeW(81), spaceEdgeH(25))];
     [self.returnedGoodsBtn setTitle:@"申请退货" forState:UIControlStateNormal];
     [self.returnedGoodsBtn setTitleColor:LJFontColored forState:UIControlStateNormal];

@@ -185,6 +185,8 @@
         self.priceLabel.text = [NSString stringWithFormat:@"￥%.1f",_Allprice];
     }else{
         LJLog(@"结算%.1f",self.totalPrice);
+        UIViewController *Vc = [NSClassFromString(@"LJCommitOrderViewController") new];
+        [self.navigationController pushViewController:Vc animated:YES];
     }
 }
 

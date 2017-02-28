@@ -44,7 +44,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LJOrderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LJOrderTableViewCell"];
-    cell.selectionStyle =UITableViewCellSelectionStyleNone;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     LJOrderModel *model = self.dataArray[indexPath.row];
     cell.orderDataModel = model;
     __weak LJOrderBaseViewController *weakSelf = self;

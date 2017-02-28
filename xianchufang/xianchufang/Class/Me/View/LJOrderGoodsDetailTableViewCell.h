@@ -17,6 +17,8 @@
 @property (nonatomic,strong) UILabel *goodsPriceLabel;
 /*** 商品重量 ***/
 @property (nonatomic,strong) UILabel *goodsWeightLabel;
+/*** 商品总价格 ***/
+@property (nonatomic,strong) UILabel *allGoodsPriceLabel;
 /*** 数据 ***/
 @property (nonatomic,strong) LJGoodsModel *goodsDataModel;
 @end

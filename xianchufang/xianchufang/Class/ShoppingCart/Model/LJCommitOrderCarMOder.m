@@ -1,23 +1,23 @@
 //
-//  LJOrderModel.m
+//  LJCommitOrderCarMOder.m
 //  xianchufang
 //
-//  Created by zhenglong duan on 23/02/2017.
+//  Created by zhenglong duan on 28/02/2017.
 //  Copyright © 2017 zhenglong duan. All rights reserved.
 //
 
-#import "LJOrderModel.h"
-@implementation LJOrderModel
+#import "LJCommitOrderCarMOder.h"
 
+@implementation LJCommitOrderCarMOder
 - (CGFloat )cellHeight {
     if (!self.isExpand) {
         if (self.goodsArray.count > 3) {
-            _cellHeight = 3 * spaceEdgeH(97) + spaceEdgeH(120);
+            _cellHeight = 3 * spaceEdgeH(97) + spaceEdgeH(85);
         }else{
-            _cellHeight = self.goodsArray.count * spaceEdgeH(97) + spaceEdgeH(120);
+            _cellHeight = self.goodsArray.count * spaceEdgeH(97) + spaceEdgeH(85);
         }
     }else{
-        _cellHeight = self.goodsArray.count * spaceEdgeH(97) + spaceEdgeH(120);
+        _cellHeight = self.goodsArray.count * spaceEdgeH(97) + spaceEdgeH(85);
     }
     return _cellHeight;
 }
@@ -35,9 +35,8 @@
             _cellTableViewHeight = self.goodsArray.count * spaceEdgeH(97);
         }
     }else{
-       _cellTableViewHeight = self.goodsArray.count * spaceEdgeH(97);
+        _cellTableViewHeight = self.goodsArray.count * spaceEdgeH(97);
     }
     return _cellTableViewHeight;
 }
-
 @end
