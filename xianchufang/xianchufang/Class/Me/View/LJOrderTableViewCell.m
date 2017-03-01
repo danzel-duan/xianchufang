@@ -151,9 +151,9 @@
     [self.bottomView addSubview:self.payBtn];
     self.cancelBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - spaceEdgeW(145),spaceEdgeH(45), spaceEdgeW(81), spaceEdgeH(25))];
     [self.cancelBtn setTitle:@"取消订单" forState:UIControlStateNormal];
-    [self.cancelBtn setTitleColor:LJFontColorc3 forState:UIControlStateNormal];
+    [self.cancelBtn setTitleColor:LJFontColor88 forState:UIControlStateNormal];
     [self.cancelBtn.titleLabel setFont:LJFontSize16];
-    self.cancelBtn.layer.borderColor = LJFontColorc3.CGColor;
+    self.cancelBtn.layer.borderColor = LJFontColor88.CGColor;
     self.cancelBtn.layer.borderWidth = 1;
     [self.cancelBtn setLayerWithCr:3];
     [self.cancelBtn addTarget:self action:@selector(cancelBtnClick:) forControlEvents:UIControlEventTouchUpInside];

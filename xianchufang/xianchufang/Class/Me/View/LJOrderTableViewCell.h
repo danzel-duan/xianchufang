@@ -41,7 +41,7 @@ typedef void (^dropBlock)(NSInteger); //展开回调
 /*** 当前cell所在的行 ***/
 @property (nonatomic,assign) NSInteger row;
 /*** 展开回调 ***/
-@property (nonatomic,strong) dropBlock dropblock;
+@property (nonatomic,copy) dropBlock dropblock;
 /*** 数据数组 ***/
 @property (nonatomic,strong) LJOrderModel *orderDataModel;
 /*** 存放商品Model的数组 ***/

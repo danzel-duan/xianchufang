@@ -19,4 +19,6 @@
 @property (nonatomic,assign) BOOL isAccess;
 /*** 指示图标 ***/
 @property (nonatomic,strong) UIImageView *access;
+/*** 底部线条 ***/
+@property (nonatomic,strong) UIImageView *bottomimage;
 @end

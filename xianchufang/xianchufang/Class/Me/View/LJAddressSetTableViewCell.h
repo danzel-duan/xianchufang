@@ -25,7 +25,7 @@ typedef void (^opeartionBlock)(NSInteger tag ,NSInteger row); //回调
 /*** 创建cell ***/
 +(instancetype)cellWithTableView:(UITableView *)tableView;
 
-@property (nonatomic,strong) opeartionBlock opeartionBlock;
+@property (nonatomic,copy) opeartionBlock opeartionBlock;
 
 @property (nonatomic,strong) LJAddressModel *addressModel;
 @end

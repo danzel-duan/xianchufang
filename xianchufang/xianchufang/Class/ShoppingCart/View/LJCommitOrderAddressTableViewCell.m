@@ -61,6 +61,7 @@
         UIImageView *bottomimage = [[UIImageView alloc] initWithFrame:CGRectMake(0, addicon.lj_bottom + spaceEdgeH(20), SCREEN_WIDTH, spaceEdgeH(5))];
         bottomimage.image = [UIImage imageNamed:@"shoppingcar_caitiao_icon"];
         [bgView addSubview:bottomimage];
+        self.bottomimage = bottomimage;
     }
     return self;
 }
@@ -69,6 +70,7 @@
     _isAccess = isAccess;
     if (_isAccess == NO) {
         [self.access removeFromSuperview];
+        [self.bottomimage removeFromSuperview];
         self.phoneLabel.lj_x = SCREEN_WIDTH - spaceEdgeW(122);
     }
 }
