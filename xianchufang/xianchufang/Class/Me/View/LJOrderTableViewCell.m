@@ -162,12 +162,16 @@
 
 #pragma mark --付款事件
 - (void)payBtnClick:(UIButton *)sender {
-    LJLogFunc
+    if (self.clickblock) {
+        self.clickblock(3010);
+    }
 }
 
 #pragma mark --取消订单事件
 - (void)cancelBtnClick:(UIButton *)sender {
-    LJLogFunc
+    if (self.clickblock) {
+        self.clickblock(3011);
+    }
 }
 
 #pragma mark --添加确认收货 
@@ -185,7 +189,9 @@
 
 #pragma mark --确认收货事件
 - (void)receiveBtnClick:(UIButton *)sender {
-    LJLogFunc
+    if (self.clickblock) {
+        self.clickblock(3012);
+    }
 }
 
 #pragma mark --添加待评价
@@ -203,7 +209,9 @@
 
 #pragma mark --待评价事件
 - (void)EvaluateBtnClick:(UIButton *)sender {
-    LJLogFunc
+    if (self.clickblock) {
+        self.clickblock(3013);
+    }
 }
 
 #pragma mark --添加申请退货
@@ -221,7 +229,9 @@
 
 #pragma mark --申请退货
 - (void)ReturnedGoodsBtnClick:(UIButton *)sender {
-    LJLogFunc
+    if (self.clickblock) {
+        self.clickblock(3014);
+    }
 }
 
 

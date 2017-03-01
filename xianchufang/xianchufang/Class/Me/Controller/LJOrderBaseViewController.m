@@ -8,7 +8,7 @@
 
 #import "LJOrderBaseViewController.h"
 #import "LJOrderTableViewCell.h"
-
+#import "LJPaymentSuccessViewController.h" //支付成功页面
 @interface LJOrderBaseViewController ()
 
 @end
@@ -51,7 +51,19 @@
     cell.dropblock = ^ (NSInteger row){
         [weakSelf.tableView reloadData];
     };
+    cell.clickblock = ^ (NSInteger tag) {
+        //若是付款、确认收货按钮，则需要跳转到支付成功页面
+        //tag = 3010 付款  3011 取消  3012 待收货 3013 评价 3014 退货
+        LJPaymentSuccessViewController *Vc = [[LJPaymentSuccessViewController alloc] init];
+        Vc.isSuccess = NO;
+        [weakSelf.navigationController pushViewController:Vc animated:YES];
+    };
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIViewController * Vc =[NSClassFromString(@"LJOrderBaseDetailViewController") new];
+    [self.navigationController pushViewController:Vc animated:YES];
 }
 
 - (OrderStatus)orderStatus {

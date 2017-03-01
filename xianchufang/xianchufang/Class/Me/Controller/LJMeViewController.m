@@ -215,9 +215,9 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
     [self.navigationController pushViewController:Vc animated:YES];
 }
 
-#pragma mark --积分点击触发LJIntefralViewController
+#pragma mark --积分点击触发
 - (void)IntegralLabelClick {
-    UIViewController * Vc =[NSClassFromString(@"LJOrderBaseDetailViewController") new];
+    UIViewController * Vc =[NSClassFromString(@"LJIntefralViewController") new];
     [self.navigationController pushViewController:Vc animated:YES];
 }
 
