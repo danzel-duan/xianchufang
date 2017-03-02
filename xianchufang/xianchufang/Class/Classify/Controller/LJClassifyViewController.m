@@ -22,4 +22,9 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    UIViewController *vc = [NSClassFromString(@"LJGoodsDetailFatherViewController") new];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 @end

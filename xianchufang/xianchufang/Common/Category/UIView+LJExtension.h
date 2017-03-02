@@ -23,4 +23,6 @@
 
 /*** 设置圆角 ***/
 - (void)setLayerWithCr:(CGFloat)cornerRadius;
+#pragma mark --设置阴影
+- (void)setBgShadow;
 @end

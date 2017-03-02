@@ -120,4 +120,13 @@
     self.layer.cornerRadius = cornerRadius; //设置图片圆角的尺度。
 }
 
+#pragma mark --设置阴影
+- (void)setBgShadow {
+    //给bgView边框设置阴影
+    self.layer.shadowOffset = CGSizeMake(1,3);
+    self.layer.shadowOpacity = 0.2;
+    self.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.layer.masksToBounds = NO;
+}
+
 @end

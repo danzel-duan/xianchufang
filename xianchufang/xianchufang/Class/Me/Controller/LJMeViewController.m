@@ -99,7 +99,6 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
 
 #pragma mark --设置背景头像位置
 - (void)setLayoutHeaderImageView {
-    
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
