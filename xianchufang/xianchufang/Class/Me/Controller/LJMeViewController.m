@@ -19,8 +19,6 @@
 @property (nonatomic,strong) UIImageView *headerImageView;
 /*** 用户昵称 ***/
 @property (nonatomic,strong) UILabel *userNameLabel;
-/*** 导航栏背景 ***/
-@property (nonatomic,strong) UIView *barView;
 /*** 余额 ***/
 @property (nonatomic,strong) UILabel *balanceLabel;
 /*** 积分 ***/
@@ -129,10 +127,8 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
     self.navigationItem.title = @"";
     self.navigationController.delegate = self;
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 64)];
-    view.backgroundColor = [UIColor blueColor];
-    view.alpha = 0;
+    view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0];
     [self.view addSubview:view];
-    self.barView = view;
     /*** 左边消息图标 ***/
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame= CGRectMake(0, 15, 50, 50);
@@ -351,24 +347,6 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
             UIViewController *Vc = [NSClassFromString(@"LJCheckUpdateViewController") new];  //关于我们
             [self.navigationController pushViewController:Vc animated:YES];
         }
-    }
-}
-
-#pragma mark --ScrollView 代理方法
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    CGFloat offset_Y = scrollView.contentOffset.y;
-    /*** 图片放大 ***/
-    CGFloat imageH = self.backgroundView.lj_height;
-    CGFloat imageW = SCREEN_WIDTH;
-    if (offset_Y < 0) {
-        CGFloat totalOffset = imageH + ABS(offset_Y);  //ABS 是整数绝对值
-        self.backgroundImageView.frame = CGRectMake(0, offset_Y, imageW, totalOffset);
-    }else{
-        self.backgroundImageView.frame = CGRectMake(0, 0, SCREEN_WIDTH, self.backgroundView.lj_height - spaceEdgeH(50));
-    }
-    if (offset_Y > -20) {
-        CGFloat alpha = MIN(1, 1-(64 -offset_Y)/64);
-        self.barView.alpha =alpha;
     }
 }
 

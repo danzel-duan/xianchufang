@@ -85,7 +85,7 @@
     }else if (indexPath.row == 1){
         cell.textLabel.text = @"手机号码";
         UITextField *textField = (UITextField*)[cell viewWithTag:indexPath.row + 100];
-        textField.keyboardType = UIKeyboardTypeASCIICapable;
+        textField.keyboardType = UIKeyboardTypePhonePad;
         textField.placeholder = @"收货人手机号";
         self.phoneField = textField;
     }else if (indexPath.row == 2){
@@ -98,7 +98,7 @@
     }else if (indexPath.row == 3){
         cell.textLabel.text = @"邮政编码";
         UITextField *textField = (UITextField*)[cell viewWithTag:indexPath.row + 100];
-        textField.keyboardType = UIKeyboardTypeASCIICapable;
+        textField.keyboardType = UIKeyboardTypePhonePad;
         textField.placeholder = @"邮政编码";
         self.postNum = textField;
     }else if (indexPath.row == 4){

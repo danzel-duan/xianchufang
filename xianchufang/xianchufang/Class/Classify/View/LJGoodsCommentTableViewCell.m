@@ -16,6 +16,9 @@
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        UIView *cutLine = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0.5)];
+        cutLine.backgroundColor = LJCutLineColor;
+        [self.contentView addSubview:cutLine];
         //1.头像
         self.userImageView = [[UIImageView alloc] initWithFrame:CGRectMake(spaceEdgeW(10), spaceEdgeH(10), spaceEdgeW(30), spaceEdgeH(30))];
         [self.userImageView setLayerWithCr:spaceEdgeH(15)];

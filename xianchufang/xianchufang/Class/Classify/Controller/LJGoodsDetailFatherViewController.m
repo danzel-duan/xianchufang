@@ -11,6 +11,8 @@
 #import "LJGoodsInfoViewController.h"  //导入子控制器
 #import "LJGoodsDetailViewController.h"
 #import "LJGoodsCommentViewController.h"
+#import "LJRadDot.h"
+#import "LJShoppingCartViewController.h"
 @interface LJGoodsDetailFatherViewController ()<UIScrollViewDelegate,UINavigationControllerDelegate>
 /*** 整个背景ScrollView ***/
 @property (strong, nonatomic) LJBaseScrollView *ScrollView;
@@ -24,6 +26,10 @@
 @property (nonatomic,strong) UIView *titleBgView;
 /*** 底部标签栏 ***/
 @property (nonatomic,strong) UIView *bottomView;
+/*** 小红点提示 ***/
+@property (nonatomic,strong) LJRadDot *radDot;
+/*** 购物车按钮 ***/
+@property (nonatomic,strong) UIButton *CarBtn;
 /*** 商品信息子控制器 ***/
 @property (nonatomic,strong) LJGoodsInfoViewController *goodsInfoVc;
 /*** 商品详情子控制器 ***/
@@ -128,6 +134,17 @@
     if ([childVc isViewLoaded]) return;
     childVc.view.frame = self.ScrollView.bounds;
     [self.ScrollView addSubview:childVc.view];
+    __weak typeof(self) weakself = self;
+    if (self.goodsInfoVc) {
+        self.goodsInfoVc.setALphaBlock = ^(CGFloat alpha){ //设置导航栏颜色
+            weakself.NavigateTitleView.backgroundColor = [LJCommonBgColor colorWithAlphaComponent:alpha];
+        };
+        self.goodsInfoVc.pushCommentVcblock = ^{  //跳转评论界面
+            // 选中点击对应的按钮
+            UIButton *titleButton = weakself.titleBgView.subviews[2];
+            [weakself titleButtonClick:titleButton];
+        };
+    }
 }
 
 #pragma mark --添加底部标签栏
@@ -150,14 +167,22 @@
     [self.bottomView addSubview:addShoppingCarBtn];
     //4.收藏、清单、购物车
     NSArray *buttonImageArr = @[@"classify_collect_icon",@"classify_inventory_icon",@"classify_shopping-cart_icon"];
-    CGFloat btnW = (self.bottomView.lj_width - spaceEdgeW(120)) / 3;
+    CGFloat btnW = (self.bottomView.lj_width - spaceEdgeW(120)) / 3 - spaceEdgeW(20);
     CGFloat btnH = spaceEdgeH(49);
     for (int i = 0; i < 3; i++) {
-        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(i * btnW, 0, btnW, btnH)];
+        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake((i + 1) * spaceEdgeW(10) + i * btnW, 0, btnW, btnH)];
         [btn setImage:[UIImage imageNamed:buttonImageArr[i]] forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
         btn.tag = 310 + i;
         [self.bottomView addSubview:btn];
+        if (i == 2) {
+            self.radDot = [[LJRadDot alloc] init];
+            [self.radDot showRadDotOnObject:btn text:@"6"];  //小红点，显示购物车中的数量
+            self.CarBtn = btn;
+        }
+        if (i == 0) {
+            [btn setImage:[UIImage imageNamed:@"classify_collect_icon_selected"] forState:UIControlStateSelected];
+        }
     }
 }
 
@@ -186,11 +211,19 @@
 }
 //3.购物车按钮
 - (void)addShoppingCarClick:(UIButton *)sender {
-    LJLogFunc
+    [self.radDot showRadDotOnObject:self.CarBtn text:@"7"];
 }
 //4.收藏、清单、购物车
 - (void)btnClick:(UIButton *)sender {
-    LJLogFunc
+    if (sender.tag == 312) {
+        LJShoppingCartViewController *Vc = [[LJShoppingCartViewController alloc] init];
+        Vc.isOtherPage = YES;
+        [self.navigationController pushViewController:Vc animated:YES];
+    }else if (sender.tag == 311){  //清单
+        LJLog(@"清单");
+    }else if (sender.tag == 310){  //收藏
+        sender.selected = !sender.selected;
+    }
 }
 
 #pragma mark --懒加载子控制器

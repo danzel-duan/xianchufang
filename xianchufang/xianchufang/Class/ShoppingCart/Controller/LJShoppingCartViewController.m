@@ -111,6 +111,9 @@
     view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:view];
     self.bottomViewBg = view;
+    if (self.isOtherPage) {
+        self.bottomViewBg.lj_y = SCREEN_HEIGHT - 44;
+    }
     
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(5, 0, 60, view.lj_height)];
     [button setTitle:@"全选" forState:UIControlStateNormal];
