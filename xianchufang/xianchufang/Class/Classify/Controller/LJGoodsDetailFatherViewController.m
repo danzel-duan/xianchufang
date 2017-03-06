@@ -121,7 +121,13 @@
 - (void)addChildVcToScrollView {
     //1.子控制器的索引
     NSUInteger index =self.ScrollView.contentOffset.x / self.ScrollView.lj_width;
-    //2.找到对应的子控制器
+    //2.导航栏的颜色更改
+    if (index > 0) {
+        self.NavigateTitleView.backgroundColor = [LJCommonBgColor colorWithAlphaComponent:1];
+    }else{
+        self.NavigateTitleView.backgroundColor = [LJCommonBgColor colorWithAlphaComponent:MIN(1, 1 - (200 - current_y) / 200)];
+    }
+    //3.找到对应的子控制器
     UIViewController *childVc = nil;
     if (index == 0) {
         childVc = self.goodsInfoVc;
@@ -130,7 +136,7 @@
     }else if (index == 2){
         childVc = self.goodsCommentVc;
     }
-    //3.如果子控制器已经加载就返回
+    //4.如果子控制器已经加载就返回
     if ([childVc isViewLoaded]) return;
     childVc.view.frame = self.ScrollView.bounds;
     [self.ScrollView addSubview:childVc.view];

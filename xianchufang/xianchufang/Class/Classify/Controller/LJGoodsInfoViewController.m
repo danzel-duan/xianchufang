@@ -51,6 +51,7 @@
     [self setUpTableViewHeaderContent]; //1.设置tableView头部内容
     [self.tableView registerClass:[LJGoodsCommentTableViewCell class] forCellReuseIdentifier:@"LJGoodsCommentTableViewCell"]; //2.注册cell
     [self setUpTableViewFootContent]; //3.设置tableView底部内容
+    
 }
 
 #pragma mark --tableView代理 
@@ -169,6 +170,7 @@
 #pragma mark --ScrollView 代理方法
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat offset_Y = scrollView.contentOffset.y;
+    current_y = offset_Y;
     if (offset_Y > -10) {
         CGFloat alpha = MIN(1, 1 - (200 - offset_Y) / 200);
         if (self.setALphaBlock) {
@@ -323,6 +325,7 @@
     [attr addAttributes:dic2 range:NSMakeRange(loc2, len2)];
     return attr;
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

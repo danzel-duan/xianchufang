@@ -5,8 +5,8 @@
 CGFloat ljEdgeMax = 23;
 CGFloat ljEdgeMin = 10;
 
-
-
+/*** 分类中商品信息界面的当前偏移量offset_y ***/
+CGFloat current_y = 0.0f;
 
 
 

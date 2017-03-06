@@ -12,7 +12,8 @@
 extern CGFloat ljEdgeMax;
 extern CGFloat ljEdgeMin;    // 动态改变的
 
-
+/*** 分类中商品信息界面的当前偏移量offset_y ***/
+extern CGFloat current_y;
 
 /*** 注册  ***/
 extern NSString *const Register ;
