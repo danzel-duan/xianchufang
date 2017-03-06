@@ -64,6 +64,9 @@
 		148F609D1E67BC0600B484DE /* LJGoodsCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 148F609C1E67BC0600B484DE /* LJGoodsCommentViewController.m */; };
 		148F60A01E67D77B00B484DE /* LJBaseScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 148F609F1E67D77B00B484DE /* LJBaseScrollView.m */; };
 		148F60A31E68215200B484DE /* LJGoodsCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 148F60A21E68215200B484DE /* LJGoodsCommentTableViewCell.m */; };
+		149C357D1E6D0BCC00EA2321 /* LJCategoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 149C357C1E6D0BCC00EA2321 /* LJCategoryCollectionViewCell.m */; };
+		149C35801E6D3F9A00EA2321 /* LJVarietyCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 149C357F1E6D3F9A00EA2321 /* LJVarietyCategoryViewController.m */; };
+		149C35831E6D421700EA2321 /* LJVarietyCategoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 149C35821E6D421700EA2321 /* LJVarietyCategoryCollectionViewCell.m */; };
 		14CD5BC11E65112400179B88 /* LJNewsCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CD5BC01E65112400179B88 /* LJNewsCenterViewController.m */; };
 		14CD5BC51E65115800179B88 /* LJNewsCenterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CD5BC41E65115800179B88 /* LJNewsCenterTableViewCell.m */; };
 		14CD5BC91E65531600179B88 /* LJCommitOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CD5BC81E65531600179B88 /* LJCommitOrderViewController.m */; };
@@ -235,6 +238,12 @@
 		148F609F1E67D77B00B484DE /* LJBaseScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJBaseScrollView.m; sourceTree = "<group>"; };
 		148F60A11E68215200B484DE /* LJGoodsCommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJGoodsCommentTableViewCell.h; sourceTree = "<group>"; };
 		148F60A21E68215200B484DE /* LJGoodsCommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJGoodsCommentTableViewCell.m; sourceTree = "<group>"; };
+		149C357B1E6D0BCC00EA2321 /* LJCategoryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJCategoryCollectionViewCell.h; sourceTree = "<group>"; };
+		149C357C1E6D0BCC00EA2321 /* LJCategoryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJCategoryCollectionViewCell.m; sourceTree = "<group>"; };
+		149C357E1E6D3F9A00EA2321 /* LJVarietyCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJVarietyCategoryViewController.h; sourceTree = "<group>"; };
+		149C357F1E6D3F9A00EA2321 /* LJVarietyCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJVarietyCategoryViewController.m; sourceTree = "<group>"; };
+		149C35811E6D421700EA2321 /* LJVarietyCategoryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJVarietyCategoryCollectionViewCell.h; sourceTree = "<group>"; };
+		149C35821E6D421700EA2321 /* LJVarietyCategoryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJVarietyCategoryCollectionViewCell.m; sourceTree = "<group>"; };
 		14CD5BBF1E65112400179B88 /* LJNewsCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJNewsCenterViewController.h; sourceTree = "<group>"; };
 		14CD5BC01E65112400179B88 /* LJNewsCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJNewsCenterViewController.m; sourceTree = "<group>"; };
 		14CD5BC31E65115800179B88 /* LJNewsCenterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJNewsCenterTableViewCell.h; sourceTree = "<group>"; };
@@ -737,6 +746,8 @@
 				148F60911E67BA4700B484DE /* GoodsDetailPage */,
 				14E05BF11E513B170057D3AE /* LJClassifyViewController.h */,
 				14E05BF21E513B170057D3AE /* LJClassifyViewController.m */,
+				149C357E1E6D3F9A00EA2321 /* LJVarietyCategoryViewController.h */,
+				149C357F1E6D3F9A00EA2321 /* LJVarietyCategoryViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -753,6 +764,10 @@
 			children = (
 				148F60A11E68215200B484DE /* LJGoodsCommentTableViewCell.h */,
 				148F60A21E68215200B484DE /* LJGoodsCommentTableViewCell.m */,
+				149C357B1E6D0BCC00EA2321 /* LJCategoryCollectionViewCell.h */,
+				149C357C1E6D0BCC00EA2321 /* LJCategoryCollectionViewCell.m */,
+				149C35811E6D421700EA2321 /* LJVarietyCategoryCollectionViewCell.h */,
+				149C35821E6D421700EA2321 /* LJVarietyCategoryCollectionViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1343,6 +1358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				149C35831E6D421700EA2321 /* LJVarietyCategoryCollectionViewCell.m in Sources */,
 				148F60941E67BBAB00B484DE /* LJGoodsDetailFatherViewController.m in Sources */,
 				1486DAFB1E543AD70096E46D /* LJBaseTableViewCell.m in Sources */,
 				14E05BEA1E5137710057D3AE /* LJMD5Encrypt.m in Sources */,
@@ -1364,6 +1380,7 @@
 				146A2E8B1E5B2F280092928D /* LJShoppingCarModel.m in Sources */,
 				14D4C5D21E66B7AB005B1451 /* LJPaymentSuccessViewController.m in Sources */,
 				14DE12151E51BCA700836B46 /* UIImage+LJExtension.m in Sources */,
+				149C35801E6D3F9A00EA2321 /* LJVarietyCategoryViewController.m in Sources */,
 				14CD5BC91E65531600179B88 /* LJCommitOrderViewController.m in Sources */,
 				14CD5BC51E65115800179B88 /* LJNewsCenterTableViewCell.m in Sources */,
 				14E05BE51E5137710057D3AE /* UIView+LJExtension.m in Sources */,
@@ -1414,6 +1431,7 @@
 				141035501E642BA0001A5F3A /* LJAddressSelectedViewController.m in Sources */,
 				146AE8181E5EBAB30035F526 /* LJOrderModel.m in Sources */,
 				1466CFD11E5D888C00843FA9 /* LJMyCollectDetailTableViewCell.m in Sources */,
+				149C357D1E6D0BCC00EA2321 /* LJCategoryCollectionViewCell.m in Sources */,
 				14E05BED1E5137710057D3AE /* AppDelegate.m in Sources */,
 				14E05BE31E5137710057D3AE /* LJShoppingCartViewController.m in Sources */,
 				1486DAFF1E543B4C0096E46D /* LJUserHeaderTableViewCell.m in Sources */,

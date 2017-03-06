@@ -43,6 +43,7 @@
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.bounces = NO;
     self.tableView.lj_height = self.view.lj_height - spaceEdgeH(49);
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.tableView];
@@ -50,7 +51,6 @@
     [self setUpTableViewHeaderContent]; //1.设置tableView头部内容
     [self.tableView registerClass:[LJGoodsCommentTableViewCell class] forCellReuseIdentifier:@"LJGoodsCommentTableViewCell"]; //2.注册cell
     [self setUpTableViewFootContent]; //3.设置tableView底部内容
-    
 }
 
 #pragma mark --tableView代理 
