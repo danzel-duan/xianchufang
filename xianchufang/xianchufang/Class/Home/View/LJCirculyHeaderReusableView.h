@@ -1,5 +1,5 @@
 //
-//  LJHomeViewController.h
+//  LJCirculyHeaderReusableView.h
 //  xianchufang
 //
 //  Created by zhenglong duan on 08/03/2017.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LJHomeViewController : UIViewController
+@interface LJCirculyHeaderReusableView : UICollectionReusableView
 
 @end
