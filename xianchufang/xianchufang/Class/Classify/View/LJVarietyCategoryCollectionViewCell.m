@@ -28,11 +28,18 @@
         [self.contentView addSubview:self.goodsPriceLabel];
         
         self.shoppingCarBtn = [[UIButton alloc] initWithFrame:CGRectMake(self.contentView.lj_width - spaceEdgeW(40), self.imageView.lj_bottom + spaceEdgeH(15), spaceEdgeW(30), spaceEdgeH(30))];
+        [self.shoppingCarBtn addTarget:self action:@selector(addShoppingCar) forControlEvents:UIControlEventTouchUpInside];
         [self.shoppingCarBtn setImage:[UIImage imageNamed:@"classify_shopping-cart_icon"] forState:UIControlStateNormal];
         [self.contentView addSubview:self.shoppingCarBtn];
     }
     return self;
 }
+
+#pragma mark --加入购物车事件
+- (void)addShoppingCar {
+    LJLog(@"已加入购物车！");
+}
+
 
 #pragma mark --富文本
 - (NSMutableAttributedString *)attrstr:(NSString *)str dic1:(NSDictionary *)dic1 dic2:(NSDictionary *)dic2  loc1:(NSUInteger)loc1 len1:(NSUInteger)len1 loc2:(NSUInteger)loc2 len2:(NSUInteger)len2 {
