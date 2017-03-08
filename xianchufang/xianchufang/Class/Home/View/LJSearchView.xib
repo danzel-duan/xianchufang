@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LJSearchView"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LJSearchView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CTz-fN-1W6">
+                    <rect key="frame" x="58" y="385" width="342" height="110"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="搜索" translatesAutoresizingMaskIntoConstraints="NO" id="VFY-wi-4tU">
+                    <rect key="frame" x="5" y="23" width="318" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="oZX-xI-Dvn"/>
+                    </constraints>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5v-c0-4Yh">
+                    <rect key="frame" x="323" y="30" width="46" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="46" id="KjT-4e-a6k"/>
+                        <constraint firstAttribute="height" constant="30" id="T9e-Ls-xra"/>
+                    </constraints>
+                    <state key="normal" title="取消">
+                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                    </state>
+                    <connections>
+                        <action selector="SearchBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="UoE-tv-OPq"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="e5v-c0-4Yh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="5vn-tC-isM"/>
+                <constraint firstAttribute="trailing" secondItem="e5v-c0-4Yh" secondAttribute="trailing" constant="6" id="L9m-5B-3um"/>
+                <constraint firstItem="VFY-wi-4tU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="23" id="eLE-jq-kZf"/>
+                <constraint firstItem="e5v-c0-4Yh" firstAttribute="leading" secondItem="VFY-wi-4tU" secondAttribute="trailing" id="fBx-Yn-ufo"/>
+                <constraint firstItem="VFY-wi-4tU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="hvn-vz-til"/>
+            </constraints>
+            <connections>
+                <outlet property="SearchBar" destination="VFY-wi-4tU" id="R8E-ep-V4H"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="54.5"/>
+        </view>
+    </objects>
+</document>
