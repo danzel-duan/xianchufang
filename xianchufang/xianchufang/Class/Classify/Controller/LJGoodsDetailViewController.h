@@ -7,7 +7,5 @@
 //
 
 #import "LJBaseViewController.h"
-typedef void (^setalphaBlock)(); //设置导航栏上的颜色变化
 @interface LJGoodsDetailViewController : LJBaseViewController
-@property (nonatomic,copy) setalphaBlock setALphaBlock;
 @end
