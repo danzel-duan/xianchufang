@@ -9,6 +9,7 @@
 #import "LJHomeViewController.h"
 
 #import "LJNavigationView.h" //导航栏视图
+#import "LJLimitTimeViewController.h" //限时抢购页面
 
 #import "LJMenuItemCollectionViewCell.h" //1.menu 菜单的cell
 #import "LJTimeLimitCollectionViewCell.h"//2.限时抢购cell
@@ -48,7 +49,10 @@
 
 #pragma mark --判断是否为当前控制器
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    BOOL isShowSelf = [viewController isKindOfClass:[self class]];
+    BOOL isShowSelf ;
+    if ([viewController isKindOfClass:[self class]] || [viewController isKindOfClass:[NSClassFromString(@"LJGoodsDetailFatherViewController") class]]) {
+        isShowSelf = YES;
+    }
     [self.navigationController setNavigationBarHidden:isShowSelf animated:YES];//动画要设为YES，不然界面切换不连贯
 }
 
@@ -162,15 +166,15 @@
     if (indexPath.section == 0) {
         NSLog(@"%zd",indexPath.item);
     }else if (indexPath.section == 1){
-        NSLog(@"%zd",indexPath.item);
+        LJLimitTimeViewController *limitTimeView = [[LJLimitTimeViewController alloc] init];
+        [self.navigationController pushViewController:limitTimeView animated:YES];
     }else if (indexPath.section == 2){
         NSLog(@"%zd",indexPath.item);
     }else if (indexPath.section == 3){
         NSLog(@"%zd",indexPath.item);
     }else if (indexPath.section == 4){
         NSLog(@"%zd",indexPath.item);
-    }
-    
+    } 
 }
 
 #pragma mark --UICollectionViewDelegateFlowLayout
@@ -248,16 +252,17 @@
     [self.topBtn setBackgroundImage:[UIImage imageNamed:@"nearby_return_top_btn"] forState:UIControlStateNormal];
     [self.topBtn addTarget:self action:@selector(DoSomething) forControlEvents:UIControlEventTouchUpInside];
     self.topBtn.clipsToBounds = YES;
+    self.topBtn.hidden = YES; //先隐藏
     [self.view addSubview:self.topBtn];
 }
 
 
 #pragma mark --判断偏移量
--(void)scrollViewWillBeginDragging:(UIScrollView*)scrollView{
+- (void)scrollViewWillBeginDragging:(UIScrollView*)scrollView{
     lastContentOffset = scrollView.contentOffset.y;
 }
 
--( void )scrollViewDidScroll:( UIScrollView *)scrollView {
+- ( void )scrollViewDidScroll:( UIScrollView *)scrollView {
     if (scrollView.contentOffset.y < lastContentOffset ){
         //向上
         self.topBtn.hidden = YES;    
@@ -266,11 +271,18 @@
         self.topBtn.hidden = NO;
     }
     if (scrollView.contentOffset.y > 200) {
-        CGFloat alpha = MIN(1, 1 - (200 + scrollView.contentOffset.y) / 200);
-        self.navigationView.alpha = alpha;
-    }else {
-        CGFloat alpha = MAX(1, 1 - (200 + scrollView.contentOffset.y) / 200);
-        self.navigationView.alpha = alpha;
+        CGFloat alpha = MAX(0.36, 0.36 - (200 - scrollView.contentOffset.y) / 200);
+        if (alpha > 1.0f) return; //如果大于1，就返回
+        if (alpha > 0.5f) { //更换背景图片
+            self.navigationView.bgImageView.image = [UIImage imageNamed:@"home_beijing_icon"];
+        }else{
+            self.navigationView.bgImageView.image = [UIImage imageNamed:@"home_daohang_icon"];
+        }
+        self.navigationView.bgImageView.alpha = alpha;
+    }else{
+        self.navigationView.bgImageView.image= nil;
+        self.navigationView.bgImageView.image = [UIImage imageNamed:@"home_daohang_icon"];
+        self.navigationView.bgImageView.alpha = 0.36f;
     }
 }
 
@@ -278,7 +290,6 @@
 - (void)DoSomething{
     //到顶部
     [self.LJCollectionView setContentOffset:CGPointMake(0, 0) animated:YES];
-    
 }
 
 #pragma mark --点击事件

@@ -18,7 +18,6 @@
     [self.searchView addGestureRecognizer:tap];
     
     [self.locationBtn addTarget:self action:@selector(locationBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    
 }
 
 - (void)tap {

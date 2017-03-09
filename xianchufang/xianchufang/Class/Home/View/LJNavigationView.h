@@ -16,6 +16,8 @@
 
 /*** 消息按钮 ***/
 @property (weak, nonatomic) IBOutlet UIButton *messageBtn;
+/*** 背景 ***/
+@property (weak, nonatomic) IBOutlet UIImageView *bgImageView;
 
 
 @end

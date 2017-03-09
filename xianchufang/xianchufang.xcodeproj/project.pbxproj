@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		1410354D1E640B40001A5F3A /* LJLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1410354C1E640B40001A5F3A /* LJLoginViewController.m */; };
 		141035501E642BA0001A5F3A /* LJAddressSelectedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1410354F1E642BA0001A5F3A /* LJAddressSelectedViewController.m */; };
+		1430CE241E70FD2500FEE185 /* LJLimitTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1430CE231E70FD2500FEE185 /* LJLimitTimeViewController.m */; };
+		1430CE271E712BCB00FEE185 /* LJLastTimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1430CE261E712BCB00FEE185 /* LJLastTimeView.m */; };
+		1430CE291E712BDF00FEE185 /* LJLastTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1430CE281E712BDF00FEE185 /* LJLastTimeView.xib */; };
+		1430CE2D1E71337B00FEE185 /* LJLimitTimeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1430CE2C1E71337B00FEE185 /* LJLimitTimeTableViewCell.m */; };
+		1430CE301E713F9300FEE185 /* LJProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1430CE2F1E713F9300FEE185 /* LJProgressBar.m */; };
 		1464B8F41E5BDE65003CC3BC /* LJOrderBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1464B8F31E5BDE65003CC3BC /* LJOrderBaseViewController.m */; };
 		1464B8F81E5C00DB003CC3BC /* LJOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1464B8F71E5C00DB003CC3BC /* LJOrderTableViewCell.m */; };
 		1464B8FD1E5C1FD8003CC3BC /* LJOrderGoodsDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1464B8FC1E5C1FD8003CC3BC /* LJOrderGoodsDetailTableViewCell.m */; };
@@ -139,6 +144,15 @@
 		1410354C1E640B40001A5F3A /* LJLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJLoginViewController.m; sourceTree = "<group>"; };
 		1410354E1E642BA0001A5F3A /* LJAddressSelectedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJAddressSelectedViewController.h; sourceTree = "<group>"; };
 		1410354F1E642BA0001A5F3A /* LJAddressSelectedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJAddressSelectedViewController.m; sourceTree = "<group>"; };
+		1430CE221E70FD2500FEE185 /* LJLimitTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJLimitTimeViewController.h; sourceTree = "<group>"; };
+		1430CE231E70FD2500FEE185 /* LJLimitTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJLimitTimeViewController.m; sourceTree = "<group>"; };
+		1430CE251E712BCB00FEE185 /* LJLastTimeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJLastTimeView.h; sourceTree = "<group>"; };
+		1430CE261E712BCB00FEE185 /* LJLastTimeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJLastTimeView.m; sourceTree = "<group>"; };
+		1430CE281E712BDF00FEE185 /* LJLastTimeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LJLastTimeView.xib; sourceTree = "<group>"; };
+		1430CE2B1E71337B00FEE185 /* LJLimitTimeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJLimitTimeTableViewCell.h; sourceTree = "<group>"; };
+		1430CE2C1E71337B00FEE185 /* LJLimitTimeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJLimitTimeTableViewCell.m; sourceTree = "<group>"; };
+		1430CE2E1E713F9300FEE185 /* LJProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJProgressBar.h; sourceTree = "<group>"; };
+		1430CE2F1E713F9300FEE185 /* LJProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJProgressBar.m; sourceTree = "<group>"; };
 		1464B8F21E5BDE65003CC3BC /* LJOrderBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJOrderBaseViewController.h; sourceTree = "<group>"; };
 		1464B8F31E5BDE65003CC3BC /* LJOrderBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJOrderBaseViewController.m; sourceTree = "<group>"; };
 		1464B8F61E5C00DB003CC3BC /* LJOrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJOrderTableViewCell.h; sourceTree = "<group>"; };
@@ -382,6 +396,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1430CE2A1E7132ED00FEE185 /* LimitTimeView */ = {
+			isa = PBXGroup;
+			children = (
+				1430CE251E712BCB00FEE185 /* LJLastTimeView.h */,
+				1430CE261E712BCB00FEE185 /* LJLastTimeView.m */,
+				1430CE281E712BDF00FEE185 /* LJLastTimeView.xib */,
+				1430CE2B1E71337B00FEE185 /* LJLimitTimeTableViewCell.h */,
+				1430CE2C1E71337B00FEE185 /* LJLimitTimeTableViewCell.m */,
+				1430CE2E1E713F9300FEE185 /* LJProgressBar.h */,
+				1430CE2F1E713F9300FEE185 /* LJProgressBar.m */,
+			);
+			name = LimitTimeView;
+			sourceTree = "<group>";
+		};
 		1464B8F51E5BDE6B003CC3BC /* Order */ = {
 			isa = PBXGroup;
 			children = (
@@ -874,6 +902,8 @@
 			children = (
 				14E4DE551E6FA4D6007DBB6C /* LJHomeViewController.h */,
 				14E4DE561E6FA4D6007DBB6C /* LJHomeViewController.m */,
+				1430CE221E70FD2500FEE185 /* LJLimitTimeViewController.h */,
+				1430CE231E70FD2500FEE185 /* LJLimitTimeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -888,6 +918,7 @@
 		14E05BAE1E5137710057D3AE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1430CE2A1E7132ED00FEE185 /* LimitTimeView */,
 				14DC98341E70141E005B46CF /* CollectionHeaderView */,
 				14DC98321E701342005B46CF /* CollectionViewCell */,
 				14DC98331E701361005B46CF /* NavigationView */,
@@ -1286,6 +1317,7 @@
 				14E05BF01E5137710057D3AE /* LaunchScreen.storyboard in Resources */,
 				14D4C5CC1E665E81005B1451 /* InfoPlist.strings in Resources */,
 				14DC98311E7008DB005B46CF /* LJSearchView.xib in Resources */,
+				1430CE291E712BDF00FEE185 /* LJLastTimeView.xib in Resources */,
 				14E4DE611E6FEF5C007DBB6C /* LJNavigationView.xib in Resources */,
 				14E05BEF1E5137710057D3AE /* Assets.xcassets in Resources */,
 			);
@@ -1458,6 +1490,7 @@
 				148872591E6039E5003941AD /* LJOnlineServiceViewController.m in Sources */,
 				1488C8041E56927A00C1AC27 /* LJNewAddressViewController.m in Sources */,
 				14E05BE71E5137710057D3AE /* LJBaseViewController.m in Sources */,
+				1430CE2D1E71337B00FEE185 /* LJLimitTimeTableViewCell.m in Sources */,
 				146A2E871E5AF7020092928D /* LJInventoryDetailViewController.m in Sources */,
 				14E4DE5D1E6FEC69007DBB6C /* LJNavigationView.m in Sources */,
 				1464B8F81E5C00DB003CC3BC /* LJOrderTableViewCell.m in Sources */,
@@ -1485,6 +1518,7 @@
 				14CD5BD61E656D6700179B88 /* LJCommitOrderGoodsDetailTableViewCell.m in Sources */,
 				14E05BE41E5137710057D3AE /* UIBarButtonItem+LJExtension.m in Sources */,
 				1466CFE31E5DBE1C00843FA9 /* LJIntegralTableViewCell.m in Sources */,
+				1430CE301E713F9300FEE185 /* LJProgressBar.m in Sources */,
 				14E4DE5A1E6FD3CE007DBB6C /* LJMenuItemCollectionViewCell.m in Sources */,
 				14DC984F1E704372005B46CF /* LJHotCollectionViewCell.m in Sources */,
 				14DC98401E703311005B46CF /* LJThreeCollectionViewCell.m in Sources */,
@@ -1519,8 +1553,10 @@
 				1488C80A1E5704FE00C1AC27 /* LJModifyPwdViewController.m in Sources */,
 				1466CFCE1E5D82B600843FA9 /* LJMyCollectDetailViewController.m in Sources */,
 				1464B9061E5C2F8A003CC3BC /* LJEvaluateOrderViewController.m in Sources */,
+				1430CE271E712BCB00FEE185 /* LJLastTimeView.m in Sources */,
 				14E05BE61E5137710057D3AE /* LJBaseNavigationController.m in Sources */,
 				14E05BE21E5137710057D3AE /* LJMeViewController.m in Sources */,
+				1430CE241E70FD2500FEE185 /* LJLimitTimeViewController.m in Sources */,
 				14DC98461E703992005B46CF /* LJFullSubHeaderReusableView.m in Sources */,
 				1464B9001E5C2F44003CC3BC /* LJPayOrderViewController.m in Sources */,
 				1464B9031E5C2F5D003CC3BC /* LJReceiveOrderViewController.m in Sources */,
