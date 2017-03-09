@@ -9,7 +9,7 @@
 #import "LJClassifyViewController.h"
 #import "LJCategoryCollectionViewCell.h"
 #import "LJVarietyCategoryViewController.h"
-@interface LJClassifyViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>{
+@interface LJClassifyViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UINavigationControllerDelegate>{
     NSInteger _page;  //页码
 }
 @property(nonatomic,strong)UICollectionView *collectionview;
@@ -24,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"分类";
+    self.navigationController.delegate = self;
     self.tableView.frame = CGRectMake(0, 64, spaceEdgeW(75), SCREEN_HEIGHT - 113);
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -196,11 +197,13 @@
     return CGSizeMake(SCREEN_WIDTH - spaceEdgeW(75), spaceEdgeH(20));
 }
 
+#pragma mark --判断是否为当前控制器
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    BOOL isShowSelf = [viewController isKindOfClass:[NSClassFromString(@"LJGoodsDetailFatherViewController") class]];
+    [self.navigationController setNavigationBarHidden:isShowSelf animated:YES];//动画要设为YES，不然界面切换不连贯
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-}
-
 @end

@@ -12,7 +12,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, spaceEdgeH(5), spaceEdgeW(123), spaceEdgeH(100))];
+        self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, spaceEdgeW(123), spaceEdgeH(100))];
         self.imageView.backgroundColor = LJRandomColor;
         [self.contentView addSubview:self.imageView];
         

@@ -13,7 +13,7 @@
 #import "LJGoodsCommentViewController.h"
 #import "LJRadDot.h"
 #import "LJShoppingCartViewController.h"
-@interface LJGoodsDetailFatherViewController ()<UIScrollViewDelegate,UINavigationControllerDelegate>
+@interface LJGoodsDetailFatherViewController ()<UIScrollViewDelegate>
 /*** 整个背景ScrollView ***/
 @property (strong, nonatomic) LJBaseScrollView *ScrollView;
 /*当前选中的标题按钮*/
@@ -52,8 +52,7 @@
 #pragma mark-ScrollView属性设置
 - (void)setScrollviewAttribute{
     self.automaticallyAdjustsScrollViewInsets = NO;       //1.避免scrollView自动预留64px空间
-    self.navigationController.delegate = self;            //2.设置代理：解决导航栏显示与隐藏问题
-    self.ScrollView = [[LJBaseScrollView alloc] init];    //3.设置ScrollView的属性
+    self.ScrollView = [[LJBaseScrollView alloc] init];    //2.设置ScrollView的属性
     self.ScrollView.backgroundColor = LJCommonBgColor;
     self.ScrollView.frame = CGRectMake(0, 0, SCREEN_WIDTH, self.view.lj_height - spaceEdgeH(49));
     self.ScrollView.pagingEnabled = YES;
@@ -110,7 +109,7 @@
     //9.自定义返回按钮
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     backBtn.lj_x = spaceEdgeW(5);
-    backBtn.lj_y = spaceEdgeH(35);
+    backBtn.lj_y = spaceEdgeH(30);
     backBtn.lj_width = backBtn.lj_height = spaceEdgeW(40);
     [backBtn setImage:[UIImage imageNamed:@"back_icon"] forState:UIControlStateNormal];
     [backBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
@@ -258,12 +257,6 @@
     return _goodsCommentVc;
 }
 
-#pragma mark --导航栏代理：解决导航栏显示与隐藏问题
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    BOOL isSelfPage = [viewController isKindOfClass:[self class]];
-    [self.navigationController setNavigationBarHidden:isSelfPage animated:YES];
-}
-
 #pragma mark - <UIScrollViewDelegate>
 ///** 在scrollView滚动动画结束时, 就会调用这个方法
 // 前提: 使用setContentOffset:animated:或者scrollRectVisible:animated:方法让scrollView产生滚动动画
@@ -280,6 +273,11 @@
     UIButton *titleButton = self.titleBgView.subviews[index];
     [self titleButtonClick:titleButton];
     [self addChildVcToScrollView];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.NavigateTitleView.backgroundColor = [LJCommonBgColor colorWithAlphaComponent:0];
 }
 
 - (void)didReceiveMemoryWarning {

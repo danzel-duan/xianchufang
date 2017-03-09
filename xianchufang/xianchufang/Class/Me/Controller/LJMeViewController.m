@@ -131,7 +131,7 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
     [self.view addSubview:view];
     /*** 左边消息图标 ***/
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame= CGRectMake(0, 15, 50, 50);
+    button.frame= CGRectMake(0, 13, 50, 50);
     button.tag =1111;
     [button setImage:[UIImage imageNamed:@"tabbar_news_icon"] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(messageBtnClick) forControlEvents:UIControlEventTouchUpInside];
