@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.interactivePopGestureRecognizer.delegate = self;
-    [self.navigationBar setTitleTextAttributes:@{NSFontAttributeName :[UIFont systemFontOfSize:18]}]; //字体
+    [self.navigationBar setTitleTextAttributes:@{NSFontAttributeName :[UIFont systemFontOfSize:18],NSForegroundColorAttributeName:LJTheMeColor}]; //字体
     [self.navigationBar setBarTintColor:[UIColor whiteColor]];
     [self.navigationBar setBackgroundImage:[UIImage imageNamed:@""] forBarMetrics:UIBarMetricsDefault];
 }

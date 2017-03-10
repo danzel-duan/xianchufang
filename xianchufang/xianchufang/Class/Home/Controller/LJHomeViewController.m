@@ -10,6 +10,9 @@
 
 #import "LJNavigationView.h" //导航栏视图
 #import "LJLimitTimeViewController.h" //限时抢购页面
+#import "LJChoicenessViewController.h"//第三个(暂定精品选购页面)
+#import "LJVarietyCategoryViewController.h" //满了就减
+#import "LJGoodsDetailFatherViewController.h"//商品详情页面
 
 #import "LJMenuItemCollectionViewCell.h" //1.menu 菜单的cell
 #import "LJTimeLimitCollectionViewCell.h"//2.限时抢购cell
@@ -169,11 +172,15 @@
         LJLimitTimeViewController *limitTimeView = [[LJLimitTimeViewController alloc] init];
         [self.navigationController pushViewController:limitTimeView animated:YES];
     }else if (indexPath.section == 2){
-        NSLog(@"%zd",indexPath.item);
+        LJChoicenessViewController *choicenessView = [[LJChoicenessViewController alloc] init];
+        [self.navigationController pushViewController:choicenessView animated:YES];
     }else if (indexPath.section == 3){
-        NSLog(@"%zd",indexPath.item);
+        LJVarietyCategoryViewController *VarietyView = [[LJVarietyCategoryViewController alloc] init];
+        VarietyView.isFull = YES;
+        [self.navigationController pushViewController:VarietyView animated:YES];
     }else if (indexPath.section == 4){
-        NSLog(@"%zd",indexPath.item);
+        LJGoodsDetailFatherViewController *vc = [[LJGoodsDetailFatherViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     } 
 }
 

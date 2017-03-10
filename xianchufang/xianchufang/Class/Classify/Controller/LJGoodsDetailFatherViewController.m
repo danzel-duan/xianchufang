@@ -108,9 +108,9 @@
     [self.selectedTitleButton.titleLabel setFont:LJFontSize18];
     //9.自定义返回按钮
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    backBtn.lj_x = spaceEdgeW(5);
-    backBtn.lj_y = spaceEdgeH(30);
-    backBtn.lj_width = backBtn.lj_height = spaceEdgeW(40);
+    backBtn.lj_x = 5;
+    backBtn.lj_y = 20;
+    backBtn.lj_width = backBtn.lj_height = 40;
     [backBtn setImage:[UIImage imageNamed:@"back_icon"] forState:UIControlStateNormal];
     [backBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     [self.NavigateTitleView addSubview:backBtn];

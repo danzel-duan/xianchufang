@@ -9,6 +9,7 @@
 #import "LJHotCollectionViewCell.h"
 
 @implementation LJHotCollectionViewCell
+
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {

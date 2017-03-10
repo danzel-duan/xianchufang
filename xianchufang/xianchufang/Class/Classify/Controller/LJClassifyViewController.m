@@ -166,6 +166,7 @@
         [self.navigationController pushViewController:vc animated:YES];
     }else{
         LJVarietyCategoryViewController *vc = [LJVarietyCategoryViewController new];
+        vc.isFull = NO;
         vc.titleStr = self.dataArray[indexPath.row];
         [self.navigationController pushViewController:vc animated:YES];
     }

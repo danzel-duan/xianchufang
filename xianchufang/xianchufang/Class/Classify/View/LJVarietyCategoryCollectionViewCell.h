@@ -17,4 +17,6 @@
 @property (nonatomic,strong) UILabel *goodsPriceLabel;
 /*** 购物车按钮 ***/
 @property (nonatomic,strong) UIButton  *shoppingCarBtn;
+/*** 是否是满减标识 ***/
+@property (nonatomic,assign) BOOL isFullIdentify;
 @end

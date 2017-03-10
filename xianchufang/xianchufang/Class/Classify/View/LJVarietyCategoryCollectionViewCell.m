@@ -29,10 +29,30 @@
         
         self.shoppingCarBtn = [[UIButton alloc] initWithFrame:CGRectMake(self.contentView.lj_width - spaceEdgeW(40), self.imageView.lj_bottom + spaceEdgeH(15), spaceEdgeW(30), spaceEdgeH(30))];
         [self.shoppingCarBtn addTarget:self action:@selector(addShoppingCar) forControlEvents:UIControlEventTouchUpInside];
-        [self.shoppingCarBtn setImage:[UIImage imageNamed:@"classify_shopping-cart_icon"] forState:UIControlStateNormal];
+        [self.shoppingCarBtn setImage:[UIImage imageNamed:@"home_shoppingcar_icon"] forState:UIControlStateNormal];
         [self.contentView addSubview:self.shoppingCarBtn];
+        
+        self.contentView.layer.borderWidth = 0.5f;
+        self.contentView.layer.borderColor = LJCutLineColor.CGColor;
     }
     return self;
+}
+
+/*** 是否是满减标识 ***/
+- (void)setIsFullIdentify:(BOOL)isFullIdentify {
+    _isFullIdentify = isFullIdentify;
+    if (_isFullIdentify) {
+        //满减标识
+        UILabel *fullLabel = [[UILabel alloc] initWithFrame:CGRectMake(spaceEdgeW(15), 0, spaceEdgeW(20), spaceEdgeH(40))];
+        fullLabel.backgroundColor = LJFontColored;
+        fullLabel.textColor = [UIColor whiteColor];
+        fullLabel.font = LJFontSize12;
+        fullLabel.text = @"满减";
+        fullLabel.textAlignment = NSTextAlignmentCenter;
+        fullLabel.numberOfLines = 2;
+        [self.imageView addSubview:fullLabel];
+        [self setCorneradi:fullLabel];
+    }
 }
 
 #pragma mark --加入购物车事件
@@ -40,6 +60,14 @@
     LJLog(@"已加入购物车！");
 }
 
+#pragma mark --设置某几个角为圆角
+- (void)setCorneradi:(UILabel *)label{
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:label.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(spaceEdgeW(10), spaceEdgeW(10))];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    maskLayer.frame = label.bounds;
+    maskLayer.path = maskPath.CGPath;
+    label.layer.mask = maskLayer;
+}
 
 #pragma mark --富文本
 - (NSMutableAttributedString *)attrstr:(NSString *)str dic1:(NSDictionary *)dic1 dic2:(NSDictionary *)dic2  loc1:(NSUInteger)loc1 len1:(NSUInteger)len1 loc2:(NSUInteger)loc2 len2:(NSUInteger)len2 {
