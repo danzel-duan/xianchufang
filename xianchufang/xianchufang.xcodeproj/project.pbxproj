@@ -14,6 +14,9 @@
 		1430CE291E712BDF00FEE185 /* LJLastTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1430CE281E712BDF00FEE185 /* LJLastTimeView.xib */; };
 		1430CE2D1E71337B00FEE185 /* LJLimitTimeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1430CE2C1E71337B00FEE185 /* LJLimitTimeTableViewCell.m */; };
 		1430CE301E713F9300FEE185 /* LJProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1430CE2F1E713F9300FEE185 /* LJProgressBar.m */; };
+		1452C90D1E7249BE003552C4 /* LJChoicenessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1452C90C1E7249BE003552C4 /* LJChoicenessViewController.m */; };
+		1452C9111E726B58003552C4 /* LJChoicenessChildrenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1452C9101E726B58003552C4 /* LJChoicenessChildrenView.m */; };
+		1452C9141E72C35D003552C4 /* LJChoicenessCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1452C9131E72C35D003552C4 /* LJChoicenessCollectionViewCell.m */; };
 		1464B8F41E5BDE65003CC3BC /* LJOrderBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1464B8F31E5BDE65003CC3BC /* LJOrderBaseViewController.m */; };
 		1464B8F81E5C00DB003CC3BC /* LJOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1464B8F71E5C00DB003CC3BC /* LJOrderTableViewCell.m */; };
 		1464B8FD1E5C1FD8003CC3BC /* LJOrderGoodsDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1464B8FC1E5C1FD8003CC3BC /* LJOrderGoodsDetailTableViewCell.m */; };
@@ -153,6 +156,12 @@
 		1430CE2C1E71337B00FEE185 /* LJLimitTimeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJLimitTimeTableViewCell.m; sourceTree = "<group>"; };
 		1430CE2E1E713F9300FEE185 /* LJProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJProgressBar.h; sourceTree = "<group>"; };
 		1430CE2F1E713F9300FEE185 /* LJProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJProgressBar.m; sourceTree = "<group>"; };
+		1452C90B1E7249BE003552C4 /* LJChoicenessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJChoicenessViewController.h; sourceTree = "<group>"; };
+		1452C90C1E7249BE003552C4 /* LJChoicenessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJChoicenessViewController.m; sourceTree = "<group>"; };
+		1452C90F1E726B58003552C4 /* LJChoicenessChildrenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJChoicenessChildrenView.h; sourceTree = "<group>"; };
+		1452C9101E726B58003552C4 /* LJChoicenessChildrenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJChoicenessChildrenView.m; sourceTree = "<group>"; };
+		1452C9121E72C35D003552C4 /* LJChoicenessCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJChoicenessCollectionViewCell.h; sourceTree = "<group>"; };
+		1452C9131E72C35D003552C4 /* LJChoicenessCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJChoicenessCollectionViewCell.m; sourceTree = "<group>"; };
 		1464B8F21E5BDE65003CC3BC /* LJOrderBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJOrderBaseViewController.h; sourceTree = "<group>"; };
 		1464B8F31E5BDE65003CC3BC /* LJOrderBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJOrderBaseViewController.m; sourceTree = "<group>"; };
 		1464B8F61E5C00DB003CC3BC /* LJOrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJOrderTableViewCell.h; sourceTree = "<group>"; };
@@ -408,6 +417,17 @@
 				1430CE2F1E713F9300FEE185 /* LJProgressBar.m */,
 			);
 			name = LimitTimeView;
+			sourceTree = "<group>";
+		};
+		1452C90E1E726B3A003552C4 /* ChoicenessView */ = {
+			isa = PBXGroup;
+			children = (
+				1452C90F1E726B58003552C4 /* LJChoicenessChildrenView.h */,
+				1452C9101E726B58003552C4 /* LJChoicenessChildrenView.m */,
+				1452C9121E72C35D003552C4 /* LJChoicenessCollectionViewCell.h */,
+				1452C9131E72C35D003552C4 /* LJChoicenessCollectionViewCell.m */,
+			);
+			name = ChoicenessView;
 			sourceTree = "<group>";
 		};
 		1464B8F51E5BDE6B003CC3BC /* Order */ = {
@@ -904,6 +924,8 @@
 				14E4DE561E6FA4D6007DBB6C /* LJHomeViewController.m */,
 				1430CE221E70FD2500FEE185 /* LJLimitTimeViewController.h */,
 				1430CE231E70FD2500FEE185 /* LJLimitTimeViewController.m */,
+				1452C90B1E7249BE003552C4 /* LJChoicenessViewController.h */,
+				1452C90C1E7249BE003552C4 /* LJChoicenessViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -918,6 +940,7 @@
 		14E05BAE1E5137710057D3AE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1452C90E1E726B3A003552C4 /* ChoicenessView */,
 				1430CE2A1E7132ED00FEE185 /* LimitTimeView */,
 				14DC98341E70141E005B46CF /* CollectionHeaderView */,
 				14DC98321E701342005B46CF /* CollectionViewCell */,
@@ -1482,6 +1505,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1452C9141E72C35D003552C4 /* LJChoicenessCollectionViewCell.m in Sources */,
 				149C35831E6D421700EA2321 /* LJVarietyCategoryCollectionViewCell.m in Sources */,
 				148F60941E67BBAB00B484DE /* LJGoodsDetailFatherViewController.m in Sources */,
 				1486DAFB1E543AD70096E46D /* LJBaseTableViewCell.m in Sources */,
@@ -1522,12 +1546,14 @@
 				14E4DE5A1E6FD3CE007DBB6C /* LJMenuItemCollectionViewCell.m in Sources */,
 				14DC984F1E704372005B46CF /* LJHotCollectionViewCell.m in Sources */,
 				14DC98401E703311005B46CF /* LJThreeCollectionViewCell.m in Sources */,
+				1452C90D1E7249BE003552C4 /* LJChoicenessViewController.m in Sources */,
 				148F609D1E67BC0600B484DE /* LJGoodsCommentViewController.m in Sources */,
 				1464B90F1E5C2FE1003CC3BC /* LJAllOrderViewController.m in Sources */,
 				1466CFD41E5DA79600843FA9 /* LJBalanceViewController.m in Sources */,
 				1486DAF41E53FAFA0096E46D /* LJSettingViewController.m in Sources */,
 				1466CFDB1E5DB64C00843FA9 /* LJIntefralViewController.m in Sources */,
 				148F60971E67BBE100B484DE /* LJGoodsInfoViewController.m in Sources */,
+				1452C9111E726B58003552C4 /* LJChoicenessChildrenView.m in Sources */,
 				14E4DE641E6FFF53007DBB6C /* LJSearchView.m in Sources */,
 				14DC984C1E704172005B46CF /* LJHotHeaderReusableView.m in Sources */,
 				14E05BF31E513B170057D3AE /* LJClassifyViewController.m in Sources */,

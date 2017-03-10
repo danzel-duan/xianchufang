@@ -11,4 +11,6 @@
 @interface LJVarietyCategoryViewController : UIViewController
 /*** title ***/
 @property (nonatomic,strong) NSString *titleStr;
+/*** 是否为满减 ***/
+@property (nonatomic,assign) BOOL isFull;
 @end

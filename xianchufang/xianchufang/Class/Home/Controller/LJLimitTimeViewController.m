@@ -10,7 +10,6 @@
 #import "LJLastTimeView.h"
 #import "LJLimitTimeTableViewCell.h"
 
-
 @interface LJLimitTimeViewController ()
 /*** banner图片 ***/
 @property (nonatomic,strong) UIImageView *bannerImageView;
@@ -63,7 +62,7 @@
     [bgView addSubview:tipLabel];
 
     self.LastTimeView = [[NSBundle mainBundle] loadNibNamed:@"LJLastTimeView" owner:nil options:nil].lastObject;
-    self.LastTimeView.frame = CGRectMake(SCREEN_WIDTH - spaceEdgeW(160), 0, spaceEdgeW(120), spaceEdgeH(45));
+    self.LastTimeView.frame = CGRectMake(SCREEN_WIDTH - 140, 0, 120, spaceEdgeH(45));
     [bgView addSubview:self.LastTimeView];
     //从后台获取活动还剩的时间  、、这里模拟数据
     self.lastTime = 600 - 1;
