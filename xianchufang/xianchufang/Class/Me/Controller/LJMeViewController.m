@@ -92,7 +92,7 @@ static NSString *const LJOrderStatusCellID = @"LJOrderStatusCell";
 //        [self presentViewController:Vc animated:YES completion:nil];
 //    }
     UIViewController * Vc =[NSClassFromString(@"LJLoginViewController") new];
-    [self presentViewController:Vc animated:YES completion:nil];
+    [self.navigationController pushViewController:Vc animated:YES];
 }
 
 #pragma mark --设置背景头像位置

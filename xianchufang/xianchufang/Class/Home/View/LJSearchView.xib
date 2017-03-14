@@ -15,11 +15,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CTz-fN-1W6">
-                    <rect key="frame" x="58" y="385" width="342" height="110"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
                 <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="搜索" translatesAutoresizingMaskIntoConstraints="NO" id="VFY-wi-4tU">
                     <rect key="frame" x="5" y="23" width="318" height="44"/>
                     <constraints>
@@ -40,11 +35,21 @@
                         <action selector="SearchBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="UoE-tv-OPq"/>
                     </connections>
                 </button>
+                <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KTf-Mu-Phe">
+                    <rect key="frame" x="0.0" y="64" width="375" height="1"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="sUh-7X-RHY"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="e5v-c0-4Yh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="5vn-tC-isM"/>
+                <constraint firstItem="KTf-Mu-Phe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7hm-pm-mbe"/>
+                <constraint firstAttribute="trailing" secondItem="KTf-Mu-Phe" secondAttribute="trailing" id="Bd7-rT-dbC"/>
                 <constraint firstAttribute="trailing" secondItem="e5v-c0-4Yh" secondAttribute="trailing" constant="6" id="L9m-5B-3um"/>
+                <constraint firstItem="KTf-Mu-Phe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="64" id="dKG-a9-sYL"/>
                 <constraint firstItem="VFY-wi-4tU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="23" id="eLE-jq-kZf"/>
                 <constraint firstItem="e5v-c0-4Yh" firstAttribute="leading" secondItem="VFY-wi-4tU" secondAttribute="trailing" id="fBx-Yn-ufo"/>
                 <constraint firstItem="VFY-wi-4tU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="hvn-vz-til"/>

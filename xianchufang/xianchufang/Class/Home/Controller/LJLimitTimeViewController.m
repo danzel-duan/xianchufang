@@ -19,6 +19,8 @@
 @property (nonatomic,assign) NSUInteger lastTime;
 /*** 剩余时间Label显示 ***/
 @property (nonatomic,strong) LJLastTimeView *LastTimeView;
+/*** 提示label ***/
+@property (nonatomic,strong) UILabel *tipLabel;
 @end
 
 @implementation LJLimitTimeViewController
@@ -28,8 +30,11 @@
     [self setNavigaitonFont];  //1.设置导航栏字体
     [self setupBanner];        //2.设置Banner
     [self activityTime];       //3.活动时间
-    [self setupBaseInfo];      //4.tableView基本属性
-    
+    [self setupBaseInfo];      //4.tableView基本属性  
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
 }
 
 #pragma mark --setNavigationFont 设置导航栏字体
@@ -60,12 +65,13 @@
     tipLabel.font = LJFontSize18;
     tipLabel.text = @"活动持续时间";
     [bgView addSubview:tipLabel];
+    self.tipLabel = tipLabel;
 
     self.LastTimeView = [[NSBundle mainBundle] loadNibNamed:@"LJLastTimeView" owner:nil options:nil].lastObject;
     self.LastTimeView.frame = CGRectMake(SCREEN_WIDTH - 140, 0, 120, spaceEdgeH(45));
     [bgView addSubview:self.LastTimeView];
     //从后台获取活动还剩的时间  、、这里模拟数据
-    self.lastTime = 600 - 1;
+    self.lastTime = 10;
     [self startTimer];
 }
 
@@ -87,6 +93,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LJLimitTimeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LJLimitTimeTableViewCell"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -95,7 +102,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     UIViewController *vc = [NSClassFromString(@"LJGoodsDetailFatherViewController") new];
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -114,6 +120,7 @@
         time = self.lastTime --;
     }
     NSString *timeStr = [self lessSecondToDay:time];
+    if ([timeStr isEqualToString:@"已结束"]) {timeStr = @"00:00:00";self.tipLabel.text = @"活动已结束！";}
     self.LastTimeView.Hour1Label.text = [timeStr substringWithRange:NSMakeRange(0, 1)];
     self.LastTimeView.Hour2Label.text = [timeStr substringWithRange:NSMakeRange(1, 1)];
     self.LastTimeView.Min1Label.text = [timeStr substringWithRange:NSMakeRange(3, 1)];
@@ -145,10 +152,11 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [self removeTimer]; //页面消失时移除计时器
+    NSArray *viewControllers = self.navigationController.viewControllers;
+    if ([viewControllers indexOfObject:self] == NSNotFound) {
+        [self removeTimer]; //当是pop时就消毁计时器
+    }
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

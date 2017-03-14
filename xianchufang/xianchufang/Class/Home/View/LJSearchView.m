@@ -22,10 +22,14 @@
 
 #pragma mark --配置子控件
 - (void)configureSub {
-    
+  
 }
 - (IBAction)SearchBtnClick:(UIButton *)sender {
-    [self removeFromSuperview];
+    [UIView animateWithDuration:0.5 animations:^{
+        self.alpha = 0;
+    } completion:^(BOOL finished) {
+       [self removeFromSuperview];
+    }];
 }
 
 @end

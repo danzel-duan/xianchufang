@@ -270,14 +270,8 @@
 }
 
 - ( void )scrollViewDidScroll:( UIScrollView *)scrollView {
-    if (scrollView.contentOffset.y < lastContentOffset ){
-        //向上
-        self.topBtn.hidden = YES;    
-    }else if (scrollView. contentOffset.y >lastContentOffset){
-        //向下
-        self.topBtn.hidden = NO;
-    }
     if (scrollView.contentOffset.y > 200) {
+        self.topBtn.hidden = NO;
         CGFloat alpha = MAX(0.36, 0.36 - (200 - scrollView.contentOffset.y) / 200);
         if (alpha > 1.0f) return; //如果大于1，就返回
         if (alpha > 0.5f) { //更换背景图片
@@ -287,6 +281,7 @@
         }
         self.navigationView.bgImageView.alpha = alpha;
     }else{
+        self.topBtn.hidden = YES;
         self.navigationView.bgImageView.image= nil;
         self.navigationView.bgImageView.image = [UIImage imageNamed:@"home_daohang_icon"];
         self.navigationView.bgImageView.alpha = 0.36f;
