@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <AMapFoundationKit/AMapFoundationKit.h>//高德地图
+#import <AMapLocationKit/AMapLocationKit.h>//高德地图<>
 @interface LJNavigationView : UIView
 /*** 定位按钮 ***/
 @property (weak, nonatomic) IBOutlet UIButton *locationBtn;
@@ -19,5 +20,5 @@
 /*** 背景 ***/
 @property (weak, nonatomic) IBOutlet UIImageView *bgImageView;
 
-
+@property (nonatomic,strong) AMapLocationManager *locationManager;
 @end

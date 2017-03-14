@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1410354D1E640B40001A5F3A /* LJLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1410354C1E640B40001A5F3A /* LJLoginViewController.m */; };
 		141035501E642BA0001A5F3A /* LJAddressSelectedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1410354F1E642BA0001A5F3A /* LJAddressSelectedViewController.m */; };
 		1430CE241E70FD2500FEE185 /* LJLimitTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1430CE231E70FD2500FEE185 /* LJLimitTimeViewController.m */; };
 		1430CE271E712BCB00FEE185 /* LJLastTimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1430CE261E712BCB00FEE185 /* LJLastTimeView.m */; };
@@ -36,6 +35,16 @@
 		1466CFDF1E5DBDD600843FA9 /* LJIntefralRuleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1466CFDE1E5DBDD600843FA9 /* LJIntefralRuleViewController.m */; };
 		1466CFE31E5DBE1C00843FA9 /* LJIntegralTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1466CFE21E5DBE1C00843FA9 /* LJIntegralTableViewCell.m */; };
 		1466CFE71E5DBE3D00843FA9 /* LJBalanceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1466CFE61E5DBE3D00843FA9 /* LJBalanceTableViewCell.m */; };
+		1467376E1E7785E9002043D2 /* LJBaseLoginRegiterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1467376D1E7785E9002043D2 /* LJBaseLoginRegiterViewController.m */; };
+		146737711E779018002043D2 /* LJLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 146737701E779018002043D2 /* LJLoginViewController.m */; };
+		146737741E77B531002043D2 /* LJRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 146737731E77B531002043D2 /* LJRegisterViewController.m */; };
+		146737771E77BC35002043D2 /* LJRegisterNextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 146737761E77BC35002043D2 /* LJRegisterNextViewController.m */; };
+		1467377A1E77C8B8002043D2 /* LJForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 146737791E77C8B8002043D2 /* LJForgetPasswordViewController.m */; };
+		1467377D1E77C931002043D2 /* LJForgetPasswordNextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1467377C1E77C931002043D2 /* LJForgetPasswordNextViewController.m */; };
+		146737801E77D754002043D2 /* LJProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1467377F1E77D754002043D2 /* LJProtocolViewController.m */; };
+		146737831E77E643002043D2 /* LJLocationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 146737821E77E643002043D2 /* LJLocationView.m */; };
+		146737851E77E652002043D2 /* LJLocationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 146737841E77E652002043D2 /* LJLocationView.xib */; };
+		146737871E780223002043D2 /* city.plist in Resources */ = {isa = PBXBuildFile; fileRef = 146737861E780223002043D2 /* city.plist */; };
 		146A2E7B1E5A93530092928D /* LJShoppingCarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 146A2E7A1E5A93530092928D /* LJShoppingCarTableViewCell.m */; };
 		146A2E7E1E5ABEDB0092928D /* LJInventoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 146A2E7D1E5ABEDB0092928D /* LJInventoryTableViewCell.m */; };
 		146A2E811E5ABF190092928D /* LJInventoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 146A2E801E5ABF190092928D /* LJInventoryViewController.m */; };
@@ -143,8 +152,6 @@
 
 /* Begin PBXFileReference section */
 		046EC9BC7D6EACBAEA68AED6 /* Pods-xianchufang.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xianchufang.release.xcconfig"; path = "Pods/Target Support Files/Pods-xianchufang/Pods-xianchufang.release.xcconfig"; sourceTree = "<group>"; };
-		1410354B1E640B40001A5F3A /* LJLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJLoginViewController.h; sourceTree = "<group>"; };
-		1410354C1E640B40001A5F3A /* LJLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJLoginViewController.m; sourceTree = "<group>"; };
 		1410354E1E642BA0001A5F3A /* LJAddressSelectedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJAddressSelectedViewController.h; sourceTree = "<group>"; };
 		1410354F1E642BA0001A5F3A /* LJAddressSelectedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJAddressSelectedViewController.m; sourceTree = "<group>"; };
 		1430CE221E70FD2500FEE185 /* LJLimitTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJLimitTimeViewController.h; sourceTree = "<group>"; };
@@ -200,6 +207,24 @@
 		1466CFE21E5DBE1C00843FA9 /* LJIntegralTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJIntegralTableViewCell.m; sourceTree = "<group>"; };
 		1466CFE51E5DBE3D00843FA9 /* LJBalanceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJBalanceTableViewCell.h; sourceTree = "<group>"; };
 		1466CFE61E5DBE3D00843FA9 /* LJBalanceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJBalanceTableViewCell.m; sourceTree = "<group>"; };
+		1467376C1E7785E9002043D2 /* LJBaseLoginRegiterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJBaseLoginRegiterViewController.h; sourceTree = "<group>"; };
+		1467376D1E7785E9002043D2 /* LJBaseLoginRegiterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJBaseLoginRegiterViewController.m; sourceTree = "<group>"; };
+		1467376F1E779018002043D2 /* LJLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJLoginViewController.h; sourceTree = "<group>"; };
+		146737701E779018002043D2 /* LJLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJLoginViewController.m; sourceTree = "<group>"; };
+		146737721E77B531002043D2 /* LJRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJRegisterViewController.h; sourceTree = "<group>"; };
+		146737731E77B531002043D2 /* LJRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJRegisterViewController.m; sourceTree = "<group>"; };
+		146737751E77BC35002043D2 /* LJRegisterNextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJRegisterNextViewController.h; sourceTree = "<group>"; };
+		146737761E77BC35002043D2 /* LJRegisterNextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJRegisterNextViewController.m; sourceTree = "<group>"; };
+		146737781E77C8B8002043D2 /* LJForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJForgetPasswordViewController.h; sourceTree = "<group>"; };
+		146737791E77C8B8002043D2 /* LJForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJForgetPasswordViewController.m; sourceTree = "<group>"; };
+		1467377B1E77C931002043D2 /* LJForgetPasswordNextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJForgetPasswordNextViewController.h; sourceTree = "<group>"; };
+		1467377C1E77C931002043D2 /* LJForgetPasswordNextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJForgetPasswordNextViewController.m; sourceTree = "<group>"; };
+		1467377E1E77D754002043D2 /* LJProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJProtocolViewController.h; sourceTree = "<group>"; };
+		1467377F1E77D754002043D2 /* LJProtocolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJProtocolViewController.m; sourceTree = "<group>"; };
+		146737811E77E643002043D2 /* LJLocationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJLocationView.h; sourceTree = "<group>"; };
+		146737821E77E643002043D2 /* LJLocationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJLocationView.m; sourceTree = "<group>"; };
+		146737841E77E652002043D2 /* LJLocationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LJLocationView.xib; sourceTree = "<group>"; };
+		146737861E780223002043D2 /* city.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = city.plist; sourceTree = "<group>"; };
 		146A2E791E5A93530092928D /* LJShoppingCarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJShoppingCarTableViewCell.h; sourceTree = "<group>"; };
 		146A2E7A1E5A93530092928D /* LJShoppingCarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJShoppingCarTableViewCell.m; sourceTree = "<group>"; };
 		146A2E7C1E5ABEDB0092928D /* LJInventoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJInventoryTableViewCell.h; sourceTree = "<group>"; };
@@ -527,6 +552,27 @@
 			name = Balance;
 			sourceTree = "<group>";
 		};
+		1467376B1E778576002043D2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1467376C1E7785E9002043D2 /* LJBaseLoginRegiterViewController.h */,
+				1467376D1E7785E9002043D2 /* LJBaseLoginRegiterViewController.m */,
+				1467376F1E779018002043D2 /* LJLoginViewController.h */,
+				146737701E779018002043D2 /* LJLoginViewController.m */,
+				146737721E77B531002043D2 /* LJRegisterViewController.h */,
+				146737731E77B531002043D2 /* LJRegisterViewController.m */,
+				146737751E77BC35002043D2 /* LJRegisterNextViewController.h */,
+				146737761E77BC35002043D2 /* LJRegisterNextViewController.m */,
+				146737781E77C8B8002043D2 /* LJForgetPasswordViewController.h */,
+				146737791E77C8B8002043D2 /* LJForgetPasswordViewController.m */,
+				1467377B1E77C931002043D2 /* LJForgetPasswordNextViewController.h */,
+				1467377C1E77C931002043D2 /* LJForgetPasswordNextViewController.m */,
+				1467377E1E77D754002043D2 /* LJProtocolViewController.h */,
+				1467377F1E77D754002043D2 /* LJProtocolViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		146A2E881E5AFBDB0092928D /* Inventory */ = {
 			isa = PBXGroup;
 			children = (
@@ -819,6 +865,9 @@
 				14E4DE621E6FFF53007DBB6C /* LJSearchView.h */,
 				14E4DE631E6FFF53007DBB6C /* LJSearchView.m */,
 				14DC98301E7008DB005B46CF /* LJSearchView.xib */,
+				146737811E77E643002043D2 /* LJLocationView.h */,
+				146737821E77E643002043D2 /* LJLocationView.m */,
+				146737841E77E652002043D2 /* LJLocationView.xib */,
 			);
 			name = NavigationView;
 			sourceTree = "<group>";
@@ -952,20 +1001,11 @@
 		14E05BAF1E5137710057D3AE /* Login&Regiter */ = {
 			isa = PBXGroup;
 			children = (
-				14E05BB01E5137710057D3AE /* Controller */,
+				1467376B1E778576002043D2 /* Controller */,
 				14E05BB11E5137710057D3AE /* Model */,
 				14E05BB21E5137710057D3AE /* View */,
 			);
 			path = "Login&Regiter";
-			sourceTree = "<group>";
-		};
-		14E05BB01E5137710057D3AE /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				1410354B1E640B40001A5F3A /* LJLoginViewController.h */,
-				1410354C1E640B40001A5F3A /* LJLoginViewController.m */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		14E05BB11E5137710057D3AE /* Model */ = {
@@ -1191,6 +1231,7 @@
 			children = (
 				14E05BDE1E5137710057D3AE /* Assets.xcassets */,
 				14E05BDF1E5137710057D3AE /* LaunchScreen.storyboard */,
+				146737861E780223002043D2 /* city.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -1342,7 +1383,9 @@
 				14DC98311E7008DB005B46CF /* LJSearchView.xib in Resources */,
 				1430CE291E712BDF00FEE185 /* LJLastTimeView.xib in Resources */,
 				14E4DE611E6FEF5C007DBB6C /* LJNavigationView.xib in Resources */,
+				146737871E780223002043D2 /* city.plist in Resources */,
 				14E05BEF1E5137710057D3AE /* Assets.xcassets in Resources */,
+				146737851E77E652002043D2 /* LJLocationView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1508,6 +1551,7 @@
 				1452C9141E72C35D003552C4 /* LJChoicenessCollectionViewCell.m in Sources */,
 				149C35831E6D421700EA2321 /* LJVarietyCategoryCollectionViewCell.m in Sources */,
 				148F60941E67BBAB00B484DE /* LJGoodsDetailFatherViewController.m in Sources */,
+				146737771E77BC35002043D2 /* LJRegisterNextViewController.m in Sources */,
 				1486DAFB1E543AD70096E46D /* LJBaseTableViewCell.m in Sources */,
 				14E05BEA1E5137710057D3AE /* LJMD5Encrypt.m in Sources */,
 				1488C8101E574ABD00C1AC27 /* LJOpinionViewController.m in Sources */,
@@ -1524,7 +1568,7 @@
 				1464B8F41E5BDE65003CC3BC /* LJOrderBaseViewController.m in Sources */,
 				1466CFDF1E5DBDD600843FA9 /* LJIntefralRuleViewController.m in Sources */,
 				14DE12181E51F01C00836B46 /* UIFont+LJExtension.m in Sources */,
-				1410354D1E640B40001A5F3A /* LJLoginViewController.m in Sources */,
+				146737741E77B531002043D2 /* LJRegisterViewController.m in Sources */,
 				14DC98491E7039E5005B46CF /* LJFullSubCollectionViewCell.m in Sources */,
 				14786BA71E55429E0099451B /* LJImageLeftButton.m in Sources */,
 				14CD5BD91E657FB400179B88 /* LJCommitOrderCarMOder.m in Sources */,
@@ -1538,6 +1582,7 @@
 				14E05BE51E5137710057D3AE /* UIView+LJExtension.m in Sources */,
 				14786BAA1E555B740099451B /* LJModifyPhoneNumViewController.m in Sources */,
 				1486DB021E544EEF0096E46D /* LJTooltip.m in Sources */,
+				1467376E1E7785E9002043D2 /* LJBaseLoginRegiterViewController.m in Sources */,
 				148F60A31E68215200B484DE /* LJGoodsCommentTableViewCell.m in Sources */,
 				14CD5BD61E656D6700179B88 /* LJCommitOrderGoodsDetailTableViewCell.m in Sources */,
 				14E05BE41E5137710057D3AE /* UIBarButtonItem+LJExtension.m in Sources */,
@@ -1546,6 +1591,7 @@
 				14E4DE5A1E6FD3CE007DBB6C /* LJMenuItemCollectionViewCell.m in Sources */,
 				14DC984F1E704372005B46CF /* LJHotCollectionViewCell.m in Sources */,
 				14DC98401E703311005B46CF /* LJThreeCollectionViewCell.m in Sources */,
+				1467377D1E77C931002043D2 /* LJForgetPasswordNextViewController.m in Sources */,
 				1452C90D1E7249BE003552C4 /* LJChoicenessViewController.m in Sources */,
 				148F609D1E67BC0600B484DE /* LJGoodsCommentViewController.m in Sources */,
 				1464B90F1E5C2FE1003CC3BC /* LJAllOrderViewController.m in Sources */,
@@ -1562,6 +1608,7 @@
 				146A2E811E5ABF190092928D /* LJInventoryViewController.m in Sources */,
 				1466CFC71E5D684500843FA9 /* LJMyCollectViewController.m in Sources */,
 				1488C8071E56B6B700C1AC27 /* LJVerifyInfo.m in Sources */,
+				146737801E77D754002043D2 /* LJProtocolViewController.m in Sources */,
 				14E05BEE1E5137710057D3AE /* LJRootViewController.m in Sources */,
 				1488724E1E5FCCDF003941AD /* LJInventoryModel.m in Sources */,
 				14E05BE91E5137710057D3AE /* LJData.m in Sources */,
@@ -1595,6 +1642,7 @@
 				1464B8FD1E5C1FD8003CC3BC /* LJOrderGoodsDetailTableViewCell.m in Sources */,
 				141035501E642BA0001A5F3A /* LJAddressSelectedViewController.m in Sources */,
 				146AE8181E5EBAB30035F526 /* LJOrderModel.m in Sources */,
+				1467377A1E77C8B8002043D2 /* LJForgetPasswordViewController.m in Sources */,
 				1466CFD11E5D888C00843FA9 /* LJMyCollectDetailTableViewCell.m in Sources */,
 				149C357D1E6D0BCC00EA2321 /* LJCategoryCollectionViewCell.m in Sources */,
 				14E05BED1E5137710057D3AE /* AppDelegate.m in Sources */,
@@ -1602,6 +1650,7 @@
 				1486DAFF1E543B4C0096E46D /* LJUserHeaderTableViewCell.m in Sources */,
 				14786BB01E559FED0099451B /* LJAddressSetTableViewCell.m in Sources */,
 				14DC983D1E702A97005B46CF /* LJTimeLimitCollectionViewCell.m in Sources */,
+				146737831E77E643002043D2 /* LJLocationView.m in Sources */,
 				148F609A1E67BBF400B484DE /* LJGoodsDetailViewController.m in Sources */,
 				14E05BEC1E5137710057D3AE /* main.m in Sources */,
 				14E4DE571E6FA4D6007DBB6C /* LJHomeViewController.m in Sources */,
@@ -1609,6 +1658,7 @@
 				1464B90C1E5C2FCF003CC3BC /* LJDeliverOreViewController.m in Sources */,
 				14CD5BCD1E655EC800179B88 /* LJCommitOrderAddressTableViewCell.m in Sources */,
 				1488725C1E603AAF003941AD /* LJInputView.m in Sources */,
+				146737711E779018002043D2 /* LJLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
