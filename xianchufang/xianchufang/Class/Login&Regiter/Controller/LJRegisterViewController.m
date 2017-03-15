@@ -87,6 +87,7 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+    if (!self._timer) return;
     NSArray *viewControllers = self.navigationController.viewControllers;
     if ([viewControllers indexOfObject:self] == NSNotFound) {
         dispatch_source_cancel(self._timer);

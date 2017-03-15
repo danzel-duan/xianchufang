@@ -106,16 +106,18 @@
     self.isAgreement = YES;
     [self.bgView3 addSubview:self.protocolAgreeBtn];
     //协议字
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(self.protocolAgreeBtn.lj_right + spaceEdgeW(3), 0, self.bgView3.lj_width - self.protocolAgreeBtn.lj_width - spaceEdgeW(5), spaceEdgeH(15))];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(self.protocolAgreeBtn.lj_right + spaceEdgeW(3), 0, 0, spaceEdgeH(15))];
     label.text = @"我已阅读并同意鲜厨坊协议";
     label.font = LJFontSize14;
     label.textColor = LJFontColor88;
+    [label sizeToFit];
+    label.lj_centerY = self.protocolAgreeBtn.lj_centerY;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick:)];
     label.userInteractionEnabled = YES;
     [label addGestureRecognizer:tap];
     [self.bgView3 addSubview:label];
     //下划线
-    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(label.lj_x, label.lj_bottom, label.lj_width - spaceEdgeW(10), spaceEdgeH(1))];
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(label.lj_x, label.lj_bottom, label.lj_width, spaceEdgeH(1))];
     line.backgroundColor = LJFontColor88;
     [self.bgView3 addSubview:line];
 }
