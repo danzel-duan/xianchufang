@@ -9,7 +9,9 @@
 #import "LJShoppingCartViewController.h"
 #import "LJShoppingCarTableViewCell.h"
 #import "LJTooltip.h"
-@interface LJShoppingCartViewController ()<LjShoppingCarCellDelegate>{
+#import "LJVarietyCategoryViewController.h"
+
+@interface LJShoppingCartViewController ()<LjShoppingCarCellDelegate,UINavigationControllerDelegate>{
     int goodsNumber;//选中了几件商品
 }
 
@@ -23,6 +25,8 @@
     self.navigationItem.title = @"购物车";
     self.tableView.lj_y = 12;
     self.tableView.lj_height = SCREEN_HEIGHT - 56;
+    //2.设置navigationController的代理，来隐藏导航栏
+    self.navigationController.delegate = self;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -80,6 +84,12 @@
         LJShoppingCarModel *model = weakSelf.dataArray[row];
         model.goodsNum = [textfield intValue];
         [weakSelf CalculateTotalPrice];
+    };
+    cell.block = ^{
+        //去凑单
+        LJVarietyCategoryViewController *VarietyView = [[LJVarietyCategoryViewController alloc] init];
+        VarietyView.isFull = YES;
+        [weakSelf.navigationController pushViewController:VarietyView animated:YES];
     };
     cell.delegate = self;
     return cell;
@@ -233,6 +243,15 @@
         }
     [self CalculateTotalPrice];
     [self.tableView reloadData];
+}
+
+#pragma mark --判断是否为当前控制器
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    BOOL isShowSelf ;
+    if ([viewController isKindOfClass:[NSClassFromString(@"LJGoodsDetailFatherViewController") class]]) {
+        isShowSelf = YES;
+    }
+    [self.navigationController setNavigationBarHidden:isShowSelf animated:YES];//动画要设为YES，不然界面切换不连贯
 }
 
 - (void)didReceiveMemoryWarning {

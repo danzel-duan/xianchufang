@@ -58,7 +58,7 @@
 #pragma mark --setNavigationFont 设置导航栏字体
 - (void)setNavigaitonFont {
     UIImageView *titleViewImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
-    titleViewImage.image = [UIImage imageNamed:@"home_miaosha_icon"];
+    titleViewImage.image = [UIImage imageNamed:@"home_shopping_manjian_icon"];
     [titleViewImage sizeToFit];
     [self.navigationItem setTitleView:titleViewImage];
 }

@@ -24,7 +24,7 @@
         [self.contentView addSubview:self.goodsNameLabel];
         
         self.goodsPriceLabel = [[UILabel alloc] initWithFrame:CGRectMake(spaceEdgeW(0), self.goodsNameLabel.lj_bottom , self.contentView.lj_width * 3 /4, spaceEdgeH(20))];
-        self.goodsPriceLabel.attributedText = [self attrstr:@"￥99.99/500g" dic1:@{NSForegroundColorAttributeName:LJFontColored,NSFontAttributeName:LJFontSize15} dic2:@{NSForegroundColorAttributeName:LJFontColored,NSFontAttributeName:LJFontSize12} loc1:0 len1:6 loc2:6 len2:5];
+        self.goodsPriceLabel.attributedText = [NSString attrstr:@"￥99.99/500g" dic1:@{NSForegroundColorAttributeName:LJFontColored,NSFontAttributeName:LJFontSize15} dic2:@{NSForegroundColorAttributeName:LJFontColored,NSFontAttributeName:LJFontSize12} len1:6 loc2:6 len2:5];
         [self.contentView addSubview:self.goodsPriceLabel];
         
         self.shoppingCarBtn = [[UIButton alloc] initWithFrame:CGRectMake(self.contentView.lj_width - spaceEdgeW(30), self.imageView.lj_bottom + spaceEdgeH(15), spaceEdgeW(25), spaceEdgeH(25))];
@@ -42,13 +42,5 @@
 #pragma mark --加入购物车事件
 - (void)addShoppingCar {
     LJLog(@"已加入购物车！");
-}
-
-#pragma mark --富文本
-- (NSMutableAttributedString *)attrstr:(NSString *)str dic1:(NSDictionary *)dic1 dic2:(NSDictionary *)dic2  loc1:(NSUInteger)loc1 len1:(NSUInteger)len1 loc2:(NSUInteger)loc2 len2:(NSUInteger)len2 {
-    NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithString:str];
-    [attr addAttributes:dic1 range:NSMakeRange(loc1, len1)];
-    [attr addAttributes:dic2 range:NSMakeRange(loc2, len2)];
-    return attr;
 }
 @end

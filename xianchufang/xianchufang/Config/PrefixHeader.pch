@@ -23,6 +23,8 @@
 /***  这里面写一些头文件  ***/
 /*** 类别  ***/
 #import "UIView+LJExtension.h"
+#import "NSString+LJExtension.h"
+
 #import "UIBarButtonItem+LJExtension.h"
 
 /*** 数据获取 ***/

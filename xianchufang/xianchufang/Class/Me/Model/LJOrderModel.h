@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "LJGoodsModel.h"
 typedef NS_ENUM(NSInteger , OrderStatus) {
-    OrderStatus0 = 1,  //待付款
+    OrderStatus0 = 0,  //待付款
     OrderStatus1 ,     //待配送
     OrderStatus2,      //待收货
     OrderStatus3,      //退换货

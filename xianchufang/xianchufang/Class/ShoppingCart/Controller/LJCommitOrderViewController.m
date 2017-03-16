@@ -9,6 +9,8 @@
 #import "LJCommitOrderViewController.h"
 #import "LJCommitOrderAddressTableViewCell.h"//地址cell
 #import "LJCommitOrderGoodsDetailTableViewCell.h"//商品cell
+#import "LJPaymentViewController.h" //选择支付界面
+
 @interface LJCommitOrderViewController ()
 /*** 实付款金额 ***/
 @property (nonatomic,strong) UILabel *payLabel;
@@ -207,7 +209,8 @@
 
 #pragma mark --提交订单点击事件
 - (void)Settlement :(UIButton *)sender {
-    LJLogFunc
+    LJPaymentViewController *paymentView = [[LJPaymentViewController alloc] init];
+    [self.navigationController pushViewController:paymentView animated:YES];
 }
 
 #pragma mark-拖拽判断

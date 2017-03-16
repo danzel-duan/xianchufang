@@ -280,6 +280,26 @@
     self.NavigateTitleView.backgroundColor = [LJCommonBgColor colorWithAlphaComponent:0];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+  
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+//############ 这里面一大堆是用来判断当这个页面pop掉时，上个页面是不是LJHomeViewController，如果是就说明刚才是从搜索页面进的那么就再把搜索界面加上,用代理的形式 ###########///
+    UITabBarController *tabBarVc = (UITabBarController *)LJwindow.rootViewController;
+    UINavigationController *nav = tabBarVc.selectedViewController;
+    NSInteger k = nav.viewControllers.count;
+    UIViewController *vc = nav.viewControllers[k - 1];
+    if ([vc isKindOfClass:[[NSClassFromString(@"LJHomeViewController") new] class]]) {
+        if ([self.delegate respondsToSelector:@selector(showSearchView)]) {
+            [self.delegate showSearchView];
+        }
+    }
+//############################################################################################
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

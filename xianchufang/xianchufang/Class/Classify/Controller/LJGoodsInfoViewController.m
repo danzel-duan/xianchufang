@@ -63,7 +63,7 @@
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, spaceEdgeH(38))];
     view.backgroundColor = [UIColor whiteColor];
     self.goodsCommentNumLabel = [[UILabel alloc] initWithFrame:CGRectMake(spaceEdgeW(10), 0, view.lj_width / 2, spaceEdgeH(38))];
-    self.goodsCommentNumLabel.attributedText = [self attrstr:@"商品评价(234)" dic1:@{NSForegroundColorAttributeName:LJFontColor4c,NSFontAttributeName:LJFontSize16} dic2:@{NSForegroundColorAttributeName:LJFontColor88,NSFontAttributeName:LJFontSize14} loc1:0 len1:4 loc2:4 len2:5];
+    self.goodsCommentNumLabel.attributedText = [NSString attrstr:@"商品评价(234)" dic1:@{NSForegroundColorAttributeName:LJFontColor4c,NSFontAttributeName:LJFontSize16} dic2:@{NSForegroundColorAttributeName:LJFontColor88,NSFontAttributeName:LJFontSize14} len1:4 loc2:4 len2:5];
     [view addSubview:self.goodsCommentNumLabel];
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - spaceEdgeW(30), 0, 0, 0)];
     imageView.lj_y = spaceEdgeH(15);
@@ -108,7 +108,7 @@
     fullL.layer.borderColor = LJFontColor4c.CGColor;
     fullL.layer.borderWidth = 1;
     fullL.textAlignment = NSTextAlignmentCenter;
-    fullL.attributedText = [self attrstr:@"其它评论(347)" dic1:@{NSForegroundColorAttributeName:LJFontColor4c,NSFontAttributeName:LJFontSize15} dic2:@{NSForegroundColorAttributeName:LJFontColor88,NSFontAttributeName:LJFontSize12} loc1:0 len1:4 loc2:4 len2:5];
+    fullL.attributedText = [NSString attrstr:@"其它评论(347)" dic1:@{NSForegroundColorAttributeName:LJFontColor4c,NSFontAttributeName:LJFontSize15} dic2:@{NSForegroundColorAttributeName:LJFontColor88,NSFontAttributeName:LJFontSize12} len1:4 loc2:4 len2:5];
     [fullL setLayerWithCr:2];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick)];
     fullL.userInteractionEnabled = YES;
@@ -147,7 +147,7 @@
         UILabel *nameL = [[UILabel alloc] initWithFrame:CGRectMake(0, imageView.lj_bottom, cateBgView.lj_width, spaceEdgeH(28))];
         nameL.textAlignment = NSTextAlignmentCenter;
         [cateBgView addSubview:nameL];
-        nameL.attributedText = [self attrstr:@"奶白菜(烟台)" dic1:@{NSForegroundColorAttributeName:LJFontColor4c,NSFontAttributeName:LJFontSize15} dic2:@{NSForegroundColorAttributeName:LJFontColor4c,NSFontAttributeName:LJFontSize12} loc1:0 len1:3 loc2:3 len2:4];
+        nameL.attributedText = [NSString attrstr:@"奶白菜(烟台)" dic1:@{NSForegroundColorAttributeName:LJFontColor4c,NSFontAttributeName:LJFontSize15} dic2:@{NSForegroundColorAttributeName:LJFontColor4c,NSFontAttributeName:LJFontSize12} len1:3 loc2:3 len2:4];
         UILabel *priceL = [[UILabel alloc] initWithFrame:CGRectMake(0, nameL.lj_bottom, cateBgView.lj_width, spaceEdgeH(20))];
         [priceL setFont:LJFontSize12];
         [priceL setTextColor:LJFontColor4c];
@@ -211,11 +211,11 @@
     
     self.currentPriceLabel = [[UILabel alloc] initWithFrame:CGRectMake(spaceEdgeW(10), self.deliveTipLabel.lj_bottom + spaceEdgeH(8), headerView.lj_width - spaceEdgeW(20), spaceEdgeH(19))];
     [viewbg1 addSubview:self.currentPriceLabel];
-    self.currentPriceLabel.attributedText = [self attrstr:@"￥2.90/500g" dic1:@{NSForegroundColorAttributeName:LJFontColored,NSFontAttributeName:LJFontSize16} dic2:@{NSForegroundColorAttributeName:LJFontColor88,NSFontAttributeName:LJFontSize14} loc1:0 len1:5 loc2:5 len2:5];
+    self.currentPriceLabel.attributedText = [NSString attrstr:@"￥2.90/500g" dic1:@{NSForegroundColorAttributeName:LJFontColored,NSFontAttributeName:LJFontSize16} dic2:@{NSForegroundColorAttributeName:LJFontColor88,NSFontAttributeName:LJFontSize14} len1:5 loc2:5 len2:5];
     
     self.marketPriceLabel = [[UILabel alloc] initWithFrame:CGRectMake(spaceEdgeW(10), self.currentPriceLabel.lj_bottom + spaceEdgeH(8), headerView.lj_width / 2, spaceEdgeH(16))];
     [viewbg1 addSubview:self.marketPriceLabel];
-    self.marketPriceLabel.attributedText = [self attrstr:@"￥3.90/500g(市场价)" dic1:@{NSForegroundColorAttributeName:LJFontColor61,NSFontAttributeName:LJFontSize16} dic2:@{NSForegroundColorAttributeName:LJFontColor88,NSFontAttributeName:LJFontSize14} loc1:0 len1:5 loc2:5 len2:10];
+    self.marketPriceLabel.attributedText = [NSString attrstr:@"￥3.90/500g(市场价)" dic1:@{NSForegroundColorAttributeName:LJFontColor61,NSFontAttributeName:LJFontSize16} dic2:@{NSForegroundColorAttributeName:LJFontColor88,NSFontAttributeName:LJFontSize14} len1:5 loc2:5 len2:10];
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.marketPriceLabel.lj_width * 2 / 3, 1)];
     line.lj_centerY = self.marketPriceLabel.lj_height / 2;
     line.backgroundColor = [UIColor blackColor];
@@ -285,19 +285,19 @@
     [goodsInfoView setBgShadow];
     
     UILabel *nameL = [[UILabel alloc] initWithFrame:CGRectMake(spaceEdgeW(10), spaceEdgeH(8), goodsInfoView.lj_width - spaceEdgeW(18), spaceEdgeH(16))];
-    nameL.attributedText = [self attrstr:@"品名:大白菜" dic1:@{NSForegroundColorAttributeName:LJFontColor61,NSFontAttributeName:LJFontSize15} dic2:@{NSForegroundColorAttributeName:LJFontColor39,NSFontAttributeName:LJFontSize16} loc1:0 len1:3 loc2:3 len2:3];
+    nameL.attributedText = [NSString attrstr:@"品名:大白菜" dic1:@{NSForegroundColorAttributeName:LJFontColor61,NSFontAttributeName:LJFontSize15} dic2:@{NSForegroundColorAttributeName:LJFontColor39,NSFontAttributeName:LJFontSize16} len1:3 loc2:3 len2:3];
     [goodsInfoView addSubview:nameL];
     
     self.placeLabel = [[UILabel alloc] initWithFrame:CGRectMake(spaceEdgeW(10), nameL.lj_bottom + spaceEdgeH(8), goodsInfoView.lj_width - spaceEdgeW(18), spaceEdgeH(16))];
-    self.placeLabel.attributedText = [self attrstr:@"产地:山东省" dic1:@{NSForegroundColorAttributeName:LJFontColor61,NSFontAttributeName:LJFontSize15} dic2:@{NSForegroundColorAttributeName:LJFontColor39,NSFontAttributeName:LJFontSize16} loc1:0 len1:3 loc2:3 len2:3];
+    self.placeLabel.attributedText = [NSString attrstr:@"产地:山东省" dic1:@{NSForegroundColorAttributeName:LJFontColor61,NSFontAttributeName:LJFontSize15} dic2:@{NSForegroundColorAttributeName:LJFontColor39,NSFontAttributeName:LJFontSize16} len1:3 loc2:3 len2:3];
     [goodsInfoView addSubview:self.placeLabel];
     
     self.reserveLabel = [[UILabel alloc] initWithFrame:CGRectMake(spaceEdgeW(10), self.placeLabel.lj_bottom + spaceEdgeH(8), goodsInfoView.lj_width - spaceEdgeW(18), spaceEdgeH(16))];
-    self.reserveLabel.attributedText = [self attrstr:@"储存:-3~5C" dic1:@{NSForegroundColorAttributeName:LJFontColor61,NSFontAttributeName:LJFontSize15} dic2:@{NSForegroundColorAttributeName:LJFontColor39,NSFontAttributeName:LJFontSize16} loc1:0 len1:3 loc2:3 len2:5];
+    self.reserveLabel.attributedText = [NSString attrstr:@"储存:-3~5C" dic1:@{NSForegroundColorAttributeName:LJFontColor61,NSFontAttributeName:LJFontSize15} dic2:@{NSForegroundColorAttributeName:LJFontColor39,NSFontAttributeName:LJFontSize16} len1:3 loc2:3 len2:5];
     [goodsInfoView addSubview:self.reserveLabel];
     
     self.standardLabel = [[UILabel alloc] initWithFrame:CGRectMake(spaceEdgeW(10), self.reserveLabel.lj_bottom + spaceEdgeH(8), goodsInfoView.lj_width - spaceEdgeW(18), spaceEdgeH(16))];
-    self.standardLabel.attributedText = [self attrstr:@"规格:4kg左右" dic1:@{NSForegroundColorAttributeName:LJFontColor61,NSFontAttributeName:LJFontSize15} dic2:@{NSForegroundColorAttributeName:LJFontColor39,NSFontAttributeName:LJFontSize16} loc1:0 len1:3 loc2:3 len2:5];
+    self.standardLabel.attributedText = [NSString attrstr:@"规格:4kg左右" dic1:@{NSForegroundColorAttributeName:LJFontColor61,NSFontAttributeName:LJFontSize15} dic2:@{NSForegroundColorAttributeName:LJFontColor39,NSFontAttributeName:LJFontSize16}len1:3 loc2:3 len2:5];
     [goodsInfoView addSubview:self.standardLabel];
     
     UILabel *serveL = [[UILabel alloc] initWithFrame:CGRectMake(spaceEdgeW(10), self.standardLabel.lj_bottom + spaceEdgeH(8), spaceEdgeW(45), spaceEdgeH(20))];
@@ -316,14 +316,6 @@
         btn.imageEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 5);
         btn.titleEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 5);
     }
-}
-
-#pragma mark --富文本
-- (NSMutableAttributedString *)attrstr:(NSString *)str dic1:(NSDictionary *)dic1 dic2:(NSDictionary *)dic2  loc1:(NSUInteger)loc1 len1:(NSUInteger)len1 loc2:(NSUInteger)loc2 len2:(NSUInteger)len2 {
-    NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithString:str];
-    [attr addAttributes:dic1 range:NSMakeRange(loc1, len1)];
-    [attr addAttributes:dic2 range:NSMakeRange(loc2, len2)];
-    return attr;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -8,8 +8,9 @@
 
 #import "LJSearchDetailView.h"
 #import "LJGoodsDetailFatherViewController.h"
+#import "LJSearchDetailTableViewCell.h"
 
-@interface LJSearchDetailView ()<UITableViewDelegate,UITableViewDataSource>
+@interface LJSearchDetailView ()<UITableViewDelegate,UITableViewDataSource,LJGoodsDetailFatherViewControllerDelegate>
 
 @property (nonatomic,strong) UITableView *tableview;
 
@@ -32,6 +33,8 @@
         _tableview.backgroundColor = LJCommonBgColor;
         _tableview.delegate = self;
         _tableview.dataSource = self;
+        _tableview.separatorStyle = UITableViewCellSeparatorStyleNone;
+        [_tableview registerClass:[LJSearchDetailTableViewCell class] forCellReuseIdentifier:@"LJSearchDetailTableViewCell"];
     }
     return _tableview;
 }
@@ -40,13 +43,15 @@
     return 10;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return spaceEdgeH(120);
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString* cellId = @"cellId";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
-    }
-    cell.textLabel.text = [NSString stringWithFormat:@"这是第%ld行",indexPath.row];
+    LJSearchDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LJSearchDetailTableViewCell"];
+    cell.isFull = YES;
+    cell.isLimit = YES;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -55,10 +60,14 @@
     UITabBarController *tabBarVc = (UITabBarController *)self.window.rootViewController;
     UINavigationController *nav = tabBarVc.selectedViewController;
     LJGoodsDetailFatherViewController *Vc = [[LJGoodsDetailFatherViewController alloc] init];
+    Vc.delegate = self;
     [nav pushViewController:Vc animated:YES];
-    
-    [self.superview removeFromSuperview];
-    
+    self.superview.hidden = YES;
+}
+
+#pragma mark --LJGoodsDetailFatherViewController 代理
+- (void)showSearchView {
+   self.superview.hidden = NO;
 }
 
 @end

@@ -24,7 +24,7 @@
         [self.contentView addSubview:self.goodsNameLabel];
         
         self.goodsPriceLabel = [[UILabel alloc] initWithFrame:CGRectMake(spaceEdgeW(10), self.goodsNameLabel.lj_bottom + spaceEdgeH(6), self.contentView.lj_width * 2 /3, spaceEdgeH(20))];
-        self.goodsPriceLabel.attributedText = [self attrstr:@"￥1.99/500g" dic1:@{NSForegroundColorAttributeName:LJFontColored,NSFontAttributeName:LJFontSize16} dic2:@{NSForegroundColorAttributeName:LJFontColored,NSFontAttributeName:LJFontSize12} loc1:0 len1:5 loc2:5 len2:5];
+        self.goodsPriceLabel.attributedText = [NSString attrstr:@"￥1.99/500g" dic1:@{NSForegroundColorAttributeName:LJFontColored,NSFontAttributeName:LJFontSize16} dic2:@{NSForegroundColorAttributeName:LJFontColored,NSFontAttributeName:LJFontSize12} len1:5 loc2:5 len2:5];
         [self.contentView addSubview:self.goodsPriceLabel];
         
         self.shoppingCarBtn = [[UIButton alloc] initWithFrame:CGRectMake(self.contentView.lj_width - spaceEdgeW(40), self.imageView.lj_bottom + spaceEdgeH(15), spaceEdgeW(30), spaceEdgeH(30))];
@@ -51,7 +51,8 @@
         fullLabel.textAlignment = NSTextAlignmentCenter;
         fullLabel.numberOfLines = 2;
         [self.imageView addSubview:fullLabel];
-        [self setCorneradi:fullLabel];
+        //设置某几个角为圆角
+        [fullLabel setCorneradi:UIRectCornerBottomLeft |UIRectCornerBottomRight radii:spaceEdgeW(10)];
     }
 }
 
@@ -60,20 +61,4 @@
     LJLog(@"已加入购物车！");
 }
 
-#pragma mark --设置某几个角为圆角
-- (void)setCorneradi:(UILabel *)label{
-    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:label.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(spaceEdgeW(10), spaceEdgeW(10))];
-    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
-    maskLayer.frame = label.bounds;
-    maskLayer.path = maskPath.CGPath;
-    label.layer.mask = maskLayer;
-}
-
-#pragma mark --富文本
-- (NSMutableAttributedString *)attrstr:(NSString *)str dic1:(NSDictionary *)dic1 dic2:(NSDictionary *)dic2  loc1:(NSUInteger)loc1 len1:(NSUInteger)len1 loc2:(NSUInteger)loc2 len2:(NSUInteger)len2 {
-    NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithString:str];
-    [attr addAttributes:dic1 range:NSMakeRange(loc1, len1)];
-    [attr addAttributes:dic2 range:NSMakeRange(loc2, len2)];
-    return attr;
-}
 @end

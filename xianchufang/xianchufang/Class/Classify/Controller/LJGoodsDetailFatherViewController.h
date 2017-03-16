@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@protocol LJGoodsDetailFatherViewControllerDelegate <NSObject>
+/*** 显示搜索界面 ***/
+- (void)showSearchView ;
+@end
 @interface LJGoodsDetailFatherViewController : UIViewController
-
+@property (nonatomic,weak) id <LJGoodsDetailFatherViewControllerDelegate> delegate;
 @end

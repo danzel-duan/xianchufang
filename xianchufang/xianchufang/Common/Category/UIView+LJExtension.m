@@ -129,4 +129,13 @@
     self.layer.masksToBounds = NO;
 }
 
+#pragma mark --设置某几个角为圆角
+- (void)setCorneradi:(UIRectCorner)corner radii:(CGFloat)radii {
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:corner cornerRadii:CGSizeMake(radii, radii)];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    maskLayer.frame = self.bounds;
+    maskLayer.path = maskPath.CGPath;
+    self.layer.mask = maskLayer;
+}
+
 @end

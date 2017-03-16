@@ -65,6 +65,10 @@
 		1482EA161E7A295A005D234E /* DLKeyWordSearchViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482EA131E7A295A005D234E /* DLKeyWordSearchViewCell.m */; };
 		1482EA1C1E7A4771005D234E /* NSData+DLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482EA1B1E7A4771005D234E /* NSData+DLExtension.m */; };
 		1482EA1F1E7A5C6B005D234E /* LJSearchDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482EA1E1E7A5C6B005D234E /* LJSearchDetailView.m */; };
+		1482EA221E7A71F9005D234E /* LJPaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482EA211E7A71F9005D234E /* LJPaymentViewController.m */; };
+		1482EA251E7A7B4A005D234E /* NSString+LJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482EA241E7A7B4A005D234E /* NSString+LJExtension.m */; };
+		1482EA281E7A80BF005D234E /* LJSearchDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482EA271E7A80BF005D234E /* LJSearchDetailTableViewCell.m */; };
+		1482EA2B1E7A9D76005D234E /* LJEvaluateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482EA2A1E7A9D76005D234E /* LJEvaluateViewController.m */; };
 		148688461E5347210019DD3E /* LJRadDot.m in Sources */ = {isa = PBXBuildFile; fileRef = 148688451E5347210019DD3E /* LJRadDot.m */; };
 		1486DAF41E53FAFA0096E46D /* LJSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1486DAF31E53FAFA0096E46D /* LJSettingViewController.m */; };
 		1486DAF81E5428200096E46D /* LJUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1486DAF71E5428200096E46D /* LJUserInfoViewController.m */; };
@@ -273,6 +277,14 @@
 		1482EA1B1E7A4771005D234E /* NSData+DLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+DLExtension.m"; sourceTree = "<group>"; };
 		1482EA1D1E7A5C6B005D234E /* LJSearchDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJSearchDetailView.h; sourceTree = "<group>"; };
 		1482EA1E1E7A5C6B005D234E /* LJSearchDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJSearchDetailView.m; sourceTree = "<group>"; };
+		1482EA201E7A71F9005D234E /* LJPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJPaymentViewController.h; sourceTree = "<group>"; };
+		1482EA211E7A71F9005D234E /* LJPaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJPaymentViewController.m; sourceTree = "<group>"; };
+		1482EA231E7A7B4A005D234E /* NSString+LJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LJExtension.h"; sourceTree = "<group>"; };
+		1482EA241E7A7B4A005D234E /* NSString+LJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LJExtension.m"; sourceTree = "<group>"; };
+		1482EA261E7A80BF005D234E /* LJSearchDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJSearchDetailTableViewCell.h; sourceTree = "<group>"; };
+		1482EA271E7A80BF005D234E /* LJSearchDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJSearchDetailTableViewCell.m; sourceTree = "<group>"; };
+		1482EA291E7A9D76005D234E /* LJEvaluateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJEvaluateViewController.h; sourceTree = "<group>"; };
+		1482EA2A1E7A9D76005D234E /* LJEvaluateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJEvaluateViewController.m; sourceTree = "<group>"; };
 		148688441E5347210019DD3E /* LJRadDot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJRadDot.h; sourceTree = "<group>"; };
 		148688451E5347210019DD3E /* LJRadDot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJRadDot.m; sourceTree = "<group>"; };
 		1486DAF21E53FAFA0096E46D /* LJSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJSettingViewController.h; sourceTree = "<group>"; };
@@ -671,6 +683,8 @@
 				14DC98301E7008DB005B46CF /* LJSearchView.xib */,
 				1482EA1D1E7A5C6B005D234E /* LJSearchDetailView.h */,
 				1482EA1E1E7A5C6B005D234E /* LJSearchDetailView.m */,
+				1482EA261E7A80BF005D234E /* LJSearchDetailTableViewCell.h */,
+				1482EA271E7A80BF005D234E /* LJSearchDetailTableViewCell.m */,
 			);
 			name = SearchView;
 			sourceTree = "<group>";
@@ -811,6 +825,8 @@
 			children = (
 				14CD5BC71E65531600179B88 /* LJCommitOrderViewController.h */,
 				14CD5BC81E65531600179B88 /* LJCommitOrderViewController.m */,
+				1482EA201E7A71F9005D234E /* LJPaymentViewController.h */,
+				1482EA211E7A71F9005D234E /* LJPaymentViewController.m */,
 			);
 			name = Order;
 			sourceTree = "<group>";
@@ -852,6 +868,8 @@
 				1464B90B1E5C2FCF003CC3BC /* LJDeliverOreViewController.m */,
 				1464B90D1E5C2FE1003CC3BC /* LJAllOrderViewController.h */,
 				1464B90E1E5C2FE1003CC3BC /* LJAllOrderViewController.m */,
+				1482EA291E7A9D76005D234E /* LJEvaluateViewController.h */,
+				1482EA2A1E7A9D76005D234E /* LJEvaluateViewController.m */,
 			);
 			name = OrderStatus;
 			sourceTree = "<group>";
@@ -1176,6 +1194,8 @@
 				14DE12141E51BCA700836B46 /* UIImage+LJExtension.m */,
 				14DE12161E51F01C00836B46 /* UIFont+LJExtension.h */,
 				14DE12171E51F01C00836B46 /* UIFont+LJExtension.m */,
+				1482EA231E7A7B4A005D234E /* NSString+LJExtension.h */,
+				1482EA241E7A7B4A005D234E /* NSString+LJExtension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1586,6 +1606,7 @@
 				148F60941E67BBAB00B484DE /* LJGoodsDetailFatherViewController.m in Sources */,
 				146737771E77BC35002043D2 /* LJRegisterNextViewController.m in Sources */,
 				1486DAFB1E543AD70096E46D /* LJBaseTableViewCell.m in Sources */,
+				1482EA251E7A7B4A005D234E /* NSString+LJExtension.m in Sources */,
 				14E05BEA1E5137710057D3AE /* LJMD5Encrypt.m in Sources */,
 				1488C8101E574ABD00C1AC27 /* LJOpinionViewController.m in Sources */,
 				148872591E6039E5003941AD /* LJOnlineServiceViewController.m in Sources */,
@@ -1621,6 +1642,7 @@
 				14E05BE41E5137710057D3AE /* UIBarButtonItem+LJExtension.m in Sources */,
 				1466CFE31E5DBE1C00843FA9 /* LJIntegralTableViewCell.m in Sources */,
 				1430CE301E713F9300FEE185 /* LJProgressBar.m in Sources */,
+				1482EA2B1E7A9D76005D234E /* LJEvaluateViewController.m in Sources */,
 				14E4DE5A1E6FD3CE007DBB6C /* LJMenuItemCollectionViewCell.m in Sources */,
 				1482EA1F1E7A5C6B005D234E /* LJSearchDetailView.m in Sources */,
 				14DC984F1E704372005B46CF /* LJHotCollectionViewCell.m in Sources */,
@@ -1652,6 +1674,7 @@
 				148688461E5347210019DD3E /* LJRadDot.m in Sources */,
 				14DC983A1E7027AB005B46CF /* LJTimeLimitHeaderReusableView.m in Sources */,
 				14E05BE81E5137710057D3AE /* LJConstants.m in Sources */,
+				1482EA221E7A71F9005D234E /* LJPaymentViewController.m in Sources */,
 				148872511E600328003941AD /* LJAddressModel.m in Sources */,
 				146A2E7E1E5ABEDB0092928D /* LJInventoryTableViewCell.m in Sources */,
 				14CD5BE21E65A16800179B88 /* LJOrderBaseDetailViewController.m in Sources */,
@@ -1684,6 +1707,7 @@
 				14E05BED1E5137710057D3AE /* AppDelegate.m in Sources */,
 				1482EA161E7A295A005D234E /* DLKeyWordSearchViewCell.m in Sources */,
 				14E05BE31E5137710057D3AE /* LJShoppingCartViewController.m in Sources */,
+				1482EA281E7A80BF005D234E /* LJSearchDetailTableViewCell.m in Sources */,
 				1486DAFF1E543B4C0096E46D /* LJUserHeaderTableViewCell.m in Sources */,
 				14786BB01E559FED0099451B /* LJAddressSetTableViewCell.m in Sources */,
 				14DC983D1E702A97005B46CF /* LJTimeLimitCollectionViewCell.m in Sources */,

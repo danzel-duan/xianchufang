@@ -176,6 +176,7 @@
         LJChoicenessViewController *choicenessView = [[LJChoicenessViewController alloc] init];
         [self.navigationController pushViewController:choicenessView animated:YES];
     }else if (indexPath.section == 3){
+        //满减页面复用的是 LJVarietyCategoryViewController 分类类别页面
         LJVarietyCategoryViewController *VarietyView = [[LJVarietyCategoryViewController alloc] init];
         VarietyView.isFull = YES;
         [self.navigationController pushViewController:VarietyView animated:YES];
