@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <AMapFoundationKit/AMapFoundationKit.h>//高德地图
 #import <AMapLocationKit/AMapLocationKit.h>//高德地图<>
-@interface LJNavigationView : UIView
+#import "LJSearchView.h"
+
+@interface LJNavigationView : UIView<LJSearchViewDelegate>
 /*** 定位按钮 ***/
 @property (weak, nonatomic) IBOutlet UIButton *locationBtn;
 /*** 搜索框 ***/

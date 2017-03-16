@@ -7,8 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DLKeyWordSearchView.h"
+#import "NSData+DLExtension.h"
+#import "LJSearchDetailView.h"
 
-@interface LJSearchView : UIView
+@protocol LJSearchViewDelegate <NSObject>
+/*** 动态显示首页导航栏 ***/
+- (void)anmimationShowHomeNavigation;
+@end
+@interface LJSearchView : UIView <DLKeyWordSearchDelegate,UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UISearchBar *SearchBar;
-
+@property (nonatomic,strong) LJSearchDetailView *SearchDetailView;
+@property (nonatomic,strong) DLKeyWordSearchView *keyWordSearchView;
+@property (nonatomic,weak) id <LJSearchViewDelegate> delegate;
 @end

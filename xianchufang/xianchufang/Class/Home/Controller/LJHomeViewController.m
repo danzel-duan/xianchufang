@@ -9,6 +9,7 @@
 #import "LJHomeViewController.h"
 
 #import "LJNavigationView.h" //导航栏视图
+
 #import "LJLimitTimeViewController.h" //限时抢购页面
 #import "LJChoicenessViewController.h"//第三个(暂定精品选购页面)
 #import "LJVarietyCategoryViewController.h" //满了就减
@@ -247,9 +248,12 @@
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     if (section == 1) {
         return 2.0f;
+    }else if (section == 4) {
+        return 2.0f;
     }
     return 0;
 }
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark --addTopBtn
