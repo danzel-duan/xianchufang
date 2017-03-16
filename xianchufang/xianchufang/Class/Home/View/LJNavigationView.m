@@ -7,7 +7,6 @@
 //
 
 #import "LJNavigationView.h"
-#import "LJSearchView.h"
 #import "LJLocationView.h"
 #import "LJTooltip.h"
 @implementation LJNavigationView
@@ -43,6 +42,7 @@
 - (void)tap {
     LJSearchView *searchView = [[NSBundle mainBundle] loadNibNamed:@"LJSearchView" owner:nil options:nil].lastObject;
     searchView.frame = LJwindow.bounds;
+    searchView.delegate = self;
     searchView.alpha = 0;
     [UIView animateWithDuration:0.5 animations:^{
         self.searchView.lj_x -= 50;
@@ -51,6 +51,18 @@
         searchView.alpha = 1;
         [LJwindow addSubview:searchView];
     } completion:^(BOOL finished) {
+        self.searchView.lj_x += 50;
+        self.searchView.lj_y -= 5;
+        self.searchView.lj_width -= 20;
+    }];
+}
+
+#pragma mark --LJSearchView 代理 
+- (void)anmimationShowHomeNavigation {
+    self.searchView.lj_x -= 50;
+    self.searchView.lj_y += 5;
+    self.searchView.lj_width += 20;
+    [UIView animateWithDuration:0.5 animations:^{
         self.searchView.lj_x += 50;
         self.searchView.lj_y -= 5;
         self.searchView.lj_width -= 20;
@@ -71,7 +83,6 @@
         [weakSelf.locationBtn setTitle:location forState:UIControlStateNormal];
     };
     [LJwindow addSubview:locationView];
-    
 }
 
 @end

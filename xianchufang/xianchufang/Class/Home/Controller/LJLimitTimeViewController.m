@@ -152,11 +152,18 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
     NSArray *viewControllers = self.navigationController.viewControllers;
     if ([viewControllers indexOfObject:self] == NSNotFound) {
         [self removeTimer]; //当是pop时就消毁计时器
     }
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
