@@ -56,7 +56,7 @@
 
 #pragma mark --tableView代理 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 163;
+    return spaceEdgeH(163);
 }
 //表头
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

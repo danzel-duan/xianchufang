@@ -54,6 +54,7 @@
 		146AE81D1E5EBADE0035F526 /* LJGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 146AE81C1E5EBADE0035F526 /* LJGoodsModel.m */; };
 		146E22C91E5133EA00C1658D /* xianchufangTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 146E22C81E5133EA00C1658D /* xianchufangTests.m */; };
 		146E22D41E5133EA00C1658D /* xianchufangUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 146E22D31E5133EA00C1658D /* xianchufangUITests.m */; };
+		1473B2991E7BC14B007F2971 /* LJGoodsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1473B2981E7BC14B007F2971 /* LJGoodsDetailViewController.m */; };
 		14786BA71E55429E0099451B /* LJImageLeftButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 14786BA61E55429E0099451B /* LJImageLeftButton.m */; };
 		14786BAA1E555B740099451B /* LJModifyPhoneNumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14786BA91E555B740099451B /* LJModifyPhoneNumViewController.m */; };
 		14786BAD1E559D5F0099451B /* LJAddressSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14786BAC1E559D5F0099451B /* LJAddressSetViewController.m */; };
@@ -86,7 +87,6 @@
 		1488C8101E574ABD00C1AC27 /* LJOpinionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1488C80F1E574ABD00C1AC27 /* LJOpinionViewController.m */; };
 		148F60941E67BBAB00B484DE /* LJGoodsDetailFatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 148F60931E67BBAB00B484DE /* LJGoodsDetailFatherViewController.m */; };
 		148F60971E67BBE100B484DE /* LJGoodsInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 148F60961E67BBE100B484DE /* LJGoodsInfoViewController.m */; };
-		148F609A1E67BBF400B484DE /* LJGoodsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 148F60991E67BBF400B484DE /* LJGoodsDetailViewController.m */; };
 		148F609D1E67BC0600B484DE /* LJGoodsCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 148F609C1E67BC0600B484DE /* LJGoodsCommentViewController.m */; };
 		148F60A01E67D77B00B484DE /* LJBaseScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 148F609F1E67D77B00B484DE /* LJBaseScrollView.m */; };
 		148F60A31E68215200B484DE /* LJGoodsCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 148F60A21E68215200B484DE /* LJGoodsCommentTableViewCell.m */; };
@@ -255,6 +255,8 @@
 		146E22CF1E5133EA00C1658D /* xianchufangUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = xianchufangUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		146E22D31E5133EA00C1658D /* xianchufangUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xianchufangUITests.m; sourceTree = "<group>"; };
 		146E22D51E5133EA00C1658D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1473B2971E7BC14B007F2971 /* LJGoodsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJGoodsDetailViewController.h; sourceTree = "<group>"; };
+		1473B2981E7BC14B007F2971 /* LJGoodsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJGoodsDetailViewController.m; sourceTree = "<group>"; };
 		14786BA51E55429E0099451B /* LJImageLeftButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJImageLeftButton.h; sourceTree = "<group>"; };
 		14786BA61E55429E0099451B /* LJImageLeftButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJImageLeftButton.m; sourceTree = "<group>"; };
 		14786BA81E555B740099451B /* LJModifyPhoneNumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJModifyPhoneNumViewController.h; sourceTree = "<group>"; };
@@ -319,8 +321,6 @@
 		148F60931E67BBAB00B484DE /* LJGoodsDetailFatherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJGoodsDetailFatherViewController.m; sourceTree = "<group>"; };
 		148F60951E67BBE100B484DE /* LJGoodsInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJGoodsInfoViewController.h; sourceTree = "<group>"; };
 		148F60961E67BBE100B484DE /* LJGoodsInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJGoodsInfoViewController.m; sourceTree = "<group>"; };
-		148F60981E67BBF400B484DE /* LJGoodsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJGoodsDetailViewController.h; sourceTree = "<group>"; };
-		148F60991E67BBF400B484DE /* LJGoodsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJGoodsDetailViewController.m; sourceTree = "<group>"; };
 		148F609B1E67BC0600B484DE /* LJGoodsCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJGoodsCommentViewController.h; sourceTree = "<group>"; };
 		148F609C1E67BC0600B484DE /* LJGoodsCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJGoodsCommentViewController.m; sourceTree = "<group>"; };
 		148F609E1E67D77B00B484DE /* LJBaseScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJBaseScrollView.h; sourceTree = "<group>"; };
@@ -794,10 +794,10 @@
 				148F60931E67BBAB00B484DE /* LJGoodsDetailFatherViewController.m */,
 				148F60951E67BBE100B484DE /* LJGoodsInfoViewController.h */,
 				148F60961E67BBE100B484DE /* LJGoodsInfoViewController.m */,
-				148F60981E67BBF400B484DE /* LJGoodsDetailViewController.h */,
-				148F60991E67BBF400B484DE /* LJGoodsDetailViewController.m */,
 				148F609B1E67BC0600B484DE /* LJGoodsCommentViewController.h */,
 				148F609C1E67BC0600B484DE /* LJGoodsCommentViewController.m */,
+				1473B2971E7BC14B007F2971 /* LJGoodsDetailViewController.h */,
+				1473B2981E7BC14B007F2971 /* LJGoodsDetailViewController.m */,
 			);
 			name = GoodsDetailPage;
 			sourceTree = "<group>";
@@ -1685,6 +1685,7 @@
 				1466CFCE1E5D82B600843FA9 /* LJMyCollectDetailViewController.m in Sources */,
 				1464B9061E5C2F8A003CC3BC /* LJEvaluateOrderViewController.m in Sources */,
 				1430CE271E712BCB00FEE185 /* LJLastTimeView.m in Sources */,
+				1473B2991E7BC14B007F2971 /* LJGoodsDetailViewController.m in Sources */,
 				1482EA151E7A295A005D234E /* DLKeyWordSearchView.m in Sources */,
 				14E05BE61E5137710057D3AE /* LJBaseNavigationController.m in Sources */,
 				14E05BE21E5137710057D3AE /* LJMeViewController.m in Sources */,
@@ -1712,7 +1713,6 @@
 				14786BB01E559FED0099451B /* LJAddressSetTableViewCell.m in Sources */,
 				14DC983D1E702A97005B46CF /* LJTimeLimitCollectionViewCell.m in Sources */,
 				146737831E77E643002043D2 /* LJLocationView.m in Sources */,
-				148F609A1E67BBF400B484DE /* LJGoodsDetailViewController.m in Sources */,
 				14E05BEC1E5137710057D3AE /* main.m in Sources */,
 				14E4DE571E6FA4D6007DBB6C /* LJHomeViewController.m in Sources */,
 				1464B9091E5C2FA7003CC3BC /* LJReturnGoodsOrderViewController.m in Sources */,

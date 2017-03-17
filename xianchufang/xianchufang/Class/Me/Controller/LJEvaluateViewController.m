@@ -19,6 +19,7 @@
 @property (nonatomic,strong) UITextView *textView;
 /*** 少于多少字 ***/
 @property (nonatomic,strong) UILabel *tipLabel;
+@property (nonatomic,strong) UILabel *tipLable1;
 @end
 
 @implementation LJEvaluateViewController
@@ -39,12 +40,13 @@
     goodsImageView.backgroundColor = LJRandomColor;
     [bgview addSubview:goodsImageView];
     //提示文字
-    UILabel *tipLabel = [[UILabel alloc] initWithFrame:CGRectMake(goodsImageView.lj_right + spaceEdgeW(15), spaceEdgeH(5), 0, 0)];
-    tipLabel.text = @"您对商品的满意度";
+    UILabel *tipLabel = [[UILabel alloc] initWithFrame:CGRectMake(goodsImageView.lj_right + spaceEdgeW(15), spaceEdgeH(8), 0, 0)];
+    tipLabel.text = @"您对商品的满意度: 好评    ";
     tipLabel.textColor = LJFontColor4c;
     tipLabel.font = LJFontSize15;
     [tipLabel sizeToFit];
     [bgview addSubview:tipLabel];
+    self.tipLable1 = tipLabel;
     
     //评论满意度
     CGFloat y = tipLabel.lj_bottom + spaceEdgeH(30);
@@ -56,9 +58,11 @@
         [btn setImage:[UIImage imageNamed:@"me_evaluate_icon"] forState:UIControlStateNormal];
         [btn setImage:[UIImage imageNamed:@"me_evaluate_selected_icon"] forState:UIControlStateSelected];
         btn.tag = i + 3020;
+        btn.selected = YES;
         [btn addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
         [bgview addSubview:btn];
     }
+    self.flowerNum = 5; //初始满意度
     
     //评论区
     UIView *evaluateView = [[UIView alloc] initWithFrame:CGRectMake(spaceEdgeW(10), bgview.lj_bottom + spaceEdgeH(10), spaceEdgeW(270), spaceEdgeH(100))];
@@ -91,11 +95,11 @@
     self.tipLabel = tipLabel1;
     
     self.evaluateBtn  = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 44)];
-    self.evaluateBtn.backgroundColor = LJFontColorc3;
+    self.evaluateBtn.backgroundColor = LJFontColored;
     self.evaluateBtn.lj_bottom = self.view.lj_bottom;
     [self.evaluateBtn setTitle:@"提交评价" forState:UIControlStateNormal];
     [self.evaluateBtn.titleLabel setFont:LJFontSize18];
-    [self.evaluateBtn setTitleColor:LJFontColor4c forState:UIControlStateNormal
+    [self.evaluateBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal
      ];
     [self.evaluateBtn addTarget:self action:@selector(evaluateBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.evaluateBtn];
@@ -104,12 +108,8 @@
 
 #pragma mark --点击评价
 - (void)evaluateBtnClick:(UIButton *)sender {
-    if ([sender.backgroundColor isEqual:LJFontColorc3]) {
-        LJTooltip *tip = [[LJTooltip alloc] initWithToolTipStyle:ToolTipStyleAlert3];
-        [tip Alert3content:@"请输入评价内容!" location:self.view.lj_centerY + 200];
-    }else {
-        LJLog(@"已提交!");
-    }
+    
+    LJLog(@"已提交!  self.flowerNum:%ld",self.flowerNum);
 }
 
 #pragma mark --点击花的操作
@@ -123,30 +123,32 @@
         UIButton *but = (UIButton *)[self.view viewWithTag:i + 3020];
         but.selected = YES;
     }
-    if (self.textView.text.length == 0) {
-        self.evaluateBtn.backgroundColor = LJFontColorc3;
-        [self.evaluateBtn setTitleColor:LJFontColor4c forState:UIControlStateNormal];
-    }else{
-        self.evaluateBtn.backgroundColor = LJFontColored;
-        [self.evaluateBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        }
+    switch (self.flowerNum) {
+        case 1:
+            self.tipLable1.text = @"您对商品的满意度: 差";
+            break;
+        case 2:
+            self.tipLable1.text = @"您对商品的满意度: 不满意";
+            break;
+        case 3:
+            self.tipLable1.text = @"您对商品的满意度: 中";
+            break;
+        case 4:
+            self.tipLable1.text = @"您对商品的满意度: 一般";
+            break;
+        case 5:
+            self.tipLable1.text = @"您对商品的满意度: 好评";
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)textViewDidChange:(UITextView *)textView {
-    LJLog(@"%ld",self.flowerNum);
     if (self.textView.text.length == 0) {
         self.tipLabel.text = @"少于50字";
         [self.placeholder setHidden:NO];
-        self.evaluateBtn.backgroundColor = LJFontColorc3;
-        [self.evaluateBtn setTitleColor:LJFontColor4c forState:UIControlStateNormal];
     }else{
-        if (self.flowerNum > 0) {
-            self.evaluateBtn.backgroundColor = LJFontColored;
-            [self.evaluateBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        }else {
-            self.evaluateBtn.backgroundColor = LJFontColorc3;
-            [self.evaluateBtn setTitleColor:LJFontColor4c forState:UIControlStateNormal];
-        }
         [self.placeholder setHidden:YES];
         self.tipLabel.text = [NSString stringWithFormat:@"%ld/50",self.textView.text.length];
     }
