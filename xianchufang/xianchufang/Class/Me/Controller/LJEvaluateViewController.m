@@ -8,6 +8,8 @@
 
 #import "LJEvaluateViewController.h"
 #import "LJTooltip.h"
+#import "DLImagePickerController.h"
+
 @interface LJEvaluateViewController ()<UITextViewDelegate>
 /*** 花朵数 ***/
 @property (nonatomic,assign) NSInteger flowerNum;
@@ -20,6 +22,10 @@
 /*** 少于多少字 ***/
 @property (nonatomic,strong) UILabel *tipLabel;
 @property (nonatomic,strong) UILabel *tipLable1;
+
+/*** 选择图片控制器 ***/
+@property (nonatomic,strong) DLImagePickerController *imagePickerVc;
+@property (nonatomic,strong) NSMutableArray  *imageArray;
 @end
 
 @implementation LJEvaluateViewController
@@ -28,6 +34,9 @@
     [super viewDidLoad];
     self.navigationItem.title = @"商品评价";
     self.view.backgroundColor = LJCommonBgColor;
+    
+//    self.imageArray = [NSMutableArray array];
+    
     //评价背景
     UIView *bgview = [[UIView alloc] initWithFrame:CGRectMake(spaceEdgeW(10), 74, SCREEN_WIDTH - spaceEdgeW(20), spaceEdgeH(110))];
     bgview.backgroundColor = [UIColor whiteColor];
@@ -94,6 +103,22 @@
     [self.view addSubview:tipLabel1];
     self.tipLabel = tipLabel1;
     
+    /*** 图片选择器 ***/
+    self.imagePickerVc = [[DLImagePickerController alloc] init];
+    [self addChildViewController:self.imagePickerVc];
+    self.imagePickerVc.view.frame = CGRectMake(0, evaluateView.lj_bottom + spaceEdgeH(10), SCREEN_WIDTH, spaceEdgeH(230));
+    [self.view addSubview:self.imagePickerVc.view];
+    __weak typeof(self)WeakSelf = self;
+    self.imagePickerVc.DlImagePickerAcquirePhotosBlock = ^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+        ///------->>>>在这上传选择好的图片;
+        WeakSelf.imageArray = [NSMutableArray arrayWithArray:photos];
+    };
+    
+    //这个block是用来当点击删除按钮时，对应删除当前图片数组里的图片
+    self.imagePickerVc.DlImagePickerDeletePhotosAtIndexBlock = ^(NSInteger index) {
+        [WeakSelf.imageArray removeObjectAtIndex:index];
+    };
+    
     self.evaluateBtn  = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 44)];
     self.evaluateBtn.backgroundColor = LJFontColored;
     self.evaluateBtn.lj_bottom = self.view.lj_bottom;
@@ -108,7 +133,7 @@
 
 #pragma mark --点击评价
 - (void)evaluateBtnClick:(UIButton *)sender {
-    
+    LJLog(@"self.imageArray:%@",self.imageArray);
     LJLog(@"已提交!  self.flowerNum:%ld",self.flowerNum);
 }
 
@@ -170,5 +195,14 @@
     [super didReceiveMemoryWarning];
 }
 
-
+- (void)dealloc
+{
+    self.imagePickerVc = nil;
+    self.evaluateBtn = nil;
+    self.textView = nil;
+    self.placeholder = nil;
+    self.tipLabel = nil;
+    self.tipLable1 = nil;
+    self.imageArray = nil;
+}
 @end

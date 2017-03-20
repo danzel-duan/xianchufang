@@ -36,5 +36,9 @@
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>使用应用期间允许访问位置信息</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>访问相册以选择照片</string>
+	<key>NSCameraUsageDescription</key>
+	<string>访问相机以拍照</string>
 </dict>
 </plist>
