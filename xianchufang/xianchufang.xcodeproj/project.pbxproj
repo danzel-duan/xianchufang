@@ -141,7 +141,6 @@
 		14E05BE61E5137710057D3AE /* LJBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E05BC71E5137710057D3AE /* LJBaseNavigationController.m */; };
 		14E05BE71E5137710057D3AE /* LJBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E05BC91E5137710057D3AE /* LJBaseViewController.m */; };
 		14E05BE81E5137710057D3AE /* LJConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E05BCD1E5137710057D3AE /* LJConstants.m */; };
-		14E05BE91E5137710057D3AE /* LJData.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E05BCF1E5137710057D3AE /* LJData.m */; };
 		14E05BEA1E5137710057D3AE /* LJMD5Encrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E05BD11E5137710057D3AE /* LJMD5Encrypt.m */; };
 		14E05BEC1E5137710057D3AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E05BD51E5137710057D3AE /* main.m */; };
 		14E05BED1E5137710057D3AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E05BDA1E5137710057D3AE /* AppDelegate.m */; };
@@ -445,8 +444,6 @@
 		14E05BC91E5137710057D3AE /* LJBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJBaseViewController.m; sourceTree = "<group>"; };
 		14E05BCC1E5137710057D3AE /* LJConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJConstants.h; sourceTree = "<group>"; };
 		14E05BCD1E5137710057D3AE /* LJConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJConstants.m; sourceTree = "<group>"; };
-		14E05BCE1E5137710057D3AE /* LJData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJData.h; sourceTree = "<group>"; };
-		14E05BCF1E5137710057D3AE /* LJData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJData.m; sourceTree = "<group>"; };
 		14E05BD01E5137710057D3AE /* LJMD5Encrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJMD5Encrypt.h; sourceTree = "<group>"; };
 		14E05BD11E5137710057D3AE /* LJMD5Encrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJMD5Encrypt.m; sourceTree = "<group>"; };
 		14E05BD41E5137710057D3AE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1324,8 +1321,6 @@
 				147C83531E7F9B910056AA6F /* DLImagePickerController */,
 				14E05BCC1E5137710057D3AE /* LJConstants.h */,
 				14E05BCD1E5137710057D3AE /* LJConstants.m */,
-				14E05BCE1E5137710057D3AE /* LJData.h */,
-				14E05BCF1E5137710057D3AE /* LJData.m */,
 				14E05BD01E5137710057D3AE /* LJMD5Encrypt.h */,
 				14E05BD11E5137710057D3AE /* LJMD5Encrypt.m */,
 				148688441E5347210019DD3E /* LJRadDot.h */,
@@ -1778,7 +1773,6 @@
 				147C83781E7F9B910056AA6F /* NSBundle+TZImagePicker.m in Sources */,
 				14E05BEE1E5137710057D3AE /* LJRootViewController.m in Sources */,
 				1488724E1E5FCCDF003941AD /* LJInventoryModel.m in Sources */,
-				14E05BE91E5137710057D3AE /* LJData.m in Sources */,
 				147C83791E7F9B910056AA6F /* TZAssetCell.m in Sources */,
 				146AE81D1E5EBADE0035F526 /* LJGoodsModel.m in Sources */,
 				14786BAD1E559D5F0099451B /* LJAddressSetViewController.m in Sources */,
@@ -1988,6 +1982,7 @@
 			baseConfigurationReference = AF9AC094B611C216F4C34219 /* Pods-xianchufang.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = HZ9XRR9C5D;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = xianchufang/Config/PrefixHeader.pch;
@@ -2004,6 +1999,7 @@
 			baseConfigurationReference = 046EC9BC7D6EACBAEA68AED6 /* Pods-xianchufang.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = HZ9XRR9C5D;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = xianchufang/Config/PrefixHeader.pch;

@@ -7,6 +7,7 @@
 //
 
 #import "LJMyCollectDetailViewController.h"
+#import "UIBarButtonItem+LJExtension.h"
 
 @interface LJMyCollectDetailViewController ()
 /*** 底部标签 ***/

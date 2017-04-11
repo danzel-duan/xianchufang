@@ -10,6 +10,7 @@
 #import "LJShoppingCarTableViewCell.h"
 #import "LJTooltip.h"
 #import "LJVarietyCategoryViewController.h"
+#import "UIBarButtonItem+LJExtension.h"
 
 @interface LJShoppingCartViewController ()<LjShoppingCarCellDelegate,UINavigationControllerDelegate>{
     int goodsNumber;//选中了几件商品

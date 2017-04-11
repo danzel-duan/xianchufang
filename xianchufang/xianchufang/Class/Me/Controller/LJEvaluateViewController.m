@@ -35,8 +35,6 @@
     self.navigationItem.title = @"商品评价";
     self.view.backgroundColor = LJCommonBgColor;
     
-//    self.imageArray = [NSMutableArray array];
-    
     //评价背景
     UIView *bgview = [[UIView alloc] initWithFrame:CGRectMake(spaceEdgeW(10), 74, SCREEN_WIDTH - spaceEdgeW(20), spaceEdgeH(110))];
     bgview.backgroundColor = [UIColor whiteColor];
@@ -134,7 +132,7 @@
 #pragma mark --点击评价
 - (void)evaluateBtnClick:(UIButton *)sender {
     LJLog(@"self.imageArray:%@",self.imageArray);
-    LJLog(@"已提交!  self.flowerNum:%ld",self.flowerNum);
+    LJLog(@"已提交!  self.flowerNum:%ld",(long)self.flowerNum);
 }
 
 #pragma mark --点击花的操作
@@ -175,7 +173,7 @@
         [self.placeholder setHidden:NO];
     }else{
         [self.placeholder setHidden:YES];
-        self.tipLabel.text = [NSString stringWithFormat:@"%ld/50",self.textView.text.length];
+        self.tipLabel.text = [NSString stringWithFormat:@"%ld/50",(unsigned long)self.textView.text.length];
     }
 }
 
