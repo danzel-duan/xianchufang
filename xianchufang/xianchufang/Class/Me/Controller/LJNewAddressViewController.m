@@ -150,7 +150,7 @@
 
 #pragma mark --监听保存按钮的状态
 - (void)edingChange {
-    if (self.nameField.text.length > 0 && self.phoneField.text.length > 0 && ![self.provinceCell.detailTextLabel.text isEqualToString:@"请选择"] > 0 &&self.postNum.text.length > 0 &&self.detailField.text.length >0) {
+    if (self.nameField.text.length > 0 && self.phoneField.text.length > 0 && !([self.provinceCell.detailTextLabel.text isEqualToString:@"请选择"] > 0) &&self.postNum.text.length > 0 &&self.detailField.text.length >0) {
         self.saveBtn.backgroundColor = [UIColor redColor];
         self.saveBtn.enabled =YES;
     }else{

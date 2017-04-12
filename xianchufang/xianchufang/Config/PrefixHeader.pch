@@ -23,10 +23,9 @@
 /***  这里面写一些头文件  ***/
 /*** 类别  ***/
 #import "UIView+LJExtension.h"
-#import "UIBarButtonItem+LJExtension.h"
+#import "NSString+LJExtension.h"
 
 /*** 数据获取 ***/
-#import "LJData.h"
 #import <MJExtension.h>
 
 /*** 约束 ***/
@@ -102,8 +101,6 @@
 //###################################################################################
 
 /*程序中用到的宏*/
-   //登陆界面
-#define LoginView [[UINavigationController alloc]initWithRootViewController:[[NGGLoginViewController alloc] init]]
  /*全局用户单例*/
 #define USERDEFINE ((AppDelegate *) [[UIApplication sharedApplication] delegate])
 

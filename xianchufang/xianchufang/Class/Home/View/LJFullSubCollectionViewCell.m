@@ -29,7 +29,7 @@
         
         self.subTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(spaceEdgeW(10), self.titleNameLabel.lj_bottom + spaceEdgeH(5), spaceEdgeW(100), spaceEdgeH(15))];
         self.subTitleLabel.font = LJFontSize14;
-        self.subTitleLabel.attributedText = [ self attrstr:@"满199元减66" dic1:@{NSForegroundColorAttributeName:LJFontColorc3} dic2:@{NSForegroundColorAttributeName:LJFontColored} loc1:0 len1:6 loc2:6 len2:2];
+        self.subTitleLabel.attributedText = [NSString attrstr:@"满199元减66" dic1:@{NSForegroundColorAttributeName:LJFontColorc3} dic2:@{NSForegroundColorAttributeName:LJFontColored} len1:6 loc2:6 len2:2];
         [self.contentView addSubview:self.subTitleLabel];
         
         self.imageView = [[UIImageView alloc] init];
@@ -45,13 +45,5 @@
         self.contentView.layer.borderColor = LJCutLineColor.CGColor;
     }
     return self;
-}
-
-#pragma mark --富文本
-- (NSMutableAttributedString *)attrstr:(NSString *)str dic1:(NSDictionary *)dic1 dic2:(NSDictionary *)dic2  loc1:(NSUInteger)loc1 len1:(NSUInteger)len1 loc2:(NSUInteger)loc2 len2:(NSUInteger)len2 {
-    NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithString:str];
-    [attr addAttributes:dic1 range:NSMakeRange(loc1, len1)];
-    [attr addAttributes:dic2 range:NSMakeRange(loc2, len2)];
-    return attr;
 }
 @end

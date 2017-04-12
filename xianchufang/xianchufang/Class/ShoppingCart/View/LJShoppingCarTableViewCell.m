@@ -93,7 +93,9 @@
 
 #pragma mark --去凑单
 - (void)Button1Click:(UIButton*)sender {
-    LJLogFunc
+    if (self.block) {
+        self.block();
+    }
 }
 
 #pragma mark --设置Cell子控件

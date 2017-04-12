@@ -53,7 +53,7 @@
 
 #pragma mark --判断是否为当前控制器
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    BOOL isShowSelf ;
+    BOOL isShowSelf = NO;
     if ([viewController isKindOfClass:[self class]] || [viewController isKindOfClass:[NSClassFromString(@"LJGoodsDetailFatherViewController") class]]) {
         isShowSelf = YES;
     }
@@ -176,6 +176,7 @@
         LJChoicenessViewController *choicenessView = [[LJChoicenessViewController alloc] init];
         [self.navigationController pushViewController:choicenessView animated:YES];
     }else if (indexPath.section == 3){
+        //满减页面复用的是 LJVarietyCategoryViewController 分类类别页面
         LJVarietyCategoryViewController *VarietyView = [[LJVarietyCategoryViewController alloc] init];
         VarietyView.isFull = YES;
         [self.navigationController pushViewController:VarietyView animated:YES];

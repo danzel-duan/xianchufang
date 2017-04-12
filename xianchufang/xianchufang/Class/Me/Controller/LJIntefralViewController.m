@@ -8,6 +8,8 @@
 
 #import "LJIntefralViewController.h"
 #import "LJIntegralTableViewCell.h"
+#import "UIBarButtonItem+LJExtension.h"
+
 @interface LJIntefralViewController ()
 /*** 积分 ***/
 @property (nonatomic,strong) UILabel *IntefralLabel;

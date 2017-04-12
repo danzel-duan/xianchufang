@@ -7,6 +7,7 @@
 //
 
 #import "LJBalanceViewController.h"
+#import "UIBarButtonItem+LJExtension.h"
 
 @interface LJBalanceViewController ()
 

@@ -11,12 +11,12 @@
 @implementation LJRadDot
 
 - (void)showRadDotOnObject:(id)object text:(NSString *)text {
-    CGFloat W ;
-    CGFloat H ;
-    CGFloat X ;
-    CGFloat Y ;
-    if ([object isKindOfClass:[UIView class]]){
-       UIView* obj = (UIView *)object;
+    CGFloat W = 0;
+    CGFloat H = 0;
+    CGFloat X = 0;
+    CGFloat Y = 0;
+    if ([object isKindOfClass:[UIView class]]) {
+       UIView *obj = (UIView *)object;
         if (obj.tag == 1111) {
             W = obj.lj_width * 0.32;
             H = W;
@@ -26,7 +26,7 @@
         }else{
             W = obj.lj_width * 0.25;
             H = W;
-            X = obj.lj_width - W*1.8;
+            X = obj.lj_width - W * 1.8;
             Y = W * 0.6;
         }
     }
@@ -34,7 +34,7 @@
     view.backgroundColor = [UIColor redColor];
     view.tag = 10001;
     view.layer.masksToBounds = YES;
-    view.layer.cornerRadius  = W *0.5;
+    view.layer.cornerRadius  = W * 0.5;
     [object addSubview:view];
     if (self.drag) {
         UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(PanRecognizer:)];
@@ -42,7 +42,7 @@
         [view addGestureRecognizer:pan];
     }
     /*** 内容 ***/
-    UILabel * textL = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, view.lj_width, view.lj_height *0.6)];
+    UILabel * textL = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, view.lj_width, view.lj_height * 0.6)];
     textL.lj_centerY = view.lj_height * 0.5;
     textL.backgroundColor = [UIColor clearColor];
     [textL setTextAlignment:NSTextAlignmentCenter];

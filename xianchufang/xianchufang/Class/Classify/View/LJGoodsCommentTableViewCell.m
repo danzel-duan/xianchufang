@@ -40,7 +40,7 @@
         [self.contentLabel sizeToFit];
         [self.contentView addSubview:self.contentLabel];
         //4.图片
-        CGFloat picW = spaceEdgeW(65);
+        CGFloat picW = spaceEdgeW(75);
         CGFloat picH = picW;
         for (int i = 0; i < 4; i++) {
             UIImageView *pic = [[UIImageView alloc] initWithFrame:CGRectMake(spaceEdgeW(10) * (i + 1) + picW * i, self.contentLabel.lj_bottom + spaceEdgeH(8), picW, picH)];

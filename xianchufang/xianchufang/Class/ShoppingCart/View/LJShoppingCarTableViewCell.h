@@ -46,4 +46,6 @@ typedef void (^returnBlock)(NSInteger,NSString *);
 @property (nonatomic,strong) LJShoppingCarModel *shoppingCarMOdel;
 
 @property (nonatomic,assign) id<LjShoppingCarCellDelegate>delegate;
+
+@property (nonatomic,copy) dispatch_block_t block; //用于回调去凑单页面
 @end

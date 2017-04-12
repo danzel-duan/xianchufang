@@ -19,6 +19,7 @@ const static NSString *APIKey = @"1d2f9d42e52abc742520d0a10f7511de";//高德地�
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window.frame = [[UIScreen mainScreen] bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [[LJRootViewController alloc] init];
     [self.window makeKeyAndVisible];
     //高德地图配置Key

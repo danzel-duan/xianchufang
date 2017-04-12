@@ -40,7 +40,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"这是第%ld行",indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"这是第%ld行",(long)indexPath.row];
     return cell;
 }
 

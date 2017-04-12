@@ -44,7 +44,11 @@
     /*** 如果是点击热搜，也要将热搜的字符存到沙盒中 ***/
     [self searchByKeyword:[self.keyWordSearchView HotSearchViewComeBackKeywordByindex:index]];
     self.SearchBar.text = [self.keyWordSearchView HotSearchViewComeBackKeywordByindex:index];
-    [self.SearchBar becomeFirstResponder];
+    
+    if ([self.subviews indexOfObject:self.SearchDetailView] == NSNotFound) {
+        [self addSubview:self.SearchDetailView];
+    }
+    [self.keyWordSearchView removeFromSuperview];
 }
 
 /*** 隐藏键盘 ***/
