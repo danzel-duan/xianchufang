@@ -36,7 +36,7 @@
     self.itemImageView.lj_centerX = self.contentView.lj_centerX;
     
     self.itemNameLabel.frame = CGRectMake(0, self.itemImageView.lj_bottom + spaceEdgeH(5), self.contentView.lj_width, spaceEdgeH(20));
-    self.itemNameLabel.text = @"欢乐麻将";
+    self.itemNameLabel.text = @"时令菜";
     self.itemNameLabel.lj_centerX = self.contentView.lj_centerX;
 }
 

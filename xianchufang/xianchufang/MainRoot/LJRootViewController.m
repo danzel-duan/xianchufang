@@ -8,6 +8,7 @@
 
 #import "LJRootViewController.h"
 #import "LJBaseNavigationController.h"
+#import "LJTabBar.h"
 #define kClassKey @"RootVC"
 #define kTitleKey @"title"
 #define kImageKey @"imageName"
@@ -47,24 +48,23 @@
         BarItem.selectedImage = [[UIImage imageNamed:dic[kSelImageKey]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]; //防止图标渲染
         [self addChildViewController:nav];
     }];
+    [self setUpTabBar];
     [self UnifyText];
     self.selectedIndex = 0;
 }
 
 #pragma mark--统一文字属性
 - (void)UnifyText {
-    /*** 正常状态  ***/
-    NSMutableDictionary *textNormal = [NSMutableDictionary dictionary];
-    textNormal[NSFontAttributeName] = [UIFont systemFontOfSize:12];
-    textNormal[NSForegroundColorAttributeName] = [UIColor grayColor];
-    /*** 选中状态  ***/
-    NSMutableDictionary *textSelect = [NSMutableDictionary dictionary];
-    textSelect[NSFontAttributeName] = [UIFont systemFontOfSize:12];
-    textSelect[NSForegroundColorAttributeName] = LJTheMeColor;
     /*** 用appearance统一文字属性  ***/
     self.tabBarItem = [UITabBarItem appearance];
-    [self.tabBarItem setTitleTextAttributes:textNormal forState:UIControlStateNormal];
-    [self.tabBarItem setTitleTextAttributes:textSelect forState:UIControlStateSelected];
+    [self.tabBarItem setTitleTextAttributes:@{NSFontAttributeName:LJFontSize12,NSForegroundColorAttributeName:[UIColor grayColor]} forState:UIControlStateNormal];
+    [self.tabBarItem setTitleTextAttributes:@{NSFontAttributeName:LJFontSize12,NSForegroundColorAttributeName:LJTheMeColor} forState:UIControlStateSelected];
+}
+
+#pragma mark--更换TabBar
+- (void)setUpTabBar {
+    LJTabBar *tabbar = [[LJTabBar alloc] init];
+    [self setValue:tabbar forKey:@"tabBar"];
 }
 
 - (void)didReceiveMemoryWarning {
