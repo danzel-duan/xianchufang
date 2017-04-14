@@ -248,11 +248,7 @@
 
 #pragma mark --判断是否为当前控制器
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-<<<<<<< HEAD
     BOOL isShowSelf = NO;
-=======
-    BOOL isShowSelf ;
->>>>>>> 2d4e9ca289001c6f33d5c94e1f403e5bc0cad871
     if ([viewController isKindOfClass:[NSClassFromString(@"LJGoodsDetailFatherViewController") class]]) {
         isShowSelf = YES;
     }

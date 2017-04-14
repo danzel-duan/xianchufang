@@ -804,11 +804,7 @@ static CGFloat TZScreenScale;
             translateToCenter = CGAffineTransformMakeTranslation(videoTrack.naturalSize.width, videoTrack.naturalSize.height);
             mixedTransform = CGAffineTransformRotate(translateToCenter,M_PI);
             videoComposition.renderSize = CGSizeMake(videoTrack.naturalSize.width,videoTrack.naturalSize.height);
-<<<<<<< HEAD
         } else{
-=======
-        } else if(degrees == 270){
->>>>>>> 2d4e9ca289001c6f33d5c94e1f403e5bc0cad871
             // 顺时针旋转270°
             translateToCenter = CGAffineTransformMakeTranslation(0.0, videoTrack.naturalSize.width);
             mixedTransform = CGAffineTransformRotate(translateToCenter,M_PI_2*3.0);
